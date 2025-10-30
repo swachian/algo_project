@@ -57,3 +57,37 @@ def is_palindrome_valid(s):
             i += 1
             j -= 1
     return True
+
+def largest_container(heights):
+    i, j = 0, len(heights) - 1
+    # if j < 1:
+    #     return 0
+    max_result = 0
+    while j > i:
+        max_result = max(max_result, (j - i) * min(heights[i], heights[j]))
+        if heights[i] == heights[j]:
+            i += 1
+            j -= 1
+        elif heights[i] > heights[j]:
+            j -= 1
+        else:
+            i += 1
+            
+    return max_result
+
+def shift_zeros_to_the_end(nums):
+    n = len(nums)
+    i, j = 0, 1
+    while j < n and i < n:
+        if nums[i] == 0:
+            if nums[j] != 0:
+                nums[i], nums[j] = nums[j], nums[i]
+                i += 1
+                j += 1
+            else:
+                j += 1
+        else:
+            i += 1
+            if j <= i:
+                j = i + 1
+    return nums
