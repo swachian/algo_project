@@ -76,18 +76,37 @@ def largest_container(heights):
     return max_result
 
 def shift_zeros_to_the_end(nums):
-    n = len(nums)
-    i, j = 0, 1
-    while j < n and i < n:
-        if nums[i] == 0:
-            if nums[j] != 0:
-                nums[i], nums[j] = nums[j], nums[i]
-                i += 1
-                j += 1
-            else:
-                j += 1
-        else:
-            i += 1
-            if j <= i:
-                j = i + 1
+    left = 0
+    # Iterate through the array using a 'right' pointer to locate non-zero
+    # elements.
+    for right in range(len(nums)):
+        if nums[right] != 0:
+            nums[left], nums[right] = nums[right], nums[left]
+            # Increment 'left' since it now points to a position already occupied
+            # by a non-zero element.
+            left += 1
     return nums
+
+def next_lexicographical_sequence(s):
+    n = len(s)
+    j = n - 1
+    pov = -1
+    while j > 0:
+        if s[j] > s[j - 1]:
+            pov = j - 1
+            break
+        j -= 1
+    
+    if pov == -1:
+        return s[::-1]
+    
+    c = s[pov]
+    chars = list(s)
+    j = n - 1
+    while j > pov:
+        if s[j] > c:
+            chars[j], chars[pov] = chars[pov], chars[j]
+            break
+        j -= 1
+    return "".join(chars[0:pov+1] + chars[pov+1:][::-1])
+    # return ''.join(chars)

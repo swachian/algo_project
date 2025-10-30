@@ -1,6 +1,6 @@
 import pytest
 from algo_project.c1_two_pointers import triplet_sum
-from algo_project.c1_two_pointers import is_palindrome_valid, largest_container, shift_zeros_to_the_end
+from algo_project.c1_two_pointers import next_lexicographical_sequence, is_palindrome_valid, largest_container, shift_zeros_to_the_end
 
 def test_triplet_sum1():
     nums = [0, -1, 2, -3, 1]
@@ -31,3 +31,13 @@ def test_shift_zeros_to_the_end2():
     nums = [1, 2, 0, 0]
     result = shift_zeros_to_the_end(nums)
     assert result == [1, 2, 0, 0]
+    
+def test_next_lexicographical_sequence():
+    s = 'abcedda'
+    result = next_lexicographical_sequence(s)
+    assert 'abdacde' == result
+    
+def test_next_lexicographical_sequence2():
+    s = 'dcba'
+    result = next_lexicographical_sequence(s)
+    assert 'abcd' == result
