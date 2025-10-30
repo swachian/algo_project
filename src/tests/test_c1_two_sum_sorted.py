@@ -1,5 +1,5 @@
 import pytest
-from src.two_pointers.pair_sum_sorted import pair_sum_sorted
+from algo_project.c1_two_pointers import pair_sum_sorted
 
 def test_two_sum_found():
     nums = [1, 2, 3, 4, 6]
