@@ -34,3 +34,73 @@ def verify_sudoku_board(board):
             gridset[i//3][j//3].add(ele)
 
     return True
+
+def zero_striping(matrix):
+    first_row_zero = False
+    first_col_zero = False
+    
+    m = len(matrix)
+    n = len(matrix[0])
+    
+    i = 0
+    for j in range(n):
+        if matrix[i][j] == 0:
+            first_row_zero = True
+            break
+    j = 0 
+    for i in range(m):
+        if matrix[i][j] == 0:
+            first_col_zero = True
+            break
+    
+    for i in range(1, m):
+        for j in range(1, n):
+            # if matrix[0][j] == 0 and matrix[i][0] == 0:
+            #     continue
+            if matrix[i][j] == 0:
+                matrix[0][j] = 0
+                matrix[i][0] = 0
+    for i in range(1, m):
+        for j in range(1, n):
+            if matrix[i][0] == 0 or matrix[0][j] == 0:
+                matrix[i][j] = 0
+
+    if first_row_zero:
+        for j in range(n):
+            matrix[0][j] = 0
+    if first_col_zero:
+        for i in range(m):
+            matrix[i][0] = 0
+    return matrix
+
+def longest_chain_of_consecutive_numbers(nums):
+    nums_set = set(nums)
+    max_consecutive = 0
+    for num in nums:
+        if (num - 1) not in nums_set:
+            count = 1
+            next_num = num + 1
+            while next_num in nums_set:
+                next_num += 1
+                count += 1
+            max_consecutive = max(max_consecutive, count)
+            
+    return max_consecutive
+
+def geometric_sequence_triplets(nums, r):
+    result = 0
+    num_maps = {}
+    
+    for num in nums:
+        num_maps[num] = num_maps.get(num, 0) + 1
+    
+    for num in nums:
+        b = num * r
+        c = b * r
+        if b in num_maps and c in num_maps:
+            if r == 1 or num == 0:
+                result += int(((num_maps[b] - 2) * (num_maps[c] - 1))/2)
+            else:
+                result += num_maps[b] * num_maps[c]
+        num_maps[num] -= 1
+    return result
