@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c3_linked_lists import linked_list_reversal, ListNode
+from algo_project.c3_linked_lists import linked_list_reversal, ListNode, remove_kth_last_node
 
 
 def build_linked_list(values):
@@ -52,3 +52,39 @@ def test_reverse_twice_returns_original():
     reversed_once = linked_list_reversal(head)
     reversed_twice = linked_list_reversal(reversed_once)
     assert linked_list_to_list(reversed_twice) == original
+    
+    
+    
+def test_remove_from_middle():
+    """Remove the 2nd last node from [1, 2, 3, 4, 5] -> should remove 4."""
+    head = build_linked_list([1, 2, 3, 4, 5])
+    result = remove_kth_last_node(head, 2)
+    assert linked_list_to_list(result) == [1, 2, 3, 5]
+
+
+def test_remove_last_node():
+    """Remove the last node (k=1) from [1, 2, 3] -> should remove 3."""
+    head = build_linked_list([1, 2, 3])
+    result = remove_kth_last_node(head, 1)
+    assert linked_list_to_list(result) == [1, 2]
+
+
+def test_remove_head_node():
+    """Remove the 3rd last node (head) from [1, 2, 3] -> should remove 1."""
+    head = build_linked_list([1, 2, 3])
+    result = remove_kth_last_node(head, 3)
+    assert linked_list_to_list(result) == [2, 3]
+
+
+def test_single_node():
+    """Remove the only node from [1] -> should return None."""
+    head = build_linked_list([1])
+    result = remove_kth_last_node(head, 1)
+    assert result is None
+
+
+def test_k_equals_list_length():
+    """When k equals the list length, remove the first node."""
+    head = build_linked_list([10, 20, 30, 40])
+    result = remove_kth_last_node(head, 4)
+    assert linked_list_to_list(result) == [20, 30, 40]
