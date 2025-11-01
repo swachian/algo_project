@@ -89,18 +89,20 @@ def longest_chain_of_consecutive_numbers(nums):
 
 def geometric_sequence_triplets(nums, r):
     result = 0
-    num_maps = {}
+    num_maps_left = {}
+    num_maps_right = {}
     
     for num in nums:
-        num_maps[num] = num_maps.get(num, 0) + 1
+        num_maps_right[num] = num_maps_right.get(num, 0) + 1
     
     for num in nums:
-        b = num * r
-        c = b * r
-        if b in num_maps and c in num_maps:
-            if r == 1 or num == 0:
-                result += int(((num_maps[b] - 2) * (num_maps[c] - 1))/2)
-            else:
-                result += num_maps[b] * num_maps[c]
-        num_maps[num] -= 1
+        num_maps_right[num] -= 1
+        if num % r == 0:
+            a = num // r
+            c = num * r
+            if a in num_maps_left and c in num_maps_right:
+                result += num_maps_right[c] * num_maps_left[a]
+        num_maps_left[num] = num_maps_left.get(num, 0) + 1
+                
+        
     return result
