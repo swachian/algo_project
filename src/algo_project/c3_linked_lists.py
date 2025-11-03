@@ -24,3 +24,22 @@ def remove_kth_last_node(head, k):
         fast = fast.next 
     slow.next = slow.next.next
     return dummy.next
+
+def linked_list_intersection(head_A, head_B):
+    p_A = head_A
+    p_B = head_B
+    a_passed = False
+    b_passed = False
+    while p_A and p_B:
+        if p_A == p_B:
+            return p_A
+        p_A = p_A.next
+        p_B = p_B.next
+        if not a_passed and not p_A:
+            p_A = head_B
+            a_passed = True
+        if not b_passed and not p_B:
+            p_B = head_A
+            b_passed = True
+    return None
+        

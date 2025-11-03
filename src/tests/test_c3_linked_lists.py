@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c3_linked_lists import linked_list_reversal, ListNode, remove_kth_last_node
+from algo_project.c3_linked_lists import linked_list_reversal, ListNode, remove_kth_last_node, linked_list_intersection
 
 
 def build_linked_list(values):
@@ -17,6 +17,11 @@ def linked_list_to_list(head):
         head = head.next
     return result
 
+def get_tail(head):
+    """Returns the last node of a linked list."""
+    while head and head.next:
+        head = head.next
+    return head
 
 def test_empty_list():
     """Reversing an empty list should return None."""
@@ -88,3 +93,18 @@ def test_k_equals_list_length():
     head = build_linked_list([10, 20, 30, 40])
     result = remove_kth_last_node(head, 4)
     assert linked_list_to_list(result) == [20, 30, 40]
+    
+def test_intersection_in_middle():
+    """Two lists intersect at a middle node."""
+    # Common part: [8, 9]
+    common = build_linked_list([8, 9])
+    # List A: [1, 2, 3] + [8, 9]
+    head_A = build_linked_list([1, 2, 3])
+    get_tail(head_A).next = common
+    # List B: [4, 5] + [8, 9]
+    head_B = build_linked_list([4, 5])
+    get_tail(head_B).next = common
+
+    result = linked_list_intersection(head_A, head_B)
+    assert result == common, "Should return the first intersecting node"
+    assert result.val == 8
