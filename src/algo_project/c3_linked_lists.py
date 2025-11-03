@@ -12,17 +12,15 @@ def linked_list_reversal(head):
     return new_head
             
 def remove_kth_last_node(head, k):
-    slow, fast = head, head
+    dummy = ListNode(-1)
+    dummy.next = head
+    slow = fast = dummy
     for _ in range(k):
         if not fast:
             return head
         fast = fast.next
-    if not fast:
-        slow = head.next
-        head.next = None
-        return slow
     while fast.next:
         slow = slow.next
         fast = fast.next 
     slow.next = slow.next.next
-    return head
+    return dummy.next
