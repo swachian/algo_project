@@ -4,13 +4,34 @@ class ListNode:
         self.next = next
 
 def linked_list_loop(head):
-    slow, fast = head, head
-    while slow or fast:
+    slow = fast = head
+    while fast and fast.next:
         slow = slow.next
-        if fast:
-            fast = fast.next
-        if fast:
-            fast = fast.next
-        if slow == fast and slow:
+        fast = fast.next.next
+        if slow == fast:
             return True
     return False
+
+def linked_list_midpoint(head):
+    slow = fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next 
+    return slow
+
+def happy_number(n):
+    slow, fast = n, n
+    while slow != 1 and fast != 1:
+        slow = get_next_number(slow)
+        fast = get_next_number(get_next_number(fast))
+        if slow == fast and slow != 1:
+            return False
+    return True
+
+def get_next_number(n):
+    sum = 0
+    while n > 0:
+        d = n % 10
+        sum += d * d
+        n = n // 10
+    return sum
