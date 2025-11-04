@@ -21,12 +21,13 @@ def linked_list_midpoint(head):
 
 def happy_number(n):
     slow, fast = n, n
-    while slow != 1 and fast != 1:
+    while True:
         slow = get_next_number(slow)
         fast = get_next_number(get_next_number(fast))
-        if slow == fast and slow != 1:
+        if fast == 1:
+            return True
+        elif fast == slow:
             return False
-    return True
 
 def get_next_number(n):
     sum = 0
