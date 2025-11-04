@@ -8,13 +8,17 @@ class MultiLevelListNode:
 
 def flatten_multi_level_list(head):
     cur = head
-    childs = deque()
+    tail = get_cur_tail(cur)
     while cur:
         if cur.child:
-            childs.append(cur.child)
+            tail.next = cur.child
             cur.child = None
-        if not cur.next and len(childs) > 0:
-            child = childs.popleft()
-            cur.next = child
+            tail = get_cur_tail(tail)
         cur = cur.next
     return head
+    
+    
+def get_cur_tail(cur):
+    while cur and cur.next:
+        cur = cur.next
+    return cur
