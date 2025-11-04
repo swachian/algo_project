@@ -43,3 +43,34 @@ def linked_list_intersection(head_A, head_B):
             b_passed = True
     return None
         
+
+def palindromic_linked_list(head):
+    mid = __find_mid_linked_list__(head)
+    reserved2 = __rervese_linked_list__(mid)
+    p1, p2 = head, reserved2
+    while p2:
+        if p1.val != p2.val:
+            return False
+        p1 = p1.next
+        p2 = p2.next
+    return True
+        
+
+def __rervese_linked_list__(head):
+    prev, cur = None, head
+    while cur:
+        next_node = cur.next
+        cur.next = prev
+        prev = cur
+        cur = next_node
+    return prev
+
+def __find_mid_linked_list__(head):
+    slow, fast = head, head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+        
+    return slow
+        
+        

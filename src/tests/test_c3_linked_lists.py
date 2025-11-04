@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c3_linked_lists import linked_list_reversal, ListNode, remove_kth_last_node, linked_list_intersection
+from algo_project.c3_linked_lists import linked_list_reversal, ListNode, remove_kth_last_node, linked_list_intersection, palindromic_linked_list
 
 
 def build_linked_list(values):
@@ -108,3 +108,16 @@ def test_intersection_in_middle():
     result = linked_list_intersection(head_A, head_B)
     assert result == common, "Should return the first intersecting node"
     assert result.val == 8
+
+
+
+def test_palindrome_even_length():
+    """List [1, 2, 2, 1] should be a palindrome."""
+    head = build_linked_list([1, 2, 2, 1])
+    assert palindromic_linked_list(head) is True
+
+
+def test_not_palindrome_odd_length():
+    """List [1, 2, 3] is not a palindrome."""
+    head = build_linked_list([1, 2, 3])
+    assert palindromic_linked_list(head) is False
