@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c6_binary_search import find_the_insertion_index, first_and_last_occurrences_of_a_number, cutting_wood
+from algo_project.c6_binary_search import find_the_insertion_index, first_and_last_occurrences_of_a_number, cutting_wood, find_the_target_in_a_rotated_sorted_array
 
 
 
@@ -58,3 +58,25 @@ def test_edge_cases_cutting_wood():
     # heights = [1, 2, 3], k = 10 → must cut at lowest possible (0)
     # but even then total wood = 6 < 10 → still return 0
     assert cutting_wood([1, 2, 3], 10) == 0
+    
+def test_basic_cases_find_the_target_in_a_rotated_sorted_array():
+    # Example: nums = [4,5,6,7,0,1,2], target = 0 → index 4
+    # assert find_the_target_in_a_rotated_sorted_array([4, 5, 6, 7, 0, 1, 2], 0) == 4
+
+    # Example: nums = [4,5,6,7,0,1,2], target = 3 → not found → -1
+    # assert find_the_target_in_a_rotated_sorted_array([4, 5, 6, 7, 0, 1, 2], 3) == -1
+    
+    assert find_the_target_in_a_rotated_sorted_array([4,5,6,7,0,1,2,3], 6) == 2
+    assert find_the_target_in_a_rotated_sorted_array([4,5,6,7,0,1,2,3], 3) == 7
+
+
+
+
+def test_edge_cases_find_the_target_in_a_rotated_sorted_array():
+    # Case: no rotation, regular sorted array
+    # nums = [1, 2, 3, 4, 5], target = 4 → index 3
+    assert find_the_target_in_a_rotated_sorted_array([1, 2, 3, 4, 5], 4) == 3
+
+    # Case: fully rotated (same as original), target not found
+    # nums = [1, 2, 3, 4, 5], target = 6 → -1
+    assert find_the_target_in_a_rotated_sorted_array([1, 2, 3, 4, 5], 6) == -1

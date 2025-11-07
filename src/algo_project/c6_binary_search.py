@@ -56,3 +56,22 @@ def is_at_least_k(heights, h, k):
         sum += n - h if n - h > 0 else 0
     
     return sum >= k
+
+def find_the_target_in_a_rotated_sorted_array(nums, target):
+    left, right = 0, len(nums) - 1
+    while left < right:
+        mid = left + (right - left) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < nums[right]:
+            if target > nums[mid] and target <= nums[right]:
+                left += 1
+            else:
+                right -=1 
+        else:
+            if target >= nums[left] and target < nums[mid]:
+                right -= 1
+            else:
+                left += 1
+                  
+    return left if nums and nums[left] == target else -1
