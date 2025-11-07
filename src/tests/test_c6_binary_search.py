@@ -1,0 +1,60 @@
+import pytest
+from algo_project.c6_binary_search import find_the_insertion_index, first_and_last_occurrences_of_a_number, cutting_wood
+
+
+
+def test_find_insertion_index_existing_and_insert_middle():
+    nums = [1, 3, 5, 6]
+    assert find_the_insertion_index(nums, 3) == 1
+    assert find_the_insertion_index(nums, 2) == 1
+    assert find_the_insertion_index(nums, 7) == 4
+
+def test_find_insertion_index_edge_cases():
+    nums = [1, 3, 5, 6]
+    assert find_the_insertion_index(nums, 0) == 0
+    assert find_the_insertion_index([], 5) == 0
+    assert find_the_insertion_index(nums, 6) == 3
+
+
+def test_basic_cases():
+    # Test when the target appears multiple times
+    # For nums = [1, 2, 2, 2, 3, 4], target = 2
+    # The first occurrence is at index 1, last at index 3
+    assert first_and_last_occurrences_of_a_number([1, 2, 2, 2, 3, 4], 2) == [1, 3]
+
+    # Test when the target appears only once
+    # nums = [1, 2, 3, 4, 5], target = 3 → [2, 2]
+    assert first_and_last_occurrences_of_a_number([1, 2, 3, 4, 5], 3) == [2, 2]
+
+
+def test_edge_cases():
+    # Target not found → return [-1, -1]
+    assert first_and_last_occurrences_of_a_number([1, 3, 5, 7], 2) == [-1, -1]
+
+    # Target is at the boundaries
+    # nums = [2, 2, 2, 3, 4], target = 2 → [0, 2]
+    assert first_and_last_occurrences_of_a_number([2, 2, 2, 3, 4], 2) == [0, 2]
+
+    # Empty array → no result
+    assert first_and_last_occurrences_of_a_number([], 5) == [-1, -1]
+    
+def test_basic_cases_cutting_wood():
+    # Example: heights = [20, 15, 10, 17], k = 7
+    # If we set H = 15 → wood = (20-15) + (17-15) = 7
+    # That's exactly enough, and it's the highest possible height.
+    assert cutting_wood([20, 15, 10, 17], 7) == 15
+
+    # Example: heights = [4, 42, 40, 26, 46], k = 20
+    # The optimal H = 36 → wood = (42-36) + (40-36) + (46-36) = 20
+    assert cutting_wood([4, 42, 40, 26, 46], 20) == 36
+
+
+def test_edge_cases_cutting_wood():
+    # Case where no cutting is needed (k = 0)
+    # Any height up to tallest tree is valid, return tallest = 10
+    assert cutting_wood([5, 8, 10], 0) == 10
+
+    # Case where total wood cannot meet k (too large k)
+    # heights = [1, 2, 3], k = 10 → must cut at lowest possible (0)
+    # but even then total wood = 6 < 10 → still return 0
+    assert cutting_wood([1, 2, 3], 10) == 0
