@@ -28,4 +28,40 @@ def compare_maps():
             return False
     return True
 
+def longest_substring_with_unique_chars(s):
+    left = right = 0
+    n = len(s)
+    hash = {}
+    count = 0
+    while right < n:
+        while s[right] in hash:
+            c = s[left]
+            del hash[c]
+            left += 1
+        count = max(count, right - left + 1)
+        hash[s[right]] = hash.get(s[right], 0) + 1
+        right += 1
+    return count
     
+def is_unique_chars(hash, c):
+    return c in hash    
+    
+def longest_uniform_substring_after_replacements(s, k):
+    left = right = 0
+    n = len(s)
+    hash = {}
+    highest_freq = 0
+    window_len = 0
+    
+    while right < n:
+        c = s[right]
+        hash[c] = hash.get(c, 0) + 1
+        highest_freq = max(highest_freq, hash[c])
+        window_len = right - left + 1
+        if (window_len - highest_freq > k):
+            c = s[left]
+            hash[c] -= 1
+            left += 1
+        window_len = right - left + 1
+        right += 1 
+    return window_len 
