@@ -75,3 +75,31 @@ def find_the_target_in_a_rotated_sorted_array(nums, target):
                 left += 1
                   
     return left if nums and nums[left] == target else -1
+
+def find_the_median_from_two_sorted_arrays(nums1, nums2):
+    if len(nums1) > len(nums2):
+        nums1, nums2 = nums2, nums1
+    
+    m, n = len(nums1), len(nums2)
+    half_size = (m + n) // 2
+    
+    left, right = 0, m -1
+    
+    while True:
+        l1_index = left + (right - left) // 2
+        l2_index = half_size - (l1_index + 1) - 1
+        
+        L1 = float("-inf") if l1_index < 0 else nums1[l1_index]
+        R1 = float("inf") if l1_index >= m - 1 else nums1[l1_index + 1]
+        L2 = float("-inf") if l2_index < 0 else nums2[l2_index]
+        R2 = float("inft") if l2_index >= n - 1 else nums2[l2_index + 1]
+        
+        if L1 > R2:
+            right = l1_index - 1
+        elif L2 > R1:
+            left = l1_index + 1
+        else:
+            if (m + n) % 2 == 0:
+                return (max(L1, L2) + min(R1, R2)) / 2
+            else:
+                return min(R1, R2) 

@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c6_binary_search import find_the_insertion_index, first_and_last_occurrences_of_a_number, cutting_wood, find_the_target_in_a_rotated_sorted_array
+from algo_project.c6_binary_search import find_the_insertion_index, first_and_last_occurrences_of_a_number, cutting_wood, find_the_target_in_a_rotated_sorted_array, find_the_median_from_two_sorted_arrays
 
 
 
@@ -80,3 +80,28 @@ def test_edge_cases_find_the_target_in_a_rotated_sorted_array():
     # Case: fully rotated (same as original), target not found
     # nums = [1, 2, 3, 4, 5], target = 6 → -1
     assert find_the_target_in_a_rotated_sorted_array([1, 2, 3, 4, 5], 6) == -1
+    
+    
+def test_basic_cases_find_the_median_from_two_sorted_arrays():
+    # Case 1: Even total length
+    # Merged array: [1, 2, 3, 4]
+    # Median = (2 + 3) / 2 = 2.5
+    assert find_the_median_from_two_sorted_arrays([1, 3], [2, 4]) == 2.5
+
+    # Case 2: Odd total length
+    # Merged array: [1, 2, 3]
+    # Median = 2
+    assert find_the_median_from_two_sorted_arrays([1, 2], [3]) == 2.0
+
+
+def test_edge_cases_find_the_median_from_two_sorted_arrays():
+    # One array empty
+    # nums1 = [], nums2 = [2, 3] → median = (2 + 3)/2 = 2.5
+    assert find_the_median_from_two_sorted_arrays([], [2, 3]) == 2.5
+
+    # Arrays with different sizes
+    # Merged array: [1, 2, 3, 4, 5]
+    # Median = 3
+    assert find_the_median_from_two_sorted_arrays([1, 2], [3, 4, 5]) == 3.0   
+    
+    
