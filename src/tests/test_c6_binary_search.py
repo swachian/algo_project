@@ -1,5 +1,6 @@
 import pytest
-from algo_project.c6_binary_search import find_the_insertion_index, first_and_last_occurrences_of_a_number, cutting_wood, find_the_target_in_a_rotated_sorted_array, find_the_median_from_two_sorted_arrays
+from algo_project.c6_binary_search import find_the_insertion_index, first_and_last_occurrences_of_a_number, cutting_wood, find_the_target_in_a_rotated_sorted_array
+from algo_project.c6_binary_search import find_the_median_from_two_sorted_arrays, matrix_search
 
 
 
@@ -104,4 +105,34 @@ def test_edge_cases_find_the_median_from_two_sorted_arrays():
     # Median = 3
     assert find_the_median_from_two_sorted_arrays([1, 2], [3, 4, 5]) == 3.0   
     
+def test_basic_cases_matrix_search():
+    # Matrix layout:
+    # [
+    #   [1, 3, 5],
+    #   [7, 9, 11],
+    #   [13, 15, 17]
+    # ]
+    matrix = [
+        [1, 3, 5],
+        [7, 9, 11],
+        [13, 15, 17]
+    ]
+    # Target 9 exists → True
+    assert matrix_search(matrix, 9) is True
+    # Target 6 not in matrix → False
+    assert matrix_search(matrix, 6) is False
     
+    matrix = [[2,3,4,6],[7,10,11,17],[20,21,24,33]]
+    assert matrix_search(matrix, 21) is True
+
+
+def test_edge_cases_matrix_search():
+    # Single row
+    matrix = [[2, 4, 6, 8]]
+    # Target 4 exists
+    assert matrix_search(matrix, 4) is True
+    # Target 5 does not exist
+    assert matrix_search(matrix, 5) is False
+
+    # Empty matrix
+    assert matrix_search([], 3) is False

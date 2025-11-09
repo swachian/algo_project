@@ -78,12 +78,12 @@ def find_the_target_in_a_rotated_sorted_array(nums, target):
 
 def find_the_median_from_two_sorted_arrays(nums1, nums2):
     if len(nums1) > len(nums2):
-        nums1, nums2 = nums2, nums1
-    
+        nums1, nums2, = nums2, nums1
+        
     m, n = len(nums1), len(nums2)
-    half_size = (m + n) // 2
-    
-    left, right = 0, m -1
+    left = 0
+    right = m - 1
+    half_size = m + (n - m) // 2
     
     while True:
         l1_index = left + (right - left) // 2
@@ -92,7 +92,7 @@ def find_the_median_from_two_sorted_arrays(nums1, nums2):
         L1 = float("-inf") if l1_index < 0 else nums1[l1_index]
         R1 = float("inf") if l1_index >= m - 1 else nums1[l1_index + 1]
         L2 = float("-inf") if l2_index < 0 else nums2[l2_index]
-        R2 = float("inft") if l2_index >= n - 1 else nums2[l2_index + 1]
+        R2 = float("inf") if l2_index >= n - 1 else nums2[l2_index + 1]
         
         if L1 > R2:
             right = l1_index - 1
@@ -102,4 +102,25 @@ def find_the_median_from_two_sorted_arrays(nums1, nums2):
             if (m + n) % 2 == 0:
                 return (max(L1, L2) + min(R1, R2)) / 2
             else:
-                return min(R1, R2) 
+                return min(R1, R2)
+        
+def matrix_search(matrix, target):
+    m = len(matrix)
+    n = len(matrix[0]) if m > 0 else 0
+    
+    left = 0
+    right = m * n - 1
+    
+    while left <= right:
+        mid = left + (right - left) // 2
+        r = mid // n
+        c = mid % n
+        value = matrix[r][c]
+        if value > target:
+            right = mid - 1
+        elif value < target:
+            left = mid + 1
+        else:
+            return True
+        
+    return False
