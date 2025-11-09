@@ -1,3 +1,5 @@
+import random
+
 def find_the_insertion_index(nums, target):
     left, right = 0, len(nums)
     while left < right:
@@ -124,3 +126,40 @@ def matrix_search(matrix, target):
             return True
         
     return False
+
+def local_maxima_in_array(nums):
+    n = len(nums)
+    left = 0
+    right = n - 1
+    
+    while left < right:
+        mid = left + (right - left) // 2
+        value = nums[mid]
+        right_value = int("-inf") if mid >= n - 1 else nums[mid + 1]
+        if right_value > value:
+            left = mid + 1 
+        else:
+            right = mid
+            
+    return nums[left]
+
+class WeightedRandomSelection:
+    def __init__(self, weights):
+        self.weights = [weights[0]]
+        for i in range(1, len(weights)):
+            self.weights.append(weights[i] + self.weights[-1])
+            
+    
+    def select(self):
+        left = 0
+        right = len(self.weights) - 1
+        
+        target = random.randint(1, self.weights[-1])
+        while left < right:
+            mid = left + (right - left) // 2
+            if self.weights[mid] >= target:
+                right = mid
+            else:
+                left = mid + 1
+        return left
+                

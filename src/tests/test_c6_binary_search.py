@@ -1,6 +1,6 @@
 import pytest
 from algo_project.c6_binary_search import find_the_insertion_index, first_and_last_occurrences_of_a_number, cutting_wood, find_the_target_in_a_rotated_sorted_array
-from algo_project.c6_binary_search import find_the_median_from_two_sorted_arrays, matrix_search
+from algo_project.c6_binary_search import find_the_median_from_two_sorted_arrays, matrix_search, local_maxima_in_array, WeightedRandomSelection
 
 
 
@@ -136,3 +136,40 @@ def test_edge_cases_matrix_search():
 
     # Empty matrix
     assert matrix_search([], 3) is False
+    
+def test_basic_local_maxima_in_array():
+    # In [1, 3, 2, 5, 4], both 3 and 5 are local maxima — any one is valid.
+    result = local_maxima_in_array([1, 3, 2, 5, 4])
+    assert result in [3, 5]
+
+def test_edge_cases_local_maxima_in_array():
+    # Single-element array: that element is trivially a local maxima.
+    assert local_maxima_in_array([7]) == 7
+
+    # Strictly increasing array: last element is greater than out-of-bound neighbor.
+    assert local_maxima_in_array([1, 2, 3, 4]) == 4
+
+    # Strictly decreasing array: first element is greater than out-of-bound neighbor.
+    assert local_maxima_in_array([9, 7, 5, 3]) == 9
+    
+    
+def test_selection_probability_distribution():
+    # Test that items with larger weights are chosen more often statistically
+    weights = [3, 1, 2, 4]
+    selector = WeightedRandomSelection(weights)
+    counts = [0, 0, 0, 0]
+
+    # Run many selections to observe relative frequency
+    for _ in range(10000):
+        idx = selector.select()
+        counts[idx] += 1
+
+    # Expect index 3 (weight 4) to appear most, and index 1 (weight 1) least
+    assert counts[3] > counts[0] > counts[2] > counts[1]
+
+
+def test_single_weight_always_selected():
+    # When there is only one weight, it should always return index 0
+    selector = WeightedRandomSelection([10])
+    for _ in range(100):
+        assert selector.select() == 0
