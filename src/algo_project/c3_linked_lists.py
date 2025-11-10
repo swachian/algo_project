@@ -16,9 +16,9 @@ def remove_kth_last_node(head, k):
     dummy.next = head
     slow = fast = dummy
     for _ in range(k):
+        fast = fast.next
         if not fast:
             return head
-        fast = fast.next
     while fast.next:
         slow = slow.next
         fast = fast.next 
@@ -28,20 +28,12 @@ def remove_kth_last_node(head, k):
 def linked_list_intersection(head_A, head_B):
     p_A = head_A
     p_B = head_B
-    a_passed = False
-    b_passed = False
-    while p_A and p_B:
-        if p_A == p_B:
-            return p_A
-        p_A = p_A.next
-        p_B = p_B.next
-        if not a_passed and not p_A:
-            p_A = head_B
-            a_passed = True
-        if not b_passed and not p_B:
-            p_B = head_A
-            b_passed = True
-    return None
+    while p_A != p_B:
+        p_A = p_A.next if p_A else head_B
+        p_B = p_B.next if p_B else head_A
+            
+    return p_A
+
         
 
 def palindromic_linked_list(head):
