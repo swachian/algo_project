@@ -3,6 +3,12 @@ from collections import Counter
 import heapq
 
 
+class ListNode:
+    def __init__(self, val=None, next=None):
+        self.val = val
+        self.next = next
+
+
 class Pair:
     def __init__(self, str, freq):
         self.str = str
@@ -23,6 +29,24 @@ def k_most_frequent_strings(strs, k):
         if len(heap) > k:
             heapq.heappop(heap)
         
-    result = [pair.str for pair in heap]
+    result = [heapq.heappop(heap).str for _ in range(k) if len(heap) > 0]
     result.reverse()
     return result
+
+def combine_sorted_linked_lists(lists):
+    ListNode.__lt__ = lambda self, other: self.val < other.val
+    
+    dummy = ListNode()
+    cur = dummy
+    heap = []
+
+    for i, node in enumerate(lists):
+        if node:
+            heapq.heappush(heap, node)
+    
+    while heap:
+        cur.next = heapq.heappop(heap)
+        cur = cur.next
+        if cur.next:
+            heapq.heappush(heap, cur.next)        
+    return dummy.next

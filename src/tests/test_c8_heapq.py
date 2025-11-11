@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c8_heapq import k_most_frequent_strings
+from algo_project.c8_heapq import k_most_frequent_strings, ListNode, combine_sorted_linked_lists
 
 
 def test_basic_case_k_most_frequent_strings():
@@ -18,3 +18,29 @@ def test_tie_breaker_lexicographical_k_most_frequent_strings():
 
 def test_empty_list_k_most_frequent_strings():
     assert k_most_frequent_strings([], 3) == []
+    
+def to_list(head):
+    """Helper function to convert linked list to Python list."""
+    res = []
+    while head:
+        res.append(head.val)
+        head = head.next
+    return res
+
+def test_basic_case_combine_sorted_linked_lists():
+    # Input: [1 -> 4 -> 5], [1 -> 3 -> 4], [2 -> 6]
+    l1 = ListNode(1, ListNode(4, ListNode(5)))
+    l2 = ListNode(1, ListNode(3, ListNode(4)))
+    l3 = ListNode(2, ListNode(6))
+    merged = combine_sorted_linked_lists([l1, l2, l3])
+    # Expected merged list: 1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6
+    assert to_list(merged) == [1, 1, 2, 3, 4, 4, 5, 6]
+
+def test_with_empty_lists_combine_sorted_linked_lists():
+    # Some lists are empty
+    l1 = None
+    l2 = ListNode(2, ListNode(3))
+    l3 = None
+    merged = combine_sorted_linked_lists([l1, l2, l3])
+    # Expected: 2 -> 3
+    assert to_list(merged) == [2, 3]
