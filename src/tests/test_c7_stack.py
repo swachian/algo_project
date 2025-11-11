@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c7_stack import valid_parenthesis_expression, next_largest_number_to_the_right, evaluate_expression, repeated_removal_of_adjacent_duplicates
+from algo_project.c7_stack import valid_parenthesis_expression, next_largest_number_to_the_right, evaluate_expression, repeated_removal_of_adjacent_duplicates, maximums_of_sliding_window
 
 
 def test_valid_parentheses_balanced():
@@ -50,3 +50,27 @@ def test_remove_adjacent_duplicates_multiple_passes():
     s = "azxxzy"
     # Remove "xx" → "azzy" → remove "zz" → "ay"
     assert repeated_removal_of_adjacent_duplicates(s) == "ay"
+    
+    
+def test_basic_case_maximums_of_sliding_window():
+    nums = [1, 3, -1, -3, 5, 3, 6, 7]
+    k = 3
+    # windows:
+    # [1,3,-1] → 3
+    # [3,-1,-3] → 3
+    # [-1,-3,5] → 5
+    # [-3,5,3] → 5
+    # [5,3,6] → 6
+    # [3,6,7] → 7
+    assert maximums_of_sliding_window(nums, k) == [3, 3, 5, 5, 6, 7]
+
+def test_edge_and_increasing_sequence_maximums_of_sliding_window():
+    nums = [1, 2, 3, 4, 5]
+    k = 2
+    # windows: [1,2], [2,3], [3,4], [4,5]
+    assert maximums_of_sliding_window(nums, k) == [2, 3, 4, 5]
+
+def test_single_window_maximums_of_sliding_window():
+    nums = [10, 5, 2]
+    k = 3
+    assert maximums_of_sliding_window(nums, k) == [10]

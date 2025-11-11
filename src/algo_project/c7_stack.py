@@ -1,3 +1,5 @@
+from collections import deque
+
 def valid_parenthesis_expression(s):
     params = {"(": ")", "[": "]", "{": "}"}
     stack = []
@@ -70,3 +72,21 @@ def repeated_removal_of_adjacent_duplicates(s):
             stack.append(c)
 
     return ''.join(stack)
+
+
+
+def maximums_of_sliding_window(nums, k):
+    queue = deque()
+    n = len(nums)
+    result = []
+    for i, num in enumerate(nums):
+        while queue and queue[0][1] < (i+1) - k:
+            queue.popleft()
+        while queue and queue[-1][0] <= num:
+            queue.pop()
+        queue.append((num, i))
+        if (i + 1) >= k:
+            result.append(queue[0][0])
+            
+    return result
+
