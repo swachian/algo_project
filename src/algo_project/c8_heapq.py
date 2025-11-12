@@ -50,3 +50,19 @@ def combine_sorted_linked_lists(lists):
         if cur.next:
             heapq.heappush(heap, cur.next)        
     return dummy.next
+
+def sort_a_k_sorted_array(nums, k):
+    result = []
+    heap = []
+    for i, num in enumerate(nums):
+        if i <= k:
+            heapq.heappush(heap, num)
+        elif heap:
+            min = heapq.heappop(heap)
+            result.append(min)
+            heapq.heappush(heap, num)
+            
+    while heap:
+        result.append(heapq.heappop(heap))
+        
+    return result
