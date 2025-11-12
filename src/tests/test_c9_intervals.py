@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c9_intervals import Interval, merge_overlapping_intervals
+from algo_project.c9_intervals import Interval, merge_overlapping_intervals, identify_all_interval_overlaps
 
 
 def test_merge_overlapping_intervals_basic():
@@ -28,3 +28,22 @@ def test_merge_no_overlap():
     expected = [Interval(1, 2), Interval(3, 4), Interval(5, 6)]
 
     assert [(i.start, i.end) for i in result] == [(e.start, e.end) for e in expected]
+    
+def test_basic_overlaps_identify_all_interval_overlaps():
+    """Test overlapping intervals between two lists."""
+    intervals1 = [Interval(1, 5), Interval(10, 14), Interval(16, 18)]
+    intervals2 = [Interval(3, 7), Interval(12, 15), Interval(17, 20)]
+
+    result = identify_all_interval_overlaps(intervals1, intervals2)
+    expected = [Interval(3, 5), Interval(12, 14), Interval(17, 18)]
+
+    assert [(i.start, i.end) for i in result] == [(e.start, e.end) for e in expected]
+
+
+def test_no_overlap_identify_all_interval_overlaps():
+    """Test when there are no overlapping intervals."""
+    intervals1 = [Interval(1, 2), Interval(5, 6)]
+    intervals2 = [Interval(3, 4), Interval(7, 8)]
+
+    result = identify_all_interval_overlaps(intervals1, intervals2)
+    assert result == []
