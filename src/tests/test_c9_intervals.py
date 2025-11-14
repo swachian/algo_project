@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c9_intervals import Interval, merge_overlapping_intervals, identify_all_interval_overlaps
+from algo_project.c9_intervals import Interval, merge_overlapping_intervals, identify_all_interval_overlaps, largest_overlap_of_intervals
 
 
 def test_merge_overlapping_intervals_basic():
@@ -47,3 +47,24 @@ def test_no_overlap_identify_all_interval_overlaps():
 
     result = identify_all_interval_overlaps(intervals1, intervals2)
     assert result == []
+    
+def test_basic_overlap():
+    intervals = [
+        Interval(1, 5),
+        Interval(2, 6),
+        Interval(4, 8),
+        Interval(7, 9)
+    ]
+
+    # Max overlap is 3 between [4,5)
+    assert largest_overlap_of_intervals(intervals) == 3
+    
+def test_half_open_and_no_overlap():
+    # Half-open means [1,2), [2,3), [3,4) do NOT overlap
+    intervals = [
+        Interval(1, 2),
+        Interval(2, 3),
+        Interval(3, 4)
+    ]
+
+    assert largest_overlap_of_intervals(intervals) == 1

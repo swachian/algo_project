@@ -34,8 +34,28 @@ def identify_all_interval_overlaps(intervals1, intervals2):
             j += 1
     return result
 
+def largest_overlap_of_intervals(intervals):
+    START = "S"
+    END = "E"
+    envoys = []
+    for interval in intervals:
+        envoys.append((interval.start, START))
+        envoys.append((interval.end, END))
+    
+    envoys.sort(key = lambda x: [x[0], x[1]])
+    
+    counts = []
 
-
+    for cur, status in envoys:
+        count = counts[-1] if counts else 0
+        if status == END:
+            count -= 1
+            counts.append(count)
+        if status == START:
+            count += 1
+            counts.append(count)
+         
+    return max(counts)
 
 
 
