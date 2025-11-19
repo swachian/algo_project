@@ -222,3 +222,32 @@ def in_order_traverse(root, k):
         node = node.right
         
     return node.val
+
+for_none = 'None'
+
+def serialize(root):
+    data_list = []
+    pre_order_serialize(root, data_list)
+    return ','.join(data_list)
+    
+def pre_order_serialize(node, data_list):
+    if node:
+        data_list.append(str(node.val))
+        pre_order_serialize(node.left, data_list)
+        pre_order_serialize(node.right, data_list)
+    else:
+        data_list.append(str(for_none))
+
+def deserialize(data):
+    data_iter = iter(data.split(','))
+    return build_tree(data_iter)
+    
+def build_tree(data_iter):
+    val = next(data_iter)
+    if val == for_none:
+        return None
+    node = TreeNode(int(val))
+    node.left = build_tree(data_iter)
+    node.right = build_tree(data_iter)
+    return node
+    

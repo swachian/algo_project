@@ -1,6 +1,6 @@
 import pytest
 from algo_project.c11_binary_trees import invert_binary_tree, TreeNode, balanced_binary_tree_validation, rightmost_nodes_of_a_binary_tree, widest_binary_tree_level, binary_search_tree_validation, lowest_common_ancestor, build_binary_tree, max_path_sum
-from algo_project.c11_binary_trees import binary_tree_symmetry, binary_tree_columns, kth_smallest_number_in_BST
+from algo_project.c11_binary_trees import binary_tree_symmetry, binary_tree_columns, kth_smallest_number_in_BST, serialize, deserialize
 
 
 def test_invert_tree_basic():
@@ -203,11 +203,11 @@ def test_lca_node_is_ancestor():
 
     assert lowest_common_ancestor(root, p, q).val == 5
     
-def serialize(root):
+def serialize_helper(root):
     """Serialize tree into list (preorder) for testing purposes."""
     if not root:
         return None
-    return [root.val, serialize(root.left), serialize(root.right)]
+    return [root.val, serialize_helper(root.left), serialize_helper(root.right)]
 
 def test_build_tree_basic():
     preorder = [5, 9, 2, 3, 4, 7]
@@ -216,7 +216,7 @@ def test_build_tree_basic():
     root = build_binary_tree(preorder, inorder)
 
     # Expected tree structure serialized
-    assert serialize(root) == [
+    assert serialize_helper(root) == [
         5,
         [9, [2, None, None], None],
         [3, [4, None, None], [7, None, None]]
@@ -229,7 +229,7 @@ def test_build_tree_single_node():
 
     root = build_binary_tree(preorder, inorder)
 
-    assert serialize(root) == [10, None, None]
+    assert serialize_helper(root) == [10, None, None]
     
 # Test 1: A balanced binary tree
 def test_maxPathSum_balanced():
@@ -395,3 +395,47 @@ def test_kthSmallest_complex():
     assert kth_smallest_number_in_BST(root, 3) == 4  # The 3rd smallest is 4
     assert kth_smallest_number_in_BST(root, 5) == 6  # The 5th smallest is 6
     assert kth_smallest_number_in_BST(root, 7) == 8  # The 7th smallest is 8
+    
+# Test 1: Basic Tree Serialization and Deserialization
+def test_serialize_deserialize_basic():
+   
+    # Construct a basic binary tree:
+    #        1
+    #       / \
+    #      2   3
+    #     / \
+    #    4   5
+    root = TreeNode(1)
+    root.left = TreeNode(2)
+    root.right = TreeNode(3)
+    root.left.left = TreeNode(4)
+    root.left.right = TreeNode(5)
+    
+    # Serialize the tree
+    serialized_tree = serialize(root)
+    assert serialized_tree == "1,2,4,None,None,5,None,None,3,None,None"  # Preorder traversal of the tree
+    
+    # Deserialize the string back into a tree
+    deserialized_tree = deserialize(serialized_tree)
+    
+    # Verify the structure by comparing node values
+    assert deserialized_tree.val == 1
+    assert deserialized_tree.left.val == 2
+    assert deserialized_tree.right.val == 3
+    assert deserialized_tree.left.left.val == 4
+    assert deserialized_tree.left.right.val == 5
+
+# Test 2: Edge case with an empty tree
+def test_serialize_deserialize_empty():
+    # Empty tree (None)
+    root = None
+    
+    # Serialize the empty tree
+    serialized_tree = serialize(root)
+    assert serialized_tree == "None"
+    
+    # Deserialize the empty tree back
+    deserialized_tree = deserialize(serialized_tree)
+    
+    # The deserialized tree should be None
+    assert deserialized_tree is None
