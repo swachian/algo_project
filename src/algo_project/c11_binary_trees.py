@@ -191,14 +191,34 @@ def binary_tree_columns(root):
     return [columns_map[i] for i in range(left_most, right_most + 1)]
 
 def kth_smallest_number_in_BST(root, k):
-    sorted_list = in_order_traverse(root)
-    return sorted_list[k - 1]
-    
-    
-def in_order_traverse(node):
+    # sorted_list = in_order_traverse(root, k)
+    # return sorted_list[k - 1]
+    return in_order_traverse(root, k)
+
+# recursive 
+def in_order_traverse2(node):
     if not node:
         return []
-    result_left = in_order_traverse(node.left)
+    result_left = in_order_traverse2(node.left)
     result = node.val
-    result_right = in_order_traverse(node.right)
+    result_right = in_order_traverse2(node.right)
     return result_left + [result] + result_right
+
+# iterative
+def in_order_traverse(root, k):
+    stack = []
+    node = root
+    
+    while stack or node:
+        while node:
+            stack.append(node)
+            node = node.left
+        
+        node = stack.pop()
+        k -= 1
+        if k == 0:
+            return node.val
+        
+        node = node.right
+        
+    return node.val
