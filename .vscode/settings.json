@@ -10,6 +10,5 @@
   "terminal.integrated.env.linux": {
     "VIRTUAL_ENV": "${workspaceFolder}/.venv",
     "PATH": "${workspaceFolder}/.venv/bin:${env:PATH}"
-  },
-  "files.autoSave": "afterDelay"
+  }
 }

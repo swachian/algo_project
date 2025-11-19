@@ -1,6 +1,6 @@
 import pytest
 from algo_project.c11_binary_trees import invert_binary_tree, TreeNode, balanced_binary_tree_validation, rightmost_nodes_of_a_binary_tree, widest_binary_tree_level, binary_search_tree_validation, lowest_common_ancestor, build_binary_tree, max_path_sum
-from algo_project.c11_binary_trees import binary_tree_symmetry, binary_tree_columns
+from algo_project.c11_binary_trees import binary_tree_symmetry, binary_tree_columns, kth_smallest_number_in_BST
 
 
 def test_invert_tree_basic():
@@ -354,3 +354,44 @@ def test_verticalOrder_complex():
     ]
 
     assert binary_tree_columns(root) == expected_output
+    
+    # Test 1: Finding the kth smallest element in a simple BST
+def test_kthSmallest_basic():
+    # Constructing a simple BST:
+    #        3
+    #       / \
+    #      1   4
+    #       \
+    #        2
+    root = TreeNode(3)
+    root.left = TreeNode(1)
+    root.left.right = TreeNode(2)
+    root.right = TreeNode(4)
+
+    # The 1st smallest value is 1, the 2nd smallest value is 2, etc.
+    assert kth_smallest_number_in_BST(root, 1) == 1  # The 1st smallest is 1
+    assert kth_smallest_number_in_BST(root, 2) == 2  # The 2nd smallest is 2
+    assert kth_smallest_number_in_BST(root, 3) == 3  # The 3rd smallest is 3
+    assert kth_smallest_number_in_BST(root, 4) == 4  # The 4th smallest is 4
+
+# Test 2: Finding the kth smallest element in a more complex BST
+def test_kthSmallest_complex():
+    # Constructing a more complex BST:
+    #           5
+    #         /   \
+    #        3     7
+    #       / \   / \
+    #      2   4 6   8
+    root = TreeNode(5)
+    root.left = TreeNode(3)
+    root.right = TreeNode(7)
+    root.left.left = TreeNode(2)
+    root.left.right = TreeNode(4)
+    root.right.left = TreeNode(6)
+    root.right.right = TreeNode(8)
+
+    # The sorted order of the BST: [2, 3, 4, 5, 6, 7, 8]
+    assert kth_smallest_number_in_BST(root, 1) == 2  # The 1st smallest is 2
+    assert kth_smallest_number_in_BST(root, 3) == 4  # The 3rd smallest is 4
+    assert kth_smallest_number_in_BST(root, 5) == 6  # The 5th smallest is 6
+    assert kth_smallest_number_in_BST(root, 7) == 8  # The 7th smallest is 8

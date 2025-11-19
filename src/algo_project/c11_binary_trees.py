@@ -189,3 +189,16 @@ def binary_tree_columns(root):
             right_most = max(right_most, column + 1)
     
     return [columns_map[i] for i in range(left_most, right_most + 1)]
+
+def kth_smallest_number_in_BST(root, k):
+    sorted_list = in_order_traverse(root)
+    return sorted_list[k - 1]
+    
+    
+def in_order_traverse(node):
+    if not node:
+        return []
+    result_left = in_order_traverse(node.left)
+    result = node.val
+    result_right = in_order_traverse(node.right)
+    return result_left + [result] + result_right
