@@ -1,4 +1,4 @@
-from collections import deque
+from collections import deque, defaultdict
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -139,3 +139,53 @@ def dfs_build(left, right, preorder, inorder):
         return node
     else:
         return None
+    
+def max_path_sum(root):
+    global max_sum
+    max_sum = float("-inf")
+    get_path_sum(root)
+    return max_sum
+
+def get_path_sum(node):
+    global max_sum 
+    if not node:
+        return 0
+    left_sum = max(get_path_sum(node.left), 0)
+    right_sum = max(get_path_sum(node.right), 0)
+
+    max_sum = max(max_sum, node.val + left_sum + right_sum) 
+    return node.val + max(left_sum, right_sum) 
+
+def binary_tree_symmetry(root):
+    if not root:
+        return True
+    return compare_tree_symmetry(root.left, root.right)
+    
+def compare_tree_symmetry(node_left, node_right):
+    if node_left and node_right:
+        if node_left.val != node_right.val:
+            return False
+        return compare_tree_symmetry(node_left.left, node_right.right) and compare_tree_symmetry(node_left.right, node_right.left)
+    elif not node_left and not node_right:
+        return True
+    else:
+        return False
+    
+def binary_tree_columns(root):
+    columns_map = defaultdict(list)
+    
+    if not root:
+        return []
+    left_most, right_most = 0, 0
+    queque = deque([(root, 0)])
+    while queque:
+        node, column = queque.popleft()
+        columns_map[column].append(node.val)
+        if node.left:
+            queque.append((node.left, column - 1))
+            left_most = min(left_most, column - 1)
+        if node.right:
+            queque.append((node.right, column + 1))
+            right_most = max(right_most, column + 1)
+    
+    return [columns_map[i] for i in range(left_most, right_most + 1)]

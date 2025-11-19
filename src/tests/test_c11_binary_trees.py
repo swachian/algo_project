@@ -1,6 +1,6 @@
 import pytest
-from algo_project.c11_binary_trees import invert_binary_tree, TreeNode, balanced_binary_tree_validation, rightmost_nodes_of_a_binary_tree, widest_binary_tree_level, binary_search_tree_validation, lowest_common_ancestor, build_binary_tree
-
+from algo_project.c11_binary_trees import invert_binary_tree, TreeNode, balanced_binary_tree_validation, rightmost_nodes_of_a_binary_tree, widest_binary_tree_level, binary_search_tree_validation, lowest_common_ancestor, build_binary_tree, max_path_sum
+from algo_project.c11_binary_trees import binary_tree_symmetry, binary_tree_columns
 
 
 def test_invert_tree_basic():
@@ -230,3 +230,127 @@ def test_build_tree_single_node():
     root = build_binary_tree(preorder, inorder)
 
     assert serialize(root) == [10, None, None]
+    
+# Test 1: A balanced binary tree
+def test_maxPathSum_balanced():
+    # Constructing a balanced tree:
+    #        1
+    #       / \
+    #      2   3
+    #     / \   \
+    #    4   5   6
+    root = TreeNode(1)
+    root.left = TreeNode(2)
+    root.right = TreeNode(3)
+    root.left.left = TreeNode(4)
+    root.left.right = TreeNode(5)
+    root.right.right = TreeNode(6)
+    
+    assert max_path_sum(root) == 17  # Maximum path sum: 4 + 2 + 1 + 3 + 6 = 16
+
+# Test 2: A tree with negative values
+def test_maxPathSum_negative():
+    # Constructing a tree with negative values:
+    #        -10
+    #       /    \
+    #     9      20
+    #           /  \
+    #         15   7
+    root = TreeNode(-10)
+    root.left = TreeNode(9)
+    root.right = TreeNode(20)
+    root.right.left = TreeNode(15)
+    root.right.right = TreeNode(7)
+    
+    assert max_path_sum(root) == 42  # Maximum path sum: 15 + 20 + 7 = 42
+    
+# Test 1: A symmetric binary tree
+def test_isSymmetric_symmetric():
+    # Constructing a symmetric tree:
+    #        1
+    #       / \
+    #      2   2
+    #     / \ / \
+    #    3  4 4  3
+    root = TreeNode(1)
+    root.left = TreeNode(2)
+    root.right = TreeNode(2)
+    root.left.left = TreeNode(3)
+    root.left.right = TreeNode(4)
+    root.right.left = TreeNode(4)
+    root.right.right = TreeNode(3)
+    
+    assert binary_tree_symmetry(root) == True  # The tree is symmetric
+
+# Test 2: A non-symmetric binary tree
+def test_isSymmetric_non_symmetric():
+    # Constructing a non-symmetric tree:
+    #        1
+    #       / \
+    #      2   2
+    #     / \   \
+    #    3   4   5
+    root = TreeNode(1)
+    root.left = TreeNode(2)
+    root.right = TreeNode(2)
+    root.left.left = TreeNode(3)
+    root.left.right = TreeNode(4)
+    root.right.right = TreeNode(5)
+    
+    assert binary_tree_symmetry(root) == False  # The tree is not symmetric
+    
+# Test 1: A basic binary tree
+def test_verticalOrder_basic():
+    # Constructing a simple tree:
+    #        1
+    #       / \
+    #      2   3
+    #     / \
+    #    4   5
+    root = TreeNode(1)
+    root.left = TreeNode(2)
+    root.right = TreeNode(3)
+    root.left.left = TreeNode(4)
+    root.left.right = TreeNode(5)
+
+    expected_output = [
+        [4],  # Column -1
+        [2],  # Column 0
+        [1, 5],  # Column 1
+        [3]   # Column 2
+    ]
+
+    assert binary_tree_columns(root) == expected_output
+
+# Test 2: A more complex binary tree
+def test_verticalOrder_complex():
+    # Constructing a more complex tree:
+    #           1
+    #         /   \
+    #        2     3
+    #       / \   / \
+    #      4   5 6   7
+    #     /        /  \
+    #    8        9    10
+    root = TreeNode(1)
+    root.left = TreeNode(2)
+    root.right = TreeNode(3)
+    root.left.left = TreeNode(4)
+    root.left.right = TreeNode(5)
+    root.right.left = TreeNode(6)
+    root.right.right = TreeNode(7)
+    root.left.left.left = TreeNode(8)
+    root.right.right.left = TreeNode(9)
+    root.right.right.right = TreeNode(10)
+
+    expected_output = [
+        [8],     # Column -2
+        [4],     # Column -1
+        [2],     # Column 0
+        [1, 5, 6],  # Column 1
+        [3, 9],     # Column 2
+        [7],     # Column 3
+        [10]  # Column 4
+    ]
+
+    assert binary_tree_columns(root) == expected_output
