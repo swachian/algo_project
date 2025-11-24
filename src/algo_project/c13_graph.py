@@ -76,22 +76,21 @@ def matrix_infection(matrix):
             
 def bipartite_graph_validation(graph):
     colors = [0] * len(graph)
-    if not graph:
-        return True
     for i in range(len(graph)):
         if colors[i] == 0 and not dfs_color_traverse(graph, i, 1, colors):
             return False
     return True
-        
-    
-def dfs_color_traverse(graph, nodeI, color, colors):
-    colors[nodeI] = color
-    for neighbor in graph[nodeI]:
+
+def dfs_color_traverse(graph, node, color, colors):
+    colors[node] = color
+    for neighbor in graph[node]:
         if colors[neighbor] == color:
             return False
-        if colors[neighbor] == 0 and not dfs_color_traverse(graph, neighbor, -color, colors):
+        elif colors[neighbor] == 0 and not dfs_color_traverse(graph, neighbor, -color, colors):
             return False
     return True
+
+    
 
 
 def longest_increasing_path(matrix):

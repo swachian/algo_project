@@ -234,21 +234,17 @@ def dfs_preorder_serialize(node, res = []):
     
 
 def deserialize(data):
-    global index
-    index = 0
-    res = data.split(",")
+    res = iter(data.split(","))
     return dfs_deserialize(res)
     
 def dfs_deserialize(res):
-    global index
-    if res[index] != for_none:
-        node = TreeNode(int(res[index]))
-        index += 1
+    val = next(res)
+    if val != for_none:
+        node = TreeNode(int(val))
         node.left = dfs_deserialize(res)
         node.right = dfs_deserialize(res)
         return node
     else:
-        index += 1
         return None
         
     
