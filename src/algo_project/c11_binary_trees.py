@@ -5,45 +5,43 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
-        
+()
+#        
 def invert_binary_tree(root):
     if not root:
         return
-    
     stack = [root]
-    
     while stack:
         node = stack.pop()
         node.left, node.right = node.right, node.left
-        if node.left:
-            stack.append(node.left)
         if node.right:
             stack.append(node.right)
-    
+        if node.left:
+            stack.append(node.left)
     return root
+        
 
+#
 def balanced_binary_tree_validation(root):
-    return get_height_of_tree(root) != -1
-    
-def get_height_of_tree(node):
+    return get_balanced_tree(root) != -1
+
+def get_balanced_tree(node, height = 0):
     if not node:
-        return 0
-    left_depth = get_height_of_tree(node.left)
-    right_depth = get_height_of_tree(node.right)
+        return height
+    left_depth = get_balanced_tree(node.left, height + 1)
+    right_depth = get_balanced_tree(node.right, height + 1)
     if left_depth == -1 or right_depth == -1 or abs(left_depth - right_depth) > 1:
         return -1
-    else:
-        return 1 + max(left_depth, right_depth)
+    return max(left_depth, right_depth)
 
 
+#
 def rightmost_nodes_of_a_binary_tree(root):
     if not root:
         return []
     queue = deque()
-    queue.append(root)
-    
     result = []
-    
+    queue.append(root)
     while queue:
         level_size = len(queue)
         for i in range(level_size):
@@ -56,156 +54,153 @@ def rightmost_nodes_of_a_binary_tree(root):
                 result.append(node.val)
     return result
 
+#
 def widest_binary_tree_level(root):
     if not root:
         return 0
-    
-    queue = deque([(root, 0)])
-    width = 0
+    queue = deque()
+    queue.append((root, 0))
+    span = 0
     
     while queue:
         level_size = len(queue)
-        left_most_index = queue[0][1]
-        right_most_index = left_most_index
-        for _ in range(level_size):
-            node, index = queue.popleft()
+        left_most = queue[0][1]
+        right_most = left_most
+        for i in range(level_size):
+            node, i = queue.popleft()
+            right_most = i
             if node.left:
-                queue.append((node.left, index * 2 + 1))
+                queue.append((node.left, i * 2))
             if node.right:
-                queue.append((node.right, index * 2 + 2))
-            right_most_index = index
-        width = max(width, right_most_index - left_most_index + 1)
-    
-    return width
+                queue.append((node.right, i * 2 + 1))
+        span = max(span, right_most - left_most + 1)
+    return span          
 
+#
 def binary_search_tree_validation(root):
-    if not root:
-        return True
-    return validate_binary_search_tree(root, float("-inf"), float("inf"))
+    return validate_bst(root, float("-inf"), float("inf"))
 
-def validate_binary_search_tree(node, lower_bound, upper_bound):
-    if node.val <= lower_bound or node.val >= upper_bound:
-        return False
-    
-    left_valid = validate_binary_search_tree(node.left, lower_bound, node.val) if node.left else True
-    right_valid = validate_binary_search_tree(node.right, node.val, upper_bound) if node.right else True
-        
-    return left_valid and right_valid
-    
-def lowest_common_ancestor(root, p, q):
-    dfs(root, p, q)
-    return lca
-
-def dfs(node, p, q):
-    global lca
-    
+def validate_bst(node, lower_bound, upper_bound):
     if not node:
-        return False
-    node_is_p_or_q = node == p or node == q
-    node_is_left = dfs(node.left, p, q)
-    node_is_right = dfs(node.right, p, q)
-    
-    if (node_is_p_or_q + node_is_left + node_is_right) == 2:
-        lca = node
         return True
-    
-    if node_is_p_or_q or node_is_left or node_is_right:
-        return True
+    if node.val > lower_bound and node.val < upper_bound:
+        return validate_bst(node.left, lower_bound, node.val) and validate_bst(node.right, node.val, upper_bound)
     else:
         return False
+
     
+def lowest_common_ancestor(root, p, q):
+    lca(root, p, q)
+    return lca_node
+
+def lca(node, p, q):
+    global lca_node
+    if not node:
+        return 0
+    node_is_p_or_q = 1 if p == node or q == node else 0
+    p_or_q_is_left = lca(node.left, p, q)
+    p_or_q_is_right = lca(node.right, p, q)
+    if node_is_p_or_q + p_or_q_is_left + p_or_q_is_right == 2:
+        if not lca_node:
+            lca_node = node
+        return 1
+    
+    if node_is_p_or_q or p_or_q_is_left or p_or_q_is_right: 
+        return 1
+    else:
+        return 0
 
 
 def build_binary_tree(preorder, inorder):
-    global inorder_map
     global preorder_index
+    global inorder_map
     inorder_map = {}
+    for i, node in enumerate(inorder):
+        inorder_map[node] = i
     preorder_index = 0
-    for i in range(len(inorder)):
-        inorder_map[inorder[i]] = i
-        
-    node = dfs_build(0, len(inorder) - 1, preorder, inorder)
+    return _build_binary_tree(preorder, inorder, 0, len(inorder) - 1)
+    
+def _build_binary_tree(preorder, inorder, left, right):
+    global preorder_index
+    if left > right:
+        return None
+    node = TreeNode(preorder[preorder_index])
+    preorder_index += 1
+    inorder_index = inorder_map[node.val]
+    node.left = _build_binary_tree(preorder, inorder, left, inorder_index - 1)
+    node.right = _build_binary_tree(preorder, inorder, inorder_index + 1, right)
     return node
     
-def dfs_build(left, right, preorder, inorder):
-    global inorder_map
-    global preorder_index
-    if left <= right:
-        node = TreeNode(preorder[preorder_index])
-        inorder_index = inorder_map[preorder[preorder_index]]
-        preorder_index += 1
-        node.left = dfs_build(left, inorder_index - 1, preorder, inorder)
-        node.right = dfs_build(inorder_index + 1, right, preorder, inorder)
-        return node
-    else:
-        return None
     
+ 
 def max_path_sum(root):
-    global max_sum
-    max_sum = float("-inf")
-    get_path_sum(root)
-    return max_sum
+    global max_depth
+    max_depth = root.val
+    dfs_max_path_sum(root)
+    return max_depth
 
-def get_path_sum(node):
-    global max_sum 
+def dfs_max_path_sum(node):
+    global max_depth
     if not node:
         return 0
-    left_sum = max(get_path_sum(node.left), 0)
-    right_sum = max(get_path_sum(node.right), 0)
-
-    max_sum = max(max_sum, node.val + left_sum + right_sum) 
-    return node.val + max(left_sum, right_sum) 
-
+    left = max(dfs_max_path_sum(node.left), 0)
+    right = max(dfs_max_path_sum(node.right), 0)
+    max_depth = max(max_depth, left + node.val + right)
+    return node.val + max(left, right)
+    
+    
 def binary_tree_symmetry(root):
     if not root:
         return True
-    return compare_tree_symmetry(root.left, root.right)
+    return dfs_binary_tree_symmetry(root.left, root.right)
     
-def compare_tree_symmetry(node_left, node_right):
-    if node_left and node_right:
-        if node_left.val != node_right.val:
-            return False
-        return compare_tree_symmetry(node_left.left, node_right.right) and compare_tree_symmetry(node_left.right, node_right.left)
-    elif not node_left and not node_right:
-        return True
-    else:
+def dfs_binary_tree_symmetry(left, right):
+    if not left and right:
         return False
+    elif left and not right:
+        return False
+    elif left and right:
+        if left.val != right.val:
+            return False
+        return dfs_binary_tree_symmetry(left.left, right.right) and dfs_binary_tree_symmetry(left.right, right.left)
+    else:
+        return True
+     
     
 def binary_tree_columns(root):
-    columns_map = defaultdict(list)
-    
     if not root:
         return []
-    left_most, right_most = 0, 0
-    queque = deque([(root, 0)])
-    while queque:
-        node, column = queque.popleft()
-        columns_map[column].append(node.val)
-        if node.left:
-            queque.append((node.left, column - 1))
-            left_most = min(left_most, column - 1)
-        if node.right:
-            queque.append((node.right, column + 1))
-            right_most = max(right_most, column + 1)
-    
-    return [columns_map[i] for i in range(left_most, right_most + 1)]
+    queue = deque([[0, root]])
+    columns_map = defaultdict(list)
+    left, right = 0, 0
+    while queue:
+        level_size = len(queue)
+        left = min(queue[0][0], left)
+        for _ in range(level_size):
+            i, node = queue.popleft()
+            columns_map[i].append(node.val)
+            if node.left:
+                queue.append([i - 1, node.left])
+            if node.right:
+                queue.append([i + 1, node.right])
+            right = max(right, i)
+    return [columns_map[i] for i in range(left, right + 1)]
+
 
 def kth_smallest_number_in_BST(root, k):
-    # sorted_list = in_order_traverse(root, k)
-    # return sorted_list[k - 1]
-    return in_order_traverse(root, k)
+    # res = []
+    # inorder_recurse(root, res)
+    # return res[k - 1]
+    return inorder2(root, k)
 
-# recursive 
-def in_order_traverse2(node):
+def inorder_recurse(node, res = []):
     if not node:
-        return []
-    result_left = in_order_traverse2(node.left)
-    result = node.val
-    result_right = in_order_traverse2(node.right)
-    return result_left + [result] + result_right
-
-# iterative
-def in_order_traverse(root, k):
+        return
+    inorder_recurse(node.left, res)
+    res.append(node.val)
+    inorder_recurse(node.right, res)
+    
+def inorder2(root, k):
     stack = []
     node = root
     
@@ -213,41 +208,47 @@ def in_order_traverse(root, k):
         while node:
             stack.append(node)
             node = node.left
-        
         node = stack.pop()
-        k -= 1
+        k = k - 1
         if k == 0:
             return node.val
-        
-        node = node.right
-        
-    return node.val
+        node = node.right    
+    
+    
+    
 
 for_none = 'None'
 
 def serialize(root):
-    data_list = []
-    pre_order_serialize(root, data_list)
-    return ','.join(data_list)
+    res = []
+    dfs_preorder_serialize(root, res)
+    return ",".join([str(ele) for ele in res])
+
+def dfs_preorder_serialize(node, res = []):
+    if not node:
+        res.append(for_none)
+        return
+    res.append(node.val)
+    dfs_preorder_serialize(node.left, res)
+    dfs_preorder_serialize(node.right, res)
     
-def pre_order_serialize(node, data_list):
-    if node:
-        data_list.append(str(node.val))
-        pre_order_serialize(node.left, data_list)
-        pre_order_serialize(node.right, data_list)
-    else:
-        data_list.append(str(for_none))
 
 def deserialize(data):
-    data_iter = iter(data.split(','))
-    return build_tree(data_iter)
+    global index
+    index = 0
+    res = data.split(",")
+    return dfs_deserialize(res)
     
-def build_tree(data_iter):
-    val = next(data_iter)
-    if val == for_none:
+def dfs_deserialize(res):
+    global index
+    if res[index] != for_none:
+        node = TreeNode(int(res[index]))
+        index += 1
+        node.left = dfs_deserialize(res)
+        node.right = dfs_deserialize(res)
+        return node
+    else:
+        index += 1
         return None
-    node = TreeNode(int(val))
-    node.left = build_tree(data_iter)
-    node.right = build_tree(data_iter)
-    return node
+        
     
