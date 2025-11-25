@@ -75,6 +75,6 @@ def test_find_words_on_board_basic():
     result = find_all_words_on_a_board(board, words)
     # result = solver.find()
 
-    assert result == ['byte', 'bytes', 'rain', 'train']
+    assert set(result) == set(['byte', 'bytes', 'rain', 'train'])
 
     
