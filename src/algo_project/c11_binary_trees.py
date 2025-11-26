@@ -101,8 +101,7 @@ def lca(node, p, q):
     p_or_q_is_left = lca(node.left, p, q)
     p_or_q_is_right = lca(node.right, p, q)
     if node_is_p_or_q + p_or_q_is_left + p_or_q_is_right == 2:
-        if not lca_node:
-            lca_node = node
+        lca_node = node
         return 1
     
     if node_is_p_or_q or p_or_q_is_left or p_or_q_is_right: 
