@@ -1,4 +1,6 @@
 class Queue:
+    # 用两个栈模拟，一个入栈in,一个出栈out,增加元素时，都加入in栈，当取出元素时，直接从out栈pop,如果out
+    # 为空，则把in的都pop然后push进去。peek也是更加in和out的空的情况取不同的元素
     def __init__(self):
         self.in_stack = []
         self.out_stack = []
