@@ -31,6 +31,7 @@ def k_sum_subarrays(nums, k):
     return count  
 
 def product_array_without_current_element(nums):
+    # 从左往右，每次res的结果都不包含对应位置的num,再从右往左，也都正好可以避开, 中间过度的和第一次res中的一样
     n = len(nums)
     if n == 0:
         return
