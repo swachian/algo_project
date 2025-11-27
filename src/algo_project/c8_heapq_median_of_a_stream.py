@@ -1,6 +1,9 @@
 import heapq
 
 class MedianOfAnIntegerStream:
+    # 此题核心是使用两个heap,左面放小的数字，右面放大的数字。但为了让左面最大的数字能在堆顶，所以
+    # 需要按负数存入左堆，并且允许左堆最多可以比右堆多1个元素
+    # 新元素到来时，如果小于左边，加负号后放入左面，否则放入右边; 然后检查左右堆是否平衡，不平衡就再次移动
     def __init__(self):
         self.max_left_heap = []
         self.min_right_heap = []
