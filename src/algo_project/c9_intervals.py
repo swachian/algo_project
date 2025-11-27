@@ -35,6 +35,8 @@ def identify_all_interval_overlaps(intervals1, intervals2):
     return result
 
 def largest_overlap_of_intervals(intervals):
+    # sweeping line algorithm ， 建立一个二维数组，按数轴和E/S排列，然后用一根竖线扫描，遇到E就是-1,遇到S就+1,中间不停记录最大的active状态，即可得最多的overlap.
+    
     START = "S"
     END = "E"
     envoys = []

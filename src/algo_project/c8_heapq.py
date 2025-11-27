@@ -20,6 +20,7 @@ class Pair:
         return self.freq < other.freq
 
 def k_most_frequent_strings(strs, k):
+    # 关键在于pair中的__lt__内置方法，heap按最小排序后，如果发现超出n,可以选择pop
     heap = []
     words_count = Counter(strs)
     
@@ -34,6 +35,7 @@ def k_most_frequent_strings(strs, k):
     return result
 
 def combine_sorted_linked_lists(lists):
+    # 把几个list的头都塞进一个heap,然后找出其中最小的，如果最小的这个y有next,就再次塞入heap,直到heapw为空
     ListNode.__lt__ = lambda self, other: self.val < other.val
     
     dummy = ListNode()
@@ -52,6 +54,7 @@ def combine_sorted_linked_lists(lists):
     return dummy.next
 
 def sort_a_k_sorted_array(nums, k):
+    # 利用最多离开k个位置，把前k个塞进一个heap后，每次从heap中选择最小的，然后再塞入。如果没有新的ele了，就可以连续弹出heap中的内容，完成排序
     result = []
     heap = []
     for i, num in enumerate(nums):
