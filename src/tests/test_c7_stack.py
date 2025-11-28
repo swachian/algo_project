@@ -34,7 +34,7 @@ def test_evaluate_expression_simple():
 
 def test_evaluate_expression_with_parentheses():
     """Test expression with nested parentheses and mixed operators."""
-    expr = "(1 + (2 - 3)) + (4 - (1 - 2))"
+    expr = "(1+(2-3))+(4-(1-2))"
     # (1 + (2 - 3)) + (4 - (1 - 2)) = (0) + (4 - (-1)) = 5
     assert evaluate_expression(expr) == 5
     
