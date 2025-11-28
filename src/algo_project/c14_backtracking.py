@@ -34,3 +34,32 @@ def backtrack_find_all_subsets(nums, candidates, i, res):
     backtrack_find_all_subsets(nums, candidates, i + 1, res)
     candidates.pop()
     backtrack_find_all_subsets(nums, candidates, i + 1, res)
+    
+def n_queens(n):
+    # 利用cols和两个diag的hash,比较巧妙的是diag利用r-c和r+c实现了编号
+    # 遇到不能填的col,需要继续执行下一个c,而不是return
+    global res
+    res = 0
+    backtrack_n_queens(0, set(), set(), set(), n)
+    return res
+    
+
+def backtrack_n_queens(row, cols, dial1, dial2, n):
+    global res
+    if row == n:
+        res += 1
+        return
+    
+    for c in range(n):
+        if c in cols or (row - c) in dial1 or (row + c) in dial2:
+            continue
+        cols.add(c)
+        dial1.add(row - c)
+        dial2.add(row + c)
+        backtrack_n_queens(row + 1, cols, dial1, dial2, n)
+        
+        cols.remove(c)
+        dial1.remove(row - c)
+        dial2.remove(row + c)
+        
+    

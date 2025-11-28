@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c14_backtracking import find_all_permutations, find_all_subsets
+from algo_project.c14_backtracking import find_all_permutations, find_all_subsets, n_queens
 
 def test_find_all_permutations_empty_array():
     """Test that empty array returns list with empty permutation"""
@@ -79,3 +79,44 @@ def test_find_all_subsets_three_elements():
     
     # Verify no duplicates in result
     assert len(result) == len(set(tuple(sorted(subset)) for subset in result))
+    
+import pytest
+
+# Assuming the function is imported from your module
+# from your_module import n_queens
+
+def test_n_queens_small_boards():
+    """Test n_queens with small board sizes where solutions are known"""
+    # Known results for n = 1 to 8
+    test_cases = [
+        (1, 1),  # 1x1 board: 1 solution
+        (2, 0),  # 2x2 board: 0 solutions
+        (3, 0),  # 3x3 board: 0 solutions
+        (4, 2),  # 4x4 board: 2 solutions
+        (5, 10), # 5x5 board: 10 solutions
+        (6, 4),  # 6x6 board: 4 solutions
+    ]
+    
+    for n, expected in test_cases:
+        result = n_queens(n)
+        assert result == expected, f"Failed for n={n}: expected {expected}, got {result}"
+
+def test_n_queens_known_sequence():
+    """Test n_queens against known sequence values (OEIS A000170)"""
+    # First few terms of the sequence for n-queens problem
+    known_sequence = {
+        1: 1,
+        2: 0, 
+        3: 0,
+        4: 2,
+        5: 10,
+        6: 4,
+        7: 40,
+        8: 92,  # Classic 8-queens problem
+    }
+    
+    for n, expected in known_sequence.items():
+        # For larger n, we might want to skip due to computation time
+        # But for testing, we can include them
+        result = n_queens(n)
+        assert result == expected, f"Failed for n={n}: expected {expected}, got {result}"
