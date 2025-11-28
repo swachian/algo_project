@@ -6,6 +6,7 @@ class GraphNode:
         self.neighbors = []
         
 def graph_deep_copy(node):
+    # 递归式的调用，建立原node和复制node的hash,并且复制neighbor时递归调用
     if not node:
         return None
     return dfs_graph_deep_copy(node)
@@ -21,6 +22,8 @@ def dfs_graph_deep_copy(node, nodes_map = {}):
     
 
 def count_islands(matrix):
+    # 遍历每一个单元，发现一个1后，即对周边单元格进行遍历并消除1.然后继续遍历，记录在遍历时出现的1.
+    # 消除1的遍历采用dirs四向法
     if not matrix:
         return 0
     island_count = 0
@@ -47,6 +50,10 @@ from collections import deque
 
 
 def matrix_infection(matrix):
+    # 因为是涉及到一层一层感染的，所以适合用BFS遍历
+    # 找到并记录所以值为2的坐标，并记录待传染的1的数量，把2的坐标放入queue
+    # 按level遍历时，每完成一个level,seconds增加1,再用dirs遍历法发现周边的1的单元，如果存在则加入队列用于下一层的遍历
+
     if not matrix:
         return 0
     seconds = 0
@@ -78,6 +85,8 @@ def matrix_infection(matrix):
 
             
 def bipartite_graph_validation(graph):
+    # 建立图中每个节点对应的colors map
+    # 对未标记的节点进行标记为1,并且在递归时向邻居标记-1，中间有一个失败就返回false,如果遇到邻居是同色，则返回错误，
     if not graph:
         return True
     colors_map = [0] * len(graph)
@@ -99,6 +108,7 @@ def dfs_bipartite_graph_validation(graph, i, color, colors_map):
 
 
 def longest_increasing_path(matrix):
+    # 此题的精髓在于memory+四向遍历时不能出圈以及递归调用必须节节高
     max_path = 0
     if not matrix:
         return 0
