@@ -18,3 +18,19 @@ def dfs_find_all_permutations(nums, candidates = [], visitored = set(), res = []
         dfs_find_all_permutations(nums, candidates, visitored, res)
         visitored.remove(num)
         candidates.pop()
+        
+def find_all_subsets(nums):
+    # 与前一题很类似，只是这次从排列决定切换成立二叉树决定，并使用了i作为index来遍历数组。
+    res = []
+    backtrack_find_all_subsets(nums, [], 0, res)
+    return res
+
+def backtrack_find_all_subsets(nums, candidates, i, res):
+    if i == len(nums):
+        res.append(candidates[:])
+        return
+    
+    candidates.append(nums[i])
+    backtrack_find_all_subsets(nums, candidates, i + 1, res)
+    candidates.pop()
+    backtrack_find_all_subsets(nums, candidates, i + 1, res)
