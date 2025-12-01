@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c14_backtracking import find_all_permutations, find_all_subsets, n_queens
+from algo_project.c14_backtracking import find_all_permutations, find_all_subsets, n_queens, combinations_of_sum_k, phone_keypad_combinations
 
 def test_find_all_permutations_empty_array():
     """Test that empty array returns list with empty permutation"""
@@ -120,3 +120,65 @@ def test_n_queens_known_sequence():
         # But for testing, we can include them
         result = n_queens(n)
         assert result == expected, f"Failed for n={n}: expected {expected}, got {result}"
+        
+        
+import pytest
+
+# Test 1: basic case with multiple valid combinations
+def test_combinations_basic():
+    # nums contains small values that can be reused infinitely
+    nums = [2, 3, 6, 7]
+    target = 7
+    # Expected combinations (order of combinations does not matter,
+    # but elements inside each combination should be sorted if your implementation sorts them)
+    expected = [
+        [2, 2, 3],
+        [7]
+    ]
+    result = combinations_of_sum_k(nums, target)
+
+    # Convert both to sets of tuples for comparison ignoring order
+    assert set(map(tuple, result)) == set(map(tuple, expected))
+
+
+# Test 2: case with duplicate numbers in input and target impossible
+def test_combinations_with_duplicates_and_no_solution():
+    # nums contains duplicates, but combinations must be unique
+    nums = [2, 2, 3]
+    target = 1
+    # No combination can sum to 1
+    expected = []
+
+    result = combinations_of_sum_k(nums, target)
+
+    # Expect empty result
+    assert result == expected
+
+# Test 1: basic multi-digit input
+def test_phone_keypad_basic():
+    # Digit mapping: 2 -> abc, 3 -> def
+    digits = "23"
+    # All valid combinations in lexicographical order
+    expected = [
+        "ad", "ae", "af",
+        "bd", "be", "bf",
+        "cd", "ce", "cf"
+    ]
+
+    result = phone_keypad_combinations(digits)
+
+    # Compare as sets to ignore ordering differences
+    assert set(result) == set(expected)
+    # Ensure correct total count
+    assert len(result) == 9
+
+
+# Test 2: empty input should return an empty list
+def test_phone_keypad_empty():
+    digits = ""
+    expected = []
+
+    result = phone_keypad_combinations(digits)
+
+    # Empty string produces no combinations
+    assert result == expected
