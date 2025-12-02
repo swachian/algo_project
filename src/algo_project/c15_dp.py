@@ -90,11 +90,13 @@ def longest_common_subsequence(s1, s2):
     # recurrence solution: 如果s1[i] == s2[j], dp[i][j]等于右下斜对角的数字+1
     # 否则，取右和下面更大的值
     m, n = len(s1), len(s2)
-    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    prev_row = [0] * (n + 1)
     for i in range(m - 1, -1, -1):
+        cur_row = [0] * (n + 1)
         for j in range(n - 1, -1, -1):
             if s1[i] == s2[j]:
-                dp[i][j] = dp[i + 1][j + 1] + 1
+                cur_row[j] = prev_row[j + 1] + 1
             else:
-                dp[i][j] = max(dp[i][j + 1], dp[i + 1][j])
-    return dp[0][0]
+                cur_row[j] = max(cur_row[j + 1], prev_row[j])
+        prev_row = cur_row
+    return prev_row[0]
