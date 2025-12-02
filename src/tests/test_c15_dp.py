@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c15_dp import climbing_stairs, min_coin_combination, matrix_pathways, neighborhood_burglary, longest_common_subsequence
+from algo_project.c15_dp import climbing_stairs, min_coin_combination, matrix_pathways, neighborhood_burglary, longest_common_subsequence, longest_palindrome_in_a_string
 
 
 # Test 1: small known values (Fibonacci-like behavior)
@@ -104,3 +104,20 @@ def test_lcs_no_common_subsequence():
     # No common characters → LCS length = 0
     expected = 0
     assert longest_common_subsequence(s1, s2) == expected
+
+
+
+# Test 1: classic example with a clear longest palindrome
+def test_longest_palindrome_basic():
+    s = "babad"
+    # Valid answers are "bab" or "aba" (both length 3)
+    result = longest_palindrome_in_a_string(s)
+    assert result in ("bab", "aba")
+
+
+# Test 2: fully palindromic string
+def test_longest_palindrome_full_string():
+    s = "racecar"
+    # Entire string is the longest palindrome
+    expected = "racecar"
+    assert longest_palindrome_in_a_string(s) == expected

@@ -100,3 +100,34 @@ def longest_common_subsequence(s1, s2):
                 cur_row[j] = max(cur_row[j + 1], prev_row[j])
         prev_row = cur_row
     return prev_row[0]
+
+def longest_palindrome_in_a_string(s):
+    # base: 长度为1的字符dp值为True, 长度为2的字符且左右相等的为True
+    # recurrence solution: 这个东西依赖的是左下角，即s[i] == s[j] 且 dp[i+1][j-1]为True是为True
+    # 所以实际通过变长的substr来确定不同的i和j的值
+    n = len(s)
+    dp = [[False] * n for _ in range(n) ]
+    
+    start_at = 0
+    max_length = 0
+    for i in range(n):
+        dp[i][i] = True
+        start_at = i
+        max_length = 1
+    
+    for i in range(n - 1):
+        if s[i] == s[i + 1]:
+            dp[i][i + 1] = True
+            start_at = i
+            max_length = 2
+    
+    for substringlen in range(3, n + 1):
+        for i in range(n - substringlen + 1):
+            j = i + substringlen - 1
+            if s[i] == s[j] and dp[i + 1][j - 1]:
+                dp[i][j] = True
+                if substringlen > max_length:
+                    max_length = substringlen
+                    start_at = i
+                    
+    return s[start_at:start_at + max_length]
