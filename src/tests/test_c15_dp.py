@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c15_dp import climbing_stairs, min_coin_combination, matrix_pathways, neighborhood_burglary, longest_common_subsequence, longest_palindrome_in_a_string
+from algo_project.c15_dp import climbing_stairs, min_coin_combination, matrix_pathways, neighborhood_burglary, longest_common_subsequence, longest_palindrome_in_a_string, maximum_subarray_sum, knapsack
 
 
 # Test 1: small known values (Fibonacci-like behavior)
@@ -121,3 +121,42 @@ def test_longest_palindrome_full_string():
     # Entire string is the longest palindrome
     expected = "racecar"
     assert longest_palindrome_in_a_string(s) == expected
+
+
+# Test 1: classic Kadane example
+def test_maximum_subarray_basic():
+    nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+    # Maximum subarray is [4, -1, 2, 1] with sum = 6
+    expected = 6
+    assert maximum_subarray_sum(nums) == expected
+
+
+# Test 2: all negative numbers
+def test_maximum_subarray_all_negative():
+    nums = [-8, -3, -6, -2, -5, -4]
+    # Maximum subarray is just the least negative element: -2
+    expected = -2
+    assert maximum_subarray_sum(nums) == expected
+
+import pytest
+
+# Test 1: basic knapsack example
+def test_knapsack_basic():
+    weights = [1, 2, 3]
+    values = [6, 10, 12]
+    cap = 5
+    # Best choice: items with weight 2 and 3 --> value = 10 + 12 = 22
+    expected = 22
+    assert knapsack(cap, weights, values) == expected
+
+
+# Test 2: capacity too small to take any item
+def test_knapsack_no_fit():
+    weights = [4, 5, 6]
+    values = [10, 20, 30]
+    cap = 3
+    # No item fits, so result should be 0
+    expected = 0
+    assert knapsack(cap, weights, values) == expected
+
+

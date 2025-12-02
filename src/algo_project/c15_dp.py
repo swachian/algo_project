@@ -131,3 +131,34 @@ def longest_palindrome_in_a_string(s):
                     start_at = i
                     
     return s[start_at:start_at + max_length]
+
+def maximum_subarray_sum(nums):
+    # base: dp[0] = nums[0]
+    # recurrence solution: max(dp[i - 1] + nums[i], nums[i])
+    dp = [0] * len(nums)
+    dp[0] = nums[0]
+    for i in range(1, len(nums)):
+        dp[i] = max(dp[i - 1] + nums[i], nums[i])
+    return max(dp)
+
+
+#        C (capacity)
+#        0   1   2   3   4   5   6   7
+#      +---+---+---+---+---+---+---+---+
+#  i 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | --> end
+#      +---+---+---+---+---+---+---+---+
+#  1   | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | ---------->
+#      +---+---+---+---+---+---+---+---+
+#  2   | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | ---------->
+#      +---+---+---+---+---+---+---+---+
+#  3   | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | ----> start
+#      +---+---+---+---+---+---+---+---+
+#  4   | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+#      +---+---+---+---+---+---+---+---+
+
+def knapsack(k, weights, values):
+    # 这个是从左下角往右上角推进
+    # base: capacity为0的列，那么什么都放不进，所以dp[*][0] = 0, item = n的row,表示什么都不加了，所以dp[n][*]也是0
+    # recurrence solution: 当c可以存放时，dp[item][c] = max(include item i, exclude item i)
+    # = max(value[i] + dp[i + 1][c - weight], dp[i+1][c])
+    pass
