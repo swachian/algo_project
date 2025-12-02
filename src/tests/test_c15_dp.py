@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c15_dp import climbing_stairs, min_coin_combination, matrix_pathways
+from algo_project.c15_dp import climbing_stairs, min_coin_combination, matrix_pathways, neighborhood_burglary
 
 
 # Test 1: small known values (Fibonacci-like behavior)
@@ -66,3 +66,21 @@ def test_matrix_pathways_rectangular():
     n = 4
     expected = 10
     assert matrix_pathways(m, n) == expected
+    
+import pytest
+
+# Test 1: basic scenario with several non-adjacent choices
+def test_neighborhood_burglary_basic():
+    houses = [2, 7, 9, 3, 1]
+    # Optimal: rob house 1 (2), house 3 (9), house 5 (1) = 12
+    # Or rob house 2 (7) and house 4 (3) = 10
+    expected = 12
+    assert neighborhood_burglary(houses) == expected
+
+
+# Test 2: edge case with adjacent large values
+def test_neighborhood_burglary_adjacent_large():
+    houses = [10, 1, 10]
+    # Best is rob first and third house = 20
+    expected = 20
+    assert neighborhood_burglary(houses) == expected

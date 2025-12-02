@@ -55,3 +55,19 @@ def matrix_pathways(m, n):
             cur_row[c] = cur_row[c - 1] + prev_row[c]
         prev_row = cur_row
     return prev_row[n - 1]
+
+def neighborhood_burglary(houses):
+    # base cases, dp[0] = houses[0]，但这里需要两个base, dp[1] = max(houses[0], houses[1])
+    # recurrence solution: dp[i] = max(houses[i] + dp[i - 2], dp[i - 1])
+    # 空间优化，只要保留最近两个dp即可
+    if not houses:
+        return 0
+    if len(houses) == 1:
+        return houses[0]
+    prev_prev_max_profit = houses[0]
+    prev_max_profit = max(houses[0], houses[1])
+    for i in range(2, len(houses)):
+        profit = max(prev_prev_max_profit + houses[i], prev_max_profit)
+        prev_prev_max_profit = prev_max_profit
+        prev_max_profit = profit
+    return prev_max_profit
