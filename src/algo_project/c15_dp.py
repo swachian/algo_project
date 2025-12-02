@@ -71,3 +71,30 @@ def neighborhood_burglary(houses):
         prev_prev_max_profit = prev_max_profit
         prev_max_profit = profit
     return prev_max_profit
+
+
+# +-----------------------+-----------------------+
+# |        dp[i][j]       |      dp[i][j+1]       |
+# |                       |           ←           |
+# |           ↑           |        (from right)   |
+# |       (from down)     |                       |
+# +-----------------------+-----------------------+
+# |     dp[i+1][j]        |    dp[i+1][j+1]       |
+# |           ↑           |                       |
+# |         (diag ↖) <----------------------------|
+# |                       |                       |
+# +-----------------------+-----------------------+
+
+def longest_common_subsequence(s1, s2):
+    # base: 最右面和最下面两个多出来的dp为0
+    # recurrence solution: 如果s1[i] == s2[j], dp[i][j]等于右下斜对角的数字+1
+    # 否则，取右和下面更大的值
+    m, n = len(s1), len(s2)
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    for i in range(m - 1, -1, -1):
+        for j in range(n - 1, -1, -1):
+            if s1[i] == s2[j]:
+                dp[i][j] = dp[i + 1][j + 1] + 1
+            else:
+                dp[i][j] = max(dp[i][j + 1], dp[i + 1][j])
+    return dp[0][0]

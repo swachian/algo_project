@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c15_dp import climbing_stairs, min_coin_combination, matrix_pathways, neighborhood_burglary
+from algo_project.c15_dp import climbing_stairs, min_coin_combination, matrix_pathways, neighborhood_burglary, longest_common_subsequence
 
 
 # Test 1: small known values (Fibonacci-like behavior)
@@ -84,3 +84,23 @@ def test_neighborhood_burglary_adjacent_large():
     # Best is rob first and third house = 20
     expected = 20
     assert neighborhood_burglary(houses) == expected
+
+
+import pytest
+
+# Test 1: classic known example
+def test_lcs_classic():
+    s1 = "ABCBDAB"
+    s2 = "BDCAB"
+    # One LCS is "BCAB" or "BDAB" → length = 4
+    expected = 4
+    assert longest_common_subsequence(s1, s2) == expected
+
+
+# Test 2: completely different strings
+def test_lcs_no_common_subsequence():
+    s1 = "AAAA"
+    s2 = "BBBB"
+    # No common characters → LCS length = 0
+    expected = 0
+    assert longest_common_subsequence(s1, s2) == expected
