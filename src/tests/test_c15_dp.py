@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c15_dp import climbing_stairs, min_coin_combination
+from algo_project.c15_dp import climbing_stairs, min_coin_combination, matrix_pathways
 
 
 # Test 1: small known values (Fibonacci-like behavior)
@@ -36,3 +36,33 @@ def test_min_coin_no_solution():
     # Cannot make 3 using 4 or 5, so return -1
     expected = -1
     assert min_coin_combination(coins, target) == expected
+
+import pytest
+
+# Test 1: small known grid sizes
+def test_matrix_pathways_basic():
+    # 1x1 grid -> 1 path (already at destination)
+    # 2x2 grid -> 2 paths: Right->Down, Down->Right
+    # 3x3 grid -> 6 paths (classic combinatorics result)
+    test_cases = {
+        (1, 1): 1,
+        (2, 2): 2,
+        (3, 3): 6
+    }
+
+    for (m, n), expected in test_cases.items():
+        assert matrix_pathways(m, n) == expected
+
+
+# Test 2: rectangular grid
+def test_matrix_pathways_rectangular():
+    # 3x7 grid should have C(3+7-1, 3-1) = C(9,2) = 36 unique paths
+    m = 3
+    n = 7
+    expected = 28
+    assert matrix_pathways(m, n) == expected
+
+    m = 3
+    n = 4
+    expected = 10
+    assert matrix_pathways(m, n) == expected

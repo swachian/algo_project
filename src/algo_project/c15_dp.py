@@ -43,3 +43,15 @@ def bottom_up_min_coin_combination(coins, target):
             if coin <= sub_target:
                 dp[sub_target] = min(dp[sub_target], 1 + dp[sub_target - coin])
     return dp[target]
+
+def matrix_pathways(m, n):
+    # base cases: r0和c0的次数都是1
+    # recurrence solution: dp[r-1][col] + dp[r][col - 1]
+    # 特例，只要用两个row就能d裁剪到上面的dp
+    prev_row = [1] * n
+    for r in range(1, m):
+        cur_row = [1] * n
+        for c in range(1, n):
+            cur_row[c] = cur_row[c - 1] + prev_row[c]
+        prev_row = cur_row
+    return prev_row[n - 1]
