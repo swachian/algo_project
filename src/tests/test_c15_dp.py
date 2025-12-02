@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c15_dp import climbing_stairs
+from algo_project.c15_dp import climbing_stairs, min_coin_combination
 
 
 # Test 1: small known values (Fibonacci-like behavior)
@@ -18,3 +18,21 @@ def test_climbing_stairs_larger_n():
     n = 10
     expected = 89  # Based on Fibonacci pattern
     assert climbing_stairs(n) == expected
+
+
+# Test 1: basic case where solution exists
+def test_min_coin_basic():
+    coins = [1, 2, 3]
+    target = 5
+    # 2 coins -> (2 + 3) or (1 + 2 + 2) but the minimum is 2
+    expected = 2
+    assert min_coin_combination(coins, target) == expected
+
+
+# Test 2: no possible combination
+def test_min_coin_no_solution():
+    coins = [4, 5]
+    target = 3
+    # Cannot make 3 using 4 or 5, so return -1
+    expected = -1
+    assert min_coin_combination(coins, target) == expected
