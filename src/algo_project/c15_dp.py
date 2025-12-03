@@ -216,3 +216,33 @@ def knapsack(cap, weights, values):
     # base: capacity为0的列，那么什么都放不进，所以dp[*][0] = 0, item = n的row,表示什么都不加了，所以dp[n][*]也是0
     # recurrence solution: 当c可以存放时，dp[item][c] = max(include item i, exclude item i)
     # = max(value[i] + dp[i + 1][c - weight], dp[i+1][c])
+    
+def largest_square_in_a_matrix(matrix):
+    # base: 第一列和第一行为1的单元，area都等于1
+    # recurrence solution: 从左上角往右下角推进，如果推进的单元为1,那么对应的area大小为1 + 左/左上/上中最小的那个area
+    if not matrix:
+        return 0
+    
+    m = len(matrix)
+    n = len(matrix[0])
+    max_area = 0
+    dp = [[0] * n for _ in range(m)]
+    for i in range(m):
+        if matrix[i][0] == 1:
+            dp[i][0] = 1
+            max_area = 1
+            
+    for i in range(n):
+        if matrix[0][i] == 1:
+            dp[0][i] = 1
+            max_area = 1
+            
+    for i in range(1, m):
+        for j in range(1, n):
+            if matrix[i][j] == 1:
+                dp[i][j] = 1 + min(dp[i][j - 1], dp[i - 1][j - 1], dp[i - 1][j])
+                max_area = max(max_area, dp[i][j])
+    
+    return max_area * max_area
+        
+    

@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c15_dp import climbing_stairs, min_coin_combination, matrix_pathways, neighborhood_burglary, longest_common_subsequence, longest_palindrome_in_a_string, maximum_subarray_sum, knapsack
+from algo_project.c15_dp import climbing_stairs, min_coin_combination, matrix_pathways, neighborhood_burglary, longest_common_subsequence, longest_palindrome_in_a_string, maximum_subarray_sum, knapsack, largest_square_in_a_matrix
 
 
 # Test 1: small known values (Fibonacci-like behavior)
@@ -159,4 +159,26 @@ def test_knapsack_no_fit():
     expected = 0
     assert knapsack(cap, weights, values) == expected
 
+
+# Test 1: typical case with a 3x3 square of 1's inside -> area = 9
+def test_largest_square_typical():
+    matrix = [
+        [1, 1, 1, 0],
+        [1, 1, 1, 1],
+        [1, 1, 1, 1],
+        [0, 1, 1, 1],
+    ]
+    # The largest square of 1s has side length 3 -> area = 9
+    expected = 9
+    assert largest_square_in_a_matrix(matrix) == expected
+
+
+# Test 2: no 1s in the matrix -> area = 0
+def test_largest_square_all_zeros():
+    matrix = [
+        [0, 0, 0],
+        [0, 0, 0],
+    ]
+    expected = 0
+    assert largest_square_in_a_matrix(matrix) == expected
 
