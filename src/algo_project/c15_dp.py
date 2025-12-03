@@ -101,7 +101,49 @@ def longest_common_subsequence(s1, s2):
         prev_row = cur_row
     return prev_row[0]
 
+def longest_common_subsequence2(s1, s2):
+    # 这个是从左往右的版本
+    
+    m, n = len(s1), len(s2)
+
+    # dp[i][j] = LCS length of s1[:i] and s2[:j]
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+
+    # Fill the DP table from top-left to bottom-right
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+
+            if s1[i - 1] == s2[j - 1]:
+                # Characters match → take diagonal
+                dp[i][j] = 1 + dp[i - 1][j - 1]
+            else:
+                # Characters don't match → remove from one string
+                dp[i][j] = max(
+                    dp[i - 1][j],   # remove char from s1
+                    dp[i][j - 1]    # remove char from s2
+                )
+
+    return dp[m][n]
+
+
+#   0   1   2   3   4   5   6
+#       +---+---+---+---+---+---+---+
+#   i 0 | ● | ● | ● | ● | ● | ● | ● |
+#       +---+---+---+---+---+---+---+
+#     1 |   | ● | ● | ● | ● | ● |   |
+#       +---+---+---+---+---+---+---+
+#     2 |   |   | ● | ● | ● |   |   |
+#       +---+---+---+---+---+---+---+
+#     3 |   |   |   | ● |  ●  |   |   |
+#       +---+---+---+---+---+---+---+
+#     4 |   |   |   |   | ●   |  ●  | ●   |
+#       +---+---+---+---+---+---+---+
+#     5 |   |   |   |   |   |  ●  |   |
+#       +---+---+---+---+---+---+---+
+#     6 |   |   |   |   |   |   | ●   |
+#       +---+---+---+---+---+---+---+
 def longest_palindrome_in_a_string(s):
+    # 从dp矩阵来看，就是从最长的对角线开始，逐步往右不停地计算对角线
     # base: 长度为1的字符dp值为True, 长度为2的字符且左右相等的为True
     # recurrence solution: 这个东西依赖的是左下角，即s[i] == s[j] 且 dp[i+1][j-1]为True是为True
     # 所以实际通过变长的substr来确定不同的i和j的值
