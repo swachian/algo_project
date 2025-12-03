@@ -198,9 +198,21 @@ def maximum_subarray_sum(nums):
 #  4   | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 #      +---+---+---+---+---+---+---+---+
 
-def knapsack(k, weights, values):
+def knapsack(cap, weights, values):
+    # base: 当c=0或i=0时，所有的dp为0,因为重量0和0个item为0 dp[0][*] = 0, dp[]
+    # recurrence solution： dp[i][c] = max(i in ， i not in)
+    # = max(v[i] + dp[i - 1][c - weight], dp[i - 1][c])
+    m = len(weights)
+    dp = [[0] * (cap + 1) for _ in range(m + 1)]
+    for i in range(1, m + 1):
+        for c in range(1, cap + 1):
+            if weights[i - 1] > c:
+                dp[i][c] = dp[i - 1][c]
+            else:
+                dp[i][c] = max(dp[i - 1][c], values[i - 1] + dp[i - 1][c - weights[i - 1]]) 
+    return dp[m][cap]
+    # 书上推荐的不是从左上角往右下角推进，而是左下角往右上角推进。好处是i可以统一到dp数组里面，而顺序更自然的做法需要注意dp[i]表示的是dp[i - 1]的
     # 这个是从左下角往右上角推进
     # base: capacity为0的列，那么什么都放不进，所以dp[*][0] = 0, item = n的row,表示什么都不加了，所以dp[n][*]也是0
     # recurrence solution: 当c可以存放时，dp[item][c] = max(include item i, exclude item i)
     # = max(value[i] + dp[i + 1][c - weight], dp[i+1][c])
-    pass
