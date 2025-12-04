@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c17_sort import ListNode, sort_linked_list
+from algo_project.c17_sort import ListNode, sort_linked_list, merge_sort
 
 
 
@@ -39,3 +39,24 @@ def test_sort_linked_list_with_duplicates():
 
     # Expected sorted list
     assert to_list(sorted_head) == [2, 3, 3, 4, 5]
+    
+
+def test_merge_sort_basic():
+    # Basic unsorted list
+    nums = [5, 2, 9, 1, 5, 6]
+
+    # Expected sorted result
+    expected = [1, 2, 5, 5, 6, 9]
+
+    assert merge_sort(nums) == expected
+
+
+def test_merge_sort_with_negative_and_duplicates():
+    # List containing negative numbers and duplicates
+    nums = [3, -1, 2, -1, 5, 2]
+
+    # Expected sorted output
+    expected = [-1, -1, 2, 2, 3, 5]
+
+    assert merge_sort(nums) == expected
+

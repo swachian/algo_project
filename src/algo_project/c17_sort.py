@@ -37,3 +37,43 @@ def merge(head1, head2):
             head2 = head2.next
     tail.next = head1 or head2
     return dummy.next
+
+def merge_sort(nums):
+    # 0 1 2 ^ 3 4, 从中间劈开来后，左面的一起，右面的一起，直到分到每边只有一个元素才返回继续merge
+    r = len(nums) - 1
+    merge_helper(nums, 0, r)
+    return nums
+
+def merge_helper(nums, l, r):
+    if l < r:
+        pivot = l + (r - l) // 2
+        merge_helper(nums, l, pivot)
+        merge_helper(nums, pivot + 1, r)
+        merge2(nums, l, pivot, r)
+    
+def merge2(nums, l, pivot, r):
+    m = pivot - l + 1
+    n = r - pivot
+    L1 = nums[l:pivot + 1]
+    L2 = nums[pivot + 1:r + 1]    
+    
+    i, j = 0, 0
+    k = l
+    while i < m and j < n:
+        if L1[i] <= L2[j]:
+            nums[k] = L1[i]
+            i += 1
+        else:
+            nums[k] = L2[j]
+            j += 1
+        k += 1
+        
+    while i < m:
+        nums[k] = L1[i]
+        i += 1
+        k += 1
+        
+    while j < n:
+        nums[k] = L2[j]
+        j += 1
+        k += 1
