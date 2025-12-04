@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c17_sort import ListNode, sort_linked_list, merge_sort
+from algo_project.c17_sort import ListNode, sort_linked_list, sort_array
 
 
 
@@ -48,7 +48,7 @@ def test_merge_sort_basic():
     # Expected sorted result
     expected = [1, 2, 5, 5, 6, 9]
 
-    assert merge_sort(nums) == expected
+    assert sort_array(nums) == expected
 
 
 def test_merge_sort_with_negative_and_duplicates():
@@ -58,5 +58,5 @@ def test_merge_sort_with_negative_and_duplicates():
     # Expected sorted output
     expected = [-1, -1, 2, 2, 3, 5]
 
-    assert merge_sort(nums) == expected
+    assert sort_array(nums) == expected
 

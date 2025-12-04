@@ -38,7 +38,7 @@ def merge(head1, head2):
     tail.next = head1 or head2
     return dummy.next
 
-def merge_sort(nums):
+def sort_array(nums):
     # 0 1 2 ^ 3 4, 从中间劈开来后，左面的一起，右面的一起，直到分到每边只有一个元素才返回继续merge
     r = len(nums) - 1
     merge_helper(nums, 0, r)
