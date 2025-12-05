@@ -77,3 +77,21 @@ def merge2(nums, l, pivot, r):
         nums[k] = L2[j]
         j += 1
         k += 1
+        
+def quik_sort(nums, l, r):
+    if l < r:
+        pivot = partition(nums, l, r)
+        
+        quik_sort(nums, l, pivot - 1)
+        quik_sort(nums, pivot + 1, r)
+
+def partition(nums, l, r):
+    pivot_value = nums[r]
+    lo = 0
+    for i in range(r - l):
+        if nums[i + l] < pivot_value:
+            nums[i + l], nums[lo + l] = nums[lo + l], nums[i + l]
+            lo += 1
+    nums[lo + l], nums[r] = nums[r], nums[lo + l]
+    return lo + l        
+        
