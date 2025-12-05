@@ -107,3 +107,15 @@ def kth_largest_integer(nums, k):
                 heapq.heappop(heap)
                 heapq.heappush(heap, num)
     return heapq.heappop(heap)
+
+def dutch_national_flag(nums):
+    counters = [0] * 3
+    for num in nums:
+        counters[num] += 1
+    
+    j = 0
+    for i in range(3):
+        for _ in range(counters[i]):
+            nums[j] = i
+            j += 1
+     

@@ -1,8 +1,5 @@
 import pytest
-from algo_project.c17_sort import ListNode, sort_linked_list, sort_array, kth_largest_integer
-
-
-
+from algo_project.c17_sort import ListNode, sort_linked_list, sort_array, kth_largest_integer, dutch_national_flag
 
 def to_list(head):
     """Convert linked list to Python list for easy comparison."""
@@ -72,3 +69,19 @@ def test_kth_largest_integer_with_duplicates():
     # With duplicates, the 3rd largest in [7, 7, 5, 3, 3] is 5
     nums = [7, 7, 5, 3, 3]
     assert kth_largest_integer(nums, 3) == 5
+
+
+def test_dutch_national_flag_basic():
+    # Basic unsorted array containing 0, 1, 2
+    nums = [2, 0, 1, 2, 1, 0]
+    dutch_national_flag(nums)
+    # After sorting, all 0s come first, then 1s, then 2s
+    assert nums == [0, 0, 1, 1, 2, 2]
+
+
+def test_dutch_national_flag_already_sorted():
+    # Array already in Dutch flag order
+    nums = [0, 0, 1, 1, 2]
+    dutch_national_flag(nums)
+    # The array should remain unchanged
+    assert nums == [0, 0, 1, 1, 2]
