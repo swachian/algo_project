@@ -95,3 +95,15 @@ def partition(nums, l, r):
     nums[lo + l], nums[r] = nums[r], nums[lo + l]
     return lo + l        
         
+import heapq
+
+def kth_largest_integer(nums, k):
+    heap = []
+    for num in nums:
+        if len(heap) < k:
+            heapq.heappush(heap, num)
+        else:
+            if heap[0] < num:
+                heapq.heappop(heap)
+                heapq.heappush(heap, num)
+    return heapq.heappop(heap)

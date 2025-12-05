@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c17_sort import ListNode, sort_linked_list, sort_array
+from algo_project.c17_sort import ListNode, sort_linked_list, sort_array, kth_largest_integer
 
 
 
@@ -60,3 +60,15 @@ def test_merge_sort_with_negative_and_duplicates():
 
     assert sort_array(nums) == expected
 
+# Test 1: normal unsorted array
+def test_kth_largest_integer_basic():
+    # Expect the 2nd largest number in the list [3, 1, 5, 2, 4] to be 4
+    nums = [3, 1, 5, 2, 4]
+    assert kth_largest_integer(nums, 2) == 4
+
+
+# Test 2: includes duplicates
+def test_kth_largest_integer_with_duplicates():
+    # With duplicates, the 3rd largest in [7, 7, 5, 3, 3] is 5
+    nums = [7, 7, 5, 3, 3]
+    assert kth_largest_integer(nums, 3) == 5
