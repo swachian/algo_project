@@ -30,4 +30,21 @@ def spiral_matrix(matrix):
             left += 1
         
     return res
+
+import math
         
+def reverse_32_bit_integer(n):
+    INT_MAX = 2**31 - 1
+    INT_MIN = -2**31
+    reverse_n = 0
+    
+    while n != 0:
+        if reverse_n > INT_MAX / 10 or reverse_n < INT_MIN / 10:
+            return 0
+        digit = int(math.fmod(n, 10))
+        reverse_n = 10 * reverse_n + digit
+
+        n = int(n / 10)
+    return reverse_n
+    
+    

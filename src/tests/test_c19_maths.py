@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c19_maths import spiral_matrix
+from algo_project.c19_maths import spiral_matrix, reverse_32_bit_integer
 
 
 
@@ -28,3 +28,13 @@ def test_spiral_matrix_rectangle():
     assert spiral_matrix(matrix) == [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]
 
 
+def test_reverse_positive_integer():
+    # Normal positive number within 32-bit range
+    # 123 → 321
+    assert reverse_32_bit_integer(123) == 321
+
+
+def test_reverse_overflow():
+    # This reversed result overflows 32-bit signed integer range
+    # 1534236469 → reversed = 9646324351 (overflow) → return 0
+    assert reverse_32_bit_integer(1534236469) == 0
