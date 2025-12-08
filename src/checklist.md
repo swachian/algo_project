@@ -1,9 +1,9 @@
 | #   | Problem Name                                 | Category                    | Done |
 |-----|----------------------------------------------|-----------------------------|------|
-| 1   | Pair Sum - Sorted                            | Two Pointers                |      |
-| 2   | Triplet Sum                                  | Two Pointers                |      |
-| 3   | Valid Palindrome                             | Two Pointers                |      |
-| 4   | Container With Most Water                    | Two Pointers                |      |
+| 1   | Pair Sum - Sorted                            | Two Pointers                | ✅     |
+| 2   | Triplet Sum                                  | Two Pointers                | POK 12.08     |
+| 3   | Valid Palindrome                             | Two Pointers                | ✅     |
+| 4   | Container With Most Water                    | Two Pointers                | ✅     |
 | 5   | Move Zeroes                                  | Two Pointers                |      |
 | 6   | Next Permutation                             | Two Pointers                |      |
 | 7   | Pair Sum - Unsorted                          | Hash Map & Set              |      |
