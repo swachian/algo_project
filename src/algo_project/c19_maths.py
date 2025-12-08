@@ -46,5 +46,38 @@ def reverse_32_bit_integer(n):
 
         n = int(n / 10)
     return reverse_n
+
+from collections import defaultdict
+
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+def maximum_collinear_points(points):
+    res = 0
+    for focus in points:
+        res = max(res, count_slope(focus, points))
+    return res
+
+def count_slope(focus, points):
+    counters = defaultdict(int)
+    max_count = 0
+    for point in points:
+        if point == focus:
+            continue
+        slope = compute_slope(focus, point)
+        counters[slope] += 1
+        max_count = max(max_count, counters[slope])
+    return max_count + 1
+
+def compute_slope(focus, point):
+    rise = point[1] - focus[1]
+    run = point[0] - focus[0]
     
+    if run == 0:
+        return (float("inf"), run)
+    else:
+        a = gcd(rise, run)
+        return (rise // a, run // a)
     
