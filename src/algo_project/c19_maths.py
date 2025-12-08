@@ -81,3 +81,40 @@ def compute_slope(focus, point):
         a = gcd(rise, run)
         return (rise // a, run // a)
     
+def josephus1(n, k):
+    people = [i + 1 for i in range(n)]
+    remove = 0
+
+    i = 0
+    last = 0
+    while remove < n - 1:
+        count = 0
+        while count < k:
+            if people[i] == 0:
+                i = (i + 1) % n
+                continue
+            else:
+                count += 1
+                last = i
+                i = (i + 1) % n
+                
+            
+        remove += 1
+        people[last] = 0
+        
+        
+        
+    return max(people) - 1
+
+def josephus2(n, k):
+    # base: dp[0] = 0, dp[1] = 0
+    # recurrence solution: dp[i] = (dp[i - 1] + k) % i
+    dp = [0] * (n + 1)
+    for i in range(1, n + 1):
+        dp[i] = (dp[i - 1] + k) % i
+    return dp[n]
+
+def josephus3(n, k):
+    if n == 0 or n == 1:
+        return 0
+    return (k + josephus3(n - 1, k)) % n

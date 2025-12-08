@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c19_maths import spiral_matrix, reverse_32_bit_integer, gcd, maximum_collinear_points, compute_slope
+from algo_project.c19_maths import spiral_matrix, reverse_32_bit_integer, gcd, maximum_collinear_points, compute_slope, josephus1, josephus2, josephus3
 
 
 
@@ -54,14 +54,12 @@ def test_basic_collinear():
     points = [[1,1],[1,2],[1,3],[1,4]]
     assert maximum_collinear_points(points) == 4
     
-    # 3 个点在同一直线上：(1,1)、(2,2)、(3,3)
     points = [[1, 1], [2, 2], [3, 3], [1, 2]]
     assert maximum_collinear_points(points) == 3
     
 
 
 def test_multiple_lines():
-    # 两条“直线群”：
     # Line A: (0,0), (1,1), (2,2), (3,3) ⇒ 4 个点
     # Line B: (0,1), (0,2), (0,3) ⇒ 3 个点
     points = [
@@ -74,3 +72,19 @@ def test_multiple_lines():
 def test_compute_slope():
     assert compute_slope((0, 0), (1, 2)) == (2, 1)
     assert compute_slope((1, 2), (14, 28)) == (2, 1)
+    
+
+
+def test_small_case():
+    assert josephus1(5, 2) == 2
+    assert josephus1(10, 1) == 9
+
+    assert josephus2(5, 2) == 2
+    assert josephus2(10, 1) == 9
+    
+    assert josephus3(5, 2) == 2
+    assert josephus3(10, 1) == 9
+
+def test_larger_case():
+
+    assert josephus1(7, 3) == 3
