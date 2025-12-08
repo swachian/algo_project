@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c19_maths import spiral_matrix, reverse_32_bit_integer, gcd, maximum_collinear_points, compute_slope, josephus1, josephus2, josephus3
+from algo_project.c19_maths import spiral_matrix, reverse_32_bit_integer, gcd, maximum_collinear_points, compute_slope, josephus1, josephus2, josephus3, triangle_numbers
 
 
 
@@ -88,3 +88,16 @@ def test_small_case():
 def test_larger_case():
 
     assert josephus1(7, 3) == 3
+
+import pytest
+
+
+
+
+def test_row_with_even():
+    # Example:
+    # Row 3 of this triangle is: [1, 2, 1]
+    # The first even number is at position 2
+    assert triangle_numbers(3) == 2
+    assert triangle_numbers(4) == 3
+    

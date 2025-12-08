@@ -118,3 +118,12 @@ def josephus3(n, k):
     if n == 0 or n == 1:
         return 0
     return (k + josephus3(n - 1, k)) % n
+
+def triangle_numbers(n):
+    if n % 2 == 1:
+        return 2
+    if n % 4 == 0:
+        return 3
+    if n % 4 == 2:
+        return 4
+    
