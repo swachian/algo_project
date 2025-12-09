@@ -74,6 +74,8 @@ def zero_striping(matrix):
     return matrix
 
 def longest_chain_of_consecutive_numbers(nums):
+    # 把num转化成set
+    # 然后对num进行遍历，通过set保证只有chain的头才会被持续遍历有没有后继
     nums_set = set(nums)
     max_consecutive = 0
     for num in nums:

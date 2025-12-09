@@ -66,3 +66,37 @@ def largest_container(heights):
             left += 1
             right -= 1
     return largest
+
+def shift_zeros_to_the_end(nums):
+    left = 0
+    
+    for right in range(len(nums)):
+        if nums[right] != 0:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+    return nums
+
+def next_lexicographical_sequence(s):
+    # s = 'abcedda'
+    # assert 'abdacde' == result
+    slist = list(s)
+    n = len(slist)
+    right = n - 1
+    pov = 0
+    while right > 0:
+        if slist[right] > slist[right - 1]:
+            pov = right - 1
+            break
+        right -= 1
+    if pov > 0:
+        right = n - 1
+        while right >= pov and slist[right] < slist[pov]:
+            right -= 1
+        slist[pov], slist[right] = slist[right], slist[pov]
+        s = slist[pov+1:]
+        s.reverse()
+        slist = slist[0:pov + 1] + s
+    else:
+        slist.reverse()
+        
+    return ''.join(slist)
