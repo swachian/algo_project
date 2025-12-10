@@ -27,4 +27,4 @@
 | 25  | First and Last Occurentces of a Number            | Binary Search                        | NOK 12.10 mid 加减1以及不加减1的妙用，确定了上bound和下bound的走向     |      |      |
 | 26  | Cutting Wood           | Binary Search                       | ✅     |      |      |
 | 27  | Find the Target in a Rotated Sorted Array            | Binary Search                       | NOK 12.10 永远在左或右中某个有序的array中继续搜索    |      |      |
-| 28  | Find the Median From Two Sorted Arrays           | Binary Search                       |     |      |      |
+| 28  | Find the Median From Two Sorted Arrays           | Binary Search                       | NOK 12.10 只记得基本的结构，    |      |      |

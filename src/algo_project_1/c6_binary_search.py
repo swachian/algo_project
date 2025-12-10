@@ -79,6 +79,15 @@ def find_the_target_in_a_rotated_sorted_array(nums, target):
     return left if nums and nums[left] == target else -1
 
 def find_the_median_from_two_sorted_arrays(nums1, nums2):
+    # 1. 确保短的arr在前
+    # L1_index 为nums1的mid, (L2_index + 1) +(L1_index + 1) = nums1 和num2长度和的一半。
+    # 即通过 L1 Index和L2 Index把两个数组平分
+    # 然后确定L1 R1 L2 R2si四个数字，并比较大小再调整lefth或right.
+    # 因为单个数组可能有被某个区用光的情况，所以L的值可能是-inf, R的值可能是inf
+    # 上面数组的左面最大值大于R2时，表明上面数组太右，所以right往左移动
+    # 下面数组的L2大于R1时，说明上面数组太小，所以left往y右移动
+    # 大小调整好之后，根据综合数组是奇还是偶，再计算中间值
+
     if len(nums1) > len(nums2):
         nums1, nums2, = nums2, nums1
         
