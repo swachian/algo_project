@@ -20,7 +20,7 @@
 | 18  | Linked List Loop          | Fast And Slow Pointers      |   ✅     |      |      |
 | 19  | Linked List Midpoint            | Fast And Slow Pointers      |✅  利用dummy的话，最好使用while fast.next and fast.next.next     |      |      |
 | 20  | Happy Number            | Fast And Slow Pointers      | ✅     |      |      |
-| 21  | Substring Anagrams            | Sliding window                        |     |      |      |
+| 21  | Substring Anagrams            | Sliding window                        | POK 能回想起来怎么做，但最好再练练    |      |      |
 | 22  | Longest Substring with Unique Characters            | Sliding window                        |     |      |      |
 | 23  | Longest Uniform Substring After Replacements        | Sliding window                        |     |      |      |
 | 24  | Find the Insertion Index            | Binary Search                        |     |      |      |
