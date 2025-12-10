@@ -22,3 +22,36 @@ def substring_anagrams(s, t):
         
                     
     return res
+
+def longest_substring_with_unique_chars(s):
+    char_map = {}
+    left = right = 0
+    res = 0
+    
+    while right < len(s):
+        if s[right] in char_map:
+            last_occurence = char_map[s[right]]
+            while left <= last_occurence:
+                del char_map[s[left]]
+                left += 1
+        res = max(res, right - left + 1)
+        char_map[s[right]] = right 
+        right += 1
+    
+    return res
+
+from collections import defaultdict
+
+def longest_uniform_substring_after_replacements(s, k):
+    freq = defaultdict(int)
+    max_freq = max_length = 0
+    left = right = 0
+    while right < len(s):
+        freq[s[right]] += 1
+        max_freq = max(max_freq, freq[s[right]])
+        if (right - left + 1 - max_freq) > k:
+            freq[s[left]] -= 1
+            left += 1
+        max_length = right - left + 1
+        right += 1
+    return max_length

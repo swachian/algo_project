@@ -47,6 +47,8 @@ def is_unique_chars(hash, c):
     return c in hash    
     
 def longest_uniform_substring_after_replacements(s, k):
+    # 动态窗口的算法
+    # 记录下某个动态窗口下同一个字符的最大频率，如果窗口减去该最大频率后大于k，则缩小窗口并重新寻找新的最高频率
     left = right = 0
     n = len(s)
     hash = {}

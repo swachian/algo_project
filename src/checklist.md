@@ -21,9 +21,9 @@
 | 19  | Linked List Midpoint            | Fast And Slow Pointers      |✅  利用dummy的话，最好使用while fast.next and fast.next.next     |      |      |
 | 20  | Happy Number            | Fast And Slow Pointers      | ✅     |      |      |
 | 21  | Substring Anagrams            | Sliding window                        | POK 能回想起来怎么做，但最好再练练    |      |      |
-| 22  | Longest Substring with Unique Characters            | Sliding window                        |     |      |      |
-| 23  | Longest Uniform Substring After Replacements        | Sliding window                        |     |      |      |
-| 24  | Find the Insertion Index            | Binary Search                        |     |      |      |
+| 22  | Longest Substring with Unique Characters            | Sliding window                        |✅   |      |      |
+| 23  | Longest Uniform Substring After Replacements        | Sliding window                        |NOK 12.10 全忘了。静态窗口和动态窗口最大的区别在于后者窗口的大小会动态变化.动态窗口的right一般在循环的最后+1 |      |      |
+| 24  | Find the Insertion Index            | Binary Search                        |POK while left < right 是让left和right merge成为一个值，而left <= right则是让 right越过left. left/right = mid + 1 | mid, 则是决定是否把mid作为答案之一的选择，rightt最大值的选择也要看是否包含n |      |      |
 | 25  | First and Last Occurentces of a Number            | Binary Search                        |     |      |      |
 | 26  | Cutting Wood           | Binary Search                       |     |      |      |
 | 27  | Find the Target in a Rotated Sorted Array            | Binary Search                       |     |      |      |
