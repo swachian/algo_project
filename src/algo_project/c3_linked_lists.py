@@ -55,7 +55,7 @@ def find_middle(head):
     dummy = ListNode(None)
     dummy.next = head
     slow = fast = dummy
-    while fast and fast.next:
+    while fast.next and fast.next.next:
         slow = slow.next 
         fast = fast.next.next 
     mid = slow.next
