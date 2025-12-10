@@ -17,7 +17,7 @@
 | 15  | LRU Cache                                    | Linked List                 | ✅ 耗时较长，但已可以独立完成     |      |      |
 | 16  | Palindromic Linked List                      | Linked List                 | ✅     |      |      |
 | 17  | Flatten a Multi-Level Linked List            | Linked List       | ✅     |      |      |
-| 18  | Linked List Loop          | Fast And Slow Pointers      |      |  ✅     |      |
+| 18  | Linked List Loop          | Fast And Slow Pointers      |   ✅     |      |      |
 | 19  | Linked List Midpoint            | Fast And Slow Pointers      |✅  利用dummy的话，最好使用while fast.next and fast.next.next     |      |      |
 | 20  | Happy Number            | Fast And Slow Pointers      | ✅     |      |      |
 | 21  | Substring Anagrams            | Sliding window                        |     |      |      |
