@@ -1,6 +1,6 @@
 import pytest
-from algo_project.c6_binary_search import find_the_insertion_index #, first_and_last_occurrences_of_a_number, cutting_wood, find_the_target_in_a_rotated_sorted_array
-# from algo_project.c6_binary_search import find_the_median_from_two_sorted_arrays, matrix_search, local_maxima_in_array, WeightedRandomSelection
+from algo_project.c6_binary_search import find_the_insertion_index, first_and_last_occurrences_of_a_number, cutting_wood, find_the_target_in_a_rotated_sorted_array
+from algo_project.c6_binary_search import find_the_median_from_two_sorted_arrays #, matrix_search, local_maxima_in_array, WeightedRandomSelection
 
 
 
@@ -17,93 +17,93 @@ def test_find_insertion_index_edge_cases():
     assert find_the_insertion_index(nums, 6) == 3
 
 
-# def test_basic_cases():
-#     # Test when the target appears multiple times
-#     # For nums = [1, 2, 2, 2, 3, 4], target = 2
-#     # The first occurrence is at index 1, last at index 3
-#     assert first_and_last_occurrences_of_a_number([1, 2, 2, 2, 3, 4], 2) == [1, 3]
+def test_basic_cases():
+    # Test when the target appears multiple times
+    # For nums = [1, 2, 2, 2, 3, 4], target = 2
+    # The first occurrence is at index 1, last at index 3
+    assert first_and_last_occurrences_of_a_number([1, 2, 2, 2, 3, 4], 2) == [1, 3]
 
-#     # Test when the target appears only once
-#     # nums = [1, 2, 3, 4, 5], target = 3 → [2, 2]
-#     assert first_and_last_occurrences_of_a_number([1, 2, 3, 4, 5], 3) == [2, 2]
+    # Test when the target appears only once
+    # nums = [1, 2, 3, 4, 5], target = 3 → [2, 2]
+    assert first_and_last_occurrences_of_a_number([1, 2, 3, 4, 5], 3) == [2, 2]
 
 
-# def test_edge_cases():
-#     # Target not found → return [-1, -1]
-#     assert first_and_last_occurrences_of_a_number([1, 3, 5, 7], 2) == [-1, -1]
+def test_edge_cases():
+    # Target not found → return [-1, -1]
+    assert first_and_last_occurrences_of_a_number([1, 3, 5, 7], 2) == [-1, -1]
 
-#     # Target is at the boundaries
-#     # nums = [2, 2, 2, 3, 4], target = 2 → [0, 2]
-#     assert first_and_last_occurrences_of_a_number([2, 2, 2, 3, 4], 2) == [0, 2]
+    # Target is at the boundaries
+    # nums = [2, 2, 2, 3, 4], target = 2 → [0, 2]
+    assert first_and_last_occurrences_of_a_number([2, 2, 2, 3, 4], 2) == [0, 2]
 
-#     # Empty array → no result
-#     assert first_and_last_occurrences_of_a_number([], 5) == [-1, -1]
+    # Empty array → no result
+    assert first_and_last_occurrences_of_a_number([], 5) == [-1, -1]
     
-# def test_basic_cases_cutting_wood():
-#     # Example: heights = [20, 15, 10, 17], k = 7
-#     # If we set H = 15 → wood = (20-15) + (17-15) = 7
-#     # That's exactly enough, and it's the highest possible height.
-#     assert cutting_wood([20, 15, 10, 17], 7) == 15
+def test_basic_cases_cutting_wood():
+    # Example: heights = [20, 15, 10, 17], k = 7
+    # If we set H = 15 → wood = (20-15) + (17-15) = 7
+    # That's exactly enough, and it's the highest possible height.
+    assert cutting_wood([20, 15, 10, 17], 7) == 15
 
-#     # Example: heights = [4, 42, 40, 26, 46], k = 20
-#     # The optimal H = 36 → wood = (42-36) + (40-36) + (46-36) = 20
-#     assert cutting_wood([4, 42, 40, 26, 46], 20) == 36
+    # Example: heights = [4, 42, 40, 26, 46], k = 20
+    # The optimal H = 36 → wood = (42-36) + (40-36) + (46-36) = 20
+    assert cutting_wood([4, 42, 40, 26, 46], 20) == 36
 
 
-# def test_edge_cases_cutting_wood():
-#     # Case where no cutting is needed (k = 0)
-#     # Any height up to tallest tree is valid, return tallest = 10
-#     assert cutting_wood([5, 8, 10], 0) == 10
+def test_edge_cases_cutting_wood():
+    # Case where no cutting is needed (k = 0)
+    # Any height up to tallest tree is valid, return tallest = 10
+    assert cutting_wood([5, 8, 10], 0) == 10
 
-#     # Case where total wood cannot meet k (too large k)
-#     # heights = [1, 2, 3], k = 10 → must cut at lowest possible (0)
-#     # but even then total wood = 6 < 10 → still return 0
-#     assert cutting_wood([1, 2, 3], 10) == 0
+    # Case where total wood cannot meet k (too large k)
+    # heights = [1, 2, 3], k = 10 → must cut at lowest possible (0)
+    # but even then total wood = 6 < 10 → still return 0
+    assert cutting_wood([1, 2, 3], 10) == 0
     
-# def test_basic_cases_find_the_target_in_a_rotated_sorted_array():
-#     # Example: nums = [4,5,6,7,0,1,2], target = 0 → index 4
-#     # assert find_the_target_in_a_rotated_sorted_array([4, 5, 6, 7, 0, 1, 2], 0) == 4
+def test_basic_cases_find_the_target_in_a_rotated_sorted_array():
+    # Example: nums = [4,5,6,7,0,1,2], target = 0 → index 4
+    assert find_the_target_in_a_rotated_sorted_array([4, 5, 6, 7, 0, 1, 2], 0) == 4
 
-#     # Example: nums = [4,5,6,7,0,1,2], target = 3 → not found → -1
-#     # assert find_the_target_in_a_rotated_sorted_array([4, 5, 6, 7, 0, 1, 2], 3) == -1
+    # Example: nums = [4,5,6,7,0,1,2], target = 3 → not found → -1
+    assert find_the_target_in_a_rotated_sorted_array([4, 5, 6, 7, 0, 1, 2], 3) == -1
     
-#     assert find_the_target_in_a_rotated_sorted_array([4,5,6,7,0,1,2,3], 6) == 2
-#     assert find_the_target_in_a_rotated_sorted_array([4,5,6,7,0,1,2,3], 3) == 7
+    assert find_the_target_in_a_rotated_sorted_array([4,5,6,7,0,1,2,3], 6) == 2
+    assert find_the_target_in_a_rotated_sorted_array([4,5,6,7,0,1,2,3], 3) == 7
 
 
 
 
-# def test_edge_cases_find_the_target_in_a_rotated_sorted_array():
-#     # Case: no rotation, regular sorted array
-#     # nums = [1, 2, 3, 4, 5], target = 4 → index 3
-#     assert find_the_target_in_a_rotated_sorted_array([1, 2, 3, 4, 5], 4) == 3
+def test_edge_cases_find_the_target_in_a_rotated_sorted_array():
+    # Case: no rotation, regular sorted array
+    # nums = [1, 2, 3, 4, 5], target = 4 → index 3
+    assert find_the_target_in_a_rotated_sorted_array([1, 2, 3, 4, 5], 4) == 3
 
-#     # Case: fully rotated (same as original), target not found
-#     # nums = [1, 2, 3, 4, 5], target = 6 → -1
-#     assert find_the_target_in_a_rotated_sorted_array([1, 2, 3, 4, 5], 6) == -1
+    # Case: fully rotated (same as original), target not found
+    # nums = [1, 2, 3, 4, 5], target = 6 → -1
+    assert find_the_target_in_a_rotated_sorted_array([1, 2, 3, 4, 5], 6) == -1
     
     
-# def test_basic_cases_find_the_median_from_two_sorted_arrays():
-#     # Case 1: Even total length
-#     # Merged array: [1, 2, 3, 4]
-#     # Median = (2 + 3) / 2 = 2.5
-#     assert find_the_median_from_two_sorted_arrays([1, 3], [2, 4]) == 2.5
+def test_basic_cases_find_the_median_from_two_sorted_arrays():
+    # Case 1: Even total length
+    # Merged array: [1, 2, 3, 4]
+    # Median = (2 + 3) / 2 = 2.5
+    assert find_the_median_from_two_sorted_arrays([1, 3], [2, 4]) == 2.5
 
-#     # Case 2: Odd total length
-#     # Merged array: [1, 2, 3]
-#     # Median = 2
-#     assert find_the_median_from_two_sorted_arrays([1, 2], [3]) == 2.0
+    # Case 2: Odd total length
+    # Merged array: [1, 2, 3]
+    # Median = 2
+    assert find_the_median_from_two_sorted_arrays([1, 2], [3]) == 2.0
 
 
-# def test_edge_cases_find_the_median_from_two_sorted_arrays():
-#     # One array empty
-#     # nums1 = [], nums2 = [2, 3] → median = (2 + 3)/2 = 2.5
-#     assert find_the_median_from_two_sorted_arrays([], [2, 3]) == 2.5
+def test_edge_cases_find_the_median_from_two_sorted_arrays():
+    # One array empty
+    # nums1 = [], nums2 = [2, 3] → median = (2 + 3)/2 = 2.5
+    assert find_the_median_from_two_sorted_arrays([], [2, 3]) == 2.5
 
-#     # Arrays with different sizes
-#     # Merged array: [1, 2, 3, 4, 5]
-#     # Median = 3
-#     assert find_the_median_from_two_sorted_arrays([1, 2], [3, 4, 5]) == 3.0   
+    # Arrays with different sizes
+    # Merged array: [1, 2, 3, 4, 5]
+    # Median = 3
+    assert find_the_median_from_two_sorted_arrays([1, 2], [3, 4, 5]) == 3.0   
     
 # def test_basic_cases_matrix_search():
 #     # Matrix layout:

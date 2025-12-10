@@ -24,7 +24,7 @@
 | 22  | Longest Substring with Unique Characters            | Sliding window                        |✅   |      |      |
 | 23  | Longest Uniform Substring After Replacements        | Sliding window                        |NOK 12.10 全忘了。静态窗口和动态窗口最大的区别在于后者窗口的大小会动态变化.动态窗口的right一般在循环的最后+1 |      |      |
 | 24  | Find the Insertion Index            | Binary Search                        |POK while left < right 是让left和right merge成为一个值，而left <= right则是让 right越过left. left or right = mid + 1 or mid, 则是决定是否把mid作为答案之一的选择，right最大值的选择也要看是否包含n |      |      |
-| 25  | First and Last Occurentces of a Number            | Binary Search                        |     |      |      |
-| 26  | Cutting Wood           | Binary Search                       |     |      |      |
-| 27  | Find the Target in a Rotated Sorted Array            | Binary Search                       |     |      |      |
+| 25  | First and Last Occurentces of a Number            | Binary Search                        | NOK 12.10 mid 加减1以及不加减1的妙用，确定了上bound和下bound的走向     |      |      |
+| 26  | Cutting Wood           | Binary Search                       | ✅     |      |      |
+| 27  | Find the Target in a Rotated Sorted Array            | Binary Search                       | NOK 12.10 永远在左或右中某个有序的array中继续搜索    |      |      |
 | 28  | Find the Median From Two Sorted Arrays           | Binary Search                       |     |      |      |
