@@ -58,3 +58,19 @@ def repeated_removal_of_adjacent_duplicates(s):
         else:
             stack.append(c)
     return ''.join(stack)
+
+from collections import deque
+
+def maximums_of_sliding_window(nums, k):
+    queue = deque()
+    res = []
+    
+    for i, num in enumerate(nums):
+        while queue and queue[0][0] < i + 1 - k:
+            queue.popleft()
+        while queue and queue[-1][1] <= num:
+            queue.pop()
+        queue.append((i, num))
+        if i >= k - 1:
+            res.append(queue[0][1])
+    return res

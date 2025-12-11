@@ -36,10 +36,10 @@
 | 34  | Evaluate Expression            | Stacks                       | ✅     |      |      |
 | 35  | Repeated Removal of Adjacent Duplicates            |  Stacks                      |✅      |      |      |
 | 36  | Implement a Queue using Stacks            |  Stacks                      | ✅     |      |      |
-| 37  | Maximums of Sliding Window            |  Stacks                     |     |      |      |
-| 38  | K Most Frequent Strings            |  Heaps                      |     |      |      |
-| 39  | Combine Sorted Linked Lists            |  Heaps                     |     |      |      |
-| 40  | Median of an Integer Stream            |  Heaps                      |     |      |      |
+| 37  | Maximums of Sliding Window            |  Stacks                     | ✅ 对于下标和k的关系，可以列方程或不等式来解决    |      |      |
+| 38  | K Most Frequent Strings            |  Heaps                      | ✅    |      |      |
+| 39  | Combine Sorted Linked Lists            |  Heaps                     |POK, 一方面是忘了个class直接注入lambda的作法，dummy处理head的也不够熟练     |      |      |
+| 40  | Median of an Integer Stream            |  Heaps                      |✅ 除了heap[0]表示栈顶，其他都记得很清楚     |      |      |
 | 41  | Sort a K-sorted Array            |  Heaps                      |     |      |      |
 | 42  |             |                        |     |      |      |
 | 43  |             |                        |     |      |      |
