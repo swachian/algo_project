@@ -153,6 +153,8 @@ def local_maxima_in_array(nums):
     return nums[left]
 
 class WeightedRandomSelection:
+    # 先根输入的weight数组，形成一个sum后的数组，size和输入的相同
+    # 然后用randint生成一个介于1和最大sum之间的随机数，通过left和right来寻找可以插入这个target的位置，并返回索引
     def __init__(self, weights):
         self.weights = [weights[0]]
         for i in range(1, len(weights)):

@@ -27,4 +27,74 @@
 | 25  | First and Last Occurentces of a Number            | Binary Search                        | NOK 12.10 mid 加减1以及不加减1的妙用，确定了上bound和下bound的走向     |      |      |
 | 26  | Cutting Wood           | Binary Search                       | ✅     |      |      |
 | 27  | Find the Target in a Rotated Sorted Array            | Binary Search                       | NOK 12.10 永远在左或右中某个有序的array中继续搜索    |      |      |
-| 28  | Find the Median From Two Sorted Arrays           | Binary Search                       | NOK 12.10 只记得基本的结构，    |      |      |
+| 28  | Find the Median From Two Sorted Arrays           | Binary Search                       | NOK 12.10 只记得基本的结构，1.确保短的arr在前 2.L1_index为nums1的mid,(L2_index+1)+(L1_index+1)=(len(nums1)+len(nums2))/2 3.通过L1_index和L2_index把两个数组平分 4.确定L1,R1,L2,R2四个值,单个数组可能用光的情况时L=-inf,R=inf 5.当L1>R2时,说明nums1太右,right往左移 6.当L2>R1时,说明nums1太小,left往右移 7.调整后根据数组总长度的奇偶性计算中位数    |      |      |
+| 29  | Matrix Search            | Binary Search                       | ✅     |      |      |
+| 30  | Local Maxima in Array            | Binary Search                        | NOK, 12.11 局部求一个极值，窍门是更右面的值比较，如果右面的值大于mid,则mid不可能是极值，所以left取mid+1； 如果右值小于mid,意味着mid可能是极值，所以right取mid     |      |      |
+| 31  | Weighted Random Selection            | Binary Search                        | NOK, 12.11 先根输入的weight数组，形成一个sum后的数组，size和输入的相同   # 然后用randint生成一个介于1和最大sum之间的随机数，通过left和right来寻找可以插入这个target的位置，并返回索引 |      |      |
+| 32  | Valid Parenthesis Expresssion            | Stacks                       |  ✅    |      |      |
+| 33  | Next Largest Number to the Right            |  Stacks                      |✅      |      |      |
+| 34  | Evaluate Expression            | Stacks                       | ✅     |      |      |
+| 35  | Repeated Removal of Adjacent Duplicates            |  Stacks                      |✅      |      |      |
+| 36  | Implement a Queue using Stacks            |  Stacks                      | ✅     |      |      |
+| 37  | Maximums of Sliding Window            |  Stacks                     |     |      |      |
+| 38  | K Most Frequent Strings            |  Heaps                      |     |      |      |
+| 39  | Combine Sorted Linked Lists            |  Heaps                     |     |      |      |
+| 40  | Median of an Integer Stream            |  Heaps                      |     |      |      |
+| 41  | Sort a K-sorted Array            |  Heaps                      |     |      |      |
+| 42  |             |                        |     |      |      |
+| 43  |             |                        |     |      |      |
+| 44  |             |                        |     |      |      |
+| 45  |             |                        |     |      |      |
+| 46  |             |                        |     |      |      |
+| 47  |             |                        |     |      |      |
+| 48  |             |                        |     |      |      |
+| 49  |             |                        |     |      |      |
+| 50  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
+| 30  |             |                        |     |      |      |
