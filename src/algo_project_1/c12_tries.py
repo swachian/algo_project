@@ -1,4 +1,6 @@
 class TrieNode:
+    # Trie用于记录一串可能的链，链之间的连接使用hash实现，每个node除了children,还有记录一个完整的word,或者用一个boolean表示这是否是一个word的终结
+    # 插入的时候就是沿着hash,一个一个的插入进去，没有就新建。查找或者索引的时候也是一个一个往下找，但需要注意是否要判断是否是结尾
     def __init__(self):
         self.children = {}
         self.is_word = False
@@ -38,6 +40,7 @@ class Trie:
     
   
 class InsertAndSearchWordsWithWildcards:
+    # 这个东西最大的注意点在于search的时候，如果碰到.，那么就要发动当前所有的children去搜寻下一个字串，有一个搜索到就返回True
     def __init__(self):
         self.root = TrieNode()
     
@@ -76,6 +79,12 @@ class TrieNodeWord:
 
    
 def find_all_words_on_a_board(board, words):
+    # 首先把输入的words都编成tries,便于后面查找
+    # 对于board,要用m*n的方式，从每一个入口递归遍历寻找匹配的对象，所以res是作为参数传入
+    # 遍历时， 4. if node is a word, record it and erase it from node
+    # 5. set board index to '#' temporarily to avoid re-backtrack
+    # 6. def recursive calls to 4 direction only if the direction is valid
+    # 7. set back c to board 
     if not board:
         return []
     root = _build_word_tries(words)

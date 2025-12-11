@@ -51,7 +51,7 @@ from collections import deque
 
 def matrix_infection(matrix):
     # 因为是涉及到一层一层感染的，所以适合用BFS遍历
-    # 找到并记录所以值为2的坐标，并记录待传染的1的数量，把2的坐标放入queue
+    # 找到并记录所有值为2的坐标，并记录待传染的1的数量，把2的坐标放入queue
     # 按level遍历时，每完成一个level,seconds增加1,再用dirs遍历法发现周边的1的单元，如果存在则加入队列用于下一层的遍历
 
     if not matrix:

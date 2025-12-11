@@ -23,7 +23,7 @@
 | 21  | Substring Anagrams            | Sliding window                        | POK 能回想起来怎么做，但最好再练练    |      |      |
 | 22  | Longest Substring with Unique Characters            | Sliding window                        |✅   |      |      |
 | 23  | Longest Uniform Substring After Replacements        | Sliding window                        |NOK 12.10 全忘了。静态窗口和动态窗口最大的区别在于后者窗口的大小会动态变化.动态窗口的right一般在循环的最后+1 |      |      |
-| 24  | Find the Insertion Index            | Binary Search                        |POK while left < right 是让left和right merge成为一个值，而left <= right则是让 right越过left. left or right = mid + 1 or mid, 则是决定是否把mid作为答案之一的选择，right最大值的选择也要看是否包含n |      |      |
+| 24  | Find the Insertion Index            | Binary Search                        |POK while left < right 是让left和right merge成为一个值，而left <= right则是让 right越过left. left or right = mid + 1 or mid, 则是决定是否把mid作为答案之一的选择，right最大值的选择也要看是否包含n; 而mid = (left + right) // 2后面是否+1, 则决定把mid往left还是right推|      |      |
 | 25  | First and Last Occurentces of a Number            | Binary Search                        | NOK 12.10 mid 加减1以及不加减1的妙用，确定了上bound和下bound的走向     |      |      |
 | 26  | Cutting Wood           | Binary Search                       | ✅     |      |      |
 | 27  | Find the Target in a Rotated Sorted Array            | Binary Search                       | NOK 12.10 永远在左或右中某个有序的array中继续搜索    |      |      |
@@ -41,60 +41,67 @@
 | 39  | Combine Sorted Linked Lists            |  Heaps                     |POK, 一方面是忘了个class直接注入lambda的作法，dummy处理head的也不够熟练     |      |      |
 | 40  | Median of an Integer Stream            |  Heaps                      |✅ 除了heap[0]表示栈顶，其他都记得很清楚     |      |      |
 | 41  | Sort a K-sorted Array            |  Heaps                      |     |      |      |
-| 42  |             |                        |     |      |      |
-| 43  |             |                        |     |      |      |
-| 44  |             |                        |     |      |      |
-| 45  |             |                        |     |      |      |
-| 46  |             |                        |     |      |      |
-| 47  |             |                        |     |      |      |
-| 48  |             |                        |     |      |      |
-| 49  |             |                        |     |      |      |
-| 50  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
-| 30  |             |                        |     |      |      |
+| 42  | Merge Overlapping Intervals            | Intervals                       |     |      |      |
+| 43  | Identify All Interval Overlaps            | Intervals                       |     |      |      |
+| 44  | Largest Overlap of Intervals            | Intervals                       |     |      |      |
+| 45  | Sum Between Range            |  Prefix Sums                      |     |      |      |
+| 46  | K-Sum Subarrays            |  Prefix Sums                       |     |      |      |
+| 47  | Product Array Without Current Element             |  Prefix Sums                       |     |      |      |
+| 48  | Invert Binary Tree            |  Trees                      |     |      |      |
+| 49  | Balanced Binary Tree Validation             | Trees                       |     |      |      |
+| 50  | Rightmost Nodes of Binary Tree            | Trees                       |     |      |      |
+| 51  | Widest Binary Tree Level            | Trees                       |     |      |      |
+| 52  |Binary Search Tree Validation             | Trees                       |     |      |      |
+| 53  | Lowest Common Ancestor            | Trees                       |     |      |      |
+| 54  |  Build Binary Tree From Preorder and Inorder Traversals           | Trees                       |     |      |      |
+| 55  | Maximum Sum of a Continuous Path in a Binary Tree            | Trees                       |     |      |      |
+| 56  | Binary Tree Symmetry            | Trees                      |     |      |      |
+| 57  | Binary Tree Columns            | Trees                       |     |      |      |
+| 58  | Kth Smallest Number in a Binary Search Tree            | Trees                       |     |      |      |
+| 59  | Searialize and Deserialize a Binary Tree            | Trees                       |     |      |      |
+| 60  |             |                        |     |      |      |
+| 61  |             |                        |     |      |      |
+| 62  |             |                        |     |      |      |
+| 63  |             |                        |     |      |      |
+| 64  |             |                        |     |      |      |
+| 65  |             |                        |     |      |      |
+| 66  |             |                        |     |      |      |
+| 67  |             |                        |     |      |      |
+| 68  |             |                        |     |      |      |
+| 69  |             |                        |     |      |      |
+| 70  |             |                        |     |      |      |
+| 71  |             |                        |     |      |      |
+| 72  |             |                        |     |      |      |
+| 73  |             |                        |     |      |      |
+| 74  |             |                        |     |      |      |
+| 75  |             |                        |     |      |      |
+| 76  |             |                        |     |      |      |
+| 77  |             |                        |     |      |      |
+| 78  |             |                        |     |      |      |
+| 79  |             |                        |     |      |      |
+| 80  |             |                        |     |      |      |
+| 81  |             |                        |     |      |      |
+| 82  |             |                        |     |      |      |
+| 83  |             |                        |     |      |      |
+| 84  |             |                        |     |      |      |
+| 85  |             |                        |     |      |      |
+| 86  |             |                        |     |      |      |
+| 87  |             |                        |     |      |      |
+| 88  |             |                        |     |      |      |
+| 89  |             |                        |     |      |      |
+| 90  |             |                        |     |      |      |
+| 91  |             |                        |     |      |      |
+| 92  |             |                        |     |      |      |
+| 93  |             |                        |     |      |      |
+| 94  |             |                        |     |      |      |
+| 95  |             |                        |     |      |      |
+| 96  |             |                        |     |      |      |
+| 97  |             |                        |     |      |      |
+| 98  |             |                        |     |      |      |
+| 99  |             |                        |     |      |      |
+| 100  |             |                        |     |      |      |
+| 101  |             |                        |     |      |      |
+
+### First Round Redo:
+
+40: 7 POK, 9 NOK, 24 OK
