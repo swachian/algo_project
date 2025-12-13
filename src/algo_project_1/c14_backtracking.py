@@ -1,4 +1,6 @@
 def find_all_permutations(nums):
+    # 回溯搭配递归或栈的遍历。这道题就是把可能的组合放到candidates中，合格的candidate是len与permutation一致的
+    # 需要注意的是数组加入结果集合时，因为candidate会被修改，所以需要重新复制一个
     res = []
     dfs_find_all_permutations(nums, [], set(), res)
     return res
@@ -19,6 +21,7 @@ def dfs_find_all_permutations(nums, cadidates, visited, res):
     
 
 def find_all_subsets(nums):
+    # 与前一题很类似，只是这次从排列决定切换成立二叉树决定，并使用了i作为index来遍历数组。
     res = []
     dfs_find_all_subsets(nums, 0, [], res)
     return res
@@ -36,6 +39,8 @@ def dfs_find_all_subsets(nums, i, candidates, res):
 
 
 def n_queens(n):
+    # 利用cols和两个diag的hash,比较巧妙的是diag利用r-c和r+c实现了编号
+    # 遇到不能填的col,需要继续执行下一个c,而不是return
     global res
     res = 0
     dfs_n_queens(0, set(), set(), set(), n)

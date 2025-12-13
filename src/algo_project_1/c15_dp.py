@@ -126,7 +126,7 @@ def longest_common_subsequence2(s1, s2):
     return dp[m][n]
 
 
-#   0   1   2   3   4   5   6
+#         0   1   2   3   4   5   6
 #       +---+---+---+---+---+---+---+
 #   i 0 | ● | ● | ● | ● | ● | ● | ● |
 #       +---+---+---+---+---+---+---+
@@ -219,7 +219,7 @@ def knapsack(cap, weights, values):
     
 def largest_square_in_a_matrix(matrix):
     # base: 第一列和第一行为1的单元，area都等于1
-    # recurrence solution: 从左上角往右下角推进，如果推进的单元为1,那么对应的area大小为1 + 左/左上/上中最小的那个area
+    # recurrence solution: 从左上角往右下角推进，如果推进的单元为1,那么对应的area大小为1 + 左/左上/上 中最小的那个area
     if not matrix:
         return 0
     

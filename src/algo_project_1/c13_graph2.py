@@ -139,7 +139,7 @@ def connect_the_dots(points):
     # 2. 对edge进行排序
     # 3. 记录全edge长度的变量以及edge的数量
     # 4. 找出最短的边，并connect对应的两个点
-    # 5. 找出剩余的最短的边，如果edge的节点已经连同，则放弃此边，寻找下一节点，并重复
+    # 5. 找出剩余的最短的边，如果edge的节点已经连通，则放弃此边，寻找下一节点，并重复
     # 6. 边用光或者已加入的edge = node - 1
     edges = []
     for i in range(len(points)):

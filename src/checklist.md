@@ -59,19 +59,19 @@
 | 57  | Binary Tree Columns            | Trees                       |     |      |      |
 | 58  | Kth Smallest Number in a Binary Search Tree            | Trees                       |     |      |      |
 | 59  | Searialize and Deserialize a Binary Tree            | Trees                       |     |      |      |
-| 60  |             |                        |     |      |      |
-| 61  |             |                        |     |      |      |
-| 62  |             |                        |     |      |      |
-| 63  |             |                        |     |      |      |
-| 64  |             |                        |     |      |      |
-| 65  |             |                        |     |      |      |
-| 66  |             |                        |     |      |      |
-| 67  |             |                        |     |      |      |
-| 68  |             |                        |     |      |      |
-| 69  |             |                        |     |      |      |
-| 70  |             |                        |     |      |      |
-| 71  |             |                        |     |      |      |
-| 72  |             |                        |     |      |      |
+| 60  | Design a Trie            |  Tries                      |     |      |      |
+| 61  | Insert and Search Words with Wildcards            |  Tries                      |     |      |      |
+| 62  | Find All words on a Board            |  Tries                      |     |      |      |
+| 63  | Graph Deep Copy            |  Graphs                      |     |      |      |
+| 64  | Cound Islands            |  Graphs                      |     |      |      |
+| 65  | Matrix Infection           |  Graphs                      |     |      |      |
+| 66  | Bipartite Graph Validation            |  Graphs                      |     |      |      |
+| 67  | Longest Increasing Path            |  Graphs                      |     |      |      |
+| 68  | Shortest Transformation Sequence            |  Graphs                      |     |      |      |
+| 69  | Merging Communities            |  Graphs                      |     |      |      |
+| 70  | Prerequisites            |  Graphs                      |     |      |      |
+| 71  | Shortest Path            |  Graphs                      |     |      |      |
+| 72  | Connect the Dots            |  Graphs                      |     |      |      |
 | 73  |             |                        |     |      |      |
 | 74  |             |                        |     |      |      |
 | 75  |             |                        |     |      |      |
