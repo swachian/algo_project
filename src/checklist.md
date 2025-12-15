@@ -47,8 +47,8 @@
 | 45  | Sum Between Range            |  Prefix Sums                      | ✅    |      |      |
 | 46  | K-Sum Subarrays            |  Prefix Sums                       | NOK 12.15 运用presum + hash    |      |      |
 | 47  | Product Array Without Current Element             |  Prefix Sums                       | ✅      |      |      |
-| 48  | Invert Binary Tree            |  Trees                      |     |      |      |
-| 49  | Balanced Binary Tree Validation             | Trees                       |     |      |      |
+| 48  | Invert Binary Tree            |  Trees                      | ✅      |      |      |
+| 49  | Balanced Binary Tree Validation             | Trees                       | ✅      |      |      |
 | 50  | Rightmost Nodes of Binary Tree            | Trees                       |     |      |      |
 | 51  | Widest Binary Tree Level            | Trees                       |     |      |      |
 | 52  |Binary Search Tree Validation             | Trees                       |     |      |      |
