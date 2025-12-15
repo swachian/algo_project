@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c8_heapq import k_most_frequent_strings, ListNode, combine_sorted_linked_lists #, sort_a_k_sorted_array
+from algo_project.c8_heapq import k_most_frequent_strings, ListNode, combine_sorted_linked_lists, sort_a_k_sorted_array
 
 
 def test_basic_case_k_most_frequent_strings():
@@ -45,16 +45,16 @@ def test_with_empty_lists_combine_sorted_linked_lists():
     # Expected: 2 -> 3
     assert to_list(merged) == [2, 3]
     
-# def test_small_k_sorted_array():
-#     """Test sorting with small k value."""
-#     nums = [3, 2, 1, 5, 4, 6]
-#     k = 2
-#     result = sort_a_k_sorted_array(nums, k)
-#     assert result == [1, 2, 3, 4, 5, 6]
+def test_small_k_sorted_array():
+    """Test sorting with small k value."""
+    nums = [3, 2, 1, 5, 4, 6]
+    k = 2
+    result = sort_a_k_sorted_array(nums, k)
+    assert result == [1, 2, 3, 4, 5, 6]
 
-# def test_already_sorted_array():
-#     """Test when array is already sorted (k = 0)."""
-#     nums = [1, 2, 3, 4, 5]
-#     k = 0
-#     result = sort_a_k_sorted_array(nums, k)
-#     assert result == [1, 2, 3, 4, 5]
+def test_already_sorted_array():
+    """Test when array is already sorted (k = 0)."""
+    nums = [1, 2, 3, 4, 5]
+    k = 0
+    result = sort_a_k_sorted_array(nums, k)
+    assert result == [1, 2, 3, 4, 5]

@@ -38,6 +38,14 @@ def test_basic_overlaps_identify_all_interval_overlaps():
     expected = [Interval(3, 5), Interval(12, 14), Interval(17, 18)]
 
     assert [(i.start, i.end) for i in result] == [(e.start, e.end) for e in expected]
+    
+    intervals1 = [Interval(1, 4), Interval(5, 6), Interval(9, 10)]
+    intervals2 = [Interval(2, 7), Interval(8, 9)]
+
+    result = identify_all_interval_overlaps(intervals1, intervals2)
+    expected = [Interval(2, 4), Interval(5, 6), Interval(9, 9)]
+    assert [(i.start, i.end) for i in result] == [(e.start, e.end) for e in expected]
+
 
 
 def test_no_overlap_identify_all_interval_overlaps():
@@ -47,6 +55,8 @@ def test_no_overlap_identify_all_interval_overlaps():
 
     result = identify_all_interval_overlaps(intervals1, intervals2)
     assert result == []
+    
+
     
 def test_basic_overlap():
     intervals = [

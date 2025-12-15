@@ -40,13 +40,13 @@
 | 38  | K Most Frequent Strings            |  Heaps                      | ✅    |      |      |
 | 39  | Combine Sorted Linked Lists            |  Heaps                     |POK, 一方面是忘了个class直接注入lambda的作法，dummy处理head的也不够熟练     |      |      |
 | 40  | Median of an Integer Stream            |  Heaps                      |✅ 除了heap[0]表示栈顶，其他都记得很清楚     |      |      |
-| 41  | Sort a K-sorted Array            |  Heaps                      |     |      |      |
-| 42  | Merge Overlapping Intervals            | Intervals                       |     |      |      |
-| 43  | Identify All Interval Overlaps            | Intervals                       |     |      |      |
-| 44  | Largest Overlap of Intervals            | Intervals                       |     |      |      |
-| 45  | Sum Between Range            |  Prefix Sums                      |     |      |      |
-| 46  | K-Sum Subarrays            |  Prefix Sums                       |     |      |      |
-| 47  | Product Array Without Current Element             |  Prefix Sums                       |     |      |      |
+| 41  | Sort a K-sorted Array            |  Heaps                      | ✅    |      |      |
+| 42  | Merge Overlapping Intervals            | Intervals                       | ✅    |      |      |
+| 43  | Identify All Interval Overlaps            | Intervals                       | ✅ debug后能自己想出来    |      |      |
+| 44  | Largest Overlap of Intervals            | Intervals                       | ✅    |      |      |
+| 45  | Sum Between Range            |  Prefix Sums                      | ✅    |      |      |
+| 46  | K-Sum Subarrays            |  Prefix Sums                       | NOK 12.15 运用presum + hash    |      |      |
+| 47  | Product Array Without Current Element             |  Prefix Sums                       | ✅      |      |      |
 | 48  | Invert Binary Tree            |  Trees                      |     |      |      |
 | 49  | Balanced Binary Tree Validation             | Trees                       |     |      |      |
 | 50  | Rightmost Nodes of Binary Tree            | Trees                       |     |      |      |
