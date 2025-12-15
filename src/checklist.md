@@ -72,35 +72,35 @@
 | 70  | Prerequisites            |  Graphs                      |     |      |      |
 | 71  | Shortest Path            |  Graphs                      |     |      |      |
 | 72  | Connect the Dots            |  Graphs                      |     |      |      |
-| 73  |             |                        |     |      |      |
-| 74  |             |                        |     |      |      |
-| 75  |             |                        |     |      |      |
-| 76  |             |                        |     |      |      |
-| 77  |             |                        |     |      |      |
-| 78  |             |                        |     |      |      |
-| 79  |             |                        |     |      |      |
-| 80  |             |                        |     |      |      |
-| 81  |             |                        |     |      |      |
-| 82  |             |                        |     |      |      |
-| 83  |             |                        |     |      |      |
-| 84  |             |                        |     |      |      |
-| 85  |             |                        |     |      |      |
-| 86  |             |                        |     |      |      |
-| 87  |             |                        |     |      |      |
-| 88  |             |                        |     |      |      |
-| 89  |             |                        |     |      |      |
-| 90  |             |                        |     |      |      |
-| 91  |             |                        |     |      |      |
-| 92  |             |                        |     |      |      |
-| 93  |             |                        |     |      |      |
-| 94  |             |                        |     |      |      |
-| 95  |             |                        |     |      |      |
-| 96  |             |                        |     |      |      |
-| 97  |             |                        |     |      |      |
-| 98  |             |                        |     |      |      |
-| 99  |             |                        |     |      |      |
-| 100  |             |                        |     |      |      |
-| 101  |             |                        |     |      |      |
+| 73  | Find All permutations            | Backtracking                        |     |      |      |
+| 74  | Find All Subsets            | Backtracking                       |     |      |      |
+| 75  | N Queens            | Backtracking                       |     |      |      |
+| 76  | Combinations of a Sum            | Backtracking                       |     |      |      |
+| 77  | Phone Keypad Combinations            | Backtracking                       |     |      |      |
+| 78  | Climbing Stairs            | Dynamic Programming                       |     |      |      |
+| 79  | Minumum Coin Combination            | Dynamic Programming                       |     |      |      |
+| 80  | Matrix Pathways            | Dynamic Programming                       |     |      |      |
+| 81  | Neighborhood Burglary            | Dynamic Programming                       |     |      |      |
+| 82  | Longest Common Subsequence            | Dynamic Programming                       |     |      |      |
+| 83  | Longest Palindrome in a String            | Dynamic Programming                       |     |      |      |
+| 84  | Maximum Subarray Sum            | Dynamic Programming                       |     |      |      |
+| 85  | 0/1 knapsack            | Dynamic Programming                       |     |      |      |
+| 86  | Largest Square in a Matrix            | Dynamic Programming                       |     |      |      |
+| 87  | Jump the the End            | Greedy                       |     |      |      |
+| 88  | Gas Stations            | Greedy                       |     |      |      |
+| 89  | Candies            | Greedy                       |     |      |      |
+| 90  | Sort linked List            | Sort And Search                       |     |      |      |
+| 91  | Sort Array            | Sort And Search                       |     |      |      |
+| 92  | Kth Largest Integer            | Sort And Search                       |     |      |      |
+| 93  | Dutch National Flag            | Sort And Search                       |     |      |      |
+| 94  | Hamming Weights of Integers            | Bit Manipulation                       |     |      |      |
+| 95  | Lonely Integer            | Bit Manipulation                       |     |      |      |
+| 96  | Swap Odd and Even Bits            | Bit Manipulation                       |     |      |      |
+| 97  | Spiral Traversal            | Math and Geometry                       |     |      |      |
+| 98  | Reverse 32-Bit Integer            | Math and Geometry                       |     |      |      |
+| 99  | Maximum Collinear Points            | Math and Geometry                       |     |      |      |
+| 100  | The Josephus Problem            | Math and Geometry                       |     |      |      |
+| 101  | Trangle Numbers            | Math and Geometry                       |     |      |      |
 
 ### First Round Redo:
 
