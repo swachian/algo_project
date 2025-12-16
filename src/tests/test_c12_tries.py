@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c12_tries import Trie, InsertAndSearchWordsWithWildcards, find_all_words_on_a_board
+from algo_project.c12_tries import Trie #, InsertAndSearchWordsWithWildcards, find_all_words_on_a_board
 
 
 import pytest
@@ -33,48 +33,48 @@ def test_has_prefix():
     assert trie.has_prefix("ban") == False  # "ban" is not a prefix of any word in the trie
     
     
-# Test 1: Insert and search words with wildcards
-def test_insert_search_with_wildcards():
-    trie = InsertAndSearchWordsWithWildcards()
+# # Test 1: Insert and search words with wildcards
+# def test_insert_search_with_wildcards():
+#     trie = InsertAndSearchWordsWithWildcards()
     
-    # Insert words into the trie
-    trie.insert("bad")
-    trie.insert("dad")
-    trie.insert("mad")
+#     # Insert words into the trie
+#     trie.insert("bad")
+#     trie.insert("dad")
+#     trie.insert("mad")
     
-    # Search for words
-    assert trie.search("pad") == False   # "pad" is not in the trie
-    assert trie.search("bad") == True    # "bad" is in the trie
-    assert trie.search(".ad") == True    # ".ad" matches "bad", "dad", "mad"
-    assert trie.search("b..") == True    # "b.." matches "bad"
-    assert trie.search("ma.") == True    # "ma." matches "mad"
-    assert trie.search("b.a") == False    # "b.a" matches "bad"
+#     # Search for words
+#     assert trie.search("pad") == False   # "pad" is not in the trie
+#     assert trie.search("bad") == True    # "bad" is in the trie
+#     assert trie.search(".ad") == True    # ".ad" matches "bad", "dad", "mad"
+#     assert trie.search("b..") == True    # "b.." matches "bad"
+#     assert trie.search("ma.") == True    # "ma." matches "mad"
+#     assert trie.search("b.a") == False    # "b.a" matches "bad"
 
-# Test 2: Search with multiple wildcards and edge cases
-def test_search_multiple_wildcards():
-    trie = InsertAndSearchWordsWithWildcards()
+# # Test 2: Search with multiple wildcards and edge cases
+# def test_search_multiple_wildcards():
+#     trie = InsertAndSearchWordsWithWildcards()
     
-    # Insert words into the trie
-    trie.insert("apple")
-    trie.insert("banana")
-    trie.insert("grape")
+#     # Insert words into the trie
+#     trie.insert("apple")
+#     trie.insert("banana")
+#     trie.insert("grape")
     
-    # Search for words with wildcards
-    assert trie.search("a..le") == True  # "a..le" matches "apple"
-    assert trie.search("b.n.n.") == True # "b.n.n." matches "banana"
-    assert trie.search("gr.pe") == True  # "gr.pe" matches "grape"
-    assert trie.search("..p..") == True  # "..p.." matches "apple" and "grape"
-    assert trie.search("b..n..") == False # "b..n.." doesn't match any word
-    assert trie.search("..") == False  # ".." doesn't match anything because it's too short
+#     # Search for words with wildcards
+#     assert trie.search("a..le") == True  # "a..le" matches "apple"
+#     assert trie.search("b.n.n.") == True # "b.n.n." matches "banana"
+#     assert trie.search("gr.pe") == True  # "gr.pe" matches "grape"
+#     assert trie.search("..p..") == True  # "..p.." matches "apple" and "grape"
+#     assert trie.search("b..n..") == False # "b..n.." doesn't match any word
+#     assert trie.search("..") == False  # ".." doesn't match anything because it's too short
 
 
-def test_find_words_on_board_basic():
-    board = [['b', 'y', 's'], ['r', 't', 'e'], ['a', 'i', 'n']]
-    words = ['byte', 'bytes', 'rat', 'rain', 'trait', 'train']
+# def test_find_words_on_board_basic():
+#     board = [['b', 'y', 's'], ['r', 't', 'e'], ['a', 'i', 'n']]
+#     words = ['byte', 'bytes', 'rat', 'rain', 'trait', 'train']
 
-    result = find_all_words_on_a_board(board, words)
-    # result = solver.find()
+#     result = find_all_words_on_a_board(board, words)
+#     # result = solver.find()
 
-    assert set(result) == set(['byte', 'bytes', 'rain', 'train'])
+#     assert set(result) == set(['byte', 'bytes', 'rain', 'train'])
 
     

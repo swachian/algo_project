@@ -52,14 +52,14 @@
 | 50  | Rightmost Nodes of Binary Tree            | Trees                       |  ✅    |      |      |
 | 51  | Widest Binary Tree Level            | Trees                       | ✅     |      |      |
 | 52  |Binary Search Tree Validation             | Trees                       | ✅      |      |      | 
-| 53  | Lowest Common Ancestor            | Trees                       |     |      |      |
-| 54  |  Build Binary Tree From Preorder and Inorder Traversals           | Trees                       |     |      |      |
-| 55  | Maximum Sum of a Continuous Path in a Binary Tree            | Trees                       |     |      |      |
-| 56  | Binary Tree Symmetry            | Trees                      |     |      |      |
-| 57  | Binary Tree Columns            | Trees                       |     |      |      |
-| 58  | Kth Smallest Number in a Binary Search Tree            | Trees                       |     |      |      |
-| 59  | Searialize and Deserialize a Binary Tree            | Trees                       |     |      |      |
-| 60  | Design a Trie            |  Tries                      |     |      |      |
+| 53  | Lowest Common Ancestor            | Trees                       |  ✅    |      |      |
+| 54  |  Build Binary Tree From Preorder and Inorder Traversals           | Trees                       |✅      |      |      |
+| 55  | Maximum Sum of a Continuous Path in a Binary Tree            | Trees                       | ✅     |      |      |
+| 56  | Binary Tree Symmetry            | Trees                      | ✅    |      |      |
+| 57  | Binary Tree Columns            | Trees                       | ✅    |      |      |
+| 58  | Kth Smallest Number in a Binary Search Tree            | Trees                       | ✅    |      |      |
+| 59  | Searialize and Deserialize a Binary Tree            | Trees                       |✅ 原解更推荐使用iter和next的搭配，这个global取得的效果是类似的；返回字符串之前可以先放在list里，然后再统一join返回     |      |      |
+| 60  | Design a Trie            |  Tries                      | ✅     |      |      |
 | 61  | Insert and Search Words with Wildcards            |  Tries                      |     |      |      |
 | 62  | Find All words on a Board            |  Tries                      |     |      |      |
 | 63  | Graph Deep Copy            |  Graphs                      |     |      |      |

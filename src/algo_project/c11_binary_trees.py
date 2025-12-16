@@ -101,4 +101,167 @@ def dfs_binary_search_tree_validation(root, low_bound, upper_bound):
     else:
         return False
     
+def lowest_common_ancestor(root, p, q):
+    global res
+    res = None
+    dfs_lowest_common_ancestor(root, p, q)
+    return res
 
+def dfs_lowest_common_ancestor(node, p, q):
+    global res
+    
+    if not node:
+        return 0
+    p_or_q_is_node = 1 if node == p or node == q else 0
+    p_or_q_is_left = dfs_lowest_common_ancestor(node.left, p, q)
+    p_or_q_is_right = dfs_lowest_common_ancestor(node.right, p, q)
+    if p_or_q_is_right + p_or_q_is_left + p_or_q_is_node == 2 and not res:
+        res = node
+
+    return p_or_q_is_right + p_or_q_is_left + p_or_q_is_node
+        
+    
+def build_binary_tree(preorder, inorder):
+    global preorder_index
+    preorder_index = 0
+    pos_map = {}
+    for i, num in enumerate(inorder):
+        pos_map[num] = i
+    root = dfs_build_binary_tree(preorder, inorder, 0, len(inorder) - 1, pos_map)
+    return root
+        
+
+def dfs_build_binary_tree(preorder, inorder, left, right, pos_map):
+    global preorder_index
+    if left > right or preorder_index >= len(preorder):
+        return None
+    c = preorder[preorder_index]
+    node = TreeNode(c)
+    preorder_index += 1
+    pov = pos_map[c]
+    node.left = dfs_build_binary_tree(preorder, inorder, left, pov - 1, pos_map)
+    node.right = dfs_build_binary_tree(preorder, inorder, pov + 1, right, pos_map)
+    
+    return node
+
+def max_path_sum(root):
+    global max_path
+    max_path = root.val
+    dfs_max_path_sum(root)
+    return max_path
+
+def dfs_max_path_sum(node):
+    global max_path
+    if not node:
+        return 0
+    
+    left_depth = max(0, dfs_max_path_sum(node.left))
+    right_depth = max(0, dfs_max_path_sum(node.right))
+    max_path = max(max_path, left_depth + node.val + right_depth)
+    return max(left_depth, right_depth) + node.val
+
+def binary_tree_symmetry(root):
+    if not root:
+        return True
+    return dfs_binary_tree_symmetry(root.left, root.right)
+
+def dfs_binary_tree_symmetry(left, right):
+    if not left and not right:
+        return True
+    if not left and right:
+        return False
+    if left and not right:
+        return False
+    if left.val != right.val:
+        return False
+    return dfs_binary_tree_symmetry(left.left, right.right) and dfs_binary_tree_symmetry(left.right, right.left) 
+
+from collections import defaultdict, deque
+
+def binary_tree_columns(root):
+    queue = deque()
+    if not root:
+        return []
+    
+    res = defaultdict(list)    
+    queue.append((root, 0))
+    i = j = 0
+    while queue:
+        node, index = queue.popleft()
+        res[index].append(node.val)
+        i = min(i, index)
+        j = max(j, index)
+        if node.left:
+            queue.append((node.left, index - 1))
+        if node.right:
+            queue.append((node.right, index + 1))
+    
+    return [res[k] for k in range(i, j + 1)]
+
+def kth_smallest_number_in_BST(root, k):
+    return kth_smallest_number_in_BST_stack_version(root, k)
+    # res = []
+    # dfs_kth_smallest_number_in_BST(root, res)
+    # return res[k - 1]
+
+def dfs_kth_smallest_number_in_BST(node, res):
+    if not node:
+        return
+    
+    dfs_kth_smallest_number_in_BST(node.left, res)
+    res.append(node.val)
+    dfs_kth_smallest_number_in_BST(node.right, res)
+    
+def kth_smallest_number_in_BST_stack_version(root, k):
+    if not root:
+        return None
+    
+    stack = []
+    node = root
+    
+    while stack or node:
+        while node:
+            stack.append(node)
+            node = node.left
+        node = stack.pop()
+        k -= 1
+        if k == 0:
+            return node.val
+        node = node.right
+    return None
+    
+END = "None"
+
+def serialize(root):
+    global res
+    res = []
+    dfs_serialize(root)
+    return ','.join([str(ele) for ele in res])
+
+def dfs_serialize(node):
+    global res
+    if not node:
+        res.append(END) 
+        return
+    res.append(node.val)
+    dfs_serialize(node.left) 
+    dfs_serialize(node.right) 
+
+
+def deserialize(data):
+    global index
+    index = 0
+    lists = data.split(",")
+    return dfs_deserialize(lists)
+
+def dfs_deserialize(data):
+    global index
+    if index >= len(data) or data[index] == END:
+        index += 1
+        return None
+    node = TreeNode(int(data[index]))
+    index += 1
+    node.left = dfs_deserialize(data)
+    node.right = dfs_deserialize(data)
+    return node
+    
