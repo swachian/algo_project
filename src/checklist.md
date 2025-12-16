@@ -104,5 +104,5 @@
 
 ### First Round Redo:
 
-40: 7 POK, 9 NOK, 24 OK
+40: 7 POK, 9 NOK, 24 OK  
 60: 7 POK, 10 NOK, 43 OK
