@@ -49,9 +49,9 @@
 | 47  | Product Array Without Current Element             |  Prefix Sums                       | ✅      |      |      |
 | 48  | Invert Binary Tree            |  Trees                      | ✅      |      |      |
 | 49  | Balanced Binary Tree Validation             | Trees                       | ✅      |      |      |
-| 50  | Rightmost Nodes of Binary Tree            | Trees                       |     |      |      |
-| 51  | Widest Binary Tree Level            | Trees                       |     |      |      |
-| 52  |Binary Search Tree Validation             | Trees                       |     |      |      |
+| 50  | Rightmost Nodes of Binary Tree            | Trees                       |  ✅    |      |      |
+| 51  | Widest Binary Tree Level            | Trees                       | ✅     |      |      |
+| 52  |Binary Search Tree Validation             | Trees                       | ✅      |      |      | 
 | 53  | Lowest Common Ancestor            | Trees                       |     |      |      |
 | 54  |  Build Binary Tree From Preorder and Inorder Traversals           | Trees                       |     |      |      |
 | 55  | Maximum Sum of a Continuous Path in a Binary Tree            | Trees                       |     |      |      |
