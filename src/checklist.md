@@ -60,9 +60,9 @@
 | 58  | Kth Smallest Number in a Binary Search Tree            | Trees                       | ✅    |      |      |
 | 59  | Searialize and Deserialize a Binary Tree            | Trees                       |✅ 原解更推荐使用iter和next的搭配，这个global取得的效果是类似的；返回字符串之前可以先放在list里，然后再统一join返回     |      |      |
 | 60  | Design a Trie            |  Tries                      | ✅     |      |      |
-| 61  | Insert and Search Words with Wildcards            |  Tries                      |     |      |      |
-| 62  | Find All words on a Board            |  Tries                      |     |      |      |
-| 63  | Graph Deep Copy            |  Graphs                      |     |      |      |
+| 61  | Insert and Search Words with Wildcards            |  Tries                      | ✅       |      |      |
+| 62  | Find All words on a Board            |  Tries                      |✅  注意把tries归位，以及不要找到一个就return了    |      |      |
+| 63  | Graph Deep Copy            |  Graphs                      | ✅     |      |      |
 | 64  | Cound Islands            |  Graphs                      |     |      |      |
 | 65  | Matrix Infection           |  Graphs                      |     |      |      |
 | 66  | Bipartite Graph Validation            |  Graphs                      |     |      |      |
