@@ -68,9 +68,9 @@
 | 66  | Bipartite Graph Validation            |  Graphs                      |  ✅    |      |      |
 | 67  | Longest Increasing Path            |  Graphs                      |  ✅    |      |      |
 | 68  | Shortest Transformation Sequence            |  Graphs                      | POK 12.17 一些访问和计数的细节掌握的不好    |      |      |
-| 69  | Merging Communities            |  Graphs                      |     |      |      |
-| 70  | Prerequisites            |  Graphs                      |     |      |      |
-| 71  | Shortest Path            |  Graphs                      |     |      |      |
+| 69  | Merging Communities            |  Graphs                      | POK 12.17 find递归查找有点记不清了   |      |      |
+| 70  | Prerequisites            |  Graphs                      | ✅     |      |      |
+| 71  | Shortest Path            |  Graphs                      | NOK 12.17 放进heap里面的distance是总的距离，不是单个点对点的weight    |      |      |
 | 72  | Connect the Dots            |  Graphs                      |     |      |      |
 | 73  | Find All permutations            | Backtracking                        |     |      |      |
 | 74  | Find All Subsets            | Backtracking                       |     |      |      |
