@@ -63,11 +63,11 @@
 | 61  | Insert and Search Words with Wildcards            |  Tries                      | ✅       |      |      |
 | 62  | Find All words on a Board            |  Tries                      |✅  注意把tries归位，以及不要找到一个就return了    |      |      |
 | 63  | Graph Deep Copy            |  Graphs                      | ✅     |      |      |
-| 64  | Cound Islands            |  Graphs                      |     |      |      |
-| 65  | Matrix Infection           |  Graphs                      |     |      |      |
-| 66  | Bipartite Graph Validation            |  Graphs                      |     |      |      |
-| 67  | Longest Increasing Path            |  Graphs                      |     |      |      |
-| 68  | Shortest Transformation Sequence            |  Graphs                      |     |      |      |
+| 64  | Cound Islands            |  Graphs                      |  ✅    |      |      |
+| 65  | Matrix Infection           |  Graphs                      |   ✅   |      |      |
+| 66  | Bipartite Graph Validation            |  Graphs                      |  ✅    |      |      |
+| 67  | Longest Increasing Path            |  Graphs                      |  ✅    |      |      |
+| 68  | Shortest Transformation Sequence            |  Graphs                      | POK 12.17 一些访问和计数的细节掌握的不好    |      |      |
 | 69  | Merging Communities            |  Graphs                      |     |      |      |
 | 70  | Prerequisites            |  Graphs                      |     |      |      |
 | 71  | Shortest Path            |  Graphs                      |     |      |      |

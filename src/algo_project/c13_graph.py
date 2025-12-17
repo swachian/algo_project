@@ -18,3 +18,96 @@ def dfs_graph_deep_copy(node, memo = {}):
     for neighbor in node.neighbors:
         new_node.neighbors.append(dfs_graph_deep_copy(neighbor, memo))
     return new_node
+
+def count_islands(matrix):
+    count = 0
+    if not matrix or not matrix[0]:
+        return count
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            if matrix[i][j] == 1:
+                dfs_count_islands(matrix, i, j)
+                count += 1
+    return count
+    
+def dfs_count_islands(matrix, i, j):
+    matrix[i][j] = 0
+    dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+    for dir in dirs:
+        new_i, new_j = i + dir[0], j + dir[1]
+        if is_in_bound(new_i, new_j, len(matrix), len(matrix[0])) and matrix[new_i][new_j] == 1:
+            dfs_count_islands(matrix, new_i, new_j)
+
+from collections import deque
+
+def matrix_infection(matrix):
+    if not matrix or not matrix[0]:
+        return 0
+    
+    queue = deque()
+    uninfected_count = 0
+    
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            if matrix[i][j] == 1:
+                uninfected_count += 1
+            if matrix[i][j] == 2:
+                queue.append((i, j))
+    
+    dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+    seconds = 0
+    while queue and uninfected_count > 0:
+        seconds += 1
+        level_size = len(queue)
+        for _ in range(level_size):
+            i, j = queue.popleft()
+            for dir in dirs:
+                new_i, new_j = i + dir[0], j + dir[1]
+                if is_in_bound(new_i, new_j, len(matrix), len(matrix[0])) and matrix[new_i][new_j] == 1:
+                    uninfected_count -= 1
+                    matrix[new_i][new_j] = 2
+                    queue.append((new_i, new_j))
+    return seconds if uninfected_count == 0 else -1
+ 
+def bipartite_graph_validation(graph):
+    n = len(graph)
+    colors = [0] * n
+    for i in range(n):
+        if colors[i] == 0 and not dfs_biparite_graph_validation(graph, i, 1, colors): 
+            return False
+    return True
+    
+def dfs_biparite_graph_validation(graph, i, color, colors):
+    colors[i] = color
+    for neighbor in graph[i]:
+        if colors[neighbor] == color:
+            return False
+        if colors[neighbor] == 0 and not dfs_biparite_graph_validation(graph, neighbor, -color, colors):
+            return False
+    return True
+            
+def longest_increasing_path(matrix):
+    global max_count
+    if not matrix or not matrix[0]:
+        return 0
+    max_count = 0
+    memo = {}
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            max_count = max(max_count, dfs_longest_increasing_path(matrix, i, j, memo))
+    return max_count
+                       
+def dfs_longest_increasing_path(matrix, i, j, memo = {}):
+    if (i, j) in memo:
+        return memo[(i, j)]
+    dirs = [[0, 1], [0, -1], [-1, 0], [1, 0]]
+    count = 1
+    for dir in dirs:
+        new_i, new_j = i + dir[0], j + dir[1]
+        if is_in_bound(new_i, new_j, len(matrix), len(matrix[0])) and  matrix[new_i][new_j] > matrix[i][j]:
+            count = max(count, 1 + dfs_longest_increasing_path(matrix, new_i, new_j, memo))
+    memo[(i, j)] = count
+    return count
+                
+def is_in_bound(i, j, m, n):
+    return 0 <= i < m and 0 <= j < n
