@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c13_graph2 import shortest_transformation_sequence, MergingCommunities, prerequisites, shortest_path #, connect_the_dots
+from algo_project.c13_graph2 import shortest_transformation_sequence, MergingCommunities, prerequisites, shortest_path, connect_the_dots
 
 def test_shortest_transformation_sequence_exists():
     start = "hit"
@@ -103,16 +103,16 @@ def test_shortest_path_unreachable():
     
     assert result == expected
     
-# def test_connect_the_dots_single_point():
-#     """Test case with single point"""
-#     points = [[0, 0]]
-#     result = connect_the_dots(points)
-#     expected = 0
-#     assert result == expected
+def test_connect_the_dots_single_point():
+    """Test case with single point"""
+    points = [[0, 0]]
+    result = connect_the_dots(points)
+    expected = 0
+    assert result == expected
 
-# def test_connect_the_dots_two_points():
-#     """Test case with two points"""
-#     points = [[0, 0], [1, 1]]
-#     result = connect_the_dots(points)
-#     expected = 2  # |0-1| + |0-1| = 1 + 1 = 2
-#     assert result == expected
+def test_connect_the_dots_two_points():
+    """Test case with two points"""
+    points = [[0, 0], [1, 1]]
+    result = connect_the_dots(points)
+    expected = 2  # |0-1| + |0-1| = 1 + 1 = 2
+    assert result == expected

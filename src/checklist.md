@@ -71,11 +71,11 @@
 | 69  | Merging Communities            |  Graphs                      | POK 12.17 find递归查找有点记不清了   |      |      |
 | 70  | Prerequisites            |  Graphs                      | ✅     |      |      |
 | 71  | Shortest Path            |  Graphs                      | NOK 12.17 放进heap里面的distance是总的距离，不是单个点对点的weight    |      |      |
-| 72  | Connect the Dots            |  Graphs                      |     |      |      |
-| 73  | Find All permutations            | Backtracking                        |     |      |      |
-| 74  | Find All Subsets            | Backtracking                       |     |      |      |
-| 75  | N Queens            | Backtracking                       |     |      |      |
-| 76  | Combinations of a Sum            | Backtracking                       |     |      |      |
+| 72  | Connect the Dots            |  Graphs                      | ✅     |      |      |
+| 73  | Find All permutations            | Backtracking                        |✅      |      |      |
+| 74  | Find All Subsets            | Backtracking                       | ✅     |      |      |
+| 75  | N Queens            | Backtracking                       | ✅ Permutation和Combination都需要去除（回溯）后，但P回溯后不需要直接在循环里二次调用，而Combination是在循环里回溯后继续调用，从这一点上而言，N皇后是一个排列而不是组合    |      |      |
+| 76  | Combinations of a Sum            | Backtracking                       | ✅     |      |      |
 | 77  | Phone Keypad Combinations            | Backtracking                       |     |      |      |
 | 78  | Climbing Stairs            | Dynamic Programming                       |     |      |      |
 | 79  | Minumum Coin Combination            | Dynamic Programming                       |     |      |      |

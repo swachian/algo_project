@@ -118,7 +118,51 @@ def shortest_path(n, edges, start):
 
     return [ele if ele != float("inf") else -1 for ele in res]
             
+   
+import heapq 
+def connect_the_dots(points):
+    if not points:
+        return 0
+    edges = []
+    for i in range(len(points)):
+        for j in range(len(points)):
+            weight = abs(points[i][0] - points[j][0]) + abs(points[i][1] - points[j][1])
+            heapq.heappush(edges, (weight, i, j))
     
+    ufd = UnionFindDot(len(points))
+    res = 0
+    while edges and ufd.get_sizes(0) < len(points):
+        weight, x, y = heapq.heappop(edges)
+        if ufd.connect(x, y):
+            res += weight
+            
+    return res
+
+class UnionFindDot:
+    def __init__(self, n):
+        self.parent = [i for i in range(n)]
+        self.sizes = [1] * n
+        
+    def connect(self, x, y):
+        rep_x, rep_y = self.find(x), self.find(y)
+        if rep_x == rep_y:
+            return False
+        else:
+            if self.sizes[rep_x] >= self.sizes[rep_y]:
+                self.parent[rep_y] = rep_x
+                self.sizes[rep_x] += self.sizes[rep_y]
+            else:
+                self.parent[rep_x] = rep_y
+                self.sizes[rep_y] = self.sizes[rep_x]
+            return True
     
+    def find(self, x):
+        if self.parent[x] == x:
+            return self.parent[x]
+        self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+    
+    def get_sizes(self, x):
+        return self.sizes[x]
     
         

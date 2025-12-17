@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c14_backtracking import find_all_permutations, find_all_subsets, n_queens, combinations_of_sum_k, phone_keypad_combinations
+from algo_project.c14_backtracking import find_all_permutations, find_all_subsets, n_queens, combinations_of_sum_k# , phone_keypad_combinations
 
 def test_find_all_permutations_empty_array():
     """Test that empty array returns list with empty permutation"""
@@ -80,10 +80,9 @@ def test_find_all_subsets_three_elements():
     # Verify no duplicates in result
     assert len(result) == len(set(tuple(sorted(subset)) for subset in result))
     
-import pytest
 
-# Assuming the function is imported from your module
-# from your_module import n_queens
+# # Assuming the function is imported from your module
+# # from your_module import n_queens
 
 def test_n_queens_small_boards():
     """Test n_queens with small board sizes where solutions are known"""
@@ -122,8 +121,6 @@ def test_n_queens_known_sequence():
         assert result == expected, f"Failed for n={n}: expected {expected}, got {result}"
         
         
-import pytest
-
 # Test 1: basic case with multiple valid combinations
 def test_combinations_basic():
     # nums contains small values that can be reused infinitely
@@ -154,31 +151,31 @@ def test_combinations_with_duplicates_and_no_solution():
     # Expect empty result
     assert result == expected
 
-# Test 1: basic multi-digit input
-def test_phone_keypad_basic():
-    # Digit mapping: 2 -> abc, 3 -> def
-    digits = "23"
-    # All valid combinations in lexicographical order
-    expected = [
-        "ad", "ae", "af",
-        "bd", "be", "bf",
-        "cd", "ce", "cf"
-    ]
+# # Test 1: basic multi-digit input
+# def test_phone_keypad_basic():
+#     # Digit mapping: 2 -> abc, 3 -> def
+#     digits = "23"
+#     # All valid combinations in lexicographical order
+#     expected = [
+#         "ad", "ae", "af",
+#         "bd", "be", "bf",
+#         "cd", "ce", "cf"
+#     ]
 
-    result = phone_keypad_combinations(digits)
+#     result = phone_keypad_combinations(digits)
 
-    # Compare as sets to ignore ordering differences
-    assert set(result) == set(expected)
-    # Ensure correct total count
-    assert len(result) == 9
+#     # Compare as sets to ignore ordering differences
+#     assert set(result) == set(expected)
+#     # Ensure correct total count
+#     assert len(result) == 9
 
 
-# Test 2: empty input should return an empty list
-def test_phone_keypad_empty():
-    digits = ""
-    expected = []
+# # Test 2: empty input should return an empty list
+# def test_phone_keypad_empty():
+#     digits = ""
+#     expected = []
 
-    result = phone_keypad_combinations(digits)
+#     result = phone_keypad_combinations(digits)
 
-    # Empty string produces no combinations
-    assert result == expected
+#     # Empty string produces no combinations
+#     assert result == expected
