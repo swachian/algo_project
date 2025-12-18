@@ -86,8 +86,8 @@
 | 84  | Maximum Subarray Sum            | Dynamic Programming                       | POK 12.18 记得大概但忘了最后是取dp里面的最大值    |      |      |
 | 85  | 0/1 knapsack            | Dynamic Programming                       | ✅ 非常NB    |      |      |
 | 86  | Largest Square in a Matrix            | Dynamic Programming                       | ✅     |      |      |
-| 87  | Jump the the End            | Greedy                       |     |      |      |
-| 88  | Gas Stations            | Greedy                       |     |      |      |
+| 87  | Jump the the End            | Greedy                       | NOK 12.18 每次只找满足条件的上一个目的地，不满足的会循环跳过。dp也能用于解决此问题  |      |      |
+| 88  | Gas Stations            | Greedy                       | ✅     |      |      |
 | 89  | Candies            | Greedy                       |     |      |      |
 | 90  | Sort linked List            | Sort And Search                       |     |      |      |
 | 91  | Sort Array            | Sort And Search                       |     |      |      |

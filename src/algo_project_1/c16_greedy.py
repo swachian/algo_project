@@ -3,7 +3,7 @@ def jump_to_the_end(nums):
     # recurrence solution: dp[i] = num + i
     
     # algorithm in the book
-    # 从最右面开始，每次只找到最低的满足可以跳过来的destination,并设置为新的destination
+    # 从最右面开始，每次只找到最低的满足可以跳过来的destination,并设置为新的destination, 不满足的会被循环跳过
     # 结果判断destination是否可达起点0
     destination = len(nums) - 1
     for i in range(destination, -1, -1):

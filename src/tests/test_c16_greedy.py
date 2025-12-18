@@ -1,5 +1,5 @@
 import pytest
-from algo_project.c16_greedy import jump_to_the_end, gas_stations, candies
+from algo_project.c16_greedy import jump_to_the_end, gas_stations #, candies
 
 
 import pytest
@@ -18,8 +18,6 @@ def test_jump_to_the_end_unreachable():
     # Explanation: stuck at index 3 (value=0)
     expected = False
     assert jump_to_the_end(nums) == expected
-
-import pytest
 
 # Test 1: typical valid case
 def test_gas_stations_valid():
@@ -44,15 +42,15 @@ def test_gas_stations_impossible():
     expected = -1
     assert gas_stations(gas, cost) == expected
 
-def test_candies_strictly_increasing():
-    # Ratings strictly increasing
-    # Expected candy distribution: 1, 2, 3 → total = 6
-    ratings = [1, 2, 3]
-    assert candies(ratings) == 6
+# def test_candies_strictly_increasing():
+#     # Ratings strictly increasing
+#     # Expected candy distribution: 1, 2, 3 → total = 6
+#     ratings = [1, 2, 3]
+#     assert candies(ratings) == 6
 
 
-def test_candies_peak_and_valley():
-    # Mixed ratings with a peak and a valley
-    # Expected candy distribution: 1, 2, 3, 4, 1 → total = 11
-    ratings = [1, 3, 4, 5, 2]
-    assert candies(ratings) == 11
+# def test_candies_peak_and_valley():
+#     # Mixed ratings with a peak and a valley
+#     # Expected candy distribution: 1, 2, 3, 4, 1 → total = 11
+#     ratings = [1, 3, 4, 5, 2]
+#     assert candies(ratings) == 11
