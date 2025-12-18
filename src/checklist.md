@@ -80,12 +80,12 @@
 | 78  | Climbing Stairs            | Dynamic Programming                       | ✅     |      |      |
 | 79  | Minumum Coin Combination            | Dynamic Programming                       | ✅     |      |      |
 | 80  | Matrix Pathways            | Dynamic Programming                       | ✅ 特例只使用两个row的情况还需要练习     |      |      |
-| 81  | Neighborhood Burglary            | Dynamic Programming                       |     |      |      |
-| 82  | Longest Common Subsequence            | Dynamic Programming                       |     |      |      |
-| 83  | Longest Palindrome in a String            | Dynamic Programming                       |     |      |      |
-| 84  | Maximum Subarray Sum            | Dynamic Programming                       |     |      |      |
-| 85  | 0/1 knapsack            | Dynamic Programming                       |     |      |      |
-| 86  | Largest Square in a Matrix            | Dynamic Programming                       |     |      |      |
+| 81  | Neighborhood Burglary            | Dynamic Programming                       | ✅    |      |      |
+| 82  | Longest Common Subsequence            | Dynamic Programming                       |✅     |      |      |
+| 83  | Longest Palindrome in a String            | Dynamic Programming                       | ✅ 在根据substring的长度循环时，需要注意n - sublen == 0时其实还是需要遍历的，因此range里面要+1    |      |      |
+| 84  | Maximum Subarray Sum            | Dynamic Programming                       | POK 12.18 记得大概但忘了最后是取dp里面的最大值    |      |      |
+| 85  | 0/1 knapsack            | Dynamic Programming                       | ✅ 非常NB    |      |      |
+| 86  | Largest Square in a Matrix            | Dynamic Programming                       | ✅     |      |      |
 | 87  | Jump the the End            | Greedy                       |     |      |      |
 | 88  | Gas Stations            | Greedy                       |     |      |      |
 | 89  | Candies            | Greedy                       |     |      |      |
