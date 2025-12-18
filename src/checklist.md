@@ -76,10 +76,10 @@
 | 74  | Find All Subsets            | Backtracking                       | ✅     |      |      |
 | 75  | N Queens            | Backtracking                       | ✅ Permutation和Combination都需要去除（回溯）后，但P回溯后不需要直接在循环里二次调用，而Combination是在循环里回溯后继续调用，从这一点上而言，N皇后是一个排列而不是组合    |      |      |
 | 76  | Combinations of a Sum            | Backtracking                       | ✅     |      |      |
-| 77  | Phone Keypad Combinations            | Backtracking                       |     |      |      |
-| 78  | Climbing Stairs            | Dynamic Programming                       |     |      |      |
-| 79  | Minumum Coin Combination            | Dynamic Programming                       |     |      |      |
-| 80  | Matrix Pathways            | Dynamic Programming                       |     |      |      |
+| 77  | Phone Keypad Combinations            | Backtracking                       | ✅     |      |      |
+| 78  | Climbing Stairs            | Dynamic Programming                       | ✅     |      |      |
+| 79  | Minumum Coin Combination            | Dynamic Programming                       | ✅     |      |      |
+| 80  | Matrix Pathways            | Dynamic Programming                       | ✅ 特例只使用两个row的情况还需要练习     |      |      |
 | 81  | Neighborhood Burglary            | Dynamic Programming                       |     |      |      |
 | 82  | Longest Common Subsequence            | Dynamic Programming                       |     |      |      |
 | 83  | Longest Palindrome in a String            | Dynamic Programming                       |     |      |      |
@@ -105,4 +105,5 @@
 ### First Round Redo:
 
 40: 7 POK, 9 NOK, 24 OK  
-60: 7 POK, 10 NOK, 43 OK
+60: 7 POK, 10 NOK, 43 OK  
+80: 9 POK, 11 NOK, 60 OK  

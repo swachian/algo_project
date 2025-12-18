@@ -83,3 +83,19 @@ def backtracking_combinations_of_sum_k(nums, i, target, candidates = [], res = [
         
         candidates.pop()
         # backtracking_combinations_of_sum_k(nums, j, target, candidates, res)
+
+def phone_keypad_combinations(digits):
+    digital_alpha_map = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}
+    res = []
+    backtracking_phone_keypad_combinations(digital_alpha_map, digits, 0, [], res)
+    return res
+
+def backtracking_phone_keypad_combinations(da_map, digits, i, candidates = [], res = []):
+    if i == len(digits):
+        res.append(''.join(candidates)) 
+        return 
+    for c in da_map[digits[i]]:
+        candidates.append(c)
+        backtracking_phone_keypad_combinations(da_map, digits, i + 1, candidates, res)
+
+        candidates.pop()
