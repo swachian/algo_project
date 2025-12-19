@@ -88,11 +88,11 @@
 | 86  | Largest Square in a Matrix            | Dynamic Programming                       | ✅     |      |      |
 | 87  | Jump the the End            | Greedy                       | NOK 12.18 每次只找满足条件的上一个目的地，不满足的会循环跳过。dp也能用于解决此问题  |      |      |
 | 88  | Gas Stations            | Greedy                       | ✅     |      |      |
-| 89  | Candies            | Greedy                       |     |      |      |
-| 90  | Sort linked List            | Sort And Search                       |     |      |      |
-| 91  | Sort Array            | Sort And Search                       |     |      |      |
-| 92  | Kth Largest Integer            | Sort And Search                       |     |      |      |
-| 93  | Dutch National Flag            | Sort And Search                       |     |      |      |
+| 89  | Candies            | Greedy                       |  ✅      |      |      |
+| 90  | Sort linked List            | Sort And Search                       |  ✅      |  while fast.next and fast.next.next是用于让slow指向左中点，而fast and fast.next则会让slow指向右中点    |      |
+| 91  | Sort Array            | Sort And Search                       | ✅  quick sort NB, merge sort不太熟悉了，quick sort只有一个split两个递归，merge除了一个split两个递归，最后还有一个merge    |      |      |
+| 92  | Kth Largest Integer            | Sort And Search                       |  ✅    |      |      |
+| 93  | Dutch National Flag            | Sort And Search                       | ✅ 原著使用的交换方法也值得学习，可得交换算法精髓    |      |      |
 | 94  | Hamming Weights of Integers            | Bit Manipulation                       |     |      |      |
 | 95  | Lonely Integer            | Bit Manipulation                       |     |      |      |
 | 96  | Swap Odd and Even Bits            | Bit Manipulation                       |     |      |      |
