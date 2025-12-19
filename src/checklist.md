@@ -94,8 +94,8 @@
 | 92  | Kth Largest Integer            | Sort And Search                       |  ✅    |      |      |
 | 93  | Dutch National Flag            | Sort And Search                       | ✅ 原著使用的交换方法也值得学习，可得交换算法精髓    |      |      |
 | 94  | Hamming Weights of Integers            | Bit Manipulation                       |  ✅    |      |      |
-| 95  | Lonely Integer            | Bit Manipulation                       |     |      | ✅      |
-| 96  | Swap Odd and Even Bits            | Bit Manipulation                       |     |  ✅     |      |
+| 95  | Lonely Integer            | Bit Manipulation                       | ✅     |      |      |
+| 96  | Swap Odd and Even Bits            | Bit Manipulation                       | ✅    |       |      |
 | 97  | Spiral Traversal            | Math and Geometry                       |     |      | POK 12.19 第三第四个循环的if条件还掌握的不熟     |
 | 98  | Reverse 32-Bit Integer            | Math and Geometry                       | POK math.fmod(n, 10) 未掌握，这个余数的符号与被除数一致，如果要运用%求负数的模，可以把 a % b 里面的b的符号进行修改    |      |      |
 | 99  | Maximum Collinear Points            | Math and Geometry                       | POK 掌握的还不错，但遗漏了关键的map或者说分割是要按focus为前置的键的 |      |      |
@@ -107,3 +107,5 @@
 40: 7 POK, 9 NOK, 24 OK  
 60: 7 POK, 10 NOK, 43 OK  
 80: 9 POK, 11 NOK, 60 OK  
+101: 10 POK, 16 NOK, 75 OK  
+
