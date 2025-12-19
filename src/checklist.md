@@ -107,5 +107,7 @@
 40: 7 POK, 9 NOK, 24 OK  
 60: 7 POK, 10 NOK, 43 OK  
 80: 9 POK, 11 NOK, 60 OK  
-101: 10 POK, 16 NOK, 75 OK  
+101: 13 POK, 13 NOK, 75 OK  
 
+In the first round, it took me about 193 tomatos to complete all the practice.  
+In the second round, it only took me about one-third of the time in the first round.   
