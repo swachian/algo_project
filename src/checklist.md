@@ -97,10 +97,10 @@
 | 95  | Lonely Integer            | Bit Manipulation                       |     |      | ✅      |
 | 96  | Swap Odd and Even Bits            | Bit Manipulation                       |     |  ✅     |      |
 | 97  | Spiral Traversal            | Math and Geometry                       |     |      | POK 12.19 第三第四个循环的if条件还掌握的不熟     |
-| 98  | Reverse 32-Bit Integer            | Math and Geometry                       |     |      |      |
-| 99  | Maximum Collinear Points            | Math and Geometry                       |     |      |      |
-| 100  | The Josephus Problem            | Math and Geometry                       |     |      |      |
-| 101  | Trangle Numbers            | Math and Geometry                       |     |      |      |
+| 98  | Reverse 32-Bit Integer            | Math and Geometry                       | POK math.fmod(n, 10) 未掌握，这个余数的符号与被除数一致，如果要运用%求负数的模，可以把 a % b 里面的b的符号进行修改    |      |      |
+| 99  | Maximum Collinear Points            | Math and Geometry                       | POK 掌握的还不错，但遗漏了关键的map或者说分割是要按focus为前置的键的 |      |      |
+| 100  | The Josephus Problem            | Math and Geometry                       | NOK    |      |      |
+| 101  | Trangle Numbers            | Math and Geometry                       | ✅      |      |      |
 
 ### First Round Redo:
 
