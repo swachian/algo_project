@@ -20,7 +20,6 @@ def test_hamming_weights_zero():
     assert hamming_weights_of_integers(0) == [0]
 
 
-import pytest
 
 def test_lonely_integer_basic():
     # Basic case: the number 4 appears only once
