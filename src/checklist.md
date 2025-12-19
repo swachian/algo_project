@@ -93,10 +93,10 @@
 | 91  | Sort Array            | Sort And Search                       | ✅  quick sort NB, merge sort不太熟悉了，quick sort只有一个split两个递归，merge除了一个split两个递归，最后还有一个merge    |      |      |
 | 92  | Kth Largest Integer            | Sort And Search                       |  ✅    |      |      |
 | 93  | Dutch National Flag            | Sort And Search                       | ✅ 原著使用的交换方法也值得学习，可得交换算法精髓    |      |      |
-| 94  | Hamming Weights of Integers            | Bit Manipulation                       |     |      |      |
-| 95  | Lonely Integer            | Bit Manipulation                       |     |      |      |
-| 96  | Swap Odd and Even Bits            | Bit Manipulation                       |     |      |      |
-| 97  | Spiral Traversal            | Math and Geometry                       |     |      |      |
+| 94  | Hamming Weights of Integers            | Bit Manipulation                       |  ✅    |      |      |
+| 95  | Lonely Integer            | Bit Manipulation                       |     |      | ✅      |
+| 96  | Swap Odd and Even Bits            | Bit Manipulation                       |     |  ✅     |      |
+| 97  | Spiral Traversal            | Math and Geometry                       |     |      | POK 12.19 第三第四个循环的if条件还掌握的不熟     |
 | 98  | Reverse 32-Bit Integer            | Math and Geometry                       |     |      |      |
 | 99  | Maximum Collinear Points            | Math and Geometry                       |     |      |      |
 | 100  | The Josephus Problem            | Math and Geometry                       |     |      |      |
