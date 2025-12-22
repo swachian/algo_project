@@ -32,42 +32,43 @@ def verify_sudoku_board(board):
     return True
 
 def zero_striping(matrix):
-    if not matrix or not matrix[0]:
-        return
-    m = len(matrix)
-    n = len(matrix[0])
-    
     first_row_has_zero = False
     first_col_has_zero = False
-    for j in range(n):
-        if matrix[0][j] == 0:
-            first_row_has_zero = True
-            break
     
+    if not matrix or not matrix[0]:
+        return 
+    m, n = len(matrix), len(matrix[0])
     for i in range(m):
         if matrix[i][0] == 0:
             first_col_has_zero = True
-            break
-        
-    for i in range(1, m):
-        for j in range(1, n):
+    for j in range(n):
+        if matrix[0][j] == 0:
+            first_row_has_zero = True
+            
+    for i in range(m):
+        for j in range(n):
             if matrix[i][j] == 0:
-                matrix[0][j] = 0
                 matrix[i][0] = 0
+                matrix[0][j] = 0
     
     for i in range(1, m):
-        for j in range(1, n):
-            if matrix[0][j] == 0 or matrix[i][0] == 0:
+        if matrix[i][0] == 0:
+            for j in range(1, n):
                 matrix[i][j] = 0
+                
+    for j in range(1, n):
+        if matrix[0][j] == 0:
+            for i in range(1, m):
+                matrix[i][j] = 0    
         
-    if first_row_has_zero:
-        for j in range(n):
-            matrix[0][j] = 0
-            
     if first_col_has_zero:
         for i in range(m):
             matrix[i][0] = 0
+    if first_row_has_zero:
+        for j in range(n):
+            matrix[0][j] = 0
     return matrix
+    
 
 def longest_chain_of_consecutive_numbers(nums):
     nums_set = set(nums)

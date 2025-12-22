@@ -68,12 +68,11 @@ def largest_container(heights):
     return largest
 
 def shift_zeros_to_the_end(nums):
-    left = 0
-    
-    for right in range(len(nums)):
-        if nums[right] != 0:
-            nums[left], nums[right] = nums[right], nums[left]
-            left += 1
+    non_zero_first = 0
+    for i in range(len(nums)):
+        if nums[i] != 0:
+            nums[non_zero_first], nums[i] = nums[i], nums[non_zero_first]
+            non_zero_first += 1
     return nums
 
 def next_lexicographical_sequence(s):

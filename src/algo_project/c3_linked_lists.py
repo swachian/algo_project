@@ -34,11 +34,9 @@ def linked_list_intersection(head_A, head_B):
     p_B = head_B
     
     while p_A != p_B:
-        p_A = p_A.next if p_A else head_B 
-        p_B = p_B.next if p_B else head_A 
-        
+        p_A= p_A.next if p_A else head_B
+        p_B = p_B.next if p_B else head_A
     return p_A
-        
 
 def palindromic_linked_list(head):
     mid = find_middle(head)

@@ -10,38 +10,80 @@ def find_the_insertion_index(nums, target):
             return mid
     return left
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def first_and_last_occurrences_of_a_number(nums, target):
     if not nums:
         return [-1, -1]
-    left = low_bound_search(nums, target)
-    right = high_bound_search(nums, target)
-    return [left, right]
+    lower = first_and_last_occurrences_of_a_number_lower_bound(nums, target, 0, len(nums) - 1)
+    upper = first_and_last_occurrences_of_a_number_upper_bound(nums, target, 0, len(nums) - 1)
+    return [lower, upper]
     
-def low_bound_search(nums, target):
-    left, right = 0, len(nums) - 1
+
+def first_and_last_occurrences_of_a_number_lower_bound(nums, target, left, right):
     while left < right:
         mid = left + (right - left) // 2
-        if nums[mid] < target:
-            left = mid + 1
-        elif nums[mid] > target:
-            right = mid - 1
-        else:
+        if nums[mid] >= target:
             right = mid
-            
+        else:
+            left = mid + 1
     return left if nums[left] == target else -1
-
-def high_bound_search(nums, target):
-    left, right = 0, len(nums) - 1
+    
+def first_and_last_occurrences_of_a_number_upper_bound(nums, target, left, right):
     while left < right:
         mid = left + (right - left) // 2 + 1
         if nums[mid] > target:
             right = mid - 1
-        elif nums[mid] < target:
-            left = mid + 1
-        else: 
+        else:
             left = mid
-    return left if nums[left] == target else - 1
 
+    return left if nums[left] == target else -1
+            
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 def cutting_wood(heights, k):
     left, right = 0, max(heights)
     while left < right:

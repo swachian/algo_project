@@ -1,19 +1,19 @@
-|#   | Problem Name                                 | Category                    | Done |      |      |
+|#   | Problem Name                                 | Category                    | Round 2 | Round 3     |      |
 |-----|----------------------------------------------|-----------------------------|------|------|------|
 | 1   | Pair Sum - Sorted                            | Two Pointers                | ✅     |      |      |
 | 2   | Triplet Sum                                  | Two Pointers                | POK 12.08     |      |      |
 | 3   | Valid Palindrome                             | Two Pointers                | ✅     |      |      |
 | 4   | Container With Most Water                    | Two Pointers                | ✅     |      |      |
-| 5   | Move Zeroes                                  | Two Pointers                | NOK 12.09     |      |      |
+| 5   | Shift Zeroes                                  | Two Pointers                | NOK 12.09     |  5'    |      |
 | 6   | Next Lexicographical Sequence                | Two Pointers                | ✅ 稍欠火候      |      |      |
 | 7   | Pair Sum - Unsorted                          | Hash Map & Set              | ✅      |      |      |
 | 8   | Valid Sudoku                                 | Hash Map & Set              | ✅ debug后能独立解出     |      |      |
-| 9   | Zero Striping                                | Hash Map & Set              |NOK 需要in placing的解法      |      |      |
+| 9   | Zero Striping                                | Hash Map & Set              |NOK 需要in placing的解法      | 12'     |      |
 | 10  | Longest Consecutive Sequence                 | Hash Map & Set              |POK 只会加入sort的，不会不需要sort的      |      |      |
 | 11  | Geometric Progression Triplets               | Hash Map & Set              |POK 大致能recall,还需要练习      |      |      |
 | 12  | Reverse Linked List                          | Linked List                 | ✅     |      |      |
 | 13  | Remove Kth Node From End                     | Linked List                 | POK 可以做出，但未掌握快指针先走k步的算法     |      |      |
-| 14  | Linked List Intersection                     | Linked List                 | NOK 完全不记得把两个链表连接起来的玩法了      |      |      |
+| 14  | Linked List Intersection                     | Linked List                 | NOK 完全不记得把两个链表连接起来的玩法了      | POK,判断条件不熟练 12.22     |      |
 | 15  | LRU Cache                                    | Linked List                 | ✅ 耗时较长，但已可以独立完成     |      |      |
 | 16  | Palindromic Linked List                      | Linked List                 | ✅     |      |      |
 | 17  | Flatten a Multi-Level Linked List            | Linked List       | ✅     |      |      |
@@ -22,9 +22,9 @@
 | 20  | Happy Number            | Fast And Slow Pointers      | ✅     |      |      |
 | 21  | Substring Anagrams            | Sliding window                        | POK 能回想起来怎么做，但最好再练练    |      |      |
 | 22  | Longest Substring with Unique Characters            | Sliding window                        |✅   |      |      |
-| 23  | Longest Uniform Substring After Replacements        | Sliding window                        |NOK 12.10 全忘了。静态窗口和动态窗口最大的区别在于后者窗口的大小会动态变化.动态窗口的right一般在循环的最后+1 |      |      |
+| 23  | Longest Uniform Substring After Replacements        | Sliding window                        |NOK 12.10 全忘了。静态窗口和动态窗口最大的区别在于后者窗口的大小会动态变化.动态窗口的right一般在循环的最后+1 | 12     |      |
 | 24  | Find the Insertion Index            | Binary Search                        |POK while left < right 是让left和right merge成为一个值，而left <= right则是让 right越过left. left or right = mid + 1 or mid, 则是决定是否把mid作为答案之一的选择，right最大值的选择也要看是否包含n; 而mid = (left + right) // 2后面是否+1, 则决定把mid往left还是right推|      |      |
-| 25  | First and Last Occurentces of a Number            | Binary Search                        | NOK 12.10 mid 加减1以及不加减1的妙用，确定了上bound和下bound的走向     |      |      |
+| 25  | First and Last Occurentces of a Number            | Binary Search                        | NOK 12.10 mid 加减1以及不加减1的妙用，确定了上bound和下bound的走向     |  25'    |      |
 | 26  | Cutting Wood           | Binary Search                       | ✅     |      |      |
 | 27  | Find the Target in a Rotated Sorted Array            | Binary Search                       | NOK 12.10 永远在左或右中某个有序的array中继续搜索    |      |      |
 | 28  | Find the Median From Two Sorted Arrays           | Binary Search                       | NOK 12.10 只记得基本的结构，1.确保短的arr在前 2.L1_index为nums1的mid,(L2_index+1)+(L1_index+1)=(len(nums1)+len(nums2))/2 3.通过L1_index和L2_index把两个数组平分 4.确定L1,R1,L2,R2四个值,单个数组可能用光的情况时L=-inf,R=inf 5.当L1>R2时,说明nums1太右,right往左移 6.当L2>R1时,说明nums1太小,left往右移 7.调整后根据数组总长度的奇偶性计算中位数    |      |      |
@@ -89,7 +89,7 @@
 | 87  | Jump the the End            | Greedy                       | NOK 12.18 每次只找满足条件的上一个目的地，不满足的会循环跳过。dp也能用于解决此问题  |      |      |
 | 88  | Gas Stations            | Greedy                       | ✅     |      |      |
 | 89  | Candies            | Greedy                       |  ✅      |      |      |
-| 90  | Sort linked List            | Sort And Search                       |  ✅      |  while fast.next and fast.next.next是用于让slow指向左中点，而fast and fast.next则会让slow指向右中点    |      |
+| 90  | Sort linked List            | Sort And Search                       |  ✅ while fast.next and fast.next.next是用于让slow指向左中点，而fast and fast.next则会让slow指向右中点      |     |      |
 | 91  | Sort Array            | Sort And Search                       | ✅  quick sort NB, merge sort不太熟悉了，quick sort只有一个split两个递归，merge除了一个split两个递归，最后还有一个merge    |      |      |
 | 92  | Kth Largest Integer            | Sort And Search                       |  ✅    |      |      |
 | 93  | Dutch National Flag            | Sort And Search                       | ✅ 原著使用的交换方法也值得学习，可得交换算法精髓    |      |      |

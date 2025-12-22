@@ -44,14 +44,17 @@ from collections import defaultdict
 
 def longest_uniform_substring_after_replacements(s, k):
     freq = defaultdict(int)
-    max_freq = max_length = 0
-    left = right = 0
+    max_freq = 0
+    left = 0
+    right = 0
+    
     while right < len(s):
         freq[s[right]] += 1
         max_freq = max(max_freq, freq[s[right]])
-        if (right - left + 1 - max_freq) > k:
+        sub_length = right - left + 1
+        if sub_length - max_freq > k:
             freq[s[left]] -= 1
             left += 1
-        max_length = right - left + 1
         right += 1
-    return max_length
+        
+    return right - left
