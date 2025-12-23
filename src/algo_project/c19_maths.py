@@ -85,10 +85,13 @@ def compute_slope(p1, p2):
     return (rise // gcd_number, span // gcd_number)
 
 def josephus1(n, k):
-    # j(n, k) = (j(n - 1, k) + k) % n
-    if n == 1:
-        return 0
-    return (josephus1(n - 1, k) + k) % n 
+    # base: dp[1] = 0
+    # rs: dp[i] = (dp[i - 1] + k) % i
+    dp = [0] * (n + 1)
+    for i in range(2, n + 1):
+        dp[i] = (dp[i - 1] + k) % i
+    return dp[n]
+
 
 def triangle_numbers(n):
     if n % 2 == 1:

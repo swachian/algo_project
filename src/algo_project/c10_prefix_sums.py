@@ -10,18 +10,22 @@ class SumBetweenRange:
   
 from collections import defaultdict  
 def k_sum_subarrays(nums, k):
-    presum_hash = defaultdict(int)
-    presum_hash[0] = 1
-    
+    pre_sum_map = defaultdict(int)
+    pre_sum_map[0] = 1
     count = 0
-    presum = 0
-    for i in range(len(nums)):
-        presum += nums[i]
-        complement = presum - k
-        if complement in presum_hash:
-            count += presum_hash[complement] 
-        presum_hash[presum] += 1
+    pre_sum = 0
+    
+    for num in nums:
+        pre_sum += num
+        complement = pre_sum - k
+        if complement in pre_sum_map:
+            count += pre_sum_map[complement]
+        pre_sum_map[pre_sum] += 1
+    
     return count
+      
+      
+
         
 
 def product_array_without_current_element(nums):

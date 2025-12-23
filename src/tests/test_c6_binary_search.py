@@ -87,7 +87,7 @@ def test_basic_cases_find_the_median_from_two_sorted_arrays():
     # Case 1: Even total length
     # Merged array: [1, 2, 3, 4]
     # Median = (2 + 3) / 2 = 2.5
-    # assert find_the_median_from_two_sorted_arrays([1, 3], [2, 4]) == 2.5
+    assert find_the_median_from_two_sorted_arrays([1, 3], [2, 4]) == 2.5
 
     # Case 2: Odd total length
     # Merged array: [1, 2, 3]

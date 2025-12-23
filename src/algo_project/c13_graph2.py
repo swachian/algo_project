@@ -98,25 +98,31 @@ from collections import defaultdict, deque
 import heapq
 
 def shortest_path(n, edges, start):
-    res = [float("inf")] * n
+    path_lengths = [float("inf")] * n
     
-    graph = defaultdict(list)
     heap = []
-
-    for s, e, weight in edges:
-        graph[s].append((weight, e))
-        # graph[e].append(weight, s)
-    res[start] = 0
-    heapq.heappush(heap, (0, start))
-    while heap:
-        distance, start_node = heapq.heappop(heap)
-        
-        for weight, end_node in graph[start_node]:
-            if distance + weight < res[end_node]:
-                res[end_node] = distance + weight
-                heapq.heappush(heap, (distance + weight, end_node))
-
-    return [ele if ele != float("inf") else -1 for ele in res]
+    graph = defaultdict(list)
+    for n1, n2, w in edges:
+        graph[n1].append((w, n2))
+        # graph[n2].append((w, n1))
+    
+    path_lengths[start] = 0
+    queue = deque()
+    queue.append(start)
+    
+    while queue:
+        node = queue.popleft()
+        distance = path_lengths[node]
+        for w, n2 in graph[node]:
+            heapq.heappush(heap, (w, n2))
+        while heap:
+            w, n2 = heapq.heappop(heap)
+            if distance + w < path_lengths[n2]:
+                path_lengths[n2] = distance + w
+                queue.append(n2)
+    return [ele if ele != float("inf") else -1 for ele in path_lengths]
+    
+    
             
    
 import heapq 

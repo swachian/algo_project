@@ -1,10 +1,15 @@
 def jump_to_the_end(nums):
-    destination = len(nums) - 1
+    last = len(nums) - 1
+    i = last - 1
+    while i > -1:
+        if nums[i] + i >= last:
+            last = i
+            i = last - 1
+        else:
+            i -= 1
+    return last == 0
+    
 
-    for i in range(destination, -1, -1):
-        if i + nums[i] >= destination:
-            destination = i
-    return destination == 0
 
 def gas_stations(gas, cost):
     if sum(gas) < sum(cost):

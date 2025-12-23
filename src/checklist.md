@@ -29,8 +29,9 @@
 | 27  | Find the Target in a Rotated Sorted Array            | Binary Search                       | NOK 12.10 永远在左或右中某个有序的array中继续搜索    |  POK 12.22    |      |
 | 28  | Find the Median From Two Sorted Arrays           | Binary Search                       | NOK 12.10 只记得基本的结构，1.确保短的arr在前 2.L1_index为nums1的mid,(L2_index+1)+(L1_index+1)=(len(nums1)+len(nums2))/2 3.通过L1_index和L2_index把两个数组平分 4.确定L1,R1,L2,R2四个值,单个数组可能用光的情况时L=-inf,R=inf 5.当L1>R2时,说明nums1太右,right往左移 6.当L2>R1时,说明nums1太小,left往右移 7.调整后根据数组总长度的奇偶性计算中位数    | POK mid2的选择有问题。需要使得左分部的值的个数总是小于或等于右半部分，如果只有一个中位数，也是去右面的数组取    |      |
 | 29  | Matrix Search            | Binary Search                       | ✅     |      |      |
-| 30  | Local Maxima in Array            | Binary Search                        | NOK, 12.11 局部求一个极值，窍门是更右面的值比较，如果右面的值大于mid,则mid不可能是极值，所以left取mid+1； 如果右值小于mid,意味着mid可能是极值，所以right取mid     |      |      |
-| 31  | Weighted Random Selection            | Binary Search                        | NOK, 12.11 先根输入的weight数组，形成一个sum后的数组，size和输入的相同   # 然后用randint生成一个介于1和最大sum之间的随机数，通过left和right来寻找可以插入这个target的位置，并返回索引 |      |      |
+| 30  | Local Maxima in Array            | Binary Search                        | NOK, 12.11 局部求一个极值，窍门是更右面的值比较，如果右面的值大于mid,则mid不可能是极值，所以left取mid+1； 如果右值小于mid,意味着mid可能是极值，所以right取mid     |  5'    |      |
+| 31  | Weighted Random Selection            | Binary Search                        | NOK, 12.11 先根输入的weight数组，形成一个sum后的数组，size和输入的相同   # 然后用randint生成一个介于1和最大sum之间的随机数，通过left和right来寻找可以插入这个target的位置，并返回索引 | 20' looking for the lower-bound prefix sum
+which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 32  | Valid Parenthesis Expresssion            | Stacks                       |  ✅    |      |      |
 | 33  | Next Largest Number to the Right            |  Stacks                      |✅      |      |      |
 | 34  | Evaluate Expression            | Stacks                       | ✅     |      |      |
@@ -45,7 +46,7 @@
 | 43  | Identify All Interval Overlaps            | Intervals                       | ✅ debug后能自己想出来    |      |      |
 | 44  | Largest Overlap of Intervals            | Intervals                       | ✅    |      |      |
 | 45  | Sum Between Range            |  Prefix Sums                      | ✅    |      |      |
-| 46  | K-Sum Subarrays            |  Prefix Sums                       | NOK 12.15 运用presum + hash    |      |      |
+| 46  | K-Sum Subarrays            |  Prefix Sums                       | NOK 12.15 运用presum + hash    |  NOK    |      |
 | 47  | Product Array Without Current Element             |  Prefix Sums                       | ✅      |      |      |
 | 48  | Invert Binary Tree            |  Trees                      | ✅      |      |      |
 | 49  | Balanced Binary Tree Validation             | Trees                       | ✅      |      |      |
@@ -70,7 +71,7 @@
 | 68  | Shortest Transformation Sequence            |  Graphs                      | POK 12.17 一些访问和计数的细节掌握的不好    |      |      |
 | 69  | Merging Communities            |  Graphs                      | POK 12.17 find递归查找有点记不清了   |      |      |
 | 70  | Prerequisites            |  Graphs                      | ✅     |      |      |
-| 71  | Shortest Path            |  Graphs                      | NOK 12.17 放进heap里面的distance是总的距离，不是单个点对点的weight    |      |      |
+| 71  | Shortest Path            |  Graphs                      | NOK 12.17 放进heap里面的distance是总的距离，不是单个点对点的weight    | 12'     |      |
 | 72  | Connect the Dots            |  Graphs                      | ✅     |      |      |
 | 73  | Find All permutations            | Backtracking                        |✅      |      |      |
 | 74  | Find All Subsets            | Backtracking                       | ✅     |      |      |
@@ -86,7 +87,7 @@
 | 84  | Maximum Subarray Sum            | Dynamic Programming                       | POK 12.18 记得大概但忘了最后是取dp里面的最大值    |      |      |
 | 85  | 0/1 knapsack            | Dynamic Programming                       | ✅ 非常NB    |      |      |
 | 86  | Largest Square in a Matrix            | Dynamic Programming                       | ✅     |      |      |
-| 87  | Jump the the End            | Greedy                       | NOK 12.18 每次只找满足条件的上一个目的地，不满足的会循环跳过。dp也能用于解决此问题  |      |      |
+| 87  | Jump the the End            | Greedy                       | NOK 12.18 每次只找满足条件的上一个目的地，不满足的会循环跳过。dp也能用于解决此问题  | 10' 很小的一道题目，花了不少时间，还是不太熟练      |      |
 | 88  | Gas Stations            | Greedy                       | ✅     |      |      |
 | 89  | Candies            | Greedy                       |  ✅      |      |      |
 | 90  | Sort linked List            | Sort And Search                       |  ✅ while fast.next and fast.next.next是用于让slow指向左中点，而fast and fast.next则会让slow指向右中点      |     |      |
@@ -99,7 +100,7 @@
 | 97  | Spiral Traversal            | Math and Geometry                       | POK 12.19 第三第四个循环的if条件还掌握的不熟    |      |      |
 | 98  | Reverse 32-Bit Integer            | Math and Geometry                       | POK math.fmod(n, 10) 未掌握，这个余数的符号与被除数一致，如果要运用%求负数的模，可以把 a % b 里面的b的符号进行修改    |      |      |
 | 99  | Maximum Collinear Points            | Math and Geometry                       | POK 掌握的还不错，但遗漏了关键的map或者说分割是要按focus为前置的键的 |      |      |
-| 100  | The Josephus Problem            | Math and Geometry                       | NOK    |      |      |
+| 100  | The Josephus Problem            | Math and Geometry                       | NOK    |  3'    |      |
 | 101  | Trangle Numbers            | Math and Geometry                       | ✅      |      |      |
 
 ### First Round Redo:
