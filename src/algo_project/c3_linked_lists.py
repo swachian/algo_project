@@ -16,18 +16,19 @@ def linked_list_reversal(head):
 def remove_kth_last_node(head, k):
     dummy = ListNode(None)
     dummy.next = head
-    slow, fast = dummy, dummy
-    
-    for _ in range(k):
-        fast = fast.next 
-        if not fast:
-            return head 
-    
+    slow = fast = dummy
+    i = 0
+    while i < k and fast.next:
+        fast = fast.next
+        i += 1
     while fast.next:
-        slow = slow.next 
+        slow = slow.next
         fast = fast.next 
-    slow.next = slow.next.next 
+    if i == k:
+        slow.next = slow.next.next 
     return dummy.next
+        
+
         
 def linked_list_intersection(head_A, head_B):
     p_A = head_A
