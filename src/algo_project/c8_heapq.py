@@ -31,27 +31,27 @@ class ListNode:
         self.next = next
         
 
+import heapq
         
 def combine_sorted_linked_lists(lists):
-    ListNode.__lt__ = lambda self, other: self.val < other.val
+    ListNode.__lt__ = lambda x, y: x.val < y.val 
+    dummy = ListNode(None)
+    cur = dummy
+    
     heap = []
-    head = None
-    cur = head
-    for list in lists:
-        if list:
-            heapq.heappush(heap, list)
-            
+
+    for list_node in lists:
+        if list_node:
+            heapq.heappush(heap, list_node)
+    
     while heap:
-        if not head:
-            head = heapq.heappop(heap)
-            cur = head
-        else:
-            node = heapq.heappop(heap)
-            cur.next = node
-            cur = node
-        if cur.next:
-            heapq.heappush(heap, cur.next)
-    return head
+        node = heapq.heappop(heap)
+        if node.next:
+            heapq.heappush(heap, node.next)
+        cur.next = node
+        cur = cur.next
+    
+    return dummy.next
 
 def sort_a_k_sorted_array(nums, k):
     heap = []

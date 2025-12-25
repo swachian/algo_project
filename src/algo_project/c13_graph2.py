@@ -1,39 +1,38 @@
 from collections import deque
 
 def shortest_transformation_sequence(start, end, words):
-    words_set = set(words)
-    visited = set()
-    if start not in words_set or end not in words_set:
+    if start not in words or end not in words:
         return 0
     
     abc = "abcdefghijklmnopqrstuvwxyz"
+    
     queue = deque()
     queue.append(start)
-    visited.add(start)
-    
+    visited = set()
     count = 0
     while queue:
-        count += 1
         level_size = len(queue)
+        count += 1
         for _ in range(level_size):
+            
             word = queue.popleft()
             if word == end:
                 return count
-            for i in range(len(word)): 
+            for i in range(len(start)):
                 for c in abc:
                     new_word = word[0:i] + c + word[i + 1:]
-                    if new_word in words_set and new_word not in visited:
+                    if new_word in words and new_word not in visited:
                         queue.append(new_word)
                         visited.add(new_word)
+    return 0           
+            
 
-                    
-    return 0
     
 
 class MergingCommunities:
     def __init__(self, n):
         self.uf = UnionFind(n)
-
+    
     def connect(self, x, y):
         self.uf.connect(x, y)
     
@@ -49,8 +48,8 @@ class UnionFind:
         if self.parent[x] == x:
             return x
         self.parent[x] = self.find(self.parent[x])
-        return self.parent[x]
-        
+        return  self.parent[x]
+
     def connect(self, x, y):
         rep_x, rep_y = self.find(x), self.find(y)
         if rep_x != rep_y:
@@ -59,10 +58,11 @@ class UnionFind:
                 self.sizes[rep_x] += self.sizes[rep_y]
             else:
                 self.parent[rep_x] = rep_y
-                self.sizes[rep_y] += self.size[rep_x]
+                self.sizes[rep_y] += self.sizes[rep_x] 
     
     def get_size(self, x):
         return self.sizes[self.find(x)]
+
 
 from collections import defaultdict, deque
 

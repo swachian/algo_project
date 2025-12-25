@@ -23,7 +23,7 @@
 | 21  | Substring Anagrams            | Sliding window                        | POK 能回想起来怎么做，但最好再练练    | 25'     |      |
 | 22  | Longest Substring with Unique Characters            | Sliding window                        |✅   |      |      |
 | 23  | Longest Uniform Substring After Replacements        | Sliding window                        |NOK 12.10 全忘了。静态窗口和动态窗口最大的区别在于后者窗口的大小会动态变化.动态窗口的right一般在循环的最后+1 | 12     |      |
-| 24  | Find the Insertion Index            | Binary Search                        |POK while left < right 是让left和right merge成为一个值，而left <= right则是让 right越过left. left or right = mid + 1 or mid, 则是决定是否把mid作为答案之一的选择，right最大值的选择也要看是否包含n; 而mid = (left + right) // 2后面是否+1, 则决定把mid往left还是right推|      |      |
+| 24  | Find the Insertion Index            | Binary Search                        |POK while left < right 是让left和right merge成为一个值，而left <= right则是让 right越过left. left or right = mid + 1 or mid, 则是决定是否把mid作为答案之一的选择，right最大值的选择也要看是否包含n; 而mid = (left + right) // 2后面是否+1, 则决定把mid往left还是right推|  12'    |      |
 | 25  | First and Last Occurentces of a Number            | Binary Search                        | NOK 12.10 mid 加减1以及不加减1的妙用，确定了上bound和下bound的走向     |  25'    |      |
 | 26  | Cutting Wood           | Binary Search                       | ✅     |      |      |
 | 27  | Find the Target in a Rotated Sorted Array            | Binary Search                       | NOK 12.10 永远在左或右中某个有序的array中继续搜索    |  POK 12.22    |      |
@@ -39,7 +39,7 @@ which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 36  | Implement a Queue using Stacks            |  Stacks                      | ✅     |      |      |
 | 37  | Maximums of Sliding Window            |  Stacks                     | ✅ 对于下标和k的关系，可以列方程或不等式来解决    |      |      |
 | 38  | K Most Frequent Strings            |  Heaps                      | ✅    |      |      |
-| 39  | Combine Sorted Linked Lists            |  Heaps                     |POK, 一方面是忘了个class直接注入lambda的作法，dummy处理head的也不够熟练     |      |      |
+| 39  | Combine Sorted Linked Lists            |  Heaps                     |POK, 一方面是忘了个class直接注入lambda的作法，dummy处理head的也不够熟练     | 8'     |      |
 | 40  | Median of an Integer Stream            |  Heaps                      |✅ 除了heap[0]表示栈顶，其他都记得很清楚     |      |      |
 | 41  | Sort a K-sorted Array            |  Heaps                      | ✅    |      |      |
 | 42  | Merge Overlapping Intervals            | Intervals                       | ✅    |      |      |
@@ -68,8 +68,8 @@ which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 65  | Matrix Infection           |  Graphs                      |   ✅   |      |      |
 | 66  | Bipartite Graph Validation            |  Graphs                      |  ✅    |      |      |
 | 67  | Longest Increasing Path            |  Graphs                      |  ✅    |      |      |
-| 68  | Shortest Transformation Sequence            |  Graphs                      | POK 12.17 一些访问和计数的细节掌握的不好    |      |      |
-| 69  | Merging Communities            |  Graphs                      | POK 12.17 find递归查找有点记不清了   |      |      |
+| 68  | Shortest Transformation Sequence            |  Graphs                      | POK 12.17 一些访问和计数的细节掌握的不好    | 10'     |      |
+| 69  | Merging Communities            |  Graphs                      | POK 12.17 find递归查找有点记不清了   |  6'    |      |
 | 70  | Prerequisites            |  Graphs                      | ✅     |      |      |
 | 71  | Shortest Path            |  Graphs                      | NOK 12.17 放进heap里面的distance是总的距离，不是单个点对点的weight    | 12'     |      |
 | 72  | Connect the Dots            |  Graphs                      | ✅     |      |      |
@@ -84,7 +84,7 @@ which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 81  | Neighborhood Burglary            | Dynamic Programming                       | ✅    |      |      |
 | 82  | Longest Common Subsequence            | Dynamic Programming                       |✅     |      |      |
 | 83  | Longest Palindrome in a String            | Dynamic Programming                       | ✅ 在根据substring的长度循环时，需要注意n - sublen == 0时其实还是需要遍历的，因此range里面要+1    |      |      |
-| 84  | Maximum Subarray Sum            | Dynamic Programming                       | POK 12.18 记得大概但忘了最后是取dp里面的最大值    |      |      |
+| 84  | Maximum Subarray Sum            | Dynamic Programming                       | POK 12.18 记得大概但忘了最后是取dp里面的最大值    |  3'    |      |
 | 85  | 0/1 knapsack            | Dynamic Programming                       | ✅ 非常NB    |      |      |
 | 86  | Largest Square in a Matrix            | Dynamic Programming                       | ✅     |      |      |
 | 87  | Jump the the End            | Greedy                       | NOK 12.18 每次只找满足条件的上一个目的地，不满足的会循环跳过。dp也能用于解决此问题  | 10' 很小的一道题目，花了不少时间，还是不太熟练      |      |
@@ -97,8 +97,8 @@ which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 94  | Hamming Weights of Integers            | Bit Manipulation                       |  ✅    |      |      |
 | 95  | Lonely Integer            | Bit Manipulation                       | ✅     |      |      |
 | 96  | Swap Odd and Even Bits            | Bit Manipulation                       | ✅    |       |      |
-| 97  | Spiral Traversal            | Math and Geometry                       | POK 12.19 第三第四个循环的if条件还掌握的不熟    |      |      |
-| 98  | Reverse 32-Bit Integer            | Math and Geometry                       | POK math.fmod(n, 10) 未掌握，这个余数的符号与被除数一致，如果要运用%求负数的模，可以把 a % b 里面的b的符号进行修改    |      |      |
+| 97  | Spiral Traversal            | Math and Geometry                       | POK 12.19 第三第四个循环的if条件还掌握的不熟    |  10'    |      |
+| 98  | Reverse 32-Bit Integer            | Math and Geometry                       | POK math.fmod(n, 10) 未掌握，这个余数的符号与被除数一致，如果要运用%求负数的模，可以把 a % b 里面的b的符号进行修改    |  3'    |      |
 | 99  | Maximum Collinear Points            | Math and Geometry                       | POK 掌握的还不错，但遗漏了关键的map或者说分割是要按focus为前置的键的 |      |      |
 | 100  | The Josephus Problem            | Math and Geometry                       | NOK    |  3'    |      |
 | 101  | Trangle Numbers            | Math and Geometry                       | ✅      |      |      |

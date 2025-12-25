@@ -1,52 +1,52 @@
 def spiral_matrix(matrix):
-    if not matrix:
+    if not matrix or not matrix[0]:
         return []
     
-    top, bottom = 0, len(matrix) - 1
-    left, right = 0, len(matrix[0]) - 1
+    top, bottom = 0, len(matrix) 
+    left, right = 0, len(matrix[0])
     res = []
     
-    while top <= bottom and left <= right:
+    while top < bottom and left < right:
         i = top
-        j = left
-        for j in range(left, right + 1):
+        for j in range(left, right):
             res.append(matrix[i][j])
         top += 1
         
-        for i in range(top, bottom + 1):
+        for i in range(top, bottom):
             res.append(matrix[i][j])
         right -= 1
         
-        if top <= bottom:
-            for j in range(right, left - 1, -1):
+        if top < bottom:
+            for j in range(right - 1, left - 1, -1):
                 res.append(matrix[i][j])
             bottom -= 1
         
-        if left <= right:
-            for i in range(bottom, top - 1, -1):
+        if left < right:
+            for i in range(bottom - 1, top - 1, -1):
                 res.append(matrix[i][j])
-            left += 1
-        
+        left += 1
     return res
+
 
 import math
 def reverse_32_bit_integer(n):
-    MAX_INT = 2 ** 31 - 1
-    MIN_INT = -2 ** 31
+    MIN_INT = - 2 ** 32
+    MAX_INT = 2 ** 32 - 1
     
-    res = 0
     sign = 1
     if n < 0:
         sign = -1
-        
-    while n != 0:
-        if res > MAX_INT / 10 or res < MIN_INT / 10:
+        n = -n
+    
+    res = 0
+    while n > 0:
+        if res >= MAX_INT / 10:
             return 0
-        dig = n % (sign * 10)
+        digit = n % 10
+        res = res * 10 + digit
         n = int(n / 10)
-        res = res * 10 + dig
-
-    return res
+    return sign * res
+  
 
 from collections import defaultdict
 

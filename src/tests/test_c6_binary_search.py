@@ -15,6 +15,12 @@ def test_find_insertion_index_edge_cases():
     assert find_the_insertion_index(nums, 0) == 0
     assert find_the_insertion_index([], 5) == 0
     assert find_the_insertion_index(nums, 6) == 3
+    assert find_the_insertion_index(nums, 7) == 4
+    
+    nums = [1,2,4,5,7,8,9]
+    assert find_the_insertion_index(nums, 6) == 4
+    
+    
 
 
 def test_basic_cases():
