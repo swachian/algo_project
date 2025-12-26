@@ -47,42 +47,66 @@ def reverse_32_bit_integer(n):
         n = int(n / 10)
     return sign * res
   
-
+  
 from collections import defaultdict
+ 
+def maximum_collinear_points(points):
+    max_count = 0
+    for focus in points:
+        count = collinear_points_of_focus(focus, points)
+        max_count = max(max_count, count)  
+    return max_count
 
 def gcd(x, y):
     while y != 0:
-        x, y = y, x % y
+        x, y = y, x % y  
     return x
+  
+def compute_slope(p1, p2):
+    rise = p2[1] - p1[1]  
+    span = p2[0] - p1[0]
 
-def maximum_collinear_points(points):
-    max_counts = 0
-    for focus in points:
-        max_counts = max(max_counts, max_points_of_every_focus(focus, points))
-    return max_counts
-
-def max_points_of_every_focus(focus, points):
-    same_slope_counts_of_a_point = defaultdict(int)
-    max_points = 0
+    gcd_num = gcd(rise, span)
+    if gcd_num == 0:
+        return ((float("inf"), 0))
+    else:
+        return (rise // gcd_num, span // gcd_num)
+  
+def collinear_points_of_focus(focus, points):
+    max_count = 0
+    counts = defaultdict(int)
     for point in points:
         if point == focus:
             continue
         slope = compute_slope(focus, point)
-        same_slope_counts_of_a_point[slope] += 1
-        
-        max_points = max(max_points, same_slope_counts_of_a_point[slope])
-            
-    return max_points + 1
-             
+        counts[slope] += 1
+        max_count = max(max_count, counts[slope])
+    return max_count + 1
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
-def compute_slope(p1, p2):
-    rise = p2[1] - p1[1]
-    span = p2[0] - p1[0]
-    
-    if span == 0:
-        return (1, 0)
-    gcd_number = gcd(rise, span)
-    return (rise // gcd_number, span // gcd_number)
 
 def josephus1(n, k):
     # base: dp[1] = 0

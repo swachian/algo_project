@@ -87,7 +87,7 @@ which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 84  | Maximum Subarray Sum            | Dynamic Programming                       | POK 12.18 记得大概但忘了最后是取dp里面的最大值    |  3'    |      |
 | 85  | 0/1 knapsack            | Dynamic Programming                       | ✅ 非常NB    |      |      |
 | 86  | Largest Square in a Matrix            | Dynamic Programming                       | ✅     |      |      |
-| 87  | Jump the the End            | Greedy                       | NOK 12.18 每次只找满足条件的上一个目的地，不满足的会循环跳过。dp也能用于解决此问题  | 10' 很小的一道题目，花了不少时间，还是不太熟练      |      |
+| 87  | Jump the the End            | Greedy                       | NOK 12.18 每次只找满足条件的上一个目的地，不满足的会循环跳过。dp也能用于解决此问题  | 10' 很小的一道题目，花了不少时间，还是不太熟练; 再做3'      |      |
 | 88  | Gas Stations            | Greedy                       | ✅     |      |      |
 | 89  | Candies            | Greedy                       |  ✅      |      |      |
 | 90  | Sort linked List            | Sort And Search                       |  ✅ while fast.next and fast.next.next是用于让slow指向左中点，而fast and fast.next则会让slow指向右中点      |     |      |
@@ -99,7 +99,7 @@ which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 96  | Swap Odd and Even Bits            | Bit Manipulation                       | ✅    |       |      |
 | 97  | Spiral Traversal            | Math and Geometry                       | POK 12.19 第三第四个循环的if条件还掌握的不熟    |  10'    |      |
 | 98  | Reverse 32-Bit Integer            | Math and Geometry                       | POK math.fmod(n, 10) 未掌握，这个余数的符号与被除数一致，如果要运用%求负数的模，可以把 a % b 里面的b的符号进行修改    |  3'    |      |
-| 99  | Maximum Collinear Points            | Math and Geometry                       | POK 掌握的还不错，但遗漏了关键的map或者说分割是要按focus为前置的键的 |      |      |
+| 99  | Maximum Collinear Points            | Math and Geometry                       | POK 掌握的还不错，但遗漏了关键的map或者说分割是要按focus为前置的键的 | 10'     |      |
 | 100  | The Josephus Problem            | Math and Geometry                       | NOK    |  3'    |      |
 | 101  | Trangle Numbers            | Math and Geometry                       | ✅      |      |      |
 

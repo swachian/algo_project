@@ -1,14 +1,11 @@
 def jump_to_the_end(nums):
     last = len(nums) - 1
-    i = last - 1
-    while i > -1:
+    
+    for i in range(last, -1, -1):
         if nums[i] + i >= last:
             last = i
-            i = last - 1
-        else:
-            i -= 1
     return last == 0
-    
+ 
 
 
 def gas_stations(gas, cost):
