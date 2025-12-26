@@ -104,6 +104,8 @@ def compute_cuts(heights, pov):
     return res 
 
 def find_the_target_in_a_rotated_sorted_array(nums, target):
+    if not nums:
+        return -1
     left, right = 0, len(nums) - 1
     while left < right:
         mid = left + (right - left) // 2
@@ -113,13 +115,13 @@ def find_the_target_in_a_rotated_sorted_array(nums, target):
             if nums[mid] < target <= nums[right]:
                 left = mid + 1
             else:
-                right = mid -1
+                right = mid - 1
         else:
-            if nums[mid] > target >= nums[left]:
+            if nums[left] <= target < nums[mid]:
                 right = mid - 1
             else:
                 left = mid + 1
-    return left if nums and nums[left] == target else -1
+    return left if nums[left] == target else -1
             
             
             
@@ -131,30 +133,29 @@ def find_the_target_in_a_rotated_sorted_array(nums, target):
 def find_the_median_from_two_sorted_arrays(nums1, nums2):
     if len(nums1) > len(nums2):
         nums1, nums2 = nums2, nums1
-        
-    left = 0
-    right = len(nums1) - 1
     
-        
+    m, n = len(nums1), len(nums2)
+
+    half_size = m + (n - m) // 2
+    
+    left, right = 0, m - 1
     while True:
         mid = left + (right - left) // 2
-        L1 = nums1[mid] if mid >=0 else float("-inf")
-        R1 = nums1[mid + 1] if mid < len(nums1) - 1 else float("inf")
-        mid2 = (len(nums1) + len(nums2)) // 2  - 2 - mid
+        mid2 = half_size - 2 - mid
+        L1 = nums1[mid] if mid >= 0 else float("-inf")
+        R1 = nums1[mid + 1] if mid <= m - 2 else float("inf")
         L2 = nums2[mid2] if mid2 >= 0 else float("-inf")
-        R2 = nums2[mid2 + 1] if mid2 < len(nums2) -1 else float("inf")
-        
-        if L2 > R1:
+        R2 = nums2[mid2 + 1] if mid2 <= n - 2 else float("inf") 
+        if R1 < L2:
             left = mid + 1
         elif L1 > R2:
             right = mid - 1
         else:
-            
-            if (len(nums1) + len(nums2)) % 2 == 1:
-                return min(R1, R2)
-            else:
+            if (m + n) % 2 == 0:
                 return (max(L1, L2) + min(R1, R2)) / 2
-        
+            else:
+                return min(R1, R2)
+  
     
     
     

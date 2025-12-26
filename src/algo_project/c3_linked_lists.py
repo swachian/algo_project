@@ -31,13 +31,13 @@ def remove_kth_last_node(head, k):
 
         
 def linked_list_intersection(head_A, head_B):
-    p_A = head_A
-    p_B = head_B
-    
-    while p_A != p_B:
-        p_A= p_A.next if p_A else head_B
-        p_B = p_B.next if p_B else head_A
-    return p_A
+    p_a = head_A
+    p_b = head_B
+    while p_a != p_b:
+        p_a = p_a.next if p_a else head_B
+        p_b = p_b.next if p_b else head_A
+    return p_a
+
 
 def palindromic_linked_list(head):
     mid = find_middle(head)

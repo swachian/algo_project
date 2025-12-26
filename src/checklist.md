@@ -13,7 +13,7 @@
 | 11  | Geometric Progression Triplets               | Hash Map & Set              |POK 大致能recall,还需要练习      |  15'    |      |
 | 12  | Reverse Linked List                          | Linked List                 | ✅     |      |      |
 | 13  | Remove Kth Node From End                     | Linked List                 | POK 可以做出，但未掌握快指针先走k步的算法     | 12'     |      |
-| 14  | Linked List Intersection                     | Linked List                 | NOK 完全不记得把两个链表连接起来的玩法了      | POK,判断条件不熟练 12.22     |      |
+| 14  | Linked List Intersection                     | Linked List                 | NOK 完全不记得把两个链表连接起来的玩法了      | POK,判断条件不熟练 12.22; 15'     |      |
 | 15  | LRU Cache                                    | Linked List                 | ✅ 耗时较长，但已可以独立完成     |      |      |
 | 16  | Palindromic Linked List                      | Linked List                 | ✅     |      |      |
 | 17  | Flatten a Multi-Level Linked List            | Linked List       | ✅     |      |      |
@@ -26,8 +26,8 @@
 | 24  | Find the Insertion Index            | Binary Search                        |POK while left < right 是让left和right merge成为一个值，而left <= right则是让 right越过left. left or right = mid + 1 or mid, 则是决定是否把mid作为答案之一的选择，right最大值的选择也要看是否包含n; 而mid = (left + right) // 2后面是否+1, 则决定把mid往left还是right推|  12'    |      |
 | 25  | First and Last Occurentces of a Number            | Binary Search                        | NOK 12.10 mid 加减1以及不加减1的妙用，确定了上bound和下bound的走向     |  25'    |      |
 | 26  | Cutting Wood           | Binary Search                       | ✅     |      |      |
-| 27  | Find the Target in a Rotated Sorted Array            | Binary Search                       | NOK 12.10 永远在左或右中某个有序的array中继续搜索    |  POK 12.22    |      |
-| 28  | Find the Median From Two Sorted Arrays           | Binary Search                       | NOK 12.10 只记得基本的结构，1.确保短的arr在前 2.L1_index为nums1的mid,(L2_index+1)+(L1_index+1)=(len(nums1)+len(nums2))/2 3.通过L1_index和L2_index把两个数组平分 4.确定L1,R1,L2,R2四个值,单个数组可能用光的情况时L=-inf,R=inf 5.当L1>R2时,说明nums1太右,right往左移 6.当L2>R1时,说明nums1太小,left往右移 7.调整后根据数组总长度的奇偶性计算中位数    | POK mid2的选择有问题。需要使得左分部的值的个数总是小于或等于右半部分，如果只有一个中位数，也是去右面的数组取    |      |
+| 27  | Find the Target in a Rotated Sorted Array            | Binary Search                       | NOK 12.10 永远在左或右中某个有序的array中继续搜索    |  POK 12.22 ; 10'   |      |
+| 28  | Find the Median From Two Sorted Arrays           | Binary Search                       | NOK 12.10 只记得基本的结构，1.确保短的arr在前 2.L1_index为nums1的mid,(L2_index+1)+(L1_index+1)=(len(nums1)+len(nums2))/2 3.通过L1_index和L2_index把两个数组平分 4.确定L1,R1,L2,R2四个值,单个数组可能用光的情况时L=-inf,R=inf 5.当L1>R2时,说明nums1太右,right往左移 6.当L2>R1时,说明nums1太小,left往右移 7.调整后根据数组总长度的奇偶性计算中位数    | POK mid2的选择有问题。需要使得左分部的值的个数总是小于或等于右半部分，如果只有一个中位数，也是去右面的数组取; 8'    |      |
 | 29  | Matrix Search            | Binary Search                       | ✅     |      |      |
 | 30  | Local Maxima in Array            | Binary Search                        | NOK, 12.11 局部求一个极值，窍门是更右面的值比较，如果右面的值大于mid,则mid不可能是极值，所以left取mid+1； 如果右值小于mid,意味着mid可能是极值，所以right取mid     |  5'    |      |
 | 31  | Weighted Random Selection            | Binary Search                        | NOK, 12.11 先根输入的weight数组，形成一个sum后的数组，size和输入的相同   # 然后用randint生成一个介于1和最大sum之间的随机数，通过left和right来寻找可以插入这个target的位置，并返回索引 | 20' looking for the lower-bound prefix sum
@@ -46,7 +46,7 @@ which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 43  | Identify All Interval Overlaps            | Intervals                       | ✅ debug后能自己想出来    |      |      |
 | 44  | Largest Overlap of Intervals            | Intervals                       | ✅    |      |      |
 | 45  | Sum Between Range            |  Prefix Sums                      | ✅    |      |      |
-| 46  | K-Sum Subarrays            |  Prefix Sums                       | NOK 12.15 运用presum + hash    |  NOK    |      |
+| 46  | K-Sum Subarrays            |  Prefix Sums                       | NOK 12.15 运用presum + hash    |  NOK pre_sum - another_pre_sum == k    |      |
 | 47  | Product Array Without Current Element             |  Prefix Sums                       | ✅      |      |      |
 | 48  | Invert Binary Tree            |  Trees                      | ✅      |      |      |
 | 49  | Balanced Binary Tree Validation             | Trees                       | ✅      |      |      |

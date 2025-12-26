@@ -11,18 +11,18 @@ class SumBetweenRange:
 from collections import defaultdict  
 def k_sum_subarrays(nums, k):
     pre_sum_map = defaultdict(int)
+
     pre_sum_map[0] = 1
     count = 0
     pre_sum = 0
-    
     for num in nums:
         pre_sum += num
         complement = pre_sum - k
         if complement in pre_sum_map:
             count += pre_sum_map[complement]
         pre_sum_map[pre_sum] += 1
-    
     return count
+
       
       
 
