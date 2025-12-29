@@ -13,8 +13,8 @@
 | 11  | Geometric Progression Triplets               | Hash Map & Set              |POK 大致能recall,还需要练习      |  15'    |      |
 | 12  | Reverse Linked List                          | Linked List                 | ✅     |      |      |
 | 13  | Remove Kth Node From End                     | Linked List                 | POK 可以做出，但未掌握快指针先走k步的算法     | 12'     |      |
-| 14  | Linked List Intersection                     | Linked List                 | NOK 完全不记得把两个链表连接起来的玩法了      | POK,判断条件不熟练 12.22; 15'     |      |
-| 15  | LRU Cache                                    | Linked List                 | ✅ 耗时较长，但已可以独立完成     |      |      |
+| 14  | Linked List Intersection                     | Linked List                 | NOK 完全不记得把两个链表连接起来的玩法了      | POK,判断条件不熟练 12.22; 15'     |   1' 純粹是剛複習過   |
+| 15  | LRU Cache                                    | Linked List                 | ✅ 耗时较长，但已可以独立完成     |      | 25'     |
 | 16  | Palindromic Linked List                      | Linked List                 | ✅     |      |      |
 | 17  | Flatten a Multi-Level Linked List            | Linked List       | ✅     |      |  4'    |
 | 18  | Linked List Loop          | Fast And Slow Pointers      |   ✅     |      |      |
@@ -48,11 +48,11 @@ which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 45  | Sum Between Range            |  Prefix Sums                      | ✅    |      |   3'   |
 | 46  | K-Sum Subarrays            |  Prefix Sums                       | NOK 12.15 运用presum + hash    |  NOK pre_sum - another_pre_sum == k    |      |
 | 47  | Product Array Without Current Element             |  Prefix Sums                       | ✅      |      |      |
-| 48  | Invert Binary Tree            |  Trees                      | ✅      |      |      |
+| 48  | Invert Binary Tree            |  Trees                      | ✅      |      |  2' 递归算法  2' stack算法  |
 | 49  | Balanced Binary Tree Validation             | Trees                       | ✅      |      |      |
 | 50  | Rightmost Nodes of Binary Tree            | Trees                       |  ✅    |      |      |
 | 51  | Widest Binary Tree Level            | Trees                       | ✅     |      |      |
-| 52  |Binary Search Tree Validation             | Trees                       | ✅      |      |      | 
+| 52  |Binary Search Tree Validation             | Trees                       | ✅      |      |   5'   | 
 | 53  | Lowest Common Ancestor            | Trees                       |  ✅    |      |      |
 | 54  |  Build Binary Tree From Preorder and Inorder Traversals           | Trees                       |✅      |      |      |
 | 55  | Maximum Sum of a Continuous Path in a Binary Tree            | Trees                       | ✅     |      |      |
@@ -89,7 +89,7 @@ which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 86  | Largest Square in a Matrix            | Dynamic Programming                       | ✅     |      |  7'    |
 | 87  | Jump the the End            | Greedy                       | NOK 12.18 每次只找满足条件的上一个目的地，不满足的会循环跳过。dp也能用于解决此问题  | 10' 很小的一道题目，花了不少时间，还是不太熟练; 再做3'      |      |
 | 88  | Gas Stations            | Greedy                       | ✅     |      |      |
-| 89  | Candies            | Greedy                       |  ✅      |      |      |
+| 89  | Candies            | Greedy                       |  ✅      |      |  4'    |
 | 90  | Sort linked List            | Sort And Search                       |  ✅ while fast.next and fast.next.next是用于让slow指向左中点，而fast and fast.next则会让slow指向右中点      |     |      |
 | 91  | Sort Array            | Sort And Search                       | ✅  quick sort NB, merge sort不太熟悉了，quick sort只有一个split两个递归，merge除了一个split两个递归，最后还有一个merge    |      |  12    |
 | 92  | Kth Largest Integer            | Sort And Search                       |  ✅    |      |      |

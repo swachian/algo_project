@@ -31,11 +31,12 @@ def remove_kth_last_node(head, k):
 
         
 def linked_list_intersection(head_A, head_B):
-    p_a = head_A
-    p_b = head_B
+    p_a, p_b = head_A, head_B
+    
     while p_a != p_b:
         p_a = p_a.next if p_a else head_B
         p_b = p_b.next if p_b else head_A
+        
     return p_a
 
 

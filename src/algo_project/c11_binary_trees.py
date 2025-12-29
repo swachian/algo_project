@@ -6,19 +6,17 @@ class TreeNode:
         
         
 def invert_binary_tree(root):
-    stack = []
     if not root:
-        return 
-    stack.append(root)
-    
+        return root
+    stack = [root]
     while stack:
         node = stack.pop()
-        node.left, node.right = node.right, node.left
-        if node.right:
-            stack.append(node.right)
-        if node.left:
+        if node:
+            node.left, node.right = node.right, node.left
             stack.append(node.left)
+            stack.append(node.right)
     return root
+    
 
 import math
 
@@ -86,20 +84,18 @@ def widest_binary_tree_level(root):
 
     
 def binary_search_tree_validation(root):
-    return dfs_binary_search_tree_validation(root, float("-inf "), float("inf"))
-
-def dfs_binary_search_tree_validation(root, low_bound, upper_bound):
     if not root:
         return True
-    if low_bound < root.val < upper_bound:
-        l = r = True
-        if root.left:
-            l = dfs_binary_search_tree_validation(root.left, low_bound, root.val)
-        if root.right:
-            r = dfs_binary_search_tree_validation(root.right, root.val, upper_bound)
-        return l and r
+    return dfs_binary_search_tree_validation(root, float("-inf"), float("inf"))
+
+def dfs_binary_search_tree_validation(root, lower, upper):
+    if not root:
+        return True
+    if lower < root.val < upper:
+        return dfs_binary_search_tree_validation(root.left, lower, root.val) and dfs_binary_search_tree_validation(root.right, root.val, upper)
     else:
         return False
+   
     
 def lowest_common_ancestor(root, p, q):
     global res
