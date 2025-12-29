@@ -1,6 +1,7 @@
 import random
 
-done = []
+done = [8, 10, 14, 15, 17, 26, 40, 42, 45, 48, 52, 60, 86, 89, 91, 93, 97, 98, 
+        72, 66]
 
 while True:
     res = random.randint(1, 101)
