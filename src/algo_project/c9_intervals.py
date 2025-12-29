@@ -5,18 +5,24 @@ class Interval:
         
         
 def merge_overlapping_intervals(intervals):
-    Interval.__lt__ = lambda x, y: x.start < y.start if x.start != y.start else x.end < y.end
-    intervals.sort()
-    # intervals.sort(key = lambda x: [x.start, x.end])
-    res = [intervals[0]]
+    Interval.__lt__ = lambda x, y : x.start <= y.start if x.start != y.start else x.end <= y.end
     
+    if not intervals:
+        return []
+
+    intervals.sort()
+
+    res = [intervals[0]]
     for i in range(1, len(intervals)):
-        if intervals[i].start <= res[-1].end:
+        if res[-1].end >= intervals[i].start:
             res[-1].end = max(res[-1].end, intervals[i].end)
         else:
             res.append(intervals[i])
     
     return res
+
+    
+
     
 def identify_all_interval_overlaps(intervals1, intervals2):
     m = len(intervals1)

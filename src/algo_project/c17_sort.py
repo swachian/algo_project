@@ -45,62 +45,83 @@ def sort_array(nums):
     if not nums:
         return nums
     
-    # quick_sort(nums, 0, len(nums) - 1)
-    return merge_sort(nums)
+    return quick_sort(nums, 0, len(nums) - 1)
+    # return merge_sort(nums)
 
 def quick_sort(nums, left, right):
     if left >= right:
-        return
-    pov = split_quick(nums, left, right)
+        return nums
+    pov = quick_sort_partition(nums, left, right)
     quick_sort(nums, left, pov - 1)
     quick_sort(nums, pov + 1, right)
+    return nums
     
-def split_quick(nums, left, right):
+def quick_sort_partition(nums, left, right):
     pov = left + (right - left) // 2
+    # pov_value = nums[pov]
     nums[pov], nums[right] = nums[right], nums[pov]
-    
-    i = lo = 0
-    
-    while i <= right - left:
-        if nums[i + left] < nums[right]:
-            nums[lo + left], nums[i + left] = nums[i + left], nums[lo + left] 
+    lo = 0
+    for i in range(left, right):
+        if nums[i] < nums[right]:
+            nums[left + lo], nums[i] = nums[i], nums[left + lo]
             lo += 1
-        i += 1
-    nums[lo + left], nums[right] = nums[right], nums[lo + left]
-    return lo + left
-
+    nums[left + lo], nums[right] = nums[right], nums[left + lo]
+    return left + lo
+    
 def merge_sort(nums):
     if len(nums) <= 1:
         return nums
-    
-    pov = len(nums) // 2
-    merged1 = merge_sort(nums[0:pov])
-    merged2 = merge_sort(nums[pov:])
+    left, right = 0, len(nums) - 1
+    if left < right:
+        mid = left + (right - left) // 2
+        sorted_nums1 = merge_sort(nums[left:mid + 1])
+        sorted_nums2 = merge_sort(nums[mid + 1:])
+        return merge_arr(sorted_nums1, sorted_nums2)
 
-    return merge_array(merged1, merged2)
-    
-def merge_array(left, right):
+def merge_arr(nums1, nums2):
     res = []
-
-    i = j = 0
-    while i < len(left) and j < len(right):
-        if left[i] <= right[j]:
-            res.append(left[i])
-            i += 1
-        else:
-            res.append(right[j])
-            j += 1
     
-    while i < len(left):
-        res.append(left[i])
-        i += 1
+    l1, l2 = 0, 0
+    while l1 < len(nums1) and l2 < len(nums2):
+        if nums1[l1] <= nums2[l2]:
+            res.append(nums1[l1])
+            l1 += 1
+        else:
+            res.append(nums2[l2])
+            l2 += 1
+    
+    while l1 < len(nums1):
+        res.append(nums1[l1])
+        l1 += 1
         
-    while j < len(right):
-        res.append(right[j])
-        j += 1
+    while l2 < len(nums2):
+        res.append(nums2[l2])
+        l2 += 1
         
     return res
-  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
 import heapq
   
 def kth_largest_integer(nums, k):

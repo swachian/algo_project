@@ -1,4 +1,4 @@
-|#   | Problem Name                                 | Category                    | Round 2 | Round 3     |      |
+|#   | Problem Name                                 | Category                    | Round 2 | Round 3     |  Round 4    |
 |-----|----------------------------------------------|-----------------------------|------|------|------|
 | 1   | Pair Sum - Sorted                            | Two Pointers                | ✅     |      |      |
 | 2   | Triplet Sum                                  | Two Pointers                | POK 12.08     | 20'     |      |
@@ -16,7 +16,7 @@
 | 14  | Linked List Intersection                     | Linked List                 | NOK 完全不记得把两个链表连接起来的玩法了      | POK,判断条件不熟练 12.22; 15'     |      |
 | 15  | LRU Cache                                    | Linked List                 | ✅ 耗时较长，但已可以独立完成     |      |      |
 | 16  | Palindromic Linked List                      | Linked List                 | ✅     |      |      |
-| 17  | Flatten a Multi-Level Linked List            | Linked List       | ✅     |      |      |
+| 17  | Flatten a Multi-Level Linked List            | Linked List       | ✅     |      |  4'    |
 | 18  | Linked List Loop          | Fast And Slow Pointers      |   ✅     |      |      |
 | 19  | Linked List Midpoint            | Fast And Slow Pointers      |✅  利用dummy的话，最好使用while fast.next and fast.next.next     |      |      |
 | 20  | Happy Number            | Fast And Slow Pointers      | ✅     |      |      |
@@ -42,7 +42,7 @@ which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 39  | Combine Sorted Linked Lists            |  Heaps                     |POK, 一方面是忘了个class直接注入lambda的作法，dummy处理head的也不够熟练     | 8'     |      |
 | 40  | Median of an Integer Stream            |  Heaps                      |✅ 除了heap[0]表示栈顶，其他都记得很清楚     |      |      |
 | 41  | Sort a K-sorted Array            |  Heaps                      | ✅    |      |      |
-| 42  | Merge Overlapping Intervals            | Intervals                       | ✅    |      |      |
+| 42  | Merge Overlapping Intervals            | Intervals                       | ✅    |      |  5'     |
 | 43  | Identify All Interval Overlaps            | Intervals                       | ✅ debug后能自己想出来    |      |      |
 | 44  | Largest Overlap of Intervals            | Intervals                       | ✅    |      |      |
 | 45  | Sum Between Range            |  Prefix Sums                      | ✅    |      |      |
@@ -91,14 +91,14 @@ which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 88  | Gas Stations            | Greedy                       | ✅     |      |      |
 | 89  | Candies            | Greedy                       |  ✅      |      |      |
 | 90  | Sort linked List            | Sort And Search                       |  ✅ while fast.next and fast.next.next是用于让slow指向左中点，而fast and fast.next则会让slow指向右中点      |     |      |
-| 91  | Sort Array            | Sort And Search                       | ✅  quick sort NB, merge sort不太熟悉了，quick sort只有一个split两个递归，merge除了一个split两个递归，最后还有一个merge    |      |      |
+| 91  | Sort Array            | Sort And Search                       | ✅  quick sort NB, merge sort不太熟悉了，quick sort只有一个split两个递归，merge除了一个split两个递归，最后还有一个merge    |      |  12    |
 | 92  | Kth Largest Integer            | Sort And Search                       |  ✅    |      |      |
 | 93  | Dutch National Flag            | Sort And Search                       | ✅ 原著使用的交换方法也值得学习，可得交换算法精髓    |      |      |
 | 94  | Hamming Weights of Integers            | Bit Manipulation                       |  ✅    |      |      |
 | 95  | Lonely Integer            | Bit Manipulation                       | ✅     |      |      |
 | 96  | Swap Odd and Even Bits            | Bit Manipulation                       | ✅    |       |      |
-| 97  | Spiral Traversal            | Math and Geometry                       | POK 12.19 第三第四个循环的if条件还掌握的不熟    |  10'    |      |
-| 98  | Reverse 32-Bit Integer            | Math and Geometry                       | POK math.fmod(n, 10) 未掌握，这个余数的符号与被除数一致，如果要运用%求负数的模，可以把 a % b 里面的b的符号进行修改    |  3'    |      |
+| 97  | Spiral Traversal            | Math and Geometry                       | POK 12.19 第三第四个循环的if条件还掌握的不熟    |  10'    |   9'   |
+| 98  | Reverse 32-Bit Integer            | Math and Geometry                       | POK math.fmod(n, 10) 未掌握，这个余数的符号与被除数一致，如果要运用%求负数的模，可以把 a % b 里面的b的符号进行修改    |  3'    |   3'   |
 | 99  | Maximum Collinear Points            | Math and Geometry                       | POK 掌握的还不错，但遗漏了关键的map或者说分割是要按focus为前置的键的 | 10'     |      |
 | 100  | The Josephus Problem            | Math and Geometry                       | NOK    |  3'    |      |
 | 101  | Trangle Numbers            | Math and Geometry                       | ✅      |      |      |

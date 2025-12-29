@@ -13,8 +13,9 @@ def flatten_multi_level_list(head):
         if cur.child:
             queue.append(cur.child)
             cur.child = None
-        if not cur.next and queue:
-            child = queue.popleft() 
-            cur.next = child 
-        cur = cur.next 
+        if not cur.next:
+            if queue:
+                node = queue.popleft()
+                cur.next = node 
+        cur = cur.next
     return head
