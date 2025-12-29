@@ -86,22 +86,25 @@ def first_and_last_occurrences_of_a_number_upper_bound(nums, target, left, right
 def cutting_wood(heights, k):
     left, right = 0, max(heights)
     while left < right:
-        mid = left + (right - left) // 2 + 1
-        cuts = compute_cuts(heights, mid)
-        if cuts == k:
-            return mid
-        elif cuts < k:
-            right = mid - 1
+        cut_point = left + (right - left) // 2 + 1
+        wood_cut = compute_wood(heights, cut_point)
+        if wood_cut < k:
+            right = cut_point - 1
+        elif wood_cut == k:
+            return cut_point
         else:
-            left = mid
+            left = cut_point
     return left
-        
-        
-def compute_cuts(heights, pov):
-    res = 0
+    
+def compute_wood(heights, cut_point):
+    sum = 0
     for height in heights:
-        res += (height - pov) if height > pov else 0
-    return res 
+        if height > cut_point:
+            sum += height - cut_point 
+    return sum    
+
+        
+
 
 def find_the_target_in_a_rotated_sorted_array(nums, target):
     if not nums:

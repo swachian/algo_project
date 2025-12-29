@@ -6,33 +6,88 @@ class TrieNode:
 class Trie:
     def __init__(self):
         self.root = TrieNode()
-    
+        
     def insert(self, word):
         node = self.root
         for c in word:
             if c not in node.children:
-                node.children[c] = TrieNode()
+                new_node = TrieNode()
+                node.children[c] = new_node
             node = node.children[c]
         node.isword = True
-
+        
     def search(self, word):
         node = self.root
         for c in word:
             if c not in node.children:
                 return False
-            else:
-                node = node.children[c]
+            node = node.children[c]
         return node.isword
-    
-    def has_prefix(self, prefx):
+
+    def has_prefix(self, prefix):
         node = self.root
-        for c in prefx:
+        for c in prefix:
             if c not in node.children:
                 return False
-            else:
-                node = node.children[c]
+            node = node.children[c]
         return True
-    
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class InsertAndSearchWordsWithWildcards:
     def __init__(self):
         self.root = TrieNode()

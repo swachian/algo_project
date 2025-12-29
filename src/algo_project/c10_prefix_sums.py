@@ -1,12 +1,14 @@
 class SumBetweenRange:
     def __init__(self, nums):
-        self.pre_sum = [nums[0]]
+        self.nums = nums
+        self.pre_sums = [nums[0]]
         for i in range(1, len(nums)):
-            self.pre_sum.append(self.pre_sum[-1] + nums[i])
-    
+            self.pre_sums.append(self.pre_sums[-1] + nums[i])
+
     def sum_range(self, i, j):
-        pre = self.pre_sum[i - 1] if i > 0 else 0
-        return self.pre_sum[j] - pre
+        pre = 0 if i == 0 else self.pre_sums[i - 1]
+        return self.pre_sums[j] - pre
+ 
   
 from collections import defaultdict  
 def k_sum_subarrays(nums, k):

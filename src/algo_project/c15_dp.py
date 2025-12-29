@@ -125,28 +125,29 @@ def knapsack(k, weights, values):
     
     
 def largest_square_in_a_matrix(matrix):
-    # base: dp[0][*] = 1 if matrix[0][*] is 1, same to column[0]   
-    # recurrence solution: if matrix[i][j] == 1 then dp[i][j] = min(dp[i][j - 1], dp[i - 1][j - 1], dp[i - 1][j]) + 1
-    if not matrix or not matrix[0]:
+    # base: dp[0][x] = 1 if matrix[0][x] == 1, dp[x][0] = 1 if matrix[x][0] == 1
+    # if matrix[i][j] == 1, dp[i][j] = 1 + min(dp[i][j - 1], dp[i - 1][j - 1], dp[i - 1][j]])
+    if not matrix:
         return 0
     m, n = len(matrix), len(matrix[0])
+    max_count = 0
     dp = [[0] * n for _ in range(m)]
 
-    max_edge = 0 
-    
     for j in range(n):
         if matrix[0][j] == 1:
             dp[0][j] = 1
-            max_edge = 1
+            max_count = 1
+    
     for i in range(m):
         if matrix[i][0] == 1:
             dp[i][0] = 1
-            max_edge = 1
+            max_count = 1
             
     for i in range(1, m):
         for j in range(1, n):
             if matrix[i][j] == 1:
-                dp[i][j] = 1 + min(dp[i][j - 1], dp[i - 1][j - 1], dp[i -1][j])
-                max_edge = max(max_edge, dp[i][j])
+                dp[i][j] = 1 + min(dp[i][j - 1], dp[i - 1][j - 1], dp[i - 1][j])
+                max_count = max(max_count, dp[i][j])
     
-    return max_edge * max_edge
+    
+    return max_count ** 2
