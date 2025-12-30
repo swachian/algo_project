@@ -10,15 +10,15 @@
 | 8   | Valid Sudoku                                 | Hash Map & Set              | ✅ debug后能独立解出     |      |  9'    |
 | 9   | Zero Striping                                | Hash Map & Set              |NOK 需要in placing的解法      | 12'     |      |
 | 10  | Longest Consecutive Sequence                 | Hash Map & Set              |POK 只会加入sort的，不会不需要sort的      | 10'     | 4'      |
-| 11  | Geometric Progression Triplets               | Hash Map & Set              |POK 大致能recall,还需要练习      |  15'    |      |
+| 11  | Geometric Progression Triplets               | Hash Map & Set              |POK 大致能recall,还需要练习      |  15'    |  5'     |
 | 12  | Reverse Linked List                          | Linked List                 | ✅     |      |    1'  |
 | 13  | Remove Kth Node From End                     | Linked List                 | POK 可以做出，但未掌握快指针先走k步的算法     | 12'     |      |
 | 14  | Linked List Intersection                     | Linked List                 | NOK 完全不记得把两个链表连接起来的玩法了      | POK,判断条件不熟练 12.22; 15'     |   1' 純粹是剛複習過   |
 | 15  | LRU Cache                                    | Linked List                 | ✅ 耗时较长，但已可以独立完成     |      | 25'     |
 | 16  | Palindromic Linked List                      | Linked List                 | ✅     |      |      |
 | 17  | Flatten a Multi-Level Linked List            | Linked List       | ✅     |      |  4'    |
-| 18  | Linked List Loop          | Fast And Slow Pointers      |   ✅     |      |      |
-| 19  | Linked List Midpoint            | Fast And Slow Pointers      |✅  利用dummy的话，最好使用while fast.next and fast.next.next     |      |      |
+| 18  | Linked List Loop          | Fast And Slow Pointers      |   ✅     |      |  1'    |
+| 19  | Linked List Midpoint            | Fast And Slow Pointers      |✅  利用dummy的话，最好使用while fast.next and fast.next.next     |      |  2'    |
 | 20  | Happy Number            | Fast And Slow Pointers      | ✅     |      |      |
 | 21  | Substring Anagrams            | Sliding window                        | POK 能回想起来怎么做，但最好再练练    | 25'     |      |
 | 22  | Longest Substring with Unique Characters            | Sliding window                        |✅   |      |      |
@@ -56,7 +56,7 @@
 | 54  |  Build Binary Tree From Preorder and Inorder Traversals           | Trees                       |✅      |      |      |
 | 55  | Maximum Sum of a Continuous Path in a Binary Tree            | Trees                       | ✅     |      |  6'    |
 | 56  | Binary Tree Symmetry            | Trees                      | ✅    |      |      |
-| 57  | Binary Tree Columns            | Trees                       | ✅    |      |      |
+| 57  | Binary Tree Columns            | Trees                       | ✅    |      |  8'    |
 | 58  | Kth Smallest Number in a Binary Search Tree            | Trees                       | ✅    |      |      |
 | 59  | Searialize and Deserialize a Binary Tree            | Trees                       |✅ 原解更推荐使用iter和next的搭配，这个global取得的效果是类似的；返回字符串之前可以先放在list里，然后再统一join返回     |      |      |
 | 60  | Design a Trie            |  Tries                      | ✅     |      |   8'   |
@@ -69,8 +69,8 @@
 | 67  | Longest Increasing Path            |  Graphs                      |  ✅    |      |      |
 | 68  | Shortest Transformation Sequence            |  Graphs                      | POK 12.17 一些访问和计数的细节掌握的不好    | 10'     |      |
 | 69  | Merging Communities            |  Graphs                      | POK 12.17 find递归查找有点记不清了   |  6'    |  4'    |
-| 70  | Prerequisites            |  Graphs                      | ✅     |      |      |
-| 71  | Shortest Path            |  Graphs                      | NOK 12.17 放进heap里面的distance是总的距离，不是单个点对点的weight    | 12'     |      |
+| 70  | Prerequisites            |  Graphs                      | ✅     |      |  6'    |
+| 71  | Shortest Path            |  Graphs                      | NOK 12.17 放进heap里面的distance是总的距离，不是单个点对点的weight    | 12'     |  10' 我是把所有的新边都放进了heap,但实际上只要放入新缩减的距离和节点即可    |
 | 72  | Connect the Dots            |  Graphs                      | ✅     |      |   17'   |
 | 73  | Find All permutations            | Backtracking                        |✅      |      |      |
 | 74  | Find All Subsets            | Backtracking                       | ✅     |      |      |
@@ -78,7 +78,7 @@
 | 76  | Combinations of a Sum            | Backtracking                       | ✅     |      |   NOK 这个有点忘了，  |
 | 77  | Phone Keypad Combinations            | Backtracking                       | ✅     |      |      |
 | 78  | Climbing Stairs            | Dynamic Programming                       | ✅     |      |  1'    |
-| 79  | Minumum Coin Combination            | Dynamic Programming                       | ✅     |      |      |
+| 79  | Minumum Coin Combination            | Dynamic Programming                       | ✅     |      |   4'   |
 | 80  | Matrix Pathways            | Dynamic Programming                       | ✅ 特例只使用两个row的情况还需要练习     |      |      |
 | 81  | Neighborhood Burglary            | Dynamic Programming                       | ✅    |      |      |
 | 82  | Longest Common Subsequence            | Dynamic Programming                       |✅     |      |      |

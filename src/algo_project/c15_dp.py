@@ -13,16 +13,15 @@ def climbing_stairs(n):
 
 
 def min_coin_combination(coins, target):
-    # base: dp[0] = 0, 
-    # recurrence solution: dp[i] = min(coin + dp[i-coin]) for coin in coins
-    dp = [-1] * (target + 1)
+    # base: dp[0] =  0
+    # rs: dp[i] = min(dp[i - coin] + 1)
+    dp = [float("inf")] * (target + 1)
     dp[0] = 0
-    
-    for i in range(1, target + 1):
+    for i in range(target + 1):
         for coin in coins:
-            if i - coin >= 0 and dp[i - coin] != -1:
-                dp[i] = min(dp[i], dp[i - coin] + 1) if dp[i] != -1 else dp[i - coin] + 1
-    return dp[target]
+            if i - coin >= 0 and dp[i - coin] != float("inf"):
+                dp[i] = min(dp[i], dp[i - coin] + 1)
+    return dp[target] if dp[target] != float("inf") else -1
 
 
 def matrix_pathways(m, n):
@@ -34,7 +33,7 @@ def matrix_pathways(m, n):
         for j in range(1, n):
             cur_row[j] = prev_row[j] + cur_row[j - 1]
         prev_row = cur_row
-    return cur_row[n - 1]
+    return cur_row[n - 1] 
 
 
 def neighborhood_burglary(houses):

@@ -92,20 +92,18 @@ def longest_chain_of_consecutive_numbers(nums):
 from collections import defaultdict
 
 def geometric_sequence_triplets(nums, r):
-    left_set = defaultdict(int)
-    right_set = defaultdict(int)
+    left_count = defaultdict(int)
+    right_count = defaultdict(int)
+    for num in nums:
+        right_count[num] += 1
 
-    # nums.sort()
+    res = 0
     for num in nums:
-        right_set[num] += 1
-    max_count = 0
-    for num in nums:
-        right_set[num] -= 1
+        right_count[num] -= 1
         if num % r == 0:
-            left_num = num // r
-            right_num = num * r
-            if left_num in left_set and right_num in right_set:
-                max_count += left_set[left_num] * right_set[right_num]
-        left_set[num] += 1
-        
-    return max_count
+            l = num // r
+            right = num * r
+            res += left_count[l] * right_count[right]
+        left_count[num] += 1
+    
+    return res

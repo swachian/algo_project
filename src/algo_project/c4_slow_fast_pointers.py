@@ -4,22 +4,24 @@ class ListNode:
         self.next = next
         
 def linked_list_loop(head):
-    slow = fast = head
+    slow, fast = head, head
     while fast and fast.next:
+
         slow = slow.next 
         fast = fast.next.next 
         if slow == fast:
             return True
     return False
+         
+
 
 def linked_list_midpoint(head):
-    dummy = ListNode(None)
-    dummy.next = head 
-    slow = fast = dummy
-    while fast.next and fast.next.next:
+    slow, fast = head, head
+    while fast and fast.next:
         slow = slow.next 
-        fast = fast.next.next 
-    return slow.next
+        fast = fast.next.next
+    return slow
+
 
 def happy_number(n):
     slow = n 

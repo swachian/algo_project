@@ -178,24 +178,35 @@ def dfs_binary_tree_symmetry(left, right):
 from collections import defaultdict, deque
 
 def binary_tree_columns(root):
+    columns = defaultdict(list)
     queue = deque()
+    res = []
+
     if not root:
-        return []
+        return res
     
-    res = defaultdict(list)    
     queue.append((root, 0))
-    i = j = 0
+    min_col = 0
+    max_col = 0
+
     while queue:
-        node, index = queue.popleft()
-        res[index].append(node.val)
-        i = min(i, index)
-        j = max(j, index)
-        if node.left:
-            queue.append((node.left, index - 1))
-        if node.right:
-            queue.append((node.right, index + 1))
+        level_size = len(queue)
+        for _ in range(level_size):
+            node, col = queue.popleft()
+            columns[col].append(node.val)
+            if node.left:
+                queue.append((node.left, col - 1))
+                min_col = min(min_col, col - 1)
+            if node.right:
+                queue.append((node.right, col + 1))
+                max_col = max(max_col, col + 1)
+    for i in range(min_col, max_col + 1):
+        res.append(columns[i])
     
-    return [res[k] for k in range(i, j + 1)]
+    return res
+    
+
+
 
 def kth_smallest_number_in_BST(root, k):
     return kth_smallest_number_in_BST_stack_version(root, k)

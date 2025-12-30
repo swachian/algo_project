@@ -66,13 +66,9 @@ class UnionFind:
 from collections import defaultdict, deque
 
 def prerequisites(n, prereqs):
-    if not prereqs:
-        return True
-    
     graph = defaultdict(list)
     degrees = [0] * n
-    enrolled = 0
-    
+    enrolls = 0
     for a, b in prereqs:
         graph[a].append(b)
         degrees[b] += 1
@@ -81,46 +77,45 @@ def prerequisites(n, prereqs):
     for i in range(n):
         if degrees[i] == 0:
             queue.append(i)
-            enrolled += 1
-            
-    while queue and enrolled < n:
-        node = queue.popleft()
-        for neighbor in graph[node]:
+            enrolls += 1
+    
+    while queue and enrolls < n:
+        a = queue.popleft()
+        for neighbor in graph[a]:
             degrees[neighbor] -= 1
             if degrees[neighbor] == 0:
+                enrolls += 1
                 queue.append(neighbor)
-                enrolled += 1
-    
-    return enrolled == n
+    return enrolls == n
+        
+
     
 from collections import defaultdict, deque
 import heapq
 
 def shortest_path(n, edges, start):
-    path_lengths = [float("inf")] * n
-    
-    heap = []
     graph = defaultdict(list)
-    for n1, n2, w in edges:
-        graph[n1].append((w, n2))
-        # graph[n2].append((w, n1))
+    for n1, n2, weight in edges:
+        graph[n1].append((weight, n1, n2))
+        # graph[n2].append((weight, n2, n1))
     
-    path_lengths[start] = 0
-    queue = deque()
-    queue.append(start)
+    res = [float("inf")] * n
+    heap = []
+    res[start] = 0
+    node = start
+    for weight, n1, n2 in graph[node]:
+         heapq.heappush(heap, (weight, n1, n2))
+
+    while heap:
+        weight, n1, n2 = heapq.heappop(heap)
+        distance = res[n1]
+        if distance + weight < res[n2]:
+            res[n2] = distance + weight
+            for weight2, n3, n4 in graph[n2]:
+                heapq.heappush(heap, (weight2, n3, n4))
     
-    while queue:
-        node = queue.popleft()
-        distance = path_lengths[node]
-        for w, n2 in graph[node]:
-            heapq.heappush(heap, (w, n2))
-        while heap:
-            w, n2 = heapq.heappop(heap)
-            if distance + w < path_lengths[n2]:
-                path_lengths[n2] = distance + w
-                queue.append(n2)
-    return [ele if ele != float("inf") else -1 for ele in path_lengths]
-    
+    return [ele if ele != float("inf") else - 1 for ele in res]
+        
     
             
    
