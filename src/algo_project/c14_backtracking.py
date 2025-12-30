@@ -64,25 +64,20 @@ def backtracking_n_queens(r, n, cols = set(), angels = set(), dangels = set()):
         dangels.remove(r -c )
         
 def combinations_of_sum_k(nums, target):
-    if not nums:
-        return []
     res = []
-    backtracking_combinations_of_sum_k(nums, 0, target, [], res)
+    backtrack_combinations_of_sum_k(nums, 0, target, [], res)
     return res
 
-def backtracking_combinations_of_sum_k(nums, i, target, candidates = [], res = []):
-    if target == 0:
-        res.append(candidates[0:])
-        return 
+def backtrack_combinations_of_sum_k(nums, start_index, target, candidates = [], res = []):
     if target < 0:
         return 
+    if target == 0:
+        res.append(candidates[0:])
     
-    for j in range(i, len(nums)):
-        candidates.append(nums[j])
-        backtracking_combinations_of_sum_k(nums, j, target - nums[j], candidates, res)
-        
+    for i in range(start_index, len(nums)):
+        candidates.append(nums[i])
+        backtrack_combinations_of_sum_k(nums, i, target - nums[i], candidates, res)
         candidates.pop()
-        # backtracking_combinations_of_sum_k(nums, j, target, candidates, res)
 
 def phone_keypad_combinations(digits):
     digital_alpha_map = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}

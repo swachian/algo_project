@@ -1,15 +1,15 @@
 def climbing_stairs(n):
+    # base: dp[1] = 1, dp[2] = 2
+    # rs: dp[i] = dp[i - 1] + dp[i - 2]
     if n <= 2:
         return n
-    two_step_before = 1
-    one_step_before = 2
-    current_step = 0
+    prev = 2
+    prev_prev = 1
     for i in range(3, n + 1):
-        current_step = one_step_before + two_step_before
-        two_step_before = one_step_before
-        one_step_before = current_step
-    
-    return current_step
+        next_stairs = prev + prev_prev
+        prev_prev = prev
+        prev = next_stairs
+    return next_stairs
 
 
 def min_coin_combination(coins, target):

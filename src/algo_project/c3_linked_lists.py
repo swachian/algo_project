@@ -11,7 +11,9 @@ def linked_list_reversal(head):
         cur.next = prev 
         prev = cur
         cur = next_node
+    
     return prev
+
 
 def remove_kth_last_node(head, k):
     dummy = ListNode(None)

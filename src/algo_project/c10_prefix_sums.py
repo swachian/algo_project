@@ -36,9 +36,9 @@ def product_array_without_current_element(nums):
     for i in range(1, n):
         res[i] = res[i - 1] * nums[i - 1]
     
-    right_product = nums[n - 1]
+    pre = nums[n - 1]
     for i in range(n - 2, -1, -1):
-        res[i] = res[i] * right_product
-        right_product *= nums[i] 
+        res[i] = res[i] * pre 
+        pre = pre * nums[i]
     
     return res

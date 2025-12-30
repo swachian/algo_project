@@ -20,8 +20,9 @@ def dfs_graph_deep_copy(node, memo = {}):
     return new_node
 
 def count_islands(matrix):
+    global count
     count = 0
-    if not matrix or not matrix[0]:
+    if not matrix:
         return count
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
@@ -29,14 +30,17 @@ def count_islands(matrix):
                 dfs_count_islands(matrix, i, j)
                 count += 1
     return count
-    
+
 def dfs_count_islands(matrix, i, j):
     matrix[i][j] = 0
-    dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+    dirs = [[0, 1], [0, -1], [-1, 0], [1, 0]]
     for dir in dirs:
         new_i, new_j = i + dir[0], j + dir[1]
-        if is_in_bound(new_i, new_j, len(matrix), len(matrix[0])) and matrix[new_i][new_j] == 1:
+        if is_in_bound2(new_i, new_j, len(matrix), len(matrix[0])) and matrix[new_i][new_j] == 1:
             dfs_count_islands(matrix, new_i, new_j)
+        
+def is_in_bound2(i, j, m, n):
+    return 0 <= i < m and 0 <= j < n
 
 from collections import deque
 

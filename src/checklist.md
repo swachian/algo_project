@@ -11,7 +11,7 @@
 | 9   | Zero Striping                                | Hash Map & Set              |NOK 需要in placing的解法      | 12'     |      |
 | 10  | Longest Consecutive Sequence                 | Hash Map & Set              |POK 只会加入sort的，不会不需要sort的      | 10'     | 4'      |
 | 11  | Geometric Progression Triplets               | Hash Map & Set              |POK 大致能recall,还需要练习      |  15'    |      |
-| 12  | Reverse Linked List                          | Linked List                 | ✅     |      |      |
+| 12  | Reverse Linked List                          | Linked List                 | ✅     |      |    1'  |
 | 13  | Remove Kth Node From End                     | Linked List                 | POK 可以做出，但未掌握快指针先走k步的算法     | 12'     |      |
 | 14  | Linked List Intersection                     | Linked List                 | NOK 完全不记得把两个链表连接起来的玩法了      | POK,判断条件不熟练 12.22; 15'     |   1' 純粹是剛複習過   |
 | 15  | LRU Cache                                    | Linked List                 | ✅ 耗时较长，但已可以独立完成     |      | 25'     |
@@ -22,7 +22,7 @@
 | 20  | Happy Number            | Fast And Slow Pointers      | ✅     |      |      |
 | 21  | Substring Anagrams            | Sliding window                        | POK 能回想起来怎么做，但最好再练练    | 25'     |      |
 | 22  | Longest Substring with Unique Characters            | Sliding window                        |✅   |      |      |
-| 23  | Longest Uniform Substring After Replacements        | Sliding window                        |NOK 12.10 全忘了。静态窗口和动态窗口最大的区别在于后者窗口的大小会动态变化.动态窗口的right一般在循环的最后+1 | 12     |      |
+| 23  | Longest Uniform Substring After Replacements        | Sliding window                        |NOK 12.10 全忘了。静态窗口和动态窗口最大的区别在于后者窗口的大小会动态变化.动态窗口的right一般在循环的最后+1 | 12'     |   6'   |
 | 24  | Find the Insertion Index            | Binary Search                        |POK while left < right 是让left和right merge成为一个值，而left <= right则是让 right越过left. left or right = mid + 1 or mid, 则是决定是否把mid作为答案之一的选择，right最大值的选择也要看是否包含n; 而mid = (left + right) // 2后面是否+1, 则决定把mid往left还是right推|  12'    |      |
 | 25  | First and Last Occurentces of a Number            | Binary Search                        | NOK 12.10 mid 加减1以及不加减1的妙用，确定了上bound和下bound的走向     |  25'    |      |
 | 26  | Cutting Wood           | Binary Search                       | ✅     |      |   10'   |
@@ -31,7 +31,7 @@
 | 29  | Matrix Search            | Binary Search                       | ✅     |      |      |
 | 30  | Local Maxima in Array            | Binary Search                        | NOK, 12.11 局部求一个极值，窍门是更右面的值比较，如果右面的值大于mid,则mid不可能是极值，所以left取mid+1； 如果右值小于mid,意味着mid可能是极值，所以right取mid     |  5'    |      |
 | 31  | Weighted Random Selection            | Binary Search                        | NOK, 12.11 先根输入的weight数组，形成一个sum后的数组，size和输入的相同   # 然后用randint生成一个介于1和最大sum之间的随机数，通过left和right来寻找可以插入这个target的位置，并返回索引 | 20' looking for the lower-bound prefix sum which satisfies the condition prefix_sums[mid] ≥ target.     |      |
-| 32  | Valid Parenthesis Expresssion            | Stacks                       |  ✅    |      |      |
+| 32  | Valid Parenthesis Expresssion            | Stacks                       |  ✅    |      |  3'    |
 | 33  | Next Largest Number to the Right            |  Stacks                      |✅      |      |  3'    |
 | 34  | Evaluate Expression            | Stacks                       | ✅     |      |      |
 | 35  | Repeated Removal of Adjacent Duplicates            |  Stacks                      |✅      |      |      |
@@ -46,7 +46,7 @@
 | 44  | Largest Overlap of Intervals            | Intervals                       | ✅    |      |      |
 | 45  | Sum Between Range            |  Prefix Sums                      | ✅    |      |   3'   |
 | 46  | K-Sum Subarrays            |  Prefix Sums                       | NOK 12.15 运用presum + hash    |  NOK pre_sum - another_pre_sum == k    |      |
-| 47  | Product Array Without Current Element             |  Prefix Sums                       | ✅      |      |      |
+| 47  | Product Array Without Current Element             |  Prefix Sums                       | ✅      |      |  5'    |
 | 48  | Invert Binary Tree            |  Trees                      | ✅      |      |  2' 递归算法  2' stack算法  |
 | 49  | Balanced Binary Tree Validation             | Trees                       | ✅      |      |      |
 | 50  | Rightmost Nodes of Binary Tree            | Trees                       |  ✅    |      |      |
@@ -61,23 +61,23 @@
 | 59  | Searialize and Deserialize a Binary Tree            | Trees                       |✅ 原解更推荐使用iter和next的搭配，这个global取得的效果是类似的；返回字符串之前可以先放在list里，然后再统一join返回     |      |      |
 | 60  | Design a Trie            |  Tries                      | ✅     |      |   8'   |
 | 61  | Insert and Search Words with Wildcards            |  Tries                      | ✅       |      |      |
-| 62  | Find All words on a Board            |  Tries                      |✅  注意把tries归位，以及不要找到一个就return了    |      |      |
+| 62  | Find All words on a Board            |  Tries                      |✅  注意把tries归位，以及不要找到一个就return了    |      |   20'   |
 | 63  | Graph Deep Copy            |  Graphs                      | ✅     |      |      |
-| 64  | Cound Islands            |  Graphs                      |  ✅    |      |      |
+| 64  | Cound Islands            |  Graphs                      |  ✅    |      |    5'  |
 | 65  | Matrix Infection           |  Graphs                      |   ✅   |      |      |
 | 66  | Bipartite Graph Validation            |  Graphs                      |  ✅    |      |  5'    |
 | 67  | Longest Increasing Path            |  Graphs                      |  ✅    |      |      |
 | 68  | Shortest Transformation Sequence            |  Graphs                      | POK 12.17 一些访问和计数的细节掌握的不好    | 10'     |      |
-| 69  | Merging Communities            |  Graphs                      | POK 12.17 find递归查找有点记不清了   |  6'    |      |
+| 69  | Merging Communities            |  Graphs                      | POK 12.17 find递归查找有点记不清了   |  6'    |  4'    |
 | 70  | Prerequisites            |  Graphs                      | ✅     |      |      |
 | 71  | Shortest Path            |  Graphs                      | NOK 12.17 放进heap里面的distance是总的距离，不是单个点对点的weight    | 12'     |      |
 | 72  | Connect the Dots            |  Graphs                      | ✅     |      |   17'   |
 | 73  | Find All permutations            | Backtracking                        |✅      |      |      |
 | 74  | Find All Subsets            | Backtracking                       | ✅     |      |      |
 | 75  | N Queens            | Backtracking                       | ✅ Permutation和Combination都需要去除（回溯）后，但P回溯后不需要直接在循环里二次调用，而Combination是在循环里回溯后继续调用，从这一点上而言，N皇后是一个排列而不是组合    |      |      |
-| 76  | Combinations of a Sum            | Backtracking                       | ✅     |      |      |
+| 76  | Combinations of a Sum            | Backtracking                       | ✅     |      |   NOK 这个有点忘了，  |
 | 77  | Phone Keypad Combinations            | Backtracking                       | ✅     |      |      |
-| 78  | Climbing Stairs            | Dynamic Programming                       | ✅     |      |      |
+| 78  | Climbing Stairs            | Dynamic Programming                       | ✅     |      |  1'    |
 | 79  | Minumum Coin Combination            | Dynamic Programming                       | ✅     |      |      |
 | 80  | Matrix Pathways            | Dynamic Programming                       | ✅ 特例只使用两个row的情况还需要练习     |      |      |
 | 81  | Neighborhood Burglary            | Dynamic Programming                       | ✅    |      |      |

@@ -121,59 +121,44 @@ class TrieNodeWord:
     def __init__(self):
         self.children = {}
         self.word = None
+        
+        
+        
     
-class TrieWord:
-    def __init__(self):
-        self.root = TrieNodeWord()
     
-    def insert(self, word):
-        node = self.root
+def find_all_words_on_a_board(board, words):
+    root = TrieNodeWord()
+    for word in words:
+        node = root
         for c in word:
             if c not in node.children:
                 node.children[c] = TrieNodeWord()
             node = node.children[c]
         node.word = word
-
-    def search(self, word):
-        node = self.root
-        for c in word:
-            if c not in node.children:
-                return False
-            else:
-                node = node.children[c]
-        return node.word != None
     
-
-    
-def find_all_words_on_a_board(board, words):
     if not board:
         return []
-    trie = TrieWord()
-    for word in words:
-        trie.insert(word)
-        
+    
     res = []
     for i in range(len(board)):
         for j in range(len(board[0])):
-            if board[i][j] in trie.root.children:
-                dfs_find_all_words_on_a_board(board, trie.root.children[board[i][j]], i, j, res)
+            dfs_find_all_words_on_a_board(board, i, j, root, res)
     return res
-        
-def dfs_find_all_words_on_a_board(board, node, i, j, res):
+
+def dfs_find_all_words_on_a_board(board, i, j, tw, res):
     c = board[i][j]
-    if node.word:
-        res.append(node.word)
-        node.word = None
-        # return
-    board[i][j] = '#'
+    if tw.word:
+        res.append(tw.word)
+        tw.word = None
     
-    dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]]
+    board[i][j] = '#' 
+    dirs = [[0, 1], [0, -1], [-1, 0], [1, 0]]
     for dir in dirs:
-        next_i, next_j = i + dir[0], j + dir[1]
-        if is_in_bound(next_i, next_j, board) and board[next_i][next_j] in node.children:
-            dfs_find_all_words_on_a_board(board, node.children[board[next_i][next_j]], next_i, next_j, res)
-    
+        n_i, n_j = i + dir[0], j + dir[1]
+        if is_valid_i_j(n_i, n_j, board) and c in tw.children:
+            dfs_find_all_words_on_a_board(board, n_i, n_j, tw.children[c], res)
     board[i][j] = c
     
-def is_in_bound(i, j, board):
+    
+def is_valid_i_j(i, j, board):
     return 0 <= i < len(board) and 0 <= j < len(board[0])

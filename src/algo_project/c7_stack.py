@@ -1,14 +1,17 @@
 def valid_parenthesis_expression(s):
-    parentheses = {"(": ")", "[": "]", "{": "}"}
+    parenthesis = {'{': '}', '[': ']', '(': ')'}
     stack = []
+
     for c in s:
-        if c in parentheses:
+        if c in parenthesis:
             stack.append(c)
         else:
-            if not stack or c != parentheses[stack[-1] ]:
+            if stack and parenthesis[stack[-1]] == c:
+                stack.pop()
+            else:
                 return False
-            stack.pop()
     return not stack
+
 
 from collections import deque
 

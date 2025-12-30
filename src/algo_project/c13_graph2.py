@@ -35,10 +35,10 @@ class MergingCommunities:
     
     def connect(self, x, y):
         self.uf.connect(x, y)
-    
+
     def get_community_size(self, x):
         return self.uf.get_size(x)
-    
+  
 class UnionFind:
     def __init__(self, n):
         self.parent = [i for i in range(n)]
@@ -48,7 +48,7 @@ class UnionFind:
         if self.parent[x] == x:
             return x
         self.parent[x] = self.find(self.parent[x])
-        return  self.parent[x]
+        return self.parent[x]
 
     def connect(self, x, y):
         rep_x, rep_y = self.find(x), self.find(y)
@@ -58,11 +58,10 @@ class UnionFind:
                 self.sizes[rep_x] += self.sizes[rep_y]
             else:
                 self.parent[rep_x] = rep_y
-                self.sizes[rep_y] += self.sizes[rep_x] 
+                self.sizes[rep_y] += self.sizes[rep_x]
     
     def get_size(self, x):
         return self.sizes[self.find(x)]
-
 
 from collections import defaultdict, deque
 
