@@ -86,12 +86,13 @@ def largest_container(heights):
     return largest
 
 def shift_zeros_to_the_end(nums):
-    non_zero_first = 0
+    zero_p = 0
     for i in range(len(nums)):
         if nums[i] != 0:
-            nums[non_zero_first], nums[i] = nums[i], nums[non_zero_first]
-            non_zero_first += 1
+            nums[zero_p], nums[i] = nums[i], nums[zero_p]
+            zero_p += 1
     return nums
+
 
 def next_lexicographical_sequence(s):
     # s = 'abcedda'

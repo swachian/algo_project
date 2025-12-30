@@ -4,7 +4,7 @@
 | 2   | Triplet Sum                                  | Two Pointers                | POK 12.08     | 20'     |      |
 | 3   | Valid Palindrome                             | Two Pointers                | ✅     |      |      |
 | 4   | Container With Most Water                    | Two Pointers                | ✅     |      |      |
-| 5   | Shift Zeroes                                  | Two Pointers                | NOK 12.09     |  5'    |      |
+| 5   | Shift Zeroes                                  | Two Pointers                | NOK 12.09     |  5'    |   2'   |
 | 6   | Next Lexicographical Sequence                | Two Pointers                | ✅ 稍欠火候      |      |      |
 | 7   | Pair Sum - Unsorted                          | Hash Map & Set              | ✅      |      |      |
 | 8   | Valid Sudoku                                 | Hash Map & Set              | ✅ debug后能独立解出     |      |  9'    |
@@ -30,14 +30,13 @@
 | 28  | Find the Median From Two Sorted Arrays           | Binary Search                       | NOK 12.10 只记得基本的结构，1.确保短的arr在前 2.L1_index为nums1的mid,(L2_index+1)+(L1_index+1)=(len(nums1)+len(nums2))/2 3.通过L1_index和L2_index把两个数组平分 4.确定L1,R1,L2,R2四个值,单个数组可能用光的情况时L=-inf,R=inf 5.当L1>R2时,说明nums1太右,right往左移 6.当L2>R1时,说明nums1太小,left往右移 7.调整后根据数组总长度的奇偶性计算中位数    | POK mid2的选择有问题。需要使得左分部的值的个数总是小于或等于右半部分，如果只有一个中位数，也是去右面的数组取; 8'    |      |
 | 29  | Matrix Search            | Binary Search                       | ✅     |      |      |
 | 30  | Local Maxima in Array            | Binary Search                        | NOK, 12.11 局部求一个极值，窍门是更右面的值比较，如果右面的值大于mid,则mid不可能是极值，所以left取mid+1； 如果右值小于mid,意味着mid可能是极值，所以right取mid     |  5'    |      |
-| 31  | Weighted Random Selection            | Binary Search                        | NOK, 12.11 先根输入的weight数组，形成一个sum后的数组，size和输入的相同   # 然后用randint生成一个介于1和最大sum之间的随机数，通过left和right来寻找可以插入这个target的位置，并返回索引 | 20' looking for the lower-bound prefix sum
-which satisfies the condition prefix_sums[mid] ≥ target.     |      |
+| 31  | Weighted Random Selection            | Binary Search                        | NOK, 12.11 先根输入的weight数组，形成一个sum后的数组，size和输入的相同   # 然后用randint生成一个介于1和最大sum之间的随机数，通过left和right来寻找可以插入这个target的位置，并返回索引 | 20' looking for the lower-bound prefix sum which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 32  | Valid Parenthesis Expresssion            | Stacks                       |  ✅    |      |      |
-| 33  | Next Largest Number to the Right            |  Stacks                      |✅      |      |      |
+| 33  | Next Largest Number to the Right            |  Stacks                      |✅      |      |  3'    |
 | 34  | Evaluate Expression            | Stacks                       | ✅     |      |      |
 | 35  | Repeated Removal of Adjacent Duplicates            |  Stacks                      |✅      |      |      |
 | 36  | Implement a Queue using Stacks            |  Stacks                      | ✅     |      |      |
-| 37  | Maximums of Sliding Window            |  Stacks                     | ✅ 对于下标和k的关系，可以列方程或不等式来解决    |      |      |
+| 37  | Maximums of Sliding Window            |  Stacks                     | ✅ 对于下标和k的关系，可以列方程或不等式来解决    |      |   8'   |
 | 38  | K Most Frequent Strings            |  Heaps                      | ✅    |      |      |
 | 39  | Combine Sorted Linked Lists            |  Heaps                     |POK, 一方面是忘了个class直接注入lambda的作法，dummy处理head的也不够熟练     | 8'     |      |
 | 40  | Median of an Integer Stream            |  Heaps                      |✅ 除了heap[0]表示栈顶，其他都记得很清楚     |      |   10'   |
@@ -55,7 +54,7 @@ which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 52  |Binary Search Tree Validation             | Trees                       | ✅      |      |   5'   | 
 | 53  | Lowest Common Ancestor            | Trees                       |  ✅    |      |      |
 | 54  |  Build Binary Tree From Preorder and Inorder Traversals           | Trees                       |✅      |      |      |
-| 55  | Maximum Sum of a Continuous Path in a Binary Tree            | Trees                       | ✅     |      |      |
+| 55  | Maximum Sum of a Continuous Path in a Binary Tree            | Trees                       | ✅     |      |  6'    |
 | 56  | Binary Tree Symmetry            | Trees                      | ✅    |      |      |
 | 57  | Binary Tree Columns            | Trees                       | ✅    |      |      |
 | 58  | Kth Smallest Number in a Binary Search Tree            | Trees                       | ✅    |      |      |
@@ -66,13 +65,13 @@ which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 63  | Graph Deep Copy            |  Graphs                      | ✅     |      |      |
 | 64  | Cound Islands            |  Graphs                      |  ✅    |      |      |
 | 65  | Matrix Infection           |  Graphs                      |   ✅   |      |      |
-| 66  | Bipartite Graph Validation            |  Graphs                      |  ✅    |      |      |
+| 66  | Bipartite Graph Validation            |  Graphs                      |  ✅    |      |  5'    |
 | 67  | Longest Increasing Path            |  Graphs                      |  ✅    |      |      |
 | 68  | Shortest Transformation Sequence            |  Graphs                      | POK 12.17 一些访问和计数的细节掌握的不好    | 10'     |      |
 | 69  | Merging Communities            |  Graphs                      | POK 12.17 find递归查找有点记不清了   |  6'    |      |
 | 70  | Prerequisites            |  Graphs                      | ✅     |      |      |
 | 71  | Shortest Path            |  Graphs                      | NOK 12.17 放进heap里面的distance是总的距离，不是单个点对点的weight    | 12'     |      |
-| 72  | Connect the Dots            |  Graphs                      | ✅     |      |      |
+| 72  | Connect the Dots            |  Graphs                      | ✅     |      |   17'   |
 | 73  | Find All permutations            | Backtracking                        |✅      |      |      |
 | 74  | Find All Subsets            | Backtracking                       | ✅     |      |      |
 | 75  | N Queens            | Backtracking                       | ✅ Permutation和Combination都需要去除（回溯）后，但P回溯后不需要直接在循环里二次调用，而Combination是在循环里回溯后继续调用，从这一点上而言，N皇后是一个排列而不是组合    |      |      |

@@ -130,45 +130,46 @@ def connect_the_dots(points):
     if not points:
         return 0
     edges = []
-    for i in range(len(points)):
-        for j in range(len(points)):
-            weight = abs(points[i][0] - points[j][0]) + abs(points[i][1] - points[j][1])
-            heapq.heappush(edges, (weight, i, j))
-    
-    ufd = UnionFindDot(len(points))
-    res = 0
-    while edges and ufd.get_sizes(0) < len(points):
-        weight, x, y = heapq.heappop(edges)
-        if ufd.connect(x, y):
-            res += weight
-            
-    return res
+    n = len(points)
+    for i in range(n):
+        for j in range(n):
+            edge_len = abs(points[i][0] - points[j][0]) + abs(points[i][1] - points[j][1])
+            heapq.heappush(edges, (edge_len, i, j))
+    uf = UFDot(n)
+    edge_len, n1, n2 = heapq.heappop(edges)   
+    node = n1
+    total_len = edge_len
+    uf.connect(n1, n2)     
+    while edges:
+        edge_len, n1, n2 = heapq.heappop(edges)
+        if uf.connect(n1, n2):
+            total_len += edge_len
+            if uf.get_size(node) == n:
+                break
+    return total_len
 
-class UnionFindDot:
+class UFDot:
     def __init__(self, n):
         self.parent = [i for i in range(n)]
         self.sizes = [1] * n
         
+    def find(self, x):
+        if self.parent[x] == x:
+            return x
+        self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+
     def connect(self, x, y):
         rep_x, rep_y = self.find(x), self.find(y)
         if rep_x == rep_y:
             return False
+        if self.sizes[rep_x] >= self.sizes[rep_y]:
+            self.parent[rep_y] = rep_x
+            self.sizes[rep_x] += self.sizes[rep_y]
         else:
-            if self.sizes[rep_x] >= self.sizes[rep_y]:
-                self.parent[rep_y] = rep_x
-                self.sizes[rep_x] += self.sizes[rep_y]
-            else:
-                self.parent[rep_x] = rep_y
-                self.sizes[rep_y] = self.sizes[rep_x]
-            return True
-    
-    def find(self, x):
-        if self.parent[x] == x:
-            return self.parent[x]
-        self.parent[x] = self.find(self.parent[x])
-        return self.parent[x]
-    
-    def get_sizes(self, x):
-        return self.sizes[x]
-    
+            self.parent[rep_x] = rep_y
+            self.sizes[rep_y] += self.sizes[rep_x]
+        return True
         
+    def get_size(self, x):
+        return self.sizes[self.find(x)]

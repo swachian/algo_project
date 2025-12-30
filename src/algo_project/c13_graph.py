@@ -70,19 +70,20 @@ def matrix_infection(matrix):
     return seconds if uninfected_count == 0 else -1
  
 def bipartite_graph_validation(graph):
-    n = len(graph)
-    colors = [0] * n
-    for i in range(n):
-        if colors[i] == 0 and not dfs_biparite_graph_validation(graph, i, 1, colors): 
+    if not graph:
+        return True
+    colors = [0] * len(graph)
+    for i in range(len(graph)):
+        if colors[i] == 0 and not dfs_bipartitie_graph_validation(graph, i, 1, colors):
             return False
     return True
-    
-def dfs_biparite_graph_validation(graph, i, color, colors):
-    colors[i] = color
-    for neighbor in graph[i]:
-        if colors[neighbor] == color:
+
+def dfs_bipartitie_graph_validation(graph, node, color, colors = []):
+    colors[node] = color
+    for neighor in graph[node]:
+        if colors[neighor] == color:
             return False
-        if colors[neighbor] == 0 and not dfs_biparite_graph_validation(graph, neighbor, -color, colors):
+        elif colors[neighor] == 0 and not dfs_bipartitie_graph_validation(graph, neighor, -color, colors):
             return False
     return True
             
