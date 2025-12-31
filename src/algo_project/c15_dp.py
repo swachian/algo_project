@@ -72,29 +72,30 @@ def longest_common_subsequence(s1, s2):
 
 
 def longest_palindrome_in_a_string(s):
-    # 沿着右上三角形进行遍历
-    # base: dp[i][i] = 1, dp[i][i+1] 比较取1或者0
-    # recurrence solution: length from 3 to n, j - i + 1 == length, if s[i] == s[j] => dp[i + 1][j - 1] + 1
+    # base: dp[i][i] = 1 , dp[i][i + 1] = 2 if s[i] == s[i] + 1
+    # rs:dp[i - 1][j + 1] = dp[i][j] + 2 if s[i - 1] == s[j + 1] and dp[i][j] > 0
+    if not s:
+        return 0
     n = len(s)
-    if n <= 1:
-        return s
-    dp = [[0] * n for _ in range(n)]
-
+    dp = [[0] * n for _ in range(n) ]
+    res_i, res_j = 0, 0
     for i in range(n):
         dp[i][i] = 1
-    max_i = max_j = 0    
-    for i in range(n - 1):
+    for i in range(0, n - 1):
         if s[i] == s[i + 1]:
-            dp[i][i + 1] = 1
-            max_i, max_j = i, i + 1
+            dp[i][i + 1] = 2
+            res_i, res_j = i, i + 1
             
-    for length in range(3, n + 1):
-        for i in range(n - length + 1):
-            j = length + i - 1
-            if s[i] == s[j] and dp[i + 1][j - 1] == 1:
-                dp[i][j] = 1
-                max_i, max_j = i, j
-    return s[max_i:max_j + 1]
+    for sub_len in range(3, n + 1):
+        for i in range(n + 1 - sub_len):
+            j = sub_len + i - 1
+            if s[i] == s[j] and dp[i + 1][j - 1] > 0:
+                dp[i][j] = dp[i + 1][j - 1] + 2
+                res_i, res_j = i, j
+    return s[res_i:res_j + 1]
+    
+    
+    
 
 def maximum_subarray_sum(nums):
     #base: dp[0] = nums[0]

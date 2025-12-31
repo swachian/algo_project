@@ -98,23 +98,21 @@ def dfs_binary_search_tree_validation(root, lower, upper):
    
     
 def lowest_common_ancestor(root, p, q):
-    global res
-    res = None
+    global lca
+    lca = None
     dfs_lowest_common_ancestor(root, p, q)
-    return res
+    return lca
 
-def dfs_lowest_common_ancestor(node, p, q):
-    global res
-    
-    if not node:
-        return 0
-    p_or_q_is_node = 1 if node == p or node == q else 0
-    p_or_q_is_left = dfs_lowest_common_ancestor(node.left, p, q)
-    p_or_q_is_right = dfs_lowest_common_ancestor(node.right, p, q)
-    if p_or_q_is_right + p_or_q_is_left + p_or_q_is_node == 2 and not res:
-        res = node
+def dfs_lowest_common_ancestor(root, p, q):
+    global lca
+    p_or_q_is_node = 1 if root == p or root == q else 0
+    p_or_q_is_in_left = dfs_lowest_common_ancestor(root.left, p, q) if root.left else 0
+    p_or_q_is_in_right = dfs_lowest_common_ancestor(root.right, p, q) if root.right else 0
+    if p_or_q_is_in_left + p_or_q_is_in_right + p_or_q_is_node == 2:
+        lca = root
+    return 1 if p_or_q_is_in_left + p_or_q_is_in_right + p_or_q_is_node >= 1 else 0
+        
 
-    return p_or_q_is_right + p_or_q_is_left + p_or_q_is_node
         
     
 def build_binary_tree(preorder, inorder):
@@ -167,13 +165,14 @@ def binary_tree_symmetry(root):
 def dfs_binary_tree_symmetry(left, right):
     if not left and not right:
         return True
-    if not left and right:
+    elif not left and right:
         return False
-    if left and not right:
+    elif left and not right:
         return False
-    if left.val != right.val:
-        return False
-    return dfs_binary_tree_symmetry(left.left, right.right) and dfs_binary_tree_symmetry(left.right, right.left) 
+    else:
+        if left.val != right.val:
+            return False
+        return dfs_binary_tree_symmetry(left.left, right.right) and dfs_binary_tree_symmetry(left.right, right.left)
 
 from collections import defaultdict, deque
 

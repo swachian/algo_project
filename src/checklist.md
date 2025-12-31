@@ -23,7 +23,7 @@
 | 21  | Substring Anagrams            | Sliding window                        | POK 能回想起来怎么做，但最好再练练    | 25'     |      |
 | 22  | Longest Substring with Unique Characters            | Sliding window                        |✅   |      |      |
 | 23  | Longest Uniform Substring After Replacements        | Sliding window                        |NOK 12.10 全忘了。静态窗口和动态窗口最大的区别在于后者窗口的大小会动态变化.动态窗口的right一般在循环的最后+1 | 12'     |   6'   |
-| 24  | Find the Insertion Index            | Binary Search                        |POK while left < right 是让left和right merge成为一个值，而left <= right则是让 right越过left. left or right = mid + 1 or mid, 则是决定是否把mid作为答案之一的选择，right最大值的选择也要看是否包含n; 而mid = (left + right) // 2后面是否+1, 则决定把mid往left还是right推|  12'    |      |
+| 24  | Find the Insertion Index            | Binary Search                        |POK while left < right 是让left和right merge成为一个值，而left <= right则是让 right越过left. left or right = mid + 1 or mid, 则是决定是否把mid作为答案之一的选择，right最大值的选择也要看是否包含n; 而mid = (left + right) // 2后面是否+1, 则决定把mid往left还是right推|  12'    |  3'    |
 | 25  | First and Last Occurentces of a Number            | Binary Search                        | NOK 12.10 mid 加减1以及不加减1的妙用，确定了上bound和下bound的走向     |  25'    |      |
 | 26  | Cutting Wood           | Binary Search                       | ✅     |      |   10'   |
 | 27  | Find the Target in a Rotated Sorted Array            | Binary Search                       | NOK 12.10 永远在左或右中某个有序的array中继续搜索    |  POK 12.22 ; 10'   |      |
@@ -33,7 +33,7 @@
 | 31  | Weighted Random Selection            | Binary Search                        | NOK, 12.11 先根输入的weight数组，形成一个sum后的数组，size和输入的相同   # 然后用randint生成一个介于1和最大sum之间的随机数，通过left和right来寻找可以插入这个target的位置，并返回索引 | 20' looking for the lower-bound prefix sum which satisfies the condition prefix_sums[mid] ≥ target.     |      |
 | 32  | Valid Parenthesis Expresssion            | Stacks                       |  ✅    |      |  3'    |
 | 33  | Next Largest Number to the Right            |  Stacks                      |✅      |      |  3'    |
-| 34  | Evaluate Expression            | Stacks                       | ✅     |      |      |
+| 34  | Evaluate Expression            | Stacks                       | ✅     |      |  12'    |
 | 35  | Repeated Removal of Adjacent Duplicates            |  Stacks                      |✅      |      |      |
 | 36  | Implement a Queue using Stacks            |  Stacks                      | ✅     |      |      |
 | 37  | Maximums of Sliding Window            |  Stacks                     | ✅ 对于下标和k的关系，可以列方程或不等式来解决    |      |   8'   |
@@ -45,24 +45,24 @@
 | 43  | Identify All Interval Overlaps            | Intervals                       | ✅ debug后能自己想出来    |      |      |
 | 44  | Largest Overlap of Intervals            | Intervals                       | ✅    |      |      |
 | 45  | Sum Between Range            |  Prefix Sums                      | ✅    |      |   3'   |
-| 46  | K-Sum Subarrays            |  Prefix Sums                       | NOK 12.15 运用presum + hash    |  NOK pre_sum - another_pre_sum == k    |      |
+| 46  | K-Sum Subarrays            |  Prefix Sums                       | NOK 12.15 运用presum + hash    |  NOK pre_sum - another_pre_sum == k    |   2'   |
 | 47  | Product Array Without Current Element             |  Prefix Sums                       | ✅      |      |  5'    |
 | 48  | Invert Binary Tree            |  Trees                      | ✅      |      |  2' 递归算法  2' stack算法  |
 | 49  | Balanced Binary Tree Validation             | Trees                       | ✅      |      |      |
 | 50  | Rightmost Nodes of Binary Tree            | Trees                       |  ✅    |      |      |
 | 51  | Widest Binary Tree Level            | Trees                       | ✅     |      |      |
 | 52  |Binary Search Tree Validation             | Trees                       | ✅      |      |   5'   | 
-| 53  | Lowest Common Ancestor            | Trees                       |  ✅    |      |      |
+| 53  | Lowest Common Ancestor            | Trees                       |  ✅    |      | 5'     |
 | 54  |  Build Binary Tree From Preorder and Inorder Traversals           | Trees                       |✅      |      |      |
 | 55  | Maximum Sum of a Continuous Path in a Binary Tree            | Trees                       | ✅     |      |  6'    |
-| 56  | Binary Tree Symmetry            | Trees                      | ✅    |      |      |
+| 56  | Binary Tree Symmetry            | Trees                      | ✅    |      |  3'    |
 | 57  | Binary Tree Columns            | Trees                       | ✅    |      |  8'    |
 | 58  | Kth Smallest Number in a Binary Search Tree            | Trees                       | ✅    |      |      |
 | 59  | Searialize and Deserialize a Binary Tree            | Trees                       |✅ 原解更推荐使用iter和next的搭配，这个global取得的效果是类似的；返回字符串之前可以先放在list里，然后再统一join返回     |      |      |
 | 60  | Design a Trie            |  Tries                      | ✅     |      |   8'   |
 | 61  | Insert and Search Words with Wildcards            |  Tries                      | ✅       |      |      |
 | 62  | Find All words on a Board            |  Tries                      |✅  注意把tries归位，以及不要找到一个就return了    |      |   20'   |
-| 63  | Graph Deep Copy            |  Graphs                      | ✅     |      |      |
+| 63  | Graph Deep Copy            |  Graphs                      | ✅     |      |   2'   |
 | 64  | Cound Islands            |  Graphs                      |  ✅    |      |    5'  |
 | 65  | Matrix Infection           |  Graphs                      |   ✅   |      |      |
 | 66  | Bipartite Graph Validation            |  Graphs                      |  ✅    |      |  5'    |
@@ -82,11 +82,11 @@
 | 80  | Matrix Pathways            | Dynamic Programming                       | ✅ 特例只使用两个row的情况还需要练习     |      |      |
 | 81  | Neighborhood Burglary            | Dynamic Programming                       | ✅    |      |      |
 | 82  | Longest Common Subsequence            | Dynamic Programming                       |✅     |      |      |
-| 83  | Longest Palindrome in a String            | Dynamic Programming                       | ✅ 在根据substring的长度循环时，需要注意n - sublen == 0时其实还是需要遍历的，因此range里面要+1    |      |      |
+| 83  | Longest Palindrome in a String            | Dynamic Programming                       | ✅ 在根据substring的长度循环时，需要注意n - sublen == 0时其实还是需要遍历的，因此range里面要+1    |      |  15'    |
 | 84  | Maximum Subarray Sum            | Dynamic Programming                       | POK 12.18 记得大概但忘了最后是取dp里面的最大值    |  3'    |      |
 | 85  | 0/1 knapsack            | Dynamic Programming                       | ✅ 非常NB    |      |      |
 | 86  | Largest Square in a Matrix            | Dynamic Programming                       | ✅     |      |  7'    |
-| 87  | Jump the the End            | Greedy                       | NOK 12.18 每次只找满足条件的上一个目的地，不满足的会循环跳过。dp也能用于解决此问题  | 10' 很小的一道题目，花了不少时间，还是不太熟练; 再做3'      |      |
+| 87  | Jump the the End            | Greedy                       | NOK 12.18 每次只找满足条件的上一个目的地，不满足的会循环跳过。dp也能用于解决此问题  | 10' 很小的一道题目，花了不少时间，还是不太熟练; 再做3'      |  2'     |
 | 88  | Gas Stations            | Greedy                       | ✅     |      |      |
 | 89  | Candies            | Greedy                       |  ✅      |      |  4'    |
 | 90  | Sort linked List            | Sort And Search                       |  ✅ while fast.next and fast.next.next是用于让slow指向左中点，而fast and fast.next则会让slow指向右中点      |     |      |
