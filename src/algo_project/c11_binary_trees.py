@@ -242,35 +242,36 @@ def kth_smallest_number_in_BST_stack_version(root, k):
 END = "None"
 
 def serialize(root):
-    global res
     res = []
-    dfs_serialize(root)
-    return ','.join([str(ele) for ele in res])
+    if not root:
+        return END
+    dfs_serialize(root, res)
+    return ",".join(res)
 
-def dfs_serialize(node):
-    global res
-    if not node:
-        res.append(END) 
-        return
-    res.append(node.val)
-    dfs_serialize(node.left) 
-    dfs_serialize(node.right) 
+def dfs_serialize(root, res):
+    res.append(str(root.val))
+    if not root.left:
+        res.append(END)
+    else:
+        dfs_serialize(root.left, res)
+    if not root.right:
+        res.append(END)
+    else:
+        dfs_serialize(root.right, res)
+
 
 
 def deserialize(data):
-    global index
-    index = 0
-    lists = data.split(",")
-    return dfs_deserialize(lists)
-
-def dfs_deserialize(data):
-    global index
-    if index >= len(data) or data[index] == END:
-        index += 1
+    if not data:
         return None
-    node = TreeNode(int(data[index]))
-    index += 1
-    node.left = dfs_deserialize(data)
-    node.right = dfs_deserialize(data)
-    return node
+    data_list = iter(data.split(","))
+    return dfs_deserialize(data_list)
     
+def dfs_deserialize(data_list):
+    c = next(data_list, None)
+    node = None
+    if c and c != END:
+        node = TreeNode(int(c))
+        node.left = dfs_deserialize(data_list)
+        node.right = dfs_deserialize(data_list)
+    return node

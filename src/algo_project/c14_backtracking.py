@@ -1,22 +1,25 @@
 def find_all_permutations(nums):
+    if not nums:
+        return [[]]
     res = []
-    dfs_find_all_permutations(nums, [], set(), res)
+    backtrack_find_all_permutations(nums, [], set(), res)
     return res
 
-def dfs_find_all_permutations(nums, candidates = [], visited = set(), res = []):
-    if len(candidates) == len(nums):
-        res.append(candidates[0:])
-        return 
+def backtrack_find_all_permutations(nums, candidate, visited = set(), res = []):
+    if len(candidate) == len(nums):
+        res.append(candidate[0:])
+        return
     for num in nums:
         if num in visited:
             continue
-        candidates.append(num)
+        candidate.append(num)
         visited.add(num)
-        dfs_find_all_permutations(nums, candidates, visited, res)
+        backtrack_find_all_permutations(nums, candidate, visited, res)
 
-        candidates.pop()
+        candidate.pop()
         visited.remove(num)
-        # dfs_find_all_permutations(nums, candidates, visited, res)
+        # backtrack_find_all_permutations(nums, candidate, visited, res)
+
         
 def find_all_subsets(nums):
     res = []

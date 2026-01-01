@@ -125,16 +125,12 @@ def merge_arr(nums1, nums2):
 import heapq
   
 def kth_largest_integer(nums, k):
-    if not nums:
-        return None
     heap = []
-
     for num in nums:
         heapq.heappush(heap, num)
         if len(heap) > k:
             heapq.heappop(heap)
-    
-    return heapq.heappop(heap)
+    return heap[0]
 
 
 def dutch_national_flag(nums):

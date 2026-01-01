@@ -1,16 +1,17 @@
 def pair_sum_sorted(nums, target):
-    left = 0
-    right = len(nums) - 1
-    
+    left, right = 0, len(nums) - 1
+    res = []
     while left < right:
-        if nums[left] + nums[right] > target:
-            right -= 1
-        elif nums[left] + nums[right] < target:
-            left += 1
-        else:
+        s = nums[left] + nums[right]
+        if s == target:
             return [left, right]
-    return []    
-        
+        elif s > target:
+            right -= 1
+        else:
+            left += 1
+            
+    return res
+
     
 def triplet_sum(nums):
     nums.sort()
@@ -95,26 +96,30 @@ def shift_zeros_to_the_end(nums):
 
 
 def next_lexicographical_sequence(s):
-    # s = 'abcedda'
-    # assert 'abdacde' == result
-    slist = list(s)
-    n = len(slist)
-    right = n - 1
-    pov = 0
+    # 1. 从右往左，找到第一个下降的pair
+    # 2. 记录下小的值
+    # 3. 继续从右往左，找到第一个大于前面的小值的值，并进行swap
+    # 4. 对swap后的子串进行reverse并拼接回去
+    slist  = list(s)
+    right = len(s) - 1
+    pov = -1
     while right > 0:
         if slist[right] > slist[right - 1]:
             pov = right - 1
             break
-        right -= 1
-    if pov > 0:
-        right = n - 1
-        while right >= pov and slist[right] < slist[pov]:
+        else:
             right -= 1
-        slist[pov], slist[right] = slist[right], slist[pov]
-        s = slist[pov+1:]
-        s.reverse()
-        slist = slist[0:pov + 1] + s
-    else:
-        slist.reverse()
+    if pov < 0:
+        return s[::-1]
+    
+    right = len(s) - 1
+    while right > pov:
+        if slist[right] > slist[pov]:
+            break
+        else:
+            right -= 1
+    slist[pov], slist[right] = slist[right], slist[pov]
+    ss = slist[0:pov + 1] + slist[pov + 1:][::-1]
+    return "".join(ss)
         
-    return ''.join(slist)
+        

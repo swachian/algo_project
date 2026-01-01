@@ -25,15 +25,15 @@ def min_coin_combination(coins, target):
 
 
 def matrix_pathways(m, n):
-    # base: dp[0][*] = 1, dp[*][0] = 1
-    # recurrence solution: dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
-    cur_row = prev_row = [1] * n
+    # base: prev = [1....], cur = [1]
+    # cur[i] = prev[i] + cur[i]
+    prev = [1] * n
     for i in range(1, m):
-        cur_row = [1] * n
+        cur = [1] * n
         for j in range(1, n):
-            cur_row[j] = prev_row[j] + cur_row[j - 1]
-        prev_row = cur_row
-    return cur_row[n - 1] 
+            cur[j] = prev[j] + cur[j - 1]
+        prev = cur
+    return prev[-1]
 
 
 def neighborhood_burglary(houses):
@@ -56,18 +56,19 @@ def neighborhood_burglary(houses):
     return current_value
 
 def longest_common_subsequence(s1, s2):
-    # base: dp[0][*] = 0, dp[*][0] = 0
-    # recurrence solution: if s1[i - 1] == s1[j - 1], dp[i][j] = dp[i - 1][j - 1] + 1, 否则max(dp[i - 1][j], dp[i][j - 1]
-    
+    # base: dp[0][x] = 0, dp[x][0] = 0
+    # rs: if s1[i - 1] == s2[j - 1] dp[i][j] = 1 + dp[i - 1][j - 1]
     m, n = len(s1), len(s2)
     dp = [[0] * (n + 1) for _ in range(m + 1)]
-
-    for i in range(1, m + 1):
-        for j in range(1, n + 1):
-            if s1[i - 1] == s2[j - 1]:
-                dp[i][j] = dp[i - 1][j - 1] + 1
+    count = 0
+    for i in range(m):
+        for j in range(n):
+            if s1[i] == s2[j]:
+                dp[i + 1][j + 1] = 1 + dp[i][j]
             else:
-                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+                dp[i + 1][j + 1] = max(dp[i + 1][j], dp[i][j + 1])
+
+                
     return dp[m][n]
 
 

@@ -44,34 +44,33 @@ def is_in_bound2(i, j, m, n):
 from collections import deque
 
 def matrix_infection(matrix):
-    if not matrix or not matrix[0]:
+    if not matrix:
         return 0
-    
+    uninfected = 0
     queue = deque()
-    uninfected_count = 0
-    
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
-            if matrix[i][j] == 1:
-                uninfected_count += 1
             if matrix[i][j] == 2:
                 queue.append((i, j))
+            elif matrix[i][j] == 1:
+                uninfected += 1
+    seconds = 0
     
     dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]]
-    seconds = 0
-    while queue and uninfected_count > 0:
+    while queue and uninfected > 0:
         seconds += 1
         level_size = len(queue)
         for _ in range(level_size):
             i, j = queue.popleft()
             for dir in dirs:
-                new_i, new_j = i + dir[0], j + dir[1]
-                if is_in_bound(new_i, new_j, len(matrix), len(matrix[0])) and matrix[new_i][new_j] == 1:
-                    uninfected_count -= 1
-                    matrix[new_i][new_j] = 2
-                    queue.append((new_i, new_j))
-    return seconds if uninfected_count == 0 else -1
- 
+                n_i, n_j = i + dir[0], j + dir[1]
+                if is_in_bound(n_i, n_j, len(matrix), len(matrix[0])) and matrix[n_i][n_j] == 1:
+                    matrix[n_i][n_j] = 2
+                    queue.append((n_i, n_j))
+                    uninfected -= 1
+    return seconds if uninfected == 0 else -1
+
+
 def bipartite_graph_validation(graph):
     if not graph:
         return True
@@ -91,27 +90,29 @@ def dfs_bipartitie_graph_validation(graph, node, color, colors = []):
     return True
             
 def longest_increasing_path(matrix):
-    global max_count
-    if not matrix or not matrix[0]:
+    if not matrix:
         return 0
-    max_count = 0
-    memo = {}
-    for i in range(len(matrix)):
-        for j in range(len(matrix[0])):
-            max_count = max(max_count, dfs_longest_increasing_path(matrix, i, j, memo))
-    return max_count
-                       
+    count = 0
+    m, n = len(matrix), len(matrix[0])
+    for i in range(m):
+        for j in range(n):
+            count = max(count, dfs_longest_increasing_path(matrix, i, j, {}))
+    return count
+
 def dfs_longest_increasing_path(matrix, i, j, memo = {}):
     if (i, j) in memo:
         return memo[(i, j)]
-    dirs = [[0, 1], [0, -1], [-1, 0], [1, 0]]
     count = 1
+    dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]]
     for dir in dirs:
-        new_i, new_j = i + dir[0], j + dir[1]
-        if is_in_bound(new_i, new_j, len(matrix), len(matrix[0])) and  matrix[new_i][new_j] > matrix[i][j]:
-            count = max(count, 1 + dfs_longest_increasing_path(matrix, new_i, new_j, memo))
+        n_i, n_j = i + dir[0], j + dir[1]
+        if is_in_bound(n_i, n_j, len(matrix), len(matrix[0])) and matrix[n_i][n_j] > matrix[i][j]:
+            count = max(count, 1 + dfs_longest_increasing_path(matrix, n_i, n_j, memo))
     memo[(i, j)] = count
     return count
+        
+
+
                 
 def is_in_bound(i, j, m, n):
     return 0 <= i < m and 0 <= j < n
