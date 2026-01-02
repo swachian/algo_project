@@ -86,35 +86,40 @@ class Trie:
 
 
 
-
+class TrieNodeWild:
+    def __init__(self):
+        self.children = {}
+        self.is_word = False
 
 class InsertAndSearchWordsWithWildcards:
     def __init__(self):
-        self.root = TrieNode()
+        self.root = TrieNodeWild()
     
     def insert(self, word):
         node = self.root
         for c in word:
             if c not in node.children:
-                node.children[c] = TrieNode()
+                node.children[c] = TrieNodeWild()
             node = node.children[c]
-        node.isword = True
-
+        node.is_word = True
+        
     def search(self, word):
-        return self._search(word, self.root)
+        return self._search(word, 0, self.root)
     
-    def _search(self, word, node):
-        for index, c in enumerate(word):
-            if c == ".":
-                for child in node.children.values():
-                    if self._search(word[index + 1:], child):
-                        return True
-            if c not in node.children:
-                return False
-            else:
+    def _search(self, word, i, node):
+        while i < len(word):
+            c = word[i]
+            i += 1
+            if c != ".":
+                if c not in node.children:
+                    return False
                 node = node.children[c]
-        return node.isword
-
+            else:
+                for child in node.children.values():
+                    if self._search(word, i, child):
+                        return True
+                return False
+        return node.is_word
 
 
 class TrieNodeWord:

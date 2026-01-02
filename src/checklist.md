@@ -2,7 +2,7 @@
 |-----|----------------------------------------------|-----------------------------|------|------|------|
 | 1   | Pair Sum - Sorted                            | Two Pointers                | ✅     |      | 2'     |
 | 2   | Triplet Sum                                  | Two Pointers                | POK 12.08     | 20'     |      |
-| 3   | Valid Palindrome                             | Two Pointers                | ✅     |      |      |
+| 3   | Valid Palindrome                             | Two Pointers                | ✅     |      |  5'    |
 | 4   | Container With Most Water                    | Two Pointers                | ✅     |      |      |
 | 5   | Shift Zeroes                                  | Two Pointers                | NOK 12.09     |  5'    |   2'   |
 | 6   | Next Lexicographical Sequence                | Two Pointers                | ✅ 稍欠火候      |      |   20' 还是有点忘了   |
@@ -24,7 +24,7 @@
 | 22  | Longest Substring with Unique Characters            | Sliding window                        |✅   |      |      |
 | 23  | Longest Uniform Substring After Replacements        | Sliding window                        |NOK 12.10 全忘了。静态窗口和动态窗口最大的区别在于后者窗口的大小会动态变化.动态窗口的right一般在循环的最后+1 | 12'     |   6'   |
 | 24  | Find the Insertion Index            | Binary Search                        |POK while left < right 是让left和right merge成为一个值，而left <= right则是让 right越过left. left or right = mid + 1 or mid, 则是决定是否把mid作为答案之一的选择，right最大值的选择也要看是否包含n; 而mid = (left + right) // 2后面是否+1, 则决定把mid往left还是right推|  12'    |  3'    |
-| 25  | First and Last Occurentces of a Number            | Binary Search                        | NOK 12.10 mid 加减1以及不加减1的妙用，确定了上bound和下bound的走向     |  25'    |      |
+| 25  | First and Last Occurrences of a Number            | Binary Search                        | NOK 12.10 mid 加减1以及不加减1的妙用，确定了上bound和下bound的走向     |  25'    |   12' 还是有点不熟练   |
 | 26  | Cutting Wood           | Binary Search                       | ✅     |      |   10'   |
 | 27  | Find the Target in a Rotated Sorted Array            | Binary Search                       | NOK 12.10 永远在左或右中某个有序的array中继续搜索    |  POK 12.22 ; 10'   |      |
 | 28  | Find the Median From Two Sorted Arrays           | Binary Search                       | NOK 12.10 只记得基本的结构，1.确保短的arr在前 2.L1_index为nums1的mid,(L2_index+1)+(L1_index+1)=(len(nums1)+len(nums2))/2 3.通过L1_index和L2_index把两个数组平分 4.确定L1,R1,L2,R2四个值,单个数组可能用光的情况时L=-inf,R=inf 5.当L1>R2时,说明nums1太右,right往左移 6.当L2>R1时,说明nums1太小,left往右移 7.调整后根据数组总长度的奇偶性计算中位数    | POK mid2的选择有问题。需要使得左分部的值的个数总是小于或等于右半部分，如果只有一个中位数，也是去右面的数组取; 8'    |      |
@@ -34,11 +34,11 @@
 | 32  | Valid Parenthesis Expresssion            | Stacks                       |  ✅    |      |  3'    |
 | 33  | Next Largest Number to the Right            |  Stacks                      |✅      |      |  3'    |
 | 34  | Evaluate Expression            | Stacks                       | ✅     |      |  12'    |
-| 35  | Repeated Removal of Adjacent Duplicates            |  Stacks                      |✅      |      |      |
-| 36  | Implement a Queue using Stacks            |  Stacks                      | ✅     |      |      |
+| 35  | Repeated Removal of Adjacent Duplicates            |  Stacks                      |✅      |      |  5'    |
+| 36  | Implement a Queue using Stacks            |  Stacks                      | ✅     |      |   5'   |
 | 37  | Maximums of Sliding Window            |  Stacks                     | ✅ 对于下标和k的关系，可以列方程或不等式来解决    |      |   8'   |
-| 38  | K Most Frequent Strings            |  Heaps                      | ✅    |      |      |
-| 39  | Combine Sorted Linked Lists            |  Heaps                     |POK, 一方面是忘了个class直接注入lambda的作法，dummy处理head的也不够熟练     | 8'     |      |
+| 38  | K Most Frequent Strings            |  Heaps                      | ✅    |      |   6'   |
+| 39  | Combine Sorted Linked Lists            |  Heaps                     |POK, 一方面是忘了个class直接注入lambda的作法，dummy处理head的也不够熟练     | 8'     |   3'   |
 | 40  | Median of an Integer Stream            |  Heaps                      |✅ 除了heap[0]表示栈顶，其他都记得很清楚     |      |   10'   |
 | 41  | Sort a K-sorted Array            |  Heaps                      | ✅    |      |      |
 | 42  | Merge Overlapping Intervals            | Intervals                       | ✅    |      |  5'     |
@@ -48,7 +48,7 @@
 | 46  | K-Sum Subarrays            |  Prefix Sums                       | NOK 12.15 运用presum + hash    |  NOK pre_sum - another_pre_sum == k    |   2'   |
 | 47  | Product Array Without Current Element             |  Prefix Sums                       | ✅      |      |  5'    |
 | 48  | Invert Binary Tree            |  Trees                      | ✅      |      |  2' 递归算法  2' stack算法  |
-| 49  | Balanced Binary Tree Validation             | Trees                       | ✅      |      |      |
+| 49  | Balanced Binary Tree Validation             | Trees                       | ✅      |      |  5'    |
 | 50  | Rightmost Nodes of Binary Tree            | Trees                       |  ✅    |      |      |
 | 51  | Widest Binary Tree Level            | Trees                       | ✅     |      |      |
 | 52  |Binary Search Tree Validation             | Trees                       | ✅      |      |   5'   | 
@@ -57,10 +57,10 @@
 | 55  | Maximum Sum of a Continuous Path in a Binary Tree            | Trees                       | ✅     |      |  6'    |
 | 56  | Binary Tree Symmetry            | Trees                      | ✅    |      |  3'    |
 | 57  | Binary Tree Columns            | Trees                       | ✅    |      |  8'    |
-| 58  | Kth Smallest Number in a Binary Search Tree            | Trees                       | ✅    |      |      |
+| 58  | Kth Smallest Number in a Binary Search Tree            | Trees                       | ✅    |      |   12'   |
 | 59  | Serialize and Deserialize a Binary Tree            | Trees                       |✅ 原解更推荐使用iter和next的搭配，这个global取得的效果是类似的；返回字符串之前可以先放在list里，然后再统一join返回     |      |  15'    |
 | 60  | Design a Trie            |  Tries                      | ✅     |      |   8'   |
-| 61  | Insert and Search Words with Wildcards            |  Tries                      | ✅       |      |      |
+| 61  | Insert and Search Words with Wildcards            |  Tries                      | ✅       |      |   21'   |
 | 62  | Find All words on a Board            |  Tries                      |✅  注意把tries归位，以及不要找到一个就return了    |      |   20'   |
 | 63  | Graph Deep Copy            |  Graphs                      | ✅     |      |   2'   |
 | 64  | Cound Islands            |  Graphs                      |  ✅    |      |    5'  |

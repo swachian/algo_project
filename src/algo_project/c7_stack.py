@@ -67,7 +67,10 @@ def repeated_removal_of_adjacent_duplicates(s):
             stack.pop()
         else:
             stack.append(c)
-    return ''.join(stack)
+    res = [stack.pop() for _ in range(len(stack))]
+    res.reverse()
+    return ''.join(res)
+
 
 from collections import deque
 

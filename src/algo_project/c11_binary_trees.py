@@ -22,20 +22,23 @@ import math
 
 
 def balanced_binary_tree_validation(root):
-    if df_balanced_binary_tree_validation(root) > -1:
+    global is_balance 
+    is_balance = True
+    if not root:
         return True
-    return False
+    dfs_balanced_binary_tree_validation(root)
+    return is_balance
 
-def df_balanced_binary_tree_validation(root):
+def dfs_balanced_binary_tree_validation(root):
+    global is_balance
     if not root:
         return 0
-    
-    left_height = df_balanced_binary_tree_validation(root.left) if root.left else 0
-    right_height = df_balanced_binary_tree_validation(root.right) if root.right else 0
-    if left_height == -1 or right_height == -1 or abs(left_height - right_height) > 1:
-        return -1
-    else:
-        return max(left_height + 1, right_height + 1)
+    left_depth = 1 + dfs_balanced_binary_tree_validation(root.left)
+    right_depth = 1 + dfs_balanced_binary_tree_validation(root.right)
+    if abs(left_depth - right_depth) >= 2:
+        is_balance = False
+    return max(left_depth, right_depth)
+
                 
 
 from collections import deque
@@ -222,22 +225,23 @@ def dfs_kth_smallest_number_in_BST(node, res):
     dfs_kth_smallest_number_in_BST(node.right, res)
     
 def kth_smallest_number_in_BST_stack_version(root, k):
+    stack = []
     if not root:
         return None
-    
-    stack = []
-    node = root
-    
-    while stack or node:
-        while node:
-            stack.append(node)
-            node = node.left
-        node = stack.pop()
-        k -= 1
-        if k == 0:
-            return node.val
-        node = node.right
-    return None
+    count = 0
+    cur = root
+    res = []
+
+    while stack or cur:
+        while cur:
+            stack.append(cur)
+            cur = cur.left
+        cur = stack.pop()
+        count += 1
+        res.append(cur.val)
+        cur = cur.right
+    return res[k - 1]    
+   
     
 END = "None"
 

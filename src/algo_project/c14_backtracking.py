@@ -5,20 +5,66 @@ def find_all_permutations(nums):
     backtrack_find_all_permutations(nums, [], set(), res)
     return res
 
-def backtrack_find_all_permutations(nums, candidate, visited = set(), res = []):
-    if len(candidate) == len(nums):
-        res.append(candidate[0:])
+def backtrack_find_all_permutations(nums, candidates = [], visited = set(), res = []):
+    if len(candidates) == len(nums):
+        res.append(candidates[0:])
         return
+    
     for num in nums:
-        if num in visited:
-            continue
-        candidate.append(num)
-        visited.add(num)
-        backtrack_find_all_permutations(nums, candidate, visited, res)
+        if num not in visited:
+            visited.add(num)
+            candidates.append(num)
+            backtrack_find_all_permutations(nums, candidates, visited, res)
 
-        candidate.pop()
-        visited.remove(num)
-        # backtrack_find_all_permutations(nums, candidate, visited, res)
+            visited.remove(num)
+            candidates.pop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
 def find_all_subsets(nums):
