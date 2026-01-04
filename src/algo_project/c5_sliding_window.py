@@ -23,24 +23,26 @@ def substring_anagrams(s, t):
         
         
 
- 
+from collections import defaultdict
 
 def longest_substring_with_unique_chars(s):
-    char_map = {}
-    left = right = 0
-    res = 0
-    
+    num_maps = {}
+
+    left, right = 0, 0
+    max_len = 0
     while right < len(s):
-        if s[right] in char_map:
-            last_occurence = char_map[s[right]]
-            while left <= last_occurence:
-                del char_map[s[left]]
+        if s[right] in num_maps:
+            pass
+            # move left point
+            while s[left] != s[right]:
+                del num_maps[s[left]]
                 left += 1
-        res = max(res, right - left + 1)
-        char_map[s[right]] = right 
+            del num_maps[s[left]]    
+            left += 1
+        num_maps[s[right]] = right
+        max_len = max(max_len, right - left + 1)
         right += 1
-    
-    return res
+    return max_len
 
 from collections import defaultdict
 

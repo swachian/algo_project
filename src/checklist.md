@@ -1,7 +1,7 @@
 |#   | Problem Name                                 | Category                    | Round 2 | Round 3     |  Round 4    |
 |-----|----------------------------------------------|-----------------------------|------|------|------|
 | 1   | Pair Sum - Sorted                            | Two Pointers                | ✅     |      | 2'     |
-| 2   | Triplet Sum                                  | Two Pointers                | POK 12.08     | 20'     |      |
+| 2   | Triplet Sum                                  | Two Pointers                | POK 12.08     | 20'     |   12'   |
 | 3   | Valid Palindrome                             | Two Pointers                | ✅     |      |  5'    |
 | 4   | Container With Most Water                    | Two Pointers                | ✅     |      |      |
 | 5   | Shift Zeroes                                  | Two Pointers                | NOK 12.09     |  5'    |   2'   |
@@ -21,7 +21,7 @@
 | 19  | Linked List Midpoint            | Fast And Slow Pointers      |✅  利用dummy的话，最好使用while fast.next and fast.next.next     |      |  2'    |
 | 20  | Happy Number            | Fast And Slow Pointers      | ✅     |      |      |
 | 21  | Substring Anagrams            | Sliding window                        | POK 能回想起来怎么做，但最好再练练    | 25'     |      |
-| 22  | Longest Substring with Unique Characters            | Sliding window                        |✅   |      |      |
+| 22  | Longest Substring with Unique Characters            | Sliding window                        |✅   |      |  5'    |
 | 23  | Longest Uniform Substring After Replacements        | Sliding window                        |NOK 12.10 全忘了。静态窗口和动态窗口最大的区别在于后者窗口的大小会动态变化.动态窗口的right一般在循环的最后+1 | 12'     |   6'   |
 | 24  | Find the Insertion Index            | Binary Search                        |POK while left < right 是让left和right merge成为一个值，而left <= right则是让 right越过left. left or right = mid + 1 or mid, 则是决定是否把mid作为答案之一的选择，right最大值的选择也要看是否包含n; 而mid = (left + right) // 2后面是否+1, 则决定把mid往left还是right推|  12'    |  3'    |
 | 25  | First and Last Occurrences of a Number            | Binary Search                        | NOK 12.10 mid 加减1以及不加减1的妙用，确定了上bound和下bound的走向     |  25'    |   12' 还是有点不熟练   |
@@ -43,13 +43,13 @@
 | 41  | Sort a K-sorted Array            |  Heaps                      | ✅    |      |      |
 | 42  | Merge Overlapping Intervals            | Intervals                       | ✅    |      |  5'     |
 | 43  | Identify All Interval Overlaps            | Intervals                       | ✅ debug后能自己想出来    |      |      |
-| 44  | Largest Overlap of Intervals            | Intervals                       | ✅    |      |      |
+| 44  | Largest Overlap of Intervals            | Intervals                       | ✅    |      |  6'    |
 | 45  | Sum Between Range            |  Prefix Sums                      | ✅    |      |   3'   |
 | 46  | K-Sum Subarrays            |  Prefix Sums                       | NOK 12.15 运用presum + hash    |  NOK pre_sum - another_pre_sum == k    |   2'   |
 | 47  | Product Array Without Current Element             |  Prefix Sums                       | ✅      |      |  5'    |
 | 48  | Invert Binary Tree            |  Trees                      | ✅      |      |  2' 递归算法  2' stack算法  |
 | 49  | Balanced Binary Tree Validation             | Trees                       | ✅      |      |  5'    |
-| 50  | Rightmost Nodes of Binary Tree            | Trees                       |  ✅    |      |      |
+| 50  | Rightmost Nodes of Binary Tree            | Trees                       |  ✅    |      |   1'30''   |
 | 51  | Widest Binary Tree Level            | Trees                       | ✅     |      |      |
 | 52  |Binary Search Tree Validation             | Trees                       | ✅      |      |   5'   | 
 | 53  | Lowest Common Ancestor            | Trees                       |  ✅    |      | 5'     |
@@ -73,7 +73,7 @@
 | 71  | Shortest Path            |  Graphs                      | NOK 12.17 放进heap里面的distance是总的距离，不是单个点对点的weight    | 12'     |  10' 我是把所有的新边都放进了heap,但实际上只要放入新缩减的距离和节点即可    |
 | 72  | Connect the Dots            |  Graphs                      | ✅     |      |   17'   |
 | 73  | Find All permutations            | Backtracking                        |✅      |      |   15'   |
-| 74  | Find All Subsets            | Backtracking                       | ✅     |      |      |
+| 74  | Find All Subsets            | Backtracking                       | ✅     |      |   15' 不够熟   |
 | 75  | N Queens            | Backtracking                       | ✅ Permutation和Combination都需要去除（回溯）后，但P回溯后不需要直接在循环里二次调用，而Combination是在循环里回溯后继续调用，从这一点上而言，N皇后是一个排列而不是组合    |      |      |
 | 76  | Combinations of a Sum            | Backtracking                       | ✅     |      |   NOK 这个有点忘了，  |
 | 77  | Phone Keypad Combinations            | Backtracking                       | ✅     |      |      |
@@ -98,7 +98,7 @@
 | 96  | Swap Odd and Even Bits            | Bit Manipulation                       | ✅    |       |      |
 | 97  | Spiral Traversal            | Math and Geometry                       | POK 12.19 第三第四个循环的if条件还掌握的不熟    |  10'    |   9'   |
 | 98  | Reverse 32-Bit Integer            | Math and Geometry                       | POK math.fmod(n, 10) 未掌握，这个余数的符号与被除数一致，如果要运用%求负数的模，可以把 a % b 里面的b的符号进行修改    |  3'    |   3'   |
-| 99  | Maximum Collinear Points            | Math and Geometry                       | POK 掌握的还不错，但遗漏了关键的map或者说分割是要按focus为前置的键的 | 10'     |      |
+| 99  | Maximum Collinear Points            | Math and Geometry                       | POK 掌握的还不错，但遗漏了关键的map或者说分割是要按focus为前置的键的 | 10'     |   8'   |
 | 100  | The Josephus Problem            | Math and Geometry                       | NOK    |  3'    |      |
 | 101  | Trangle Numbers            | Math and Geometry                       | ✅      |      |      |
 

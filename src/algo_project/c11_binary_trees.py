@@ -44,11 +44,10 @@ def dfs_balanced_binary_tree_validation(root):
 from collections import deque
 
 def rightmost_nodes_of_a_binary_tree(root):
+    res = []
     queue = deque()
     if not root:
-        return []
-    
-    res = []
+        return res
     queue.append(root)
 
     while queue:
@@ -59,11 +58,10 @@ def rightmost_nodes_of_a_binary_tree(root):
                 queue.append(node.left)
             if node.right:
                 queue.append(node.right)
-
             if i == level_size - 1:
                 res.append(node.val)
-    
     return res
+
 
 def widest_binary_tree_level(root):
     queue = deque()

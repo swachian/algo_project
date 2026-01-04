@@ -68,20 +68,23 @@ def backtrack_find_all_permutations(nums, candidates = [], visited = set(), res 
 
         
 def find_all_subsets(nums):
+    if not nums:
+       return [[]]
     res = []
-    dfs_find_all_subsets(nums, 0, [], res)
+    backtracking_all_subsets(nums, 0, [], res)
     return res
 
-def dfs_find_all_subsets(nums, i, candidates = [], res = []):
+def backtracking_all_subsets(nums, i, candidates, res):
     if i == len(nums):
         res.append(candidates[0:])
-        return
-    
+        return 
     candidates.append(nums[i])
-    dfs_find_all_subsets(nums, i + 1, candidates, res)
+    backtracking_all_subsets(nums, i + 1, candidates, res)
 
     candidates.pop()
-    dfs_find_all_subsets(nums, i + 1, candidates, res)
+    backtracking_all_subsets(nums, i + 1, candidates, res)
+
+
     
 def n_queens(n):
     global res 

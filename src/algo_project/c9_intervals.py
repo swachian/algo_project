@@ -47,21 +47,24 @@ def identify_all_interval_overlaps(intervals1, intervals2):
     return res
 
 def largest_overlap_of_intervals(intervals):
-    Start = 'S'
-    End = 'E'
-    points_inf = []
+    START = "S"
+    END = "E"
+
+    # intervals.sort(key = lambda interval: [interval.start, interval.end])
+    measures = []
     for interval in intervals:
-        points_inf.append((interval.start, Start))
-        points_inf.append((interval.end, End))
-        
-    points_inf.sort(key = lambda x: [x[0], x[1]])
-    max_over_lap = 0
-    over_lap = 0
-    for point, pos in points_inf:
-        if pos == End:
-            over_lap -= 1
+        measures.append((interval.start, START))
+        measures.append((interval.end, END))
+    measures.sort(key = lambda x: [x[0], x[1]])
+    max_count = 0
+    count = 0
+    for pos, t in measures:
+        if t == END:
+            count -= 1
         else:
-            over_lap += 1
-            max_over_lap = max(max_over_lap, over_lap)
+            count += 1
+            max_count = max(max_count, count)
+
+    return max_count
+
         
-    return max_over_lap

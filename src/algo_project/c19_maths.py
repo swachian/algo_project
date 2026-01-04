@@ -53,34 +53,35 @@ from collections import defaultdict
 def maximum_collinear_points(points):
     max_count = 0
     for focus in points:
-        count = collinear_points_of_focus(focus, points)
-        max_count = max(max_count, count)  
+        focus_count = count_for_one_point(focus, points)
+        max_count = max(max_count, focus_count)
     return max_count
 
-def gcd(x, y):
-    while y != 0:
-        x, y = y, x % y  
-    return x
-  
 def compute_slope(p1, p2):
-    rise = p2[1] - p1[1]  
-    span = p2[0] - p1[0]
+    rise = p1[1] - p2[1]
+    span = p1[0] - p2[0]
 
-    gcd_num = gcd(rise, span)
-    if gcd_num == 0:
-        return ((float("inf"), 0))
+    if span != 0:
+        gcd_number = gcd(rise, span)
+
+        return (rise // gcd_number, span // gcd_number)
     else:
-        return (rise // gcd_num, span // gcd_num)
-  
-def collinear_points_of_focus(focus, points):
+        return (float("inf"), 0)
+
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+def count_for_one_point(focus, points):
+    slope_maps = defaultdict(int)
     max_count = 0
-    counts = defaultdict(int)
     for point in points:
         if point == focus:
             continue
         slope = compute_slope(focus, point)
-        counts[slope] += 1
-        max_count = max(max_count, counts[slope])
+        slope_maps[slope] += 1
+        max_count = max(max_count, slope_maps[slope])
     return max_count + 1
   
   
