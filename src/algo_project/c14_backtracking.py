@@ -2,23 +2,21 @@ def find_all_permutations(nums):
     if not nums:
         return [[]]
     res = []
-    backtrack_find_all_permutations(nums, [], set(), res)
+    backtracking_find_all_permutations(nums, set(), [], res)
     return res
-
-def backtrack_find_all_permutations(nums, candidates = [], visited = set(), res = []):
+    
+def backtracking_find_all_permutations(nums, visited = set(), candidates = [], res = []):
     if len(candidates) == len(nums):
         res.append(candidates[0:])
-        return
-    
+        return 
     for num in nums:
         if num not in visited:
-            visited.add(num)
             candidates.append(num)
-            backtrack_find_all_permutations(nums, candidates, visited, res)
+            visited.add(num)
+            backtracking_find_all_permutations(nums, visited, candidates, res)
 
-            visited.remove(num)
             candidates.pop()
-
+            visited.remove(num)
 
 
 
@@ -69,20 +67,22 @@ def backtrack_find_all_permutations(nums, candidates = [], visited = set(), res 
         
 def find_all_subsets(nums):
     if not nums:
-       return [[]]
+        return [[]]
     res = []
-    backtracking_all_subsets(nums, 0, [], res)
+    backtracking_find_all_subsets(nums, 0, [], res)
     return res
 
-def backtracking_all_subsets(nums, i, candidates, res):
+def backtracking_find_all_subsets(nums, i, candidates = [], res = []):
     if i == len(nums):
         res.append(candidates[0:])
         return 
     candidates.append(nums[i])
-    backtracking_all_subsets(nums, i + 1, candidates, res)
+    backtracking_find_all_subsets(nums, i + 1, candidates, res)
 
     candidates.pop()
-    backtracking_all_subsets(nums, i + 1, candidates, res)
+    backtracking_find_all_subsets(nums, i + 1, candidates, res)
+    
+
 
 
     
@@ -117,32 +117,37 @@ def backtracking_n_queens(r, n, cols = set(), angels = set(), dangels = set()):
         
 def combinations_of_sum_k(nums, target):
     res = []
-    backtrack_combinations_of_sum_k(nums, 0, target, [], res)
+    backtracking_combinations_of_sum_k(nums, 0, [], target, res)
     return res
 
-def backtrack_combinations_of_sum_k(nums, start_index, target, candidates = [], res = []):
-    if target < 0:
-        return 
+def backtracking_combinations_of_sum_k(nums, i, candidates, target, res):
     if target == 0:
         res.append(candidates[0:])
+        return 
+    if target < 0:
+        return
     
-    for i in range(start_index, len(nums)):
-        candidates.append(nums[i])
-        backtrack_combinations_of_sum_k(nums, i, target - nums[i], candidates, res)
+    for j in range(i, len(nums)):
+        candidates.append(nums[j])
+        backtracking_combinations_of_sum_k(nums, j, candidates, target - nums[j], res)
         candidates.pop()
+        # backtracking_combinations_of_sum_k(nums, j, candidates, target, res)
+
+
 
 def phone_keypad_combinations(digits):
     digital_alpha_map = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}
     res = []
-    backtracking_phone_keypad_combinations(digital_alpha_map, digits, 0, [], res)
+    backtracking_phone_keypad_combinations(digits, 0, digital_alpha_map, [], res)
     return res
-
-def backtracking_phone_keypad_combinations(da_map, digits, i, candidates = [], res = []):
-    if i == len(digits):
-        res.append(''.join(candidates)) 
+    
+def backtracking_phone_keypad_combinations(digits, i, digital_alpha_map, candidates = [], res = []):
+    if len(candidates) == len(digits):
+        res.append(''.join(candidates[0:]))
         return 
-    for c in da_map[digits[i]]:
+    
+    for c in digital_alpha_map[digits[i]]:
         candidates.append(c)
-        backtracking_phone_keypad_combinations(da_map, digits, i + 1, candidates, res)
-
+        backtracking_phone_keypad_combinations(digits, i + 1, digital_alpha_map, candidates, res)
         candidates.pop()
+   

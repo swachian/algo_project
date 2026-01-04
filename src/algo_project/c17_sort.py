@@ -5,41 +5,45 @@ class ListNode:
 
 def sort_linked_list(head):
     # 1. split
-    # 2. recursplit and merge
+    # 2. recurrenc 
+    # 3. merge
     if not head or not head.next:
         return head
-    head2 = split(head)
+    head2 = split_linked_list(head)
     sorted1 = sort_linked_list(head)
     sorted2 = sort_linked_list(head2)
+
     return merge_linked_list(sorted1, sorted2)
 
-def split(head):
-    slow = head 
-    fast = head
-    
+def split_linked_list(head):
+
+    dummy = ListNode()
+    dummy.next = head
+    slow, fast = dummy, dummy
     while fast.next and fast.next.next:
-        slow = slow.next 
-        fast = fast.next.next 
-        
-    res = slow.next 
+        slow = slow.next
+        fast = fast.next.next
+    res = slow.next
     slow.next = None
     return res
-
-def merge_linked_list(head1, head2):
-    dummy = ListNode(None)
+ 
+def merge_linked_list(h1, h2):
+    dummy = ListNode()
     cur = dummy
-    
-    while head1 and head2:
-        if head1.val <= head2.val:
-            cur.next = head1 
-            head1 = head1.next 
+    while h1 and h2:
+        if h1.val <= h2.val:
+            cur.next = h1 
+            h1 = h1.next
         else:
-            cur.next = head2
-            head2 = head2.next 
-        cur = cur.next 
-    
-    cur.next = head1 or head2 
-    return dummy.next    
+            cur.next = h2
+            h2 = h2.next 
+        cur = cur.next
+    if h1:
+        cur.next = h1
+    if h2:
+        cur.next = h2
+    return dummy.next
+         
         
 def sort_array(nums):
     if not nums:

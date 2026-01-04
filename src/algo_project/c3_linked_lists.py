@@ -49,30 +49,32 @@ def palindromic_linked_list(head):
     while head and head2:
         if head.val != head2.val:
             return False
-        head = head.next 
-        head2 = head2.next
+        head = head.next
+        head2 = head2.next 
+        
     return True
 
 def find_middle(head):
     dummy = ListNode(None)
     dummy.next = head
-    slow = fast = dummy
+    slow, fast = dummy, dummy
+    
     while fast.next and fast.next.next:
         slow = slow.next 
         fast = fast.next.next 
-    mid = slow.next
-    slow.next = None
-    return mid 
+    
+    return slow.next 
 
 def reverse_list(head):
-    cur = head
     prev = None
+    cur = head
     while cur:
-        next_node = cur.next 
+        next_node = cur.next
         cur.next = prev 
-        prev = cur 
+        prev = cur
         cur = next_node
     return prev
+
     
     
 

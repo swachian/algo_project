@@ -24,19 +24,21 @@ def linked_list_midpoint(head):
 
 
 def happy_number(n):
-    slow = n 
-    fast = get_squaring_sum(n)
-    while fast != 1:
+    slow = n
+    fast = compute_happy_num(n)
+    while True:
+        if slow == 1:
+            return True
         if slow == fast:
             return False
-        slow = get_squaring_sum(slow)
-        fast = get_squaring_sum(get_squaring_sum(fast))
-    return True
+        slow = compute_happy_num(slow)
+        fast = compute_happy_num(compute_happy_num(fast))
 
-def get_squaring_sum(n):
+def compute_happy_num(n):
     res = 0
     while n > 0:
-        digit = n % 10
-        res += digit * digit
-        n = n // 10 
+        d = n % 10
+        res += d * d
+        n //= 10
     return res
+    

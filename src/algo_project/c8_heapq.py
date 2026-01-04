@@ -73,14 +73,17 @@ def combine_sorted_linked_lists(lists):
 
 
 
+import heapq
 
 def sort_a_k_sorted_array(nums, k):
     heap = []
     res = []
-    for i, num in enumerate(nums):
-        heapq.heappush(heap, num)
-        if i >= k:
+
+    for i in range(len(nums)):
+        heapq.heappush(heap, nums[i])
+        if len(heap) == k + 1:
             res.append(heapq.heappop(heap))
     while heap:
         res.append(heapq.heappop(heap))
+
     return res

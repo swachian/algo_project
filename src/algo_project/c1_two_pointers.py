@@ -76,20 +76,18 @@ def is_palindrome_valid(s):
 
 
 def largest_container(heights):
-    left = 0
-    right = len(heights) - 1
-    largest = 0
+    left, right = 0, len(heights) - 1
+    max_vol = 0
     while left < right:
-        height = min(heights[left], heights[right])
-        largest = max(largest, (right - left) * height)
+        max_vol = max(max_vol, min(heights[right], heights[left]) * (right - left))
         if heights[left] > heights[right]:
             right -= 1
-        elif heights[right] > heights[left]:
+        elif heights[left] < heights[right]:
             left += 1
         else:
             left += 1
             right -= 1
-    return largest
+    return max_vol
 
 def shift_zeros_to_the_end(nums):
     zero_p = 0

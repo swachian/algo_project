@@ -112,16 +112,15 @@ def count_for_one_point(focus, points):
 def josephus1(n, k):
     # base: dp[1] = 0
     # rs: dp[i] = (dp[i - 1] + k) % i
-    dp = [0] * (n + 1)
-    for i in range(2, n + 1):
-        dp[i] = (dp[i - 1] + k) % i
-    return dp[n]
+    if n <= 1:
+        return 0
+    return (josephus1(n - 1, k) + k) % n
 
 
 def triangle_numbers(n):
     if n % 2 == 1:
         return 2
-    if n %4 == 0:
+    elif n % 4 == 0:
         return 3
     else:
         return 4

@@ -1,30 +1,28 @@
 from collections import deque
 
 def shortest_transformation_sequence(start, end, words):
-    if start not in words or end not in words:
+    words_set = set(words)
+    if start not in words_set or end not in words_set:
         return 0
     
-    abc = "abcdefghijklmnopqrstuvwxyz"
-    
+    abc = 'abcdefghijklmnopqrstuvwxyz'
     queue = deque()
     queue.append(start)
-    visited = set()
-    count = 0
+    count  = 0
     while queue:
         level_size = len(queue)
         count += 1
         for _ in range(level_size):
-            
             word = queue.popleft()
             if word == end:
                 return count
             for i in range(len(start)):
                 for c in abc:
-                    new_word = word[0:i] + c + word[i + 1:]
-                    if new_word in words and new_word not in visited:
+                    new_word = word[0:i] + c + word[i + 1:] 
+                    if new_word in words_set:
                         queue.append(new_word)
-                        visited.add(new_word)
-    return 0           
+                        words_set.remove(new_word)
+    return 0
             
 
     

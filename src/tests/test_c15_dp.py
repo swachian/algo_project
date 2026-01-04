@@ -148,7 +148,14 @@ def test_knapsack_basic():
     expected = 22
     assert knapsack(cap, weights, values) == expected
 
-
+def test_knapsack_basic2():
+    weights = [5, 3, 4, 1]
+    values = [70, 50, 40, 10]
+    cap = 7
+    # Best choice: items with weight 2 and 3 --> value = 10 + 12 = 22
+    expected = 90
+    assert knapsack(cap, weights, values) == expected
+    
 # Test 2: capacity too small to take any item
 def test_knapsack_no_fit():
     weights = [4, 5, 6]

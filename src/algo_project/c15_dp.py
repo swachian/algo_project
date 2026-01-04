@@ -37,23 +37,24 @@ def matrix_pathways(m, n):
 
 
 def neighborhood_burglary(houses):
-    # base: dp[0] = houses[0], dp[1] = max(dp[0], houses[1])
-    # recurrence solution: dp[i] = max(dp[i - 1], dp[i - 2] + houses[i])
-
+    # base: dp[0] = houses[0], dp[1] = max(houses[0], houses[1])
+    # rs: dp[i] = max(dp[i - 2] + house[i], dp[i - 1`-```])
     if not houses:
         return 0
-    if len(houses) <= 1:
+    n = len(houses)
+    if n == 1:
         return houses[0]
-
-
-    prev_value = houses[0]
-    current_value = max(houses[0], houses[1])
-
-    for i in range(2, len(houses)):
-        next_value = max(prev_value + houses[i], current_value)
-        prev_value = current_value
-        current_value = next_value
-    return current_value
+    if n == 2:
+        return max(houses[0], houses[1])
+    
+    prev = max(houses[1], houses[0])
+    prev_prev = houses[0]
+    for i in range(2, n):
+        cur = max(prev_prev + houses[i], prev)
+        prev_prev = prev
+        prev = cur
+    return prev
+    
 
 def longest_common_subsequence(s1, s2):
     # base: dp[0][x] = 0, dp[x][0] = 0
@@ -99,31 +100,28 @@ def longest_palindrome_in_a_string(s):
     
 
 def maximum_subarray_sum(nums):
-    #base: dp[0] = nums[0]
-    #rs: dp[i] = max(dp[i - 1] + nums[i], nums[i])
-    if not nums:
-        return 0
+    # base: dp[0] = nums[0]
+    # rs: dp[i] = max(dp[i - 1] + nums[i], nums[i])
     dp = [0] * len(nums)
     dp[0] = nums[0]
     for i in range(1, len(nums)):
         dp[i] = max(dp[i - 1] + nums[i], nums[i])
     return max(dp)
-
         
 def knapsack(k, weights, values):
-    # base: dp[m + 1][n + 1], dp[0][*] = 0, dp[*][0] = 0
-    # recurrence solution: load or unload dp[i][c] = max(values[i - 1] + dp[i-1][c - weight], dp[i-1][c])
-    m = len(weights)
-    dp = [[0] * (k + 1) for _ in range(m + 1)]
-    
-    for i in range(1, m + 1):
-        for j in range(1, k + 1):
+    # base: dp[0][*] = 0, dp[*][0] = 0
+    # rs: dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - weight[i]] + values[i])
+    m = len(values) + 1
+    c = k + 1
+    dp = [[0] * c for _ in range(m)]
+    for i in range(1, m):
+        for j in range(1, c):
             if j - weights[i - 1] >= 0:
-                dp[i][j] = max(values[i - 1] + dp[i - 1][j - weights[i - 1]], dp[i - 1][j - 1])
+                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weights[i - 1]] + values[i - 1])
             else:
-                dp[i][j] = dp[i - 1][j - 1]
-    return dp[m][k]
-    
+                dp[i][j] = dp[i - 1][j] 
+    return dp[m - 1][c - 1]
+
     
 def largest_square_in_a_matrix(matrix):
     # base: dp[0][x] = 1 if matrix[0][x] == 1, dp[x][0] = 1 if matrix[x][0] == 1

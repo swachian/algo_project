@@ -1,13 +1,13 @@
 def pair_sum_unsorted(nums, target):
-    results = []
-    pairs = {}
-    for index, num in enumerate(nums):
-        sub = target - num
-        if sub in pairs:
-            results.append([index, pairs[sub]])
-        pairs[num] = index
-    
-    return results
+    result = []
+    maps = {}
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in maps:
+            result.append([maps[complement], i])
+        maps[num] = i
+    return result
+
 
 def verify_sudoku_board(board):
     n = len(board)
@@ -37,35 +37,29 @@ def verify_sudoku_board(board):
     
     
 def zero_striping(matrix):
-    first_row_has_zero = False
     first_col_has_zero = False
+    first_row_has_zero = False
     
-    if not matrix or not matrix[0]:
-        return 
-    m, n = len(matrix), len(matrix[0])
+    if not matrix:
+        return matrix
+    m, n = len(matrix), len(matrix[0]) 
     for i in range(m):
         if matrix[i][0] == 0:
             first_col_has_zero = True
+            break
     for j in range(n):
         if matrix[0][j] == 0:
             first_row_has_zero = True
-            
-    for i in range(m):
-        for j in range(n):
-            if matrix[i][j] == 0:
-                matrix[i][0] = 0
-                matrix[0][j] = 0
-    
+            break
     for i in range(1, m):
-        if matrix[i][0] == 0:
-            for j in range(1, n):
+        for j in range(1, n):
+            if matrix[i][j] == 0:
+                matrix[0][j] = 0
+                matrix[i][0] = 0
+    for i in range(1, m):
+        for j in range(1, n):
+            if matrix[0][j] == 0 or matrix[i][0] == 0:
                 matrix[i][j] = 0
-                
-    for j in range(1, n):
-        if matrix[0][j] == 0:
-            for i in range(1, m):
-                matrix[i][j] = 0    
-        
     if first_col_has_zero:
         for i in range(m):
             matrix[i][0] = 0
@@ -73,6 +67,7 @@ def zero_striping(matrix):
         for j in range(n):
             matrix[0][j] = 0
     return matrix
+
     
 from collections import defaultdict
 def longest_chain_of_consecutive_numbers(nums):
