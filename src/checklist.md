@@ -111,3 +111,13 @@
 
 In the first round, it took me about 193 tomatos to complete all the practice.  
 In the second round, it only took me about one-third of the time in the first round.   
+
+### Summary of doing the problems
+
+In the 101 algorithm problems, I’ve basically mastered 95% of them.
+In terms of hours, the first round took me 96 hours,
+the second round took 33 hours,
+the third round I only did the 25 questions from the second round that I still wasn’t comfortable with, so it only took 10 hours.
+The fourth round was another full pass, took 20 hours.But honestly this stuff is pretty rough on the nerves.
+
+
