@@ -65,23 +65,24 @@ def rightmost_nodes_of_a_binary_tree(root):
 
 def widest_binary_tree_level(root):
     queue = deque()
-    
     if not root:
         return 0
-    max_width = 0
-    queue.append((0, root))
+    left = right = 0
+    queue.append((root, 0))
+    width = 0
     while queue:
         level_size = len(queue)
-        left = queue[0][0]
-        for i in range(level_size):
-            index, node = queue.popleft()
+        left = queue[0][1]
+        for _ in range(level_size):
+            node, i = queue.popleft()
+            right = i
             if node.left:
-                queue.append((2 * index + 1, node.left))
-            if node.right:
-                queue.append((2 * index + 2, node.right))
-            max_width = max(max_width, index - left + 1)
-    return max_width
-            
+                queue.append((node.left, 2 * i))
+            if node.right: 
+                queue.append((node.right, 2 * i + 1))
+        width = max(width, right - left + 1)
+    return width
+
 
     
 def binary_search_tree_validation(root):
@@ -118,14 +119,25 @@ def dfs_lowest_common_ancestor(root, p, q):
     
 def build_binary_tree(preorder, inorder):
     global preorder_index
+    global inorder_map
+    
+    inorder_map = {}
+    
+    for i, num in enumerate(inorder):
+        inorder_map[num] = i
     preorder_index = 0
-    pass
+    return dfs_build_binary_tree(preorder, inorder, 0, len(preorder) - 1)
 
-def dfs_build_binary_tree(preoder, node, inorder, inorder_index =  {}):
-    if preorder_index == len(preoder):
-        return
+def dfs_build_binary_tree(preoder, inorder, left, right):
+    global preorder_index
+    global inorder_map
+    if left > right:
+        return None
     node = TreeNode(preoder[preorder_index])
     preorder_index += 1
+    pov = inorder_map[node.val]
+    node.left = dfs_build_binary_tree(preoder, inorder, left, pov - 1)
+    node.right = dfs_build_binary_tree(preoder, inorder, pov + 1, right)
     
     return node
  

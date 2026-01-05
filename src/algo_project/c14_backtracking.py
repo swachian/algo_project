@@ -89,31 +89,33 @@ def backtracking_find_all_subsets(nums, i, candidates = [], res = []):
 def n_queens(n):
     global res 
     res = 0
-    backtracking_n_queens(0, n)
+    backtracking_n_queens(n, 0)
     return res
 
-def backtracking_n_queens(r, n, cols = set(), angels = set(), dangels = set()):
-    global res
-    if r == n:
+def backtracking_n_queens(n, i, cols = set(), angol = set(), dangol = set()):
+    global res 
+    if i == n:
         res += 1
         return 
-        
-    for c in range(n):
-        if c in cols:
-            continue
-        if r + c in angels:
-            continue
-        if r - c in dangels:
-            continue
-        cols.add(c)
-        angels.add(r + c)
-        dangels.add(r - c)
 
-        backtracking_n_queens(r + 1, n, cols, angels, dangels)
+    for j in range(n):
+        if j in cols:
+            continue
+        if i + j in angol:
+            continue
+        if i - j in dangol:
+            continue
+        cols.add(j)
+        angol.add(i + j)
+        dangol.add(i - j)
+
+        backtracking_n_queens(n, i + 1, cols, angol, dangol)
         
-        cols.remove(c)
-        angels.remove(r + c)
-        dangels.remove(r -c )
+        cols.remove(j)
+        angol.remove(i + j)
+        dangol.remove(i - j)
+            
+
         
 def combinations_of_sum_k(nums, target):
     res = []

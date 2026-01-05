@@ -25,26 +25,25 @@ def merge_overlapping_intervals(intervals):
 
     
 def identify_all_interval_overlaps(intervals1, intervals2):
-    m = len(intervals1)
-    n = len(intervals2)
+    if len(intervals1) > len(intervals2):
+        intervals1, intervals2 = intervals2, intervals1
     
+    m, n = len(intervals1), len(intervals2)
     res = []
-    i, j = 0, 0
+    i = j = 0
     while i < m and j < n:
-        
-        L1 = intervals1[i]
-        L2 = intervals2[j]
-        if L1.start > L2.start:
-            L1, L2 = L2, L1
-        if L1.end >= L2.start:
-            res.append(Interval(max(L1.start, L2.start), min(L1.end, L2.end)))
-
-        if intervals1[i].end >= intervals2[j].end:
-            j += 1
-        else: 
+        A = intervals1[i]
+        B = intervals2[j]
+        if A.start > B.start:
+            A, B = B, A
+        if A.end >= B.start:
+            res.append(Interval(B.start, min(B.end, A.end)))
+        if intervals1[i].end < intervals2[j].end:
             i += 1
-            
+        else: 
+            j += 1
     return res
+
 
 def largest_overlap_of_intervals(intervals):
     START = "S"

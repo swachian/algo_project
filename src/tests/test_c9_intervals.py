@@ -30,6 +30,14 @@ def test_merge_no_overlap():
     assert [(i.start, i.end) for i in result] == [(e.start, e.end) for e in expected]
     
 def test_basic_overlaps_identify_all_interval_overlaps():
+    intervals1 = [Interval(1, 5), Interval(6, 10)]
+    intervals2 = [Interval(2, 3), Interval(4, 7), Interval(8, 9)]
+
+    result = identify_all_interval_overlaps(intervals1, intervals2)
+    expected = [Interval(2, 3), Interval(4, 5), Interval(6, 7), Interval(8, 9)]
+    assert [(i.start, i.end) for i in result] == [(e.start, e.end) for e in expected]
+    
+    
     """Test overlapping intervals between two lists."""
     intervals1 = [Interval(1, 5), Interval(10, 14), Interval(16, 18)]
     intervals2 = [Interval(3, 7), Interval(12, 15), Interval(17, 20)]

@@ -20,7 +20,7 @@
 | 18  | Linked List Loop          | Fast And Slow Pointers      |   ✅     |      |  1'    |
 | 19  | Linked List Midpoint            | Fast And Slow Pointers      |✅  利用dummy的话，最好使用while fast.next and fast.next.next     |      |  2'    |
 | 20  | Happy Number            | Fast And Slow Pointers      | ✅     |      |  8'     |
-| 21  | Substring Anagrams            | Sliding window                        | POK 能回想起来怎么做，但最好再练练    | 25'     |      |
+| 21  | Substring Anagrams            | Sliding window                        | POK 能回想起来怎么做，但最好再练练    | 25'     |  5'    |
 | 22  | Longest Substring with Unique Characters            | Sliding window                        |✅   |      |  5'    |
 | 23  | Longest Uniform Substring After Replacements        | Sliding window                        |NOK 12.10 全忘了。静态窗口和动态窗口最大的区别在于后者窗口的大小会动态变化.动态窗口的right一般在循环的最后+1 | 12'     |   6'   |
 | 24  | Find the Insertion Index            | Binary Search                        |POK while left < right 是让left和right merge成为一个值，而left <= right则是让 right越过left. left or right = mid + 1 or mid, 则是决定是否把mid作为答案之一的选择，right最大值的选择也要看是否包含n; 而mid = (left + right) // 2后面是否+1, 则决定把mid往left还是right推|  12'    |  3'    |
@@ -42,7 +42,7 @@
 | 40  | Median of an Integer Stream            |  Heaps                      |✅ 除了heap[0]表示栈顶，其他都记得很清楚     |      |   10'   |
 | 41  | Sort a K-sorted Array            |  Heaps                      | ✅    |      |  5'    |
 | 42  | Merge Overlapping Intervals            | Intervals                       | ✅    |      |  5'     |
-| 43  | Identify All Interval Overlaps            | Intervals                       | ✅ debug后能自己想出来    |      |      |
+| 43  | Identify All Interval Overlaps            | Intervals                       | ✅ debug后能自己想出来    |      |  30' 对前进哪个interval未掌握好    |
 | 44  | Largest Overlap of Intervals            | Intervals                       | ✅    |      |  6'    |
 | 45  | Sum Between Range            |  Prefix Sums                      | ✅    |      |   3'   |
 | 46  | K-Sum Subarrays            |  Prefix Sums                       | NOK 12.15 运用presum + hash    |  NOK pre_sum - another_pre_sum == k    |   2'   |
@@ -50,10 +50,10 @@
 | 48  | Invert Binary Tree            |  Trees                      | ✅      |      |  2' 递归算法  2' stack算法  |
 | 49  | Balanced Binary Tree Validation             | Trees                       | ✅      |      |  5'    |
 | 50  | Rightmost Nodes of Binary Tree            | Trees                       |  ✅    |      |   1'30''   |
-| 51  | Widest Binary Tree Level            | Trees                       | ✅     |      |      |
+| 51  | Widest Binary Tree Level            | Trees                       | ✅     |      |  5'    |
 | 52  |Binary Search Tree Validation             | Trees                       | ✅      |      |   5'   | 
 | 53  | Lowest Common Ancestor            | Trees                       |  ✅    |      | 5'     |
-| 54  |  Build Binary Tree From Preorder and Inorder Traversals           | Trees                       |✅      |      |  不会做了    |
+| 54  |  Build Binary Tree From Preorder and Inorder Traversals           | Trees                       |✅      |      |  不会做了 7'    |
 | 55  | Maximum Sum of a Continuous Path in a Binary Tree            | Trees                       | ✅     |      |  6'    |
 | 56  | Binary Tree Symmetry            | Trees                      | ✅    |      |  3'    |
 | 57  | Binary Tree Columns            | Trees                       | ✅    |      |  8'    |
@@ -74,27 +74,27 @@
 | 72  | Connect the Dots            |  Graphs                      | ✅     |      |   17'   |
 | 73  | Find All permutations            | Backtracking                        |✅      |      |   15'  |
 | 74  | Find All Subsets            | Backtracking                       | ✅     |      |   15' 不够熟   |
-| 75  | N Queens            | Backtracking                       | ✅ Permutation和Combination都需要去除（回溯）后，但P回溯后不需要直接在循环里二次调用，而Combination是在循环里回溯后继续调用，从这一点上而言，N皇后是一个排列而不是组合    |      |      |
+| 75  | N Queens            | Backtracking                       | ✅ Permutation和Combination都需要去除（回溯）后，但P回溯后不需要直接在循环里二次调用，而Combination是在循环里回溯后继续调用，从这一点上而言，N皇后是一个排列而不是组合    |      |  20' 18天了，有所生疏   |
 | 76  | Combinations of a Sum            | Backtracking                       | ✅     |      |   NOK 这个有点忘了，8'  |
 | 77  | Phone Keypad Combinations            | Backtracking                       | ✅     |      |   6'   |
 | 78  | Climbing Stairs            | Dynamic Programming                       | ✅     |      |  1'    |
 | 79  | Minumum Coin Combination            | Dynamic Programming                       | ✅     |      |   4'   |
 | 80  | Matrix Pathways            | Dynamic Programming                       | ✅ 特例只使用两个row的情况还需要练习     |      |  4'    |
 | 81  | Neighborhood Burglary            | Dynamic Programming                       | ✅    |      | 3'     |
-| 82  | Longest Common Subsequence            | Dynamic Programming                       |✅     |      |  20' 有点 忘了    |
+| 82  | Longest Common Subsequence            | Dynamic Programming                       |✅     |      |  20' 有点 忘了  5'  |
 | 83  | Longest Palindrome in a String            | Dynamic Programming                       | ✅ 在根据substring的长度循环时，需要注意n - sublen == 0时其实还是需要遍历的，因此range里面要+1    |      |  15'    |
 | 84  | Maximum Subarray Sum            | Dynamic Programming                       | POK 12.18 记得大概但忘了最后是取dp里面的最大值    |  3'    |   2'   |
 | 85  | 0/1 knapsack            | Dynamic Programming                       | ✅ 非常NB    |      |  15' 有点小错误了    |
 | 86  | Largest Square in a Matrix            | Dynamic Programming                       | ✅     |      |  7'    |
 | 87  | Jump the the End            | Greedy                       | NOK 12.18 每次只找满足条件的上一个目的地，不满足的会循环跳过。dp也能用于解决此问题  | 10' 很小的一道题目，花了不少时间，还是不太熟练; 再做3'      |  2'     |
-| 88  | Gas Stations            | Greedy                       | ✅     |      |      |
+| 88  | Gas Stations            | Greedy                       | ✅     |      |  3'    |
 | 89  | Candies            | Greedy                       |  ✅      |      |  4'    |
 | 90  | Sort linked List            | Sort And Search                       |  ✅ while fast.next and fast.next.next是用于让slow指向左中点，而fast and fast.next则会让slow指向右中点      |     |  10'    |
 | 91  | Sort Array            | Sort And Search                       | ✅  quick sort NB, merge sort不太熟悉了，quick sort只有一个split两个递归，merge除了一个split两个递归，最后还有一个merge    |      |  12    |
 | 92  | Kth Largest Integer            | Sort And Search                       |  ✅    |      |  3'    |
 | 93  | Dutch National Flag            | Sort And Search                       | ✅ 原著使用的交换方法也值得学习，可得交换算法精髓    |      |   10' 使用了新的swap方法   |
 | 94  | Hamming Weights of Integers            | Bit Manipulation                       |  ✅    |      |   1'   |
-| 95  | Lonely Integer            | Bit Manipulation                       | ✅     |      |      |
+| 95  | Lonely Integer            | Bit Manipulation                       | ✅     |      |    1'  |
 | 96  | Swap Odd and Even Bits            | Bit Manipulation                       | ✅    |       |   1'   |
 | 97  | Spiral Traversal            | Math and Geometry                       | POK 12.19 第三第四个循环的if条件还掌握的不熟    |  10'    |   9'   |
 | 98  | Reverse 32-Bit Integer            | Math and Geometry                       | POK math.fmod(n, 10) 未掌握，这个余数的符号与被除数一致，如果要运用%求负数的模，可以把 a % b 里面的b的符号进行修改    |  3'    |   3'   |

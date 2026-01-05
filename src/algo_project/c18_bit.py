@@ -1,17 +1,14 @@
 def hamming_weights_of_integers(n):
-    res = [0] * (n + 1)
-
+    dp = [0] * (n + 1)
     for i in range(1, n + 1):
-        res[i] = res[i >> 1] + (i & 1)
-    
-    return res
+        dp[i] = dp[i >> 1] + (i & 1)
+    return dp
 
 def lonely_integer(nums):
     res = 0
     for num in nums:
         res ^= num
     return res
-
 
 def swap_odd_and_even_bits(n):
     odd_mask = 0x55555555
