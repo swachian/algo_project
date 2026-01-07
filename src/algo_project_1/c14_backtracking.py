@@ -1,5 +1,6 @@
 def find_all_permutations(nums):
     # 回溯搭配递归或栈的遍历。这道题就是把可能的组合放到candidates中，合格的candidate是len与permutation一致的
+    # 每次调用前从nums中挑选一个给到candidate,然后递归调用时再次遍历所有未访问的元素，回溯时则把刚刚加入的元素都退出来，便于循环使用后一个组合
     # 需要注意的是数组加入结果集合时，因为candidate会被修改，所以需要重新复制一个
     res = []
     dfs_find_all_permutations(nums, [], set(), res)

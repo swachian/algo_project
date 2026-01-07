@@ -88,33 +88,31 @@ def prerequisites(n, prereqs):
         
 
     
-from collections import defaultdict, deque
+from collections import defaultdict
 import heapq
 
 def shortest_path(n, edges, start):
     graph = defaultdict(list)
-    for n1, n2, weight in edges:
-        graph[n1].append((weight, n1, n2))
-        # graph[n2].append((weight, n2, n1))
     
     res = [float("inf")] * n
-    heap = []
-    res[start] = 0
-    node = start
-    for weight, n1, n2 in graph[node]:
-         heapq.heappush(heap, (weight, n1, n2))
 
+    for n1, n2, w in edges:
+        graph[n1].append((w, n2))
+        graph[n2].append((w, n1))
+
+    res[start] = 0
+    heap = []
+    heapq.heappush(heap, (0, start))
+    
     while heap:
-        weight, n1, n2 = heapq.heappop(heap)
-        distance = res[n1]
-        if distance + weight < res[n2]:
-            res[n2] = distance + weight
-            for weight2, n3, n4 in graph[n2]:
-                heapq.heappush(heap, (weight2, n3, n4))
+        distance_all, node  = heapq.heappop(heap)
+        for w, n2 in graph[node]:
+            new_distance = distance_all + w
+            if new_distance < res[n2]:
+                heapq.heappush(heap, (new_distance, n2))
+                res[n2] = new_distance
     
-    return [ele if ele != float("inf") else - 1 for ele in res]
-        
-    
+    return [ele if ele != float("inf") else -1 for ele in res]
             
    
 import heapq 
