@@ -26,7 +26,7 @@
 | 24 | Find the Insertion Index                     | Binary Search               | Easy   | POK                      | 12'                            | 3'                               |         |
 | 25 | First and Last Occurrences of a Number       | Binary Search               | Medium | NOK 12.10                | 25'                            | 12' 还是有点不熟练               |         |
 | 26 | Cutting Wood                                 | Binary Search               | Medium | ✅                        |                                | 10'                              |         |
-| 27 | Find the Target in a Rotated Sorted Array    | Binary Search               | Medium | NOK 12.10                | POK 12.22; 10'                 | 14'                              |         |
+| 27 | Find the Target in a Rotated Sorted Array    | Binary Search               | Medium | NOK 12.10                | POK 12.22; 10'                 | 14'                              |    3'     |
 | 28 | Find the Median From Two Sorted Arrays       | Binary Search               | Hard   | NOK 12.10                | POK mid2的选择有问题; 8'       | 10'                              |         |
 | 29 | Matrix Search                                | Binary Search               | Medium | ✅                        |                                | 12'                              |         |
 | 30 | Local Maxima in Array                        | Binary Search               | Medium | NOK 12.11                | 5'                             | 2'                               |         |
@@ -53,7 +53,7 @@
 | 51 | Widest Binary Tree Level                     | Trees                       | Medium | ✅                        |                                | 5'                               |         |
 | 52 | Binary Search Tree Validation                | Trees                       | Medium | ✅                        |                                | 5'                               |         |
 | 53 | Lowest Common Ancestor                       | Trees                       | Medium | ✅                        |                                | 5'                               |         |
-| 54 | Build Binary Tree From Preorder and Inorder Traversals | Trees          | Hard   | ✅                        |                                | 不会做了 7'                      |         |
+| 54 | Build Binary Tree From Preorder and Inorder Traversals | Trees          | Hard   | ✅                        |                                | 不会做了 7'                      |   4'      |
 | 55 | Maximum Sum of a Continuous Path in a Binary Tree | Trees              | Hard   | ✅                        |                                | 6'                               |         |
 | 56 | Binary Tree Symmetry                         | Trees                       | Easy   | ✅                        |                                | 3'                               |         |
 | 57 | Binary Tree Columns                          | Trees                       | Medium | ✅                        |                                | 8'                               |         |
@@ -75,13 +75,13 @@
 | 73 | Find All permutations                        | Backtracking                | Medium | ✅                        |                                | 15'                              |         |
 | 74 | Find All Subsets                             | Backtracking                | Medium | ✅                        |                                | 15' 不够熟                       |         |
 | 75 | N Queens                                     | Backtracking                | Hard   | ✅                        |                                | 20' 18天了，有所生疏             |         |
-| 76 | Combinations of a Sum                        | Backtracking                | Medium | ✅                        |                                | NOK 这个有点忘了，8'             |         |
-| 77 | Phone Keypad Combinations                    | Backtracking                | Medium | ✅                        |                                | 6'                               |         |
+| 76 | Combinations of a Sum                        | Backtracking                | Medium | ✅                        |                                | NOK 这个有点忘了，8'             |     7'    |
+| 77 | Phone Keypad Combinations                    | Backtracking                | Medium | ✅                        |                                | 6'                               |  4'       |
 | 78 | Climbing Stairs                              | Dynamic Programming         | Easy   | ✅                        |                                | 1'                               |         |
 | 79 | Minimum Coin Combination                     | Dynamic Programming         | Medium | ✅                        |                                | 4'                               |         |
 | 80 | Matrix Pathways                              | Dynamic Programming         | Medium | ✅                        |                                | 4'                               |         |
 | 81 | Neighborhood Burglary                        | Dynamic Programming         | Medium | ✅                        |                                | 3'                               |         |
-| 82 | Longest Common Subsequence                   | Dynamic Programming         | Hard   | ✅                        |                                | 20' 有点忘了 5'                  |         |
+| 82 | Longest Common Subsequence                   | Dynamic Programming         | Hard   | ✅                        |                                | 20' 有点忘了 5'                  |    4'     |
 | 83 | Longest Palindrome in a String               | Dynamic Programming         | Hard   | ✅                        |                                | 15'                              |         |
 | 84 | Maximum Subarray Sum                         | Dynamic Programming         | Medium | POK 12.18                | 3'                             | 2'                               |         |
 | 85 | 0/1 knapsack                                 | Dynamic Programming         | Hard   | ✅                        |                                | 15' 有点小错误了                 |         |

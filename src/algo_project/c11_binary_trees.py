@@ -120,27 +120,22 @@ def dfs_lowest_common_ancestor(root, p, q):
 def build_binary_tree(preorder, inorder):
     global preorder_index
     global inorder_map
-    
-    inorder_map = {}
-    
-    for i, num in enumerate(inorder):
-        inorder_map[num] = i
     preorder_index = 0
+    inorder_map = {num: i for i, num in enumerate(inorder)}
     return dfs_build_binary_tree(preorder, inorder, 0, len(preorder) - 1)
 
-def dfs_build_binary_tree(preoder, inorder, left, right):
+def dfs_build_binary_tree(preorder, inorder, left, right):
     global preorder_index
     global inorder_map
     if left > right:
         return None
-    node = TreeNode(preoder[preorder_index])
+    val = preorder[preorder_index]
     preorder_index += 1
-    pov = inorder_map[node.val]
-    node.left = dfs_build_binary_tree(preoder, inorder, left, pov - 1)
-    node.right = dfs_build_binary_tree(preoder, inorder, pov + 1, right)
-    
+    pov = inorder_map[val]
+    node = TreeNode(val)
+    node.left = dfs_build_binary_tree(preorder, inorder, left, pov - 1)
+    node.right = dfs_build_binary_tree(preorder, inorder, pov + 1, right)
     return node
- 
 
 def max_path_sum(root):
     global max_path_sum 

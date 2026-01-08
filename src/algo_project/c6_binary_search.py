@@ -107,6 +107,9 @@ def compute_wood(heights, cut_point):
 
 
 def find_the_target_in_a_rotated_sorted_array(nums, target):
+    if not nums:
+        return -1
+    
     left, right = 0, len(nums) - 1
     while left < right:
         mid = left + (right - left) // 2
@@ -118,12 +121,11 @@ def find_the_target_in_a_rotated_sorted_array(nums, target):
             else:
                 right = mid - 1
         else:
-            if nums[left] <= target <= nums[mid]:
-                right = mid
+            if nums[left] <= target < nums[mid]:
+                right = mid - 1
             else:
                 left = mid + 1
-    return left if nums[left] == target else - 1
-
+    return left if nums[left] == target else -1
 
             
             

@@ -16,11 +16,11 @@ valuable1 = [2, 6, 15, 25, 27, 29, 34, 40, 43, 54, 59, 21, 71, 69, 72, 73, 74, 7
 valuable2 = [8, 10, 13, 14, 22, 10, 37, 46, 55, 58, 65, 87, 93, 97, 98] 
 
 
-done = [71]
+valuable1_done = [71, 76, 77, 27, 82, 54]
 
 while True:
     # res = random.randint(1, 101)
     res = random.choice(valuable1)
-    if res not in done:
+    if res not in valuable1_done:
         print(res)
         quit()

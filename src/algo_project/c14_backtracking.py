@@ -119,37 +119,38 @@ def backtracking_n_queens(n, i, cols = set(), angol = set(), dangol = set()):
         
 def combinations_of_sum_k(nums, target):
     res = []
-    backtracking_combinations_of_sum_k(nums, 0, [], target, res)
+    bt_combinations_of_sum_k(nums, 0, target, res)
     return res
 
-def backtracking_combinations_of_sum_k(nums, i, candidates, target, res):
+def bt_combinations_of_sum_k(nums, i, target, res = [], candidates = []):
     if target == 0:
         res.append(candidates[0:])
-        return 
-    if target < 0:
         return
+    
+    if target < 0:
+        return 
     
     for j in range(i, len(nums)):
         candidates.append(nums[j])
-        backtracking_combinations_of_sum_k(nums, j, candidates, target - nums[j], res)
+        bt_combinations_of_sum_k(nums, j, target - nums[j], res, candidates )
         candidates.pop()
-        # backtracking_combinations_of_sum_k(nums, j, candidates, target, res)
+
 
 
 
 def phone_keypad_combinations(digits):
     digital_alpha_map = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}
-    res = []
-    backtracking_phone_keypad_combinations(digits, 0, digital_alpha_map, [], res)
+    res = [] 
+    backtracking_phone(digits, 0, digital_alpha_map, [], res)
     return res
-    
-def backtracking_phone_keypad_combinations(digits, i, digital_alpha_map, candidates = [], res = []):
-    if len(candidates) == len(digits):
-        res.append(''.join(candidates[0:]))
-        return 
+
+
+def backtracking_phone(digits, i, digital_alpha_map, candidates = [], res = []):
+    if i == len(digits):
+        res.append(''.join(candidates))
+        return
     
     for c in digital_alpha_map[digits[i]]:
         candidates.append(c)
-        backtracking_phone_keypad_combinations(digits, i + 1, digital_alpha_map, candidates, res)
+        backtracking_phone(digits, i + 1, digital_alpha_map, candidates, res)
         candidates.pop()
-   
