@@ -69,19 +69,20 @@ def find_all_subsets(nums):
     if not nums:
         return [[]]
     res = []
-    backtracking_find_all_subsets(nums, 0, [], res)
+    bt_find_all_subsets(nums, 0, res)
     return res
 
-def backtracking_find_all_subsets(nums, i, candidates = [], res = []):
+def bt_find_all_subsets(nums, i, res = [], candidates = []):
     if i == len(nums):
         res.append(candidates[0:])
-        return 
+        return
+    
     candidates.append(nums[i])
-    backtracking_find_all_subsets(nums, i + 1, candidates, res)
+    bt_find_all_subsets(nums, i + 1, res, candidates)
 
     candidates.pop()
-    backtracking_find_all_subsets(nums, i + 1, candidates, res)
-    
+    bt_find_all_subsets(nums, i + 1, res, candidates)
+
 
 
 

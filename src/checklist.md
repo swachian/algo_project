@@ -14,7 +14,7 @@
 | 12 | Reverse Linked List                          | Linked List                 | Easy   | ✅                        |                                | 1'                               |         |
 | 13 | Remove Kth Node From End                     | Linked List                 | Medium | POK 可以做出             | 12'                            | 5'                               |         |
 | 14 | Linked List Intersection                     | Linked List                 | Medium | NOK 完全不记得           | POK,判断条件不熟练 12.22; 15'  | 1' 純粹是剛複習過                |         |
-| 15 | LRU Cache                                    | Linked List                 | Hard   | ✅ 耗时较长               |                                | 25'                              |         |
+| 15 | LRU Cache                                    | Linked List                 | Hard   | ✅ 耗时较长               |                                | 25'                              |   15'      |
 | 16 | Palindromic Linked List                      | Linked List                 | Medium | ✅                        |                                | 4'                               |         |
 | 17 | Flatten a Multi-Level Linked List            | Linked List                 | Medium | ✅                        |                                | 4'                               |         |
 | 18 | Linked List Loop                             | Fast And Slow Pointers      | Easy   | ✅                        |                                | 1'                               |         |
@@ -42,7 +42,7 @@
 | 40 | Median of an Integer Stream                  | Heaps                       | Hard   | ✅                        |                                | 10'                              |         |
 | 41 | Sort a K-sorted Array                        | Heaps                       | Medium | ✅                        |                                | 5'                               |         |
 | 42 | Merge Overlapping Intervals                  | Intervals                   | Medium | ✅                        |                                | 5'                               |         |
-| 43 | Identify All Interval Overlaps               | Intervals                   | Medium | ✅ debug后能自己想出来    |                                | 30' 对前进哪个interval未掌握好   |         |
+| 43 | Identify All Interval Overlaps               | Intervals                   | Medium | ✅ debug后能自己想出来    |                                | 30' 对前进哪个interval未掌握好   |    6'     |
 | 44 | Largest Overlap of Intervals                 | Intervals                   | Medium | ✅                        |                                | 6'                               |         |
 | 45 | Sum Between Range                            | Prefix Sums                 | Easy   | ✅                        |                                | 3'                               |         |
 | 46 | K-Sum Subarrays                              | Prefix Sums                 | Medium | NOK 12.15                | NOK                            | 2'                               |         |
@@ -67,13 +67,13 @@
 | 65 | Matrix Infection                             | Graphs                      | Medium | ✅                        |                                | 10'                              |         |
 | 66 | Bipartite Graph Validation                   | Graphs                      | Medium | ✅                        |                                | 5'                               |         |
 | 67 | Longest Increasing Path                      | Graphs                      | Hard   | ✅                        |                                | 7'                               |         |
-| 68 | Shortest Transformation Sequence             | Graphs                      | Hard   | POK 12.17                | 10'                            | 8'                               |         |
+| 68 | Shortest Transformation Sequence             | Graphs                      | Hard   | POK 12.17                | 10'                            | 8'                               |    5'     |
 | 69 | Merging Communities                          | Graphs                      | Medium | POK 12.17                | 6'                             | 4'                               |         |
 | 70 | Prerequisites                                | Graphs                      | Medium | ✅                        |                                | 6'                               |         |
 | 71 | Shortest Path                                | Graphs                      | Hard   | NOK 12.17                | 12'                            | 10'                              |  8'       |
-| 72 | Connect the Dots                             | Graphs                      | Medium | ✅                        |                                | 17'                              |         |
+| 72 | Connect the Dots                             | Graphs                      | Medium | ✅                        |                                | 17'                              |   8'      |
 | 73 | Find All permutations                        | Backtracking                | Medium | ✅                        |                                | 15'                              |         |
-| 74 | Find All Subsets                             | Backtracking                | Medium | ✅                        |                                | 15' 不够熟                       |         |
+| 74 | Find All Subsets                             | Backtracking                | Medium | ✅                        |                                | 15' 不够熟                       |     3'    |
 | 75 | N Queens                                     | Backtracking                | Hard   | ✅                        |                                | 20' 18天了，有所生疏             |         |
 | 76 | Combinations of a Sum                        | Backtracking                | Medium | ✅                        |                                | NOK 这个有点忘了，8'             |     7'    |
 | 77 | Phone Keypad Combinations                    | Backtracking                | Medium | ✅                        |                                | 6'                               |  4'       |

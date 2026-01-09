@@ -25,22 +25,20 @@ def merge_overlapping_intervals(intervals):
 
     
 def identify_all_interval_overlaps(intervals1, intervals2):
-    if len(intervals1) > len(intervals2):
-        intervals1, intervals2 = intervals2, intervals1
-    
     m, n = len(intervals1), len(intervals2)
-    res = []
     i = j = 0
+    res = []
     while i < m and j < n:
         A = intervals1[i]
         B = intervals2[j]
         if A.start > B.start:
             A, B = B, A
         if A.end >= B.start:
-            res.append(Interval(B.start, min(B.end, A.end)))
-        if intervals1[i].end < intervals2[j].end:
+            new_interval = Interval(max(A.start, B.start), min(A.end, B.end))
+            res.append(new_interval)
+        if intervals1[i].end <= intervals2[j].end:
             i += 1
-        else: 
+        else:
             j += 1
     return res
 

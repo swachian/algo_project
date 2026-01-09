@@ -1,14 +1,14 @@
 from collections import deque
 
 def shortest_transformation_sequence(start, end, words):
-    words_set = set(words)
-    if start not in words_set or end not in words_set:
+    if start not in words or end not in words:
         return 0
     
     abc = 'abcdefghijklmnopqrstuvwxyz'
+    words_set = set(words)
     queue = deque()
     queue.append(start)
-    count  = 0
+    count = 0
     while queue:
         level_size = len(queue)
         count += 1
@@ -18,12 +18,14 @@ def shortest_transformation_sequence(start, end, words):
                 return count
             for i in range(len(start)):
                 for c in abc:
-                    new_word = word[0:i] + c + word[i + 1:] 
+                    new_word = word[0:i] + c + word[i + 1:]
                     if new_word in words_set:
                         queue.append(new_word)
                         words_set.remove(new_word)
     return 0
-            
+        
+    
+
 
     
 
@@ -98,7 +100,7 @@ def shortest_path(n, edges, start):
 
     for n1, n2, w in edges:
         graph[n1].append((w, n2))
-        graph[n2].append((w, n1))
+        # graph[n2].append((w, n1))
 
     res[start] = 0
     heap = []
@@ -119,33 +121,33 @@ import heapq
 def connect_the_dots(points):
     if not points:
         return 0
-    edges = []
+    heap = []
     n = len(points)
+    uf = UnionFindDot(n)
+
     for i in range(n):
         for j in range(n):
-            edge_len = abs(points[i][0] - points[j][0]) + abs(points[i][1] - points[j][1])
-            heapq.heappush(edges, (edge_len, i, j))
-    uf = UFDot(n)
-    edge_len, n1, n2 = heapq.heappop(edges)   
-    node = n1
-    total_len = edge_len
-    uf.connect(n1, n2)     
-    while edges:
-        edge_len, n1, n2 = heapq.heappop(edges)
+            if i == j:
+                continue
+            weight = abs(points[i][1] - points[j][1]) + abs(points[i][0] - points[j][0])
+            heapq.heappush(heap, (weight, i, j))
+    count = 1
+    res = 0
+    while heap and count < n:
+        w, n1, n2 = heapq.heappop(heap)
         if uf.connect(n1, n2):
-            total_len += edge_len
-            if uf.get_size(node) == n:
-                break
-    return total_len
+            res += w
+            count += 1
+    return res
 
-class UFDot:
+class UnionFindDot:
     def __init__(self, n):
         self.parent = [i for i in range(n)]
         self.sizes = [1] * n
-        
+    
     def find(self, x):
         if self.parent[x] == x:
-            return x
+            return self.parent[x]
         self.parent[x] = self.find(self.parent[x])
         return self.parent[x]
 
@@ -153,12 +155,13 @@ class UFDot:
         rep_x, rep_y = self.find(x), self.find(y)
         if rep_x == rep_y:
             return False
-        if self.sizes[rep_x] >= self.sizes[rep_y]:
+        if self.sizes[rep_y] <= self.sizes[rep_x]:
             self.parent[rep_y] = rep_x
             self.sizes[rep_x] += self.sizes[rep_y]
         else:
             self.parent[rep_x] = rep_y
-            self.sizes[rep_y] += self.sizes[rep_x]
+            self.sizes[rep_y] = self.sizes[rep_x]
+            
         return True
         
     def get_size(self, x):

@@ -2,49 +2,63 @@ class Node:
     def __init__(self, key, val):
         self.key = key
         self.val = val
+        self.next = None
         self.prev = None
-        self.next = None 
+
 
 class LRUCache:
     def __init__(self, capacity):
         self.capacity = capacity
-        self.maps = {}
         self.head = Node(None, None)
         self.tail = Node(None, None)
-        self.head.next = self.tail 
+        self.head.next = self.tail
         self.tail.prev = self.head
+        self.maps = {}
     
     def get(self, key):
-        if key in self.maps:
-            node = self.maps[key]
-            node.prev.next = node.next 
-            node.next.prev = node.prev
-            
-            self.tail.prev.next = node 
-            node.prev = self.tail.prev
-            node.next = self.tail
-            self.tail.prev = node
-            return node.val
-        else:
+        if key not in self.maps:
             return -1
+        else:
+            node = self.maps[key]
+            self._remove_node(node)
+            self._append_to_tail(node)
+            return node.val
     
     def put(self, key, value):
-        res = self.get(key)
-        if res == -1 or res != value:
+        if key in self.maps:
+            node = self.maps[key]
+            node.val = value
+            self._remove_node(node)
+            self._append_to_tail(node)
+        else:
             node = Node(key, value)
-            if key in self.maps:
-                node = self.maps[key]
-                node.val = value  
+            self._append_to_tail(node)
             self.maps[key] = node
-            self.tail.prev.next = node 
-            node.prev = self.tail.prev
-            node.next = self.tail
-            self.tail.prev = node
             if len(self.maps) > self.capacity:
-                to_delete = self.head.next
-                self.head.next.next.prev = self.head
-                self.head.next = self.head.next.next 
-                del self.maps[to_delete.key]
+                removing_node = self._remove_from_head()
+                del self.maps[removing_node.key]
+        
+                
+    
+    def _append_to_tail(self, node):
+
+        self.tail.prev.next = node 
+        node.prev = self.tail.prev
+        node.next = self.tail
+        self.tail.prev = node 
+        
+    def _remove_from_head(self):
+        if self.head.next.next != None:
+            node = self.head.next
+            next_node = self.head.next.next 
+            self.head.next = next_node
+            next_node.prev = self.head 
+            return node
+    
+    def _remove_node(self, node):
+        node.prev.next = node.next 
+        node.next.prev = node.prev
+        
         
 
     
