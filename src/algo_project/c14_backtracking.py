@@ -2,22 +2,23 @@ def find_all_permutations(nums):
     if not nums:
         return [[]]
     res = []
-    backtracking_find_all_permutations(nums, set(), [], res)
+    bt_find_all_permutations(nums, res)
     return res
-    
-def backtracking_find_all_permutations(nums, visited = set(), candidates = [], res = []):
+
+def bt_find_all_permutations(nums, res = [], candidates = [], visited = set()):
     if len(candidates) == len(nums):
         res.append(candidates[0:])
-        return 
+        return
+    
     for num in nums:
         if num not in visited:
             candidates.append(num)
             visited.add(num)
-            backtracking_find_all_permutations(nums, visited, candidates, res)
+            bt_find_all_permutations(nums, res, candidates, visited)
 
             candidates.pop()
             visited.remove(num)
-
+            # bt_find_all_permutations(nums, res, candidates, visited)
 
 
 

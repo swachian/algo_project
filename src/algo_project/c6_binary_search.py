@@ -35,22 +35,24 @@ def find_the_insertion_index(nums, target):
 def first_and_last_occurrences_of_a_number(nums, target):
     if not nums:
         return [-1, -1]
-    left = first_and_last_occurrences_of_a_number_lower(nums, target)
-    right = first_and_last_occurrences_of_a_number_upper(nums, target)
+
+    left = find_left_lower(nums, target)
+    right = find_right_upper(nums, target)
     return [left, right]
 
-def first_and_last_occurrences_of_a_number_lower(nums, target):
+def find_left_lower(nums, target):
     left, right = 0, len(nums) - 1
     while left < right:
         mid = left + (right - left) // 2
-        if nums[mid] >= target:
-            right = mid
-        else:
+        if nums[mid] < target:
             left = mid + 1
-    
+        else:
+            right = mid
     return left if nums[left] == target else -1
 
-def first_and_last_occurrences_of_a_number_upper(nums, target):
+
+
+def find_right_upper(nums, target):
     left, right = 0, len(nums) - 1
     while left < right:
         mid = left + (right - left) // 2 + 1
@@ -58,9 +60,8 @@ def first_and_last_occurrences_of_a_number_upper(nums, target):
             right = mid - 1
         else:
             left = mid
-    
-    return left if nums[left] == target else -1    
-    
+    return left if nums[left] == target else -1
+
     
     
     

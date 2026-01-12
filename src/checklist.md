@@ -24,7 +24,7 @@
 | 22 | Longest Substring with Unique Characters     | Sliding window              | Medium | ✅                        |                                | 5'                               |         |
 | 23 | Longest Uniform Substring After Replacements | Sliding window              | Hard   | NOK 12.10 全忘了         | 12'                            | 6'                               |         |
 | 24 | Find the Insertion Index                     | Binary Search               | Easy   | POK                      | 12'                            | 3'                               |         |
-| 25 | First and Last Occurrences of a Number       | Binary Search               | Medium | NOK 12.10                | 25'                            | 12' 还是有点不熟练               |         |
+| 25 | First and Last Occurrences of a Number       | Binary Search               | Medium | NOK 12.10                | 25'                            | 12' 还是有点不熟练               |    6'     |
 | 26 | Cutting Wood                                 | Binary Search               | Medium | ✅                        |                                | 10'                              |         |
 | 27 | Find the Target in a Rotated Sorted Array    | Binary Search               | Medium | NOK 12.10                | POK 12.22; 10'                 | 14'                              |    3'     |
 | 28 | Find the Median From Two Sorted Arrays       | Binary Search               | Hard   | NOK 12.10                | POK mid2的选择有问题; 8'       | 10'                              |         |
@@ -33,7 +33,7 @@
 | 31 | Weighted Random Selection                    | Binary Search               | Hard   | NOK 12.11                | 20'                            | 10'                              |         |
 | 32 | Valid Parenthesis Expression                 | Stacks                      | Easy   | ✅                        |                                | 3'                               |         |
 | 33 | Next Largest Number to the Right             | Stacks                      | Medium | ✅                        |                                | 3'                               |         |
-| 34 | Evaluate Expression                          | Stacks                      | Medium | ✅                        |                                | 12'                              |         |
+| 34 | Evaluate Expression                          | Stacks                      | Medium | ✅                        |                                | 12'                              |     4'    |
 | 35 | Repeated Removal of Adjacent Duplicates      | Stacks                      | Easy   | ✅                        |                                | 5'                               |         |
 | 36 | Implement a Queue using Stacks               | Stacks                      | Medium | ✅                        |                                | 5'                               |         |
 | 37 | Maximums of Sliding Window                   | Stacks                      | Hard   | ✅                        |                                | 8'                               |         |
@@ -72,7 +72,7 @@
 | 70 | Prerequisites                                | Graphs                      | Medium | ✅                        |                                | 6'                               |         |
 | 71 | Shortest Path                                | Graphs                      | Hard   | NOK 12.17                | 12'                            | 10'                              |  8'       |
 | 72 | Connect the Dots                             | Graphs                      | Medium | ✅                        |                                | 17'                              |   8'      |
-| 73 | Find All permutations                        | Backtracking                | Medium | ✅                        |                                | 15'                              |         |
+| 73 | Find All permutations                        | Backtracking                | Medium | ✅                        |                                | 15'                              |      4'   |
 | 74 | Find All Subsets                             | Backtracking                | Medium | ✅                        |                                | 15' 不够熟                       |     3'    |
 | 75 | N Queens                                     | Backtracking                | Hard   | ✅                        |                                | 20' 18天了，有所生疏             |         |
 | 76 | Combinations of a Sum                        | Backtracking                | Medium | ✅                        |                                | NOK 这个有点忘了，8'             |     7'    |
@@ -82,7 +82,7 @@
 | 80 | Matrix Pathways                              | Dynamic Programming         | Medium | ✅                        |                                | 4'                               |         |
 | 81 | Neighborhood Burglary                        | Dynamic Programming         | Medium | ✅                        |                                | 3'                               |         |
 | 82 | Longest Common Subsequence                   | Dynamic Programming         | Hard   | ✅                        |                                | 20' 有点忘了 5'                  |    4'     |
-| 83 | Longest Palindrome in a String               | Dynamic Programming         | Hard   | ✅                        |                                | 15'                              |         |
+| 83 | Longest Palindrome in a String               | Dynamic Programming         | Hard   | ✅                        |                                | 15'                              |    11'     |
 | 84 | Maximum Subarray Sum                         | Dynamic Programming         | Medium | POK 12.18                | 3'                             | 2'                               |         |
 | 85 | 0/1 knapsack                                 | Dynamic Programming         | Hard   | ✅                        |                                | 15' 有点小错误了                 |         |
 | 86 | Largest Square in a Matrix                   | Dynamic Programming         | Medium | ✅                        |                                | 7'                               |         |
@@ -90,7 +90,7 @@
 | 88 | Gas Stations                                 | Greedy                      | Medium | ✅                        |                                | 3'                               |         |
 | 89 | Candies                                      | Greedy                      | Medium | ✅                        |                                | 4'                               |         |
 | 90 | Sort linked List                             | Sort And Search             | Medium | ✅                        |                                | 10'                              |         |
-| 91 | Sort Array                                   | Sort And Search             | Medium | ✅                        |                                | 12'                              |         |
+| 91 | Sort Array                                   | Sort And Search             | Medium | ✅                        |                                | 12'                              |    10     |
 | 92 | Kth Largest Integer                          | Sort And Search             | Easy   | ✅                        |                                | 3'                               |         |
 | 93 | Dutch National Flag                          | Sort And Search             | Medium | ✅                        |                                | 10'                              |         |
 | 94 | Hamming Weights of Integers                  | Bit Manipulation            | Easy   | ✅                        |                                | 1'                               |         |

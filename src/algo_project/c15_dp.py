@@ -70,28 +70,34 @@ def longest_common_subsequence(s1, s2):
     return dp[m][n]
 
 def longest_palindrome_in_a_string(s):
-    # base: dp[i][i] = 1 , dp[i][i + 1] = 2 if s[i] == s[i] + 1
-    # rs:dp[i - 1][j + 1] = dp[i][j] + 2 if s[i - 1] == s[j + 1] and dp[i][j] > 0
-    if not s:
-        return 0
+    # base: dp[i][i] = 1, dp[i][i + 1] = 2 if dp[i] = dp[i + 1]
+    # rs: sub_len = 3, if s[i] == [j= sub_len + i - 1] & dp[i + 1][j - 1] > 0, dp[i][j] += 2
     n = len(s)
-    dp = [[0] * n for _ in range(n) ]
-    res_i, res_j = 0, 0
+    dp = [[0] * n for _ in range(n)]
+    count = 0
+    m_i, m_j = 0, 0
     for i in range(n):
         dp[i][i] = 1
-    for i in range(0, n - 1):
+        count = 1
+        m_i = m_j = i
+    
+    for i in range(n - 1):
         if s[i] == s[i + 1]:
             dp[i][i + 1] = 2
-            res_i, res_j = i, i + 1
-            
+            count = 2
+            m_i = i
+            m_j = i + 1
+    
     for sub_len in range(3, n + 1):
-        for i in range(n + 1 - sub_len):
+        for i in range(0, n - sub_len + 1):
             j = sub_len + i - 1
             if s[i] == s[j] and dp[i + 1][j - 1] > 0:
                 dp[i][j] = dp[i + 1][j - 1] + 2
-                res_i, res_j = i, j
-    return s[res_i:res_j + 1]
+                count = dp[i][j]
+                m_i, m_j = i, j
     
+    return s[m_i:m_j + 1]
+
     
     
 

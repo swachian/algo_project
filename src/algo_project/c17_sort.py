@@ -48,62 +48,59 @@ def merge_linked_list(h1, h2):
 def sort_array(nums):
     if not nums:
         return nums
-    
-    return quick_sort(nums, 0, len(nums) - 1)
-    # return merge_sort(nums)
+    # quick_sort(nums, 0, len(nums) - 1)
+    res = merge_sort(nums)
+    return res
 
-def quick_sort(nums, left, right):
-    if left >= right:
-        return nums
-    pov = quick_sort_partition(nums, left, right)
-    quick_sort(nums, left, pov - 1)
-    quick_sort(nums, pov + 1, right)
-    return nums
+def quick_sort(nums, i, j):
+    if i > j:
+        return
+    pov = partition(nums, i, j)
+    quick_sort(nums, i, pov - 1)
+    quick_sort(nums, pov + 1, j)
     
-def quick_sort_partition(nums, left, right):
-    pov = left + (right - left) // 2
-    # pov_value = nums[pov]
-    nums[pov], nums[right] = nums[right], nums[pov]
+
+def partition(nums, i, j):
+    mid = i + (j - i) // 2
+    nums[mid], nums[j] = nums[j], nums[mid]
     lo = 0
-    for i in range(left, right):
-        if nums[i] < nums[right]:
-            nums[left + lo], nums[i] = nums[i], nums[left + lo]
+    scan = 0
+    while scan < j - i:
+        if nums[i + scan] <= nums[j]:
+            nums[i + lo], nums[i + scan] = nums[i + scan], nums[i + lo]
             lo += 1
-    nums[left + lo], nums[right] = nums[right], nums[left + lo]
-    return left + lo
-    
+        scan += 1
+    nums[i + lo], nums[j] = nums[j], nums[i + lo]
+    return i + lo
+
 def merge_sort(nums):
     if len(nums) <= 1:
         return nums
     left, right = 0, len(nums) - 1
-    if left < right:
-        mid = left + (right - left) // 2
-        sorted_nums1 = merge_sort(nums[left:mid + 1])
-        sorted_nums2 = merge_sort(nums[mid + 1:])
-        return merge_arr(sorted_nums1, sorted_nums2)
+    mid = left + (right - left) // 2
+    sorted1 = merge_sort(nums[left:mid + 1])
+    sorted2 = merge_sort(nums[mid + 1:])
+    return merge_sorted(sorted1, sorted2)
 
-def merge_arr(nums1, nums2):
+def merge_sorted(nums1, nums2):
     res = []
-    
-    l1, l2 = 0, 0
-    while l1 < len(nums1) and l2 < len(nums2):
-        if nums1[l1] <= nums2[l2]:
-            res.append(nums1[l1])
-            l1 += 1
+    i, j = 0, 0
+    while i < len(nums1) and j < len(nums2):
+        if nums1[i] <= nums2[j]:
+            res.append(nums1[i])
+            i += 1
         else:
-            res.append(nums2[l2])
-            l2 += 1
+            res.append(nums2[j])
+            j += 1
+    while i < len(nums1):
+        res.append(nums1[i])
+        i += 1
     
-    while l1 < len(nums1):
-        res.append(nums1[l1])
-        l1 += 1
-        
-    while l2 < len(nums2):
-        res.append(nums2[l2])
-        l2 += 1
-        
+    while j < len(nums2):
+        res.append(nums2[j])
+        j += 1
+    
     return res
-    
     
     
     

@@ -33,32 +33,34 @@ def next_largest_number_to_the_right(nums):
 
 def evaluate_expression(s):
     stack = []
-    cur_num = 0
-    sign = 1
     res = 0
+    current_number = 0
+    sign = 1
+    
     for c in s:
-        if c.isdigit():
-            cur_num = cur_num * 10 + int(c)
-        elif c == '-' or c == '+':
-            res += sign * cur_num
-            sign = 1 if c == '+' else -1
-            cur_num = 0
+        if c.isalnum():
+            current_number = current_number * 10 + int(c)
+        elif c == '-' or c == "+":
+            res = res + sign * current_number
+            current_number = 0
+            sign = -1 if c == '-' else 1
         elif c == '(':
-            res += cur_num * sign
+            res = res + sign * current_number
+            current_number = 0
             stack.append(res)
             stack.append(sign)
-            cur_num = 0
             sign = 1
             res = 0
         elif c == ')':
-            res += sign * cur_num
-            cur_num = 0
+            res = res + sign * current_number
             sign = stack.pop()
-            res = sign * res + stack.pop()
+            res = stack.pop() + sign * res
+            current_number = 0
         else:
             pass
-    res += cur_num * sign
-    return res
+        
+    return res + sign * current_number
+    
 
 def repeated_removal_of_adjacent_duplicates(s):
     stack = []
