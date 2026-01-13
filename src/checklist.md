@@ -1,7 +1,7 @@
 |#   | Problem Name                                 | Category                    | Level  | Round 2                  | Round 3                        | Round 4                          | Round 5 |
 |----|----------------------------------------------|-----------------------------|--------|--------------------------|--------------------------------|----------------------------------|---------|
 | 1  | Pair Sum - Sorted                            | Two Pointers                | Easy   | ✅                        |                                | 2'                               |         |
-| 2  | Triplet Sum                                  | Two Pointers                | Medium | POK 12.08                | 20'                            | 12'                              |         |
+| 2  | Triplet Sum                                  | Two Pointers                | Medium | POK 12.08                | 20'                            | 12'                              |     8'    |
 | 3  | Valid Palindrome                             | Two Pointers                | Easy   | ✅                        |                                | 5'                               |         |
 | 4  | Container With Most Water                    | Two Pointers                | Medium | ✅                        |                                | 4'                               |         |
 | 5  | Shift Zeroes                                 | Two Pointers                | Easy   | NOK 12.09                | 5'                             | 2'                               |         |
@@ -28,7 +28,7 @@
 | 26 | Cutting Wood                                 | Binary Search               | Medium | ✅                        |                                | 10'                              |         |
 | 27 | Find the Target in a Rotated Sorted Array    | Binary Search               | Medium | NOK 12.10                | POK 12.22; 10'                 | 14'                              |    3'     |
 | 28 | Find the Median From Two Sorted Arrays       | Binary Search               | Hard   | NOK 12.10                | POK mid2的选择有问题; 8'       | 10'                              |         |
-| 29 | Matrix Search                                | Binary Search               | Medium | ✅                        |                                | 12'                              |         |
+| 29 | Matrix Search                                | Binary Search               | Medium | ✅                        |                                | 12'                              |    6'     |
 | 30 | Local Maxima in Array                        | Binary Search               | Medium | NOK 12.11                | 5'                             | 2'                               |         |
 | 31 | Weighted Random Selection                    | Binary Search               | Hard   | NOK 12.11                | 20'                            | 10'                              |         |
 | 32 | Valid Parenthesis Expression                 | Stacks                      | Easy   | ✅                        |                                | 3'                               |         |
@@ -58,7 +58,7 @@
 | 56 | Binary Tree Symmetry                         | Trees                       | Easy   | ✅                        |                                | 3'                               |         |
 | 57 | Binary Tree Columns                          | Trees                       | Medium | ✅                        |                                | 8'                               |         |
 | 58 | Kth Smallest Number in a Binary Search Tree  | Trees                       | Medium | ✅                        |                                | 12'                              |         |
-| 59 | Serialize and Deserialize a Binary Tree      | Trees                       | Hard   | ✅                        |                                | 15'                              |         |
+| 59 | Serialize and Deserialize a Binary Tree      | Trees                       | Hard   | ✅                        |                                | 15'                              |   15'      |
 | 60 | Design a Trie                                | Tries                       | Medium | ✅                        |                                | 8'                               |         |
 | 61 | Insert and Search Words with Wildcards       | Tries                       | Hard   | ✅                        |                                | 21'                              |         |
 | 62 | Find All words on a Board                    | Tries                       | Hard   | ✅                        |                                | 20'                              |         |
@@ -74,7 +74,7 @@
 | 72 | Connect the Dots                             | Graphs                      | Medium | ✅                        |                                | 17'                              |   8'      |
 | 73 | Find All permutations                        | Backtracking                | Medium | ✅                        |                                | 15'                              |      4'   |
 | 74 | Find All Subsets                             | Backtracking                | Medium | ✅                        |                                | 15' 不够熟                       |     3'    |
-| 75 | N Queens                                     | Backtracking                | Hard   | ✅                        |                                | 20' 18天了，有所生疏             |         |
+| 75 | N Queens                                     | Backtracking                | Hard   | ✅                        |                                | 20' 18天了，有所生疏             |    5'     |
 | 76 | Combinations of a Sum                        | Backtracking                | Medium | ✅                        |                                | NOK 这个有点忘了，8'             |     7'    |
 | 77 | Phone Keypad Combinations                    | Backtracking                | Medium | ✅                        |                                | 6'                               |  4'       |
 | 78 | Climbing Stairs                              | Dynamic Programming         | Easy   | ✅                        |                                | 1'                               |         |
@@ -84,7 +84,7 @@
 | 82 | Longest Common Subsequence                   | Dynamic Programming         | Hard   | ✅                        |                                | 20' 有点忘了 5'                  |    4'     |
 | 83 | Longest Palindrome in a String               | Dynamic Programming         | Hard   | ✅                        |                                | 15'                              |    11'     |
 | 84 | Maximum Subarray Sum                         | Dynamic Programming         | Medium | POK 12.18                | 3'                             | 2'                               |         |
-| 85 | 0/1 knapsack                                 | Dynamic Programming         | Hard   | ✅                        |                                | 15' 有点小错误了                 |         |
+| 85 | 0/1 knapsack                                 | Dynamic Programming         | Hard   | ✅                        |                                | 15' 有点小错误了                 |     7'    |
 | 86 | Largest Square in a Matrix                   | Dynamic Programming         | Medium | ✅                        |                                | 7'                               |         |
 | 87 | Jump to the End                              | Greedy                      | Medium | NOK 12.18                | 10'                            | 2'                               |         |
 | 88 | Gas Stations                                 | Greedy                      | Medium | ✅                        |                                | 3'                               |         |

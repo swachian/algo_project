@@ -111,18 +111,17 @@ def maximum_subarray_sum(nums):
     return max(dp)
         
 def knapsack(k, weights, values):
-    # base: dp[0][*] = 0, dp[*][0] = 0
-    # rs: dp[i][c] = max(dp[i - 1][c], dp[i - 1][c - weight[i]] + values[i])
-    m = len(values) + 1
-    c = k + 1
-    dp = [[0] * c for _ in range(m)]
-    for i in range(1, m):
-        for j in range(1, c):
-            if j - weights[i - 1] >= 0:
-                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weights[i - 1]] + values[i - 1])
+    # base: dp[i][c], dp[0][:] = 0, dp[:][0] = 0
+    # rs: dp[i][c] can take item, max(dp[i - 1][c - w] + v[i]), or dp[i - 1][c] 
+    n = len(weights)
+    dp = [[0] * (k + 1) for _ in range(len(weights) + 1)]
+    for i in range(1, n + 1):
+        for c in range(1, k + 1):
+            if c - weights[i - 1] >= 0:
+                dp[i][c] = max(dp[i - 1][c - weights[i - 1]] + values[i - 1], dp[i - 1][c])
             else:
-                dp[i][j] = dp[i - 1][j] 
-    return dp[m - 1][c - 1]
+                dp[i][c] = dp[i - 1][c]
+    return dp[n][k]
 
     
 def largest_square_in_a_matrix(matrix):

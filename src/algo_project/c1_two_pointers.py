@@ -16,30 +16,28 @@ def pair_sum_sorted(nums, target):
 def triplet_sum(nums):
     nums.sort()
     res = []
-    for i in range(0, len(nums) - 2):
-        target = - nums[i]
-        if i >= 1 and nums[i - 1] == nums[i]:
+
+    for i, num in enumerate(nums):
+        if i > 0 and nums[i - 1] == num:
             continue
-        pair = pair_sum_for_triplet(nums, i + 1, len(nums) - 1, target)
-        if pair:
-            for b, c in pair:
-                res.append([nums[i], nums[b], nums[c]])
+        pairs = pairs_sum(nums, i + 1, 0 - num)
+        for b, c in pairs:
+            res.append([num, nums[b], nums[c]])
     return res
     
-def pair_sum_for_triplet(nums, i, j, target):
+def pairs_sum(nums, i, target):
     res = []
-    while i < j:
-        s = nums[i] + nums[j]
-        if s > target:
-            j -= 1
-        elif s < target:
-            i += 1
+    left, right = i, len(nums) - 1
+    while left < right:
+        if nums[left] + nums[right] == target:
+            res.append((left, right))
+            left += 1
+            while nums[left] == nums[left - 1] and left < right:
+                left += 1
+        elif nums[left] + nums[right] > target:
+            right -= 1
         else:
-            res.append([i, j])
-            i += 1
-            j -= 1
-            while i < j and nums[i] == nums[i - 1]:
-                i += 1
+            left += 1
     return res
 
 

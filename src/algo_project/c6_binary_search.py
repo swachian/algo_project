@@ -206,20 +206,19 @@ def find_the_median_from_two_sorted_arrays(nums1, nums2):
 def matrix_search(matrix, target):
     if not matrix or not matrix[0]:
         return False
-    m, n = len(matrix), len(matrix[0])
-
-    left, right = 0, m * n - 1
-    while left <= right:
+    
+    left, right = 0, len(matrix) * len(matrix[0]) - 1
+    while left < right:
         mid = left + (right - left) // 2
-        i, j = mid // n, mid % n
-        c = matrix[i][j]
+        i, j = mid // len(matrix[0]), mid % len(matrix[0])
         if matrix[i][j] == target:
             return True
-        elif matrix[i][j] < target:
-            left = mid + 1
-        else:
+        elif matrix[i][j] > target:
             right = mid - 1
-    return matrix[i][j] == target
+        else:
+            left = mid + 1
+    return False if matrix[left // len(matrix[0])][left % len(matrix[0])] != target else True
+
             
             
             

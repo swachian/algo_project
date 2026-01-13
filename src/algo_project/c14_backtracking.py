@@ -91,32 +91,31 @@ def bt_find_all_subsets(nums, i, res = [], candidates = []):
 def n_queens(n):
     global res 
     res = 0
-    backtracking_n_queens(n, 0)
+    bt_n_queens(n, 0)
     return res
 
-def backtracking_n_queens(n, i, cols = set(), angol = set(), dangol = set()):
+def bt_n_queens(n, r, cols = set(), angols = set(), dangols = set()):
     global res 
-    if i == n:
+    if r == n:
         res += 1
         return 
-
+    
     for j in range(n):
-        if j in cols:
+        col = j
+        angol = r + col 
+        dangol = r - col 
+        if col in cols or angol in angols or dangol in dangols:
             continue
-        if i + j in angol:
-            continue
-        if i - j in dangol:
-            continue
-        cols.add(j)
-        angol.add(i + j)
-        dangol.add(i - j)
+        cols.add(col)
+        angols.add(angol)
+        dangols.add(dangol)
+        bt_n_queens(n, r + 1, cols, angols, dangols)
 
-        backtracking_n_queens(n, i + 1, cols, angol, dangol)
-        
-        cols.remove(j)
-        angol.remove(i + j)
-        dangol.remove(i - j)
-            
+        cols.remove(col)
+        angols.remove(angol)
+        dangols.remove(dangol)
+    
+
 
         
 def combinations_of_sum_k(nums, target):

@@ -242,22 +242,23 @@ def kth_smallest_number_in_BST_stack_version(root, k):
 END = "None"
 
 def serialize(root):
-    res = []
     if not root:
         return END
+    res = []
     dfs_serialize(root, res)
     return ",".join(res)
 
-def dfs_serialize(root, res):
-    res.append(str(root.val))
-    if not root.left:
-        res.append(END)
+def dfs_serialize(node, res =[]):
+    res.append(str(node.val))
+    if node.left:
+        dfs_serialize(node.left, res)
     else:
-        dfs_serialize(root.left, res)
-    if not root.right:
         res.append(END)
+    if node.right:
+        dfs_serialize(node.right, res)
     else:
-        dfs_serialize(root.right, res)
+        res.append(END)
+
 
 
 
@@ -267,11 +268,12 @@ def deserialize(data):
     data_list = iter(data.split(","))
     return dfs_deserialize(data_list)
     
+
 def dfs_deserialize(data_list):
-    c = next(data_list, None)
-    node = None
-    if c and c != END:
-        node = TreeNode(int(c))
-        node.left = dfs_deserialize(data_list)
-        node.right = dfs_deserialize(data_list)
+    data = next(data_list, None)
+    if not data or data == END:
+        return None
+    node = TreeNode(int(data))
+    node.left = dfs_deserialize(data_list)
+    node.right = dfs_deserialize(data_list)
     return node
