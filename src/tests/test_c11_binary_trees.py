@@ -395,6 +395,42 @@ def test_kthSmallest_complex():
     assert kth_smallest_number_in_BST(root, 3) == 4  # The 3rd smallest is 4
     assert kth_smallest_number_in_BST(root, 5) == 6  # The 5th smallest is 6
     assert kth_smallest_number_in_BST(root, 7) == 8  # The 7th smallest is 8
+
+from collections import deque
+
+def build_tree(level_order):
+    if not level_order or level_order[0] is None:
+        return None
+
+    root = TreeNode(level_order[0])
+    queue = deque([root])
+    i = 1
+
+    while queue and i < len(level_order):
+        node = queue.popleft()
+
+        # left child
+        if i < len(level_order) and level_order[i] is not None:
+            node.left = TreeNode(level_order[i])
+            queue.append(node.left)
+        i += 1
+
+        # right child
+        if i < len(level_order) and level_order[i] is not None:
+            node.right = TreeNode(level_order[i])
+            queue.append(node.right)
+        i += 1
+
+    return root
+
+
+def test_kthSmallest_complex2():
+    data = [10, 5, 15, 3, 7, None, 20, 1, None, 6, 8, None, None, None, 25]
+    root = build_tree(data)
+
+    # The sorted order of the BST: [1, 3, 5, 6, 7, 8, 10, 15, 20, 25]
+    assert kth_smallest_number_in_BST(root, 7) == 8  #
+    
     
 # Test 1: Basic Tree Serialization and Deserialization
 def test_serialize_deserialize_basic():

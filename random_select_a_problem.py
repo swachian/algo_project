@@ -19,11 +19,22 @@ valuable2 = [8, 10, 13, 14, 22, 10, 37, 46, 55, 58, 65, 87, 93, 97, 98]
 valuable1_done = [71, 76, 77, 27, 82, 54, 
                   43, 74, 15, 72, 68, 
                   73, 25, 34, 83, 91, 
-                  85, 29, 75, 2, 59]
+                  85, 29, 75, 2, 59, 
+                  90, 40, 21, 6]
 
+valuable2_done = [98, 58, 97]
+
+reinvest = [58]
+
+count = 0
 while True:
     # res = random.randint(1, 101)
-    res = random.choice(valuable1)
-    if res not in valuable1_done:
+    count += 1
+    res = random.choice(valuable2)
+    if res not in valuable2_done:
         print(res)
+        quit()
+        
+    if count > 1000:
+        print("No problem is left")
         quit()

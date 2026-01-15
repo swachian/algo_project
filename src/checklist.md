@@ -5,7 +5,7 @@
 | 3  | Valid Palindrome                             | Two Pointers                | Easy   | ✅                        |                                | 5'                               |         |
 | 4  | Container With Most Water                    | Two Pointers                | Medium | ✅                        |                                | 4'                               |         |
 | 5  | Shift Zeroes                                 | Two Pointers                | Easy   | NOK 12.09                | 5'                             | 2'                               |         |
-| 6  | Next Lexicographical Sequence                | Two Pointers                | Medium | ✅ 稍欠火候               |                                | 20' 还是有点忘了                 |         |
+| 6  | Next Lexicographical Sequence                | Two Pointers                | Medium | ✅ 稍欠火候               |                                | 20' 还是有点忘了                 |    10'     |
 | 7  | Pair Sum - Unsorted                          | Hash Map & Set              | Easy   | ✅                        |                                | 1'                               |         |
 | 8  | Valid Sudoku                                 | Hash Map & Set              | Medium | ✅ debug后能独立解出      |                                | 9'                               |         |
 | 9  | Zero Striping                                | Hash Map & Set              | Medium | NOK 需要in placing的解法 | 12'                            | 7'                               |         |
@@ -20,7 +20,7 @@
 | 18 | Linked List Loop                             | Fast And Slow Pointers      | Easy   | ✅                        |                                | 1'                               |         |
 | 19 | Linked List Midpoint                         | Fast And Slow Pointers      | Easy   | ✅                        |                                | 2'                               |         |
 | 20 | Happy Number                                 | Fast And Slow Pointers      | Medium | ✅                        |                                | 8'                               |         |
-| 21 | Substring Anagrams                           | Sliding window              | Medium | POK 能回想起来           | 25'                            | 5'                               |         |
+| 21 | Substring Anagrams                           | Sliding window              | Medium | POK 能回想起来           | 25'                            | 5'                               |    5'     |
 | 22 | Longest Substring with Unique Characters     | Sliding window              | Medium | ✅                        |                                | 5'                               |         |
 | 23 | Longest Uniform Substring After Replacements | Sliding window              | Hard   | NOK 12.10 全忘了         | 12'                            | 6'                               |         |
 | 24 | Find the Insertion Index                     | Binary Search               | Easy   | POK                      | 12'                            | 3'                               |         |
@@ -39,7 +39,7 @@
 | 37 | Maximums of Sliding Window                   | Stacks                      | Hard   | ✅                        |                                | 8'                               |         |
 | 38 | K Most Frequent Strings                      | Heaps                       | Medium | ✅                        |                                | 6'                               |         |
 | 39 | Combine Sorted Linked Lists                  | Heaps                       | Medium | POK                      | 8'                             | 3'                               |         |
-| 40 | Median of an Integer Stream                  | Heaps                       | Hard   | ✅                        |                                | 10'                              |         |
+| 40 | Median of an Integer Stream                  | Heaps                       | Hard   | ✅                        |                                | 10'                              |    7'     |
 | 41 | Sort a K-sorted Array                        | Heaps                       | Medium | ✅                        |                                | 5'                               |         |
 | 42 | Merge Overlapping Intervals                  | Intervals                   | Medium | ✅                        |                                | 5'                               |         |
 | 43 | Identify All Interval Overlaps               | Intervals                   | Medium | ✅ debug后能自己想出来    |                                | 30' 对前进哪个interval未掌握好   |    6'     |
@@ -89,15 +89,15 @@
 | 87 | Jump to the End                              | Greedy                      | Medium | NOK 12.18                | 10'                            | 2'                               |         |
 | 88 | Gas Stations                                 | Greedy                      | Medium | ✅                        |                                | 3'                               |         |
 | 89 | Candies                                      | Greedy                      | Medium | ✅                        |                                | 4'                               |         |
-| 90 | Sort linked List                             | Sort And Search             | Medium | ✅                        |                                | 10'                              |         |
+| 90 | Sort linked List                             | Sort And Search             | Medium | ✅                        |                                | 10'                              |   6'      |
 | 91 | Sort Array                                   | Sort And Search             | Medium | ✅                        |                                | 12'                              |    10     |
 | 92 | Kth Largest Integer                          | Sort And Search             | Easy   | ✅                        |                                | 3'                               |         |
 | 93 | Dutch National Flag                          | Sort And Search             | Medium | ✅                        |                                | 10'                              |         |
 | 94 | Hamming Weights of Integers                  | Bit Manipulation            | Easy   | ✅                        |                                | 1'                               |         |
 | 95 | Lonely Integer                               | Bit Manipulation            | Easy   | ✅                        |                                | 1'                               |         |
 | 96 | Swap Odd and Even Bits                       | Bit Manipulation            | Medium | ✅                        |                                | 1'                               |         |
-| 97 | Spiral Traversal                             | Math and Geometry           | Medium | POK 12.19                | 10'                            | 9'                               |         |
-| 98 | Reverse 32-Bit Integer                       | Math and Geometry           | Medium | POK                      | 3'                             | 3'                               |         |
+| 97 | Spiral Traversal                             | Math and Geometry           | Medium | POK 12.19                | 10'                            | 9'                               |    8'     |
+| 98 | Reverse 32-Bit Integer                       | Math and Geometry           | Medium | POK                      | 3'                             | 3'                               |    2'     |
 | 99 | Maximum Collinear Points                     | Math and Geometry           | Hard   | POK                      | 10'                            | 8'                               |         |
 | 100| The Josephus Problem                         | Math and Geometry           | Medium | NOK                      | 3'                             | 1' + 1'                          |         |
 | 101| Triangle Numbers                             | Math and Geometry           | Easy   | ✅                        |                                | 6'                               |         |

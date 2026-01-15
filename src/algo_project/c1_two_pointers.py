@@ -97,30 +97,28 @@ def shift_zeros_to_the_end(nums):
 
 
 def next_lexicographical_sequence(s):
-    # 1. 从右往左，找到第一个下降的pair
-    # 2. 记录下小的值
-    # 3. 继续从右往左，找到第一个大于前面的小值的值，并进行swap
-    # 4. 对swap后的子串进行reverse并拼接回去
-    slist  = list(s)
-    right = len(s) - 1
+    # 1. 从右往左找第一个下降的字符，如果未找到，则直接反转整个数组返回
+    # 2. 记录下这个pov,再次从右边开始找，找到第一个大于该pov的值
+    # 3. 将pov和第二值对调
+    # 4. 将pov后的字符串反转后一并返回
     pov = -1
+    slist = list(s)
+    right = len(slist) - 1
     while right > 0:
-        if slist[right] > slist[right - 1]:
+        if slist[right - 1] < slist[right]:
             pov = right - 1
             break
-        else:
-            right -= 1
-    if pov < 0:
+        right -= 1
+    
+    if pov == -1:
         return s[::-1]
     
     right = len(s) - 1
     while right > pov:
         if slist[right] > slist[pov]:
+            slist[pov], slist[right] = slist[right], slist[pov]
             break
-        else:
-            right -= 1
-    slist[pov], slist[right] = slist[right], slist[pov]
+        right -= 1
     ss = slist[0:pov + 1] + slist[pov + 1:][::-1]
-    return "".join(ss)
-        
+    return ''.join(ss)
         

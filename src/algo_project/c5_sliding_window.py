@@ -1,20 +1,24 @@
 def substring_anagrams(s, t):
-    if not s or not t:
-        return 0
+    if not s and not t:
+        return True
     
-    s_features = [0] * 26
-    t_features = [0] * 26
-    for c in t:
-        t_features[ord(c) - ord('a')] += 1
-    left, right = 0, 0
+    s_array = [0] * 26
+    t_array = [0] * 26
     count = 0
+    
+    for c in t:
+        t_array[ord(c) - ord('a')] += 1
+    
+    left = right = 0
     while right < len(s):
-        s_features[ord(s[right]) - ord('a')] += 1
+        c = s[right]
+        s_array[ord(c) - ord('a')] += 1
         if right - left + 1 == len(t):
-            if s_features == t_features:
+            if s_array == t_array:
                 count += 1
-            s_features[ord(s[left]) - ord('a')] -= 1
+            c = s[left]
             left += 1
+            s_array[ord(c) - ord('a')] -= 1
         right += 1
     return count
 
