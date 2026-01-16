@@ -10,29 +10,24 @@ def pair_sum_unsorted(nums, target):
 
 
 def verify_sudoku_board(board):
-    n = len(board)
-    row_sets = [set() for _ in range(n)]
-    col_sets = [set() for _ in range(n)]
-    grid_sets = [[set() for i in range(n // 3)] for _ in range(n // 3)]
+    n = 9
+    rows = [set() for _ in range(n) ]
+    cols = [set() for _ in range(n) ]
+    grids = [[set() for _ in range(n // 3) ] for _ in range(n // 3)]
     
-    # print(row_sets)
-
     for i in range(n):
         for j in range(n):
-            c = board[i][j]
-            if c == 0:
+            v = board[i][j]
+            if v == 0:
                 continue
-            if c in row_sets[i]:
+            if v in rows[i] or v in cols[j] or v in grids[i // 3][j // 3]:
                 return False
-            if c in col_sets[j]:
-                return False
-            if c in grid_sets[i // 3][j // 3]:
-                return False
-            row_sets[i].add(c)
-            col_sets[j].add(c)
-            grid_sets[i // 3][j // 3].add(c)
+            rows[i].add(v)
+            cols[j].add(v)
+            grids[i // 3][j // 3].add(v)
+
     return True
-        
+
     
     
     
@@ -72,17 +67,16 @@ def zero_striping(matrix):
 from collections import defaultdict
 def longest_chain_of_consecutive_numbers(nums):
     nums_set = set(nums)
-
     max_count = 0
     for num in nums:
-        c = num - 1
-        if c not in nums_set:
+        if num - 1 not in nums_set:
             count = 1
             while num + 1 in nums_set:
-                num += 1
                 count += 1
+                num += 1
             max_count = max(max_count, count)
     return max_count
+
 
 from collections import defaultdict
 

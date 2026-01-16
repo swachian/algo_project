@@ -1,9 +1,10 @@
 def jump_to_the_end(nums):
-    last = len(nums) - 1
-    for i in range(last, -1, -1):
-        if nums[i] + i >= last:
-            last = i
-    return last == 0
+    right = len(nums) - 1
+    for i in range(len(nums) - 1, -1, -1):
+        if nums[i] + i >= right:
+            right = i
+    return right == 0
+
 
  
 

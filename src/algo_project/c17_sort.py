@@ -130,18 +130,18 @@ def kth_largest_integer(nums, k):
 
 
 def dutch_national_flag(nums):
+    n = len(nums)
     zero_p = 0
-    two_p = len(nums) - 1
     one_p = 0
+    two_p = n - 1
+    
     while one_p <= two_p:
         if nums[one_p] == 0:
             nums[zero_p], nums[one_p] = nums[one_p], nums[zero_p]
             zero_p += 1
-            one_p += 1
-        elif nums[one_p] == 2:
+        if nums[one_p] == 2:
             nums[two_p], nums[one_p] = nums[one_p], nums[two_p]
             two_p -= 1
-        else:
-            one_p += 1
-        
+            continue
+        one_p += 1
     return nums

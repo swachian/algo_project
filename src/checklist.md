@@ -7,9 +7,9 @@
 | 5  | Shift Zeroes                                 | Two Pointers                | Easy   | NOK 12.09                | 5'                             | 2'                               |         |
 | 6  | Next Lexicographical Sequence                | Two Pointers                | Medium | ✅ 稍欠火候               |                                | 20' 还是有点忘了                 |    10'     |
 | 7  | Pair Sum - Unsorted                          | Hash Map & Set              | Easy   | ✅                        |                                | 1'                               |         |
-| 8  | Valid Sudoku                                 | Hash Map & Set              | Medium | ✅ debug后能独立解出      |                                | 9'                               |         |
+| 8  | Valid Sudoku                                 | Hash Map & Set              | Medium | ✅ debug后能独立解出      |                                | 9'                               |    7'     |
 | 9  | Zero Striping                                | Hash Map & Set              | Medium | NOK 需要in placing的解法 | 12'                            | 7'                               |         |
-| 10 | Longest Consecutive Sequence                 | Hash Map & Set              | Medium | POK 只会加入sort的       | 10'                            | 4'                               |         |
+| 10 | Longest Consecutive Sequence                 | Hash Map & Set              | Medium | POK 只会加入sort的       | 10'                            | 4'                               |    3'     |
 | 11 | Geometric Progression Triplets               | Hash Map & Set              | Hard   | POK 大致能recall         | 15'                            | 5'                               |         |
 | 12 | Reverse Linked List                          | Linked List                 | Easy   | ✅                        |                                | 1'                               |         |
 | 13 | Remove Kth Node From End                     | Linked List                 | Medium | POK 可以做出             | 12'                            | 5'                               |         |
@@ -21,7 +21,7 @@
 | 19 | Linked List Midpoint                         | Fast And Slow Pointers      | Easy   | ✅                        |                                | 2'                               |         |
 | 20 | Happy Number                                 | Fast And Slow Pointers      | Medium | ✅                        |                                | 8'                               |         |
 | 21 | Substring Anagrams                           | Sliding window              | Medium | POK 能回想起来           | 25'                            | 5'                               |    5'     |
-| 22 | Longest Substring with Unique Characters     | Sliding window              | Medium | ✅                        |                                | 5'                               |         |
+| 22 | Longest Substring with Unique Characters     | Sliding window              | Medium | ✅                        |                                | 5'                               |   5'      |
 | 23 | Longest Uniform Substring After Replacements | Sliding window              | Hard   | NOK 12.10 全忘了         | 12'                            | 6'                               |         |
 | 24 | Find the Insertion Index                     | Binary Search               | Easy   | POK                      | 12'                            | 3'                               |         |
 | 25 | First and Last Occurrences of a Number       | Binary Search               | Medium | NOK 12.10                | 25'                            | 12' 还是有点不熟练               |    6'     |
@@ -45,7 +45,7 @@
 | 43 | Identify All Interval Overlaps               | Intervals                   | Medium | ✅ debug后能自己想出来    |                                | 30' 对前进哪个interval未掌握好   |    6'     |
 | 44 | Largest Overlap of Intervals                 | Intervals                   | Medium | ✅                        |                                | 6'                               |         |
 | 45 | Sum Between Range                            | Prefix Sums                 | Easy   | ✅                        |                                | 3'                               |         |
-| 46 | K-Sum Subarrays                              | Prefix Sums                 | Medium | NOK 12.15                | NOK                            | 2'                               |         |
+| 46 | K-Sum Subarrays                              | Prefix Sums                 | Medium | NOK 12.15                | NOK                            | 2'                               |    5'     |
 | 47 | Product Array Without Current Element        | Prefix Sums                 | Medium | ✅                        |                                | 5'                               |         |
 | 48 | Invert Binary Tree                           | Trees                       | Easy   | ✅                        |                                | 2' 递归 / 2' stack               |         |
 | 49 | Balanced Binary Tree Validation              | Trees                       | Easy   | ✅                        |                                | 5'                               |         |
@@ -54,7 +54,7 @@
 | 52 | Binary Search Tree Validation                | Trees                       | Medium | ✅                        |                                | 5'                               |         |
 | 53 | Lowest Common Ancestor                       | Trees                       | Medium | ✅                        |                                | 5'                               |         |
 | 54 | Build Binary Tree From Preorder and Inorder Traversals | Trees          | Hard   | ✅                        |                                | 不会做了 7'                      |   4'      |
-| 55 | Maximum Sum of a Continuous Path in a Binary Tree | Trees              | Hard   | ✅                        |                                | 6'                               |         |
+| 55 | Maximum Sum of a Continuous Path in a Binary Tree | Trees              | Hard   | ✅                        |                                | 6'                               |    3'     |
 | 56 | Binary Tree Symmetry                         | Trees                       | Easy   | ✅                        |                                | 3'                               |         |
 | 57 | Binary Tree Columns                          | Trees                       | Medium | ✅                        |                                | 8'                               |         |
 | 58 | Kth Smallest Number in a Binary Search Tree  | Trees                       | Medium | ✅                        |                                | 12'                              |         |
@@ -86,13 +86,13 @@
 | 84 | Maximum Subarray Sum                         | Dynamic Programming         | Medium | POK 12.18                | 3'                             | 2'                               |         |
 | 85 | 0/1 knapsack                                 | Dynamic Programming         | Hard   | ✅                        |                                | 15' 有点小错误了                 |     7'    |
 | 86 | Largest Square in a Matrix                   | Dynamic Programming         | Medium | ✅                        |                                | 7'                               |         |
-| 87 | Jump to the End                              | Greedy                      | Medium | NOK 12.18                | 10'                            | 2'                               |         |
+| 87 | Jump to the End                              | Greedy                      | Medium | NOK 12.18                | 10'                            | 2'                               |   2'      |
 | 88 | Gas Stations                                 | Greedy                      | Medium | ✅                        |                                | 3'                               |         |
 | 89 | Candies                                      | Greedy                      | Medium | ✅                        |                                | 4'                               |         |
 | 90 | Sort linked List                             | Sort And Search             | Medium | ✅                        |                                | 10'                              |   6'      |
 | 91 | Sort Array                                   | Sort And Search             | Medium | ✅                        |                                | 12'                              |    10     |
 | 92 | Kth Largest Integer                          | Sort And Search             | Easy   | ✅                        |                                | 3'                               |         |
-| 93 | Dutch National Flag                          | Sort And Search             | Medium | ✅                        |                                | 10'                              |         |
+| 93 | Dutch National Flag                          | Sort And Search             | Medium | ✅                        |                                | 10'                              |   7'      |
 | 94 | Hamming Weights of Integers                  | Bit Manipulation            | Easy   | ✅                        |                                | 1'                               |         |
 | 95 | Lonely Integer                               | Bit Manipulation            | Easy   | ✅                        |                                | 1'                               |         |
 | 96 | Swap Odd and Even Bits                       | Bit Manipulation            | Medium | ✅                        |                                | 1'                               |         |

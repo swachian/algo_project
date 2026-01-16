@@ -30,23 +30,21 @@ def substring_anagrams(s, t):
 from collections import defaultdict
 
 def longest_substring_with_unique_chars(s):
-    num_maps = {}
-
+    chars = set()
     left, right = 0, 0
-    max_len = 0
-    while right < len(s):
-        if s[right] in num_maps:
-            pass
-            # move left point
-            while s[left] != s[right]:
-                del num_maps[s[left]]
+    n = len(s)
+    count = 0
+    while right < n:
+        c = s[right]
+        if c in chars:
+            while c in chars:
+                chars.remove(s[left])
                 left += 1
-            del num_maps[s[left]]    
-            left += 1
-        num_maps[s[right]] = right
-        max_len = max(max_len, right - left + 1)
+        chars.add(c)
+        count = max(count, right - left + 1)
         right += 1
-    return max_len
+    return count
+
 
 from collections import defaultdict
 

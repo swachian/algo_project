@@ -138,21 +138,19 @@ def dfs_build_binary_tree(preorder, inorder, left, right):
     return node
 
 def max_path_sum(root):
-    global max_path_sum 
-    max_path_sum = root.val
+    global max_path
+    max_path = root.val
     dfs_max_path_sum(root)
-    return max_path_sum
-
-def dfs_max_path_sum(root):
-    global max_path_sum 
-
-    if not root:
-        return 0
+    return max_path
     
-    left_value = max(0, dfs_max_path_sum(root.left))
-    right_value = max(0, dfs_max_path_sum(root.right))
-    max_path_sum = max(max_path_sum, root.val + left_value + right_value)
-    return root.val + max(left_value, right_value)
+def dfs_max_path_sum(node):
+    global max_path
+    if not node:
+        return 0
+    left_path = max(0, dfs_max_path_sum(node.left))
+    right_path = max(0, dfs_max_path_sum(node.right))
+    max_path = max(max_path, left_path + right_path + node.val)
+    return node.val + max(left_path, right_path)
 
 
 

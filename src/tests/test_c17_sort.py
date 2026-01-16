@@ -73,7 +73,7 @@ def test_kth_largest_integer_with_duplicates():
 
 def test_dutch_national_flag_basic():
     # Basic unsorted array containing 0, 1, 2
-    nums = [2, 0, 1, 2, 1, 0]
+    nums = [2, 0, 1, 2, 0, 1]
     dutch_national_flag(nums)
     # After sorting, all 0s come first, then 1s, then 2s
     assert nums == [0, 0, 1, 1, 2, 2]
