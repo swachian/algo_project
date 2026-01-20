@@ -12,8 +12,8 @@
 | 10 | Longest Consecutive Sequence                 | Hash Map & Set              | Medium | POK 只会加入sort的       | 10'                            | 4'                               |    3'     |
 | 11 | Geometric Progression Triplets               | Hash Map & Set              | Hard   | POK 大致能recall         | 15'                            | 5'                               |         |
 | 12 | Reverse Linked List                          | Linked List                 | Easy   | ✅                        |                                | 1'                               |         |
-| 13 | Remove Kth Node From End                     | Linked List                 | Medium | POK 可以做出             | 12'                            | 5'                               |         |
-| 14 | Linked List Intersection                     | Linked List                 | Medium | NOK 完全不记得           | POK,判断条件不熟练 12.22; 15'  | 1' 純粹是剛複習過                |         |
+| 13 | Remove Kth Node From End                     | Linked List                 | Medium | POK 可以做出             | 12'                            | 5'                               |    6' 注意，只需要判断fast是不是最后一个节点，判断是不是最后一个节点的办法是检测fast.next是不是None    |
+| 14 | Linked List Intersection                     | Linked List                 | Medium | NOK 完全不记得           | POK,判断条件不熟练 12.22; 15'  | 1' 純粹是剛複習過                |   2'      |
 | 15 | LRU Cache                                    | Linked List                 | Hard   | ✅ 耗时较长               |                                | 25'                              |   15'      |
 | 16 | Palindromic Linked List                      | Linked List                 | Medium | ✅                        |                                | 4'                               |         |
 | 17 | Flatten a Multi-Level Linked List            | Linked List                 | Medium | ✅                        |                                | 4'                               |         |
@@ -36,7 +36,7 @@
 | 34 | Evaluate Expression                          | Stacks                      | Medium | ✅                        |                                | 12'                              |     4'    |
 | 35 | Repeated Removal of Adjacent Duplicates      | Stacks                      | Easy   | ✅                        |                                | 5'                               |         |
 | 36 | Implement a Queue using Stacks               | Stacks                      | Medium | ✅                        |                                | 5'                               |         |
-| 37 | Maximums of Sliding Window                   | Stacks                      | Hard   | ✅                        |                                | 8'                               |         |
+| 37 | Maximums of Sliding Window                   | Stacks                      | Hard   | ✅                        |                                | 8'                               |    8'     |
 | 38 | K Most Frequent Strings                      | Heaps                       | Medium | ✅                        |                                | 6'                               |         |
 | 39 | Combine Sorted Linked Lists                  | Heaps                       | Medium | POK                      | 8'                             | 3'                               |         |
 | 40 | Median of an Integer Stream                  | Heaps                       | Hard   | ✅                        |                                | 10'                              |    7'     |
@@ -64,7 +64,7 @@
 | 62 | Find All words on a Board                    | Tries                       | Hard   | ✅                        |                                | 20'                              |         |
 | 63 | Graph Deep Copy                              | Graphs                      | Medium | ✅                        |                                | 2'                               |         |
 | 64 | Count Islands                                | Graphs                      | Medium | ✅                        |                                | 5'                               |         |
-| 65 | Matrix Infection                             | Graphs                      | Medium | ✅                        |                                | 10'                              |         |
+| 65 | Matrix Infection                             | Graphs                      | Medium | ✅                        |                                | 10'                              |     6'    |
 | 66 | Bipartite Graph Validation                   | Graphs                      | Medium | ✅                        |                                | 5'                               |         |
 | 67 | Longest Increasing Path                      | Graphs                      | Hard   | ✅                        |                                | 7'                               |         |
 | 68 | Shortest Transformation Sequence             | Graphs                      | Hard   | POK 12.17                | 10'                            | 8'                               |    5'     |

@@ -80,6 +80,12 @@ def test_matrix_infection_impossible():
     # Bottom-left '1' is isolated → impossible
     assert matrix_infection(matrix) == -1
 
+def test_matrix_infection_2():
+    matrix = [[2,1,1],[1,1,1],[1,1,1]]
+    # Bottom-left '1' is isolated → impossible
+    assert matrix_infection(matrix) == 4
+
+
 def test_bipartite_graph_validation():
     graph3 = [
         [1, 4],

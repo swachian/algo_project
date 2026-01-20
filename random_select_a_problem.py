@@ -23,12 +23,15 @@ valuable1_done = [71, 76, 77, 27, 82, 54,
                   90, 40, 21, 6]
 
 valuable2_done = [98, 58, 97,
-                  93, 22, 46, 10, 87, 8, 55]
+                  93, 22, 46, 10, 87, 8, 55,
+                  65, 37, 14, 13]
 
 
 reinvest = [58]
 
 count = 0
+print(len(valuable1))
+print(len(valuable2))
 while True:
     # res = random.randint(1, 101)
     count += 1

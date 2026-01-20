@@ -46,29 +46,33 @@ from collections import deque
 def matrix_infection(matrix):
     if not matrix:
         return 0
-    uninfected = 0
-    queue = deque()
-    for i in range(len(matrix)):
-        for j in range(len(matrix[0])):
-            if matrix[i][j] == 2:
-                queue.append((i, j))
-            elif matrix[i][j] == 1:
-                uninfected += 1
-    seconds = 0
     
-    dirs = [[0, 1], [0, -1], [1, 0], [-1, 0]]
-    while queue and uninfected > 0:
-        seconds += 1
-        level_size = len(queue)
+    one_counts = 0
+    infected = deque()
+    second = 0
+    
+    m, n = len(matrix), len(matrix[0])
+    for i in range(m):
+        for j in range(n):
+            if matrix[i][j] == 2:
+                infected.append((i, j))
+            elif matrix[i][j] == 1:
+                one_counts += 1
+    
+    dirs = [[0, 1], [0, -1], [-1, 0], [1, 0]]
+    while infected and one_counts > 0:
+        second += 1
+        level_size = len(infected)
         for _ in range(level_size):
-            i, j = queue.popleft()
+            i, j = infected.popleft()
             for dir in dirs:
                 n_i, n_j = i + dir[0], j + dir[1]
-                if is_in_bound(n_i, n_j, len(matrix), len(matrix[0])) and matrix[n_i][n_j] == 1:
+                if is_in_bound2(n_i, n_j, m, n) and matrix[n_i][n_j] == 1:
                     matrix[n_i][n_j] = 2
-                    queue.append((n_i, n_j))
-                    uninfected -= 1
-    return seconds if uninfected == 0 else -1
+                    infected.append((n_i, n_j))
+                    one_counts -= 1
+    return second if one_counts == 0 else -1
+
 
 
 def bipartite_graph_validation(graph):

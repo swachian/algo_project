@@ -204,9 +204,13 @@ def binary_tree_columns(root):
 
 
 def kth_smallest_number_in_BST(root: TreeNode, k: int) -> int:
-    res = []
+    if not root:
+        return None
+    
     stack = []
     cur = root
+    res = []
+    
     while stack or cur:
         while cur:
             stack.append(cur)
@@ -214,8 +218,10 @@ def kth_smallest_number_in_BST(root: TreeNode, k: int) -> int:
         cur = stack.pop()
         res.append(cur.val)
         cur = cur.right
-
+    
     return res[k - 1]
+            
+
     
 END = "None"
 

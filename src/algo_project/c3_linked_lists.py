@@ -16,30 +16,27 @@ def linked_list_reversal(head):
 
 
 def remove_kth_last_node(head, k):
-    dummy = ListNode()
+    dummy = ListNode(None)
     dummy.next = head
     slow = fast = dummy
-    while fast and k > 0:
+    for _ in range(k):
         fast = fast.next
-        k -= 1
-    if k != 0:
-        return dummy.next
-    else:
-        while fast.next:
-            slow = slow.next 
-            fast = fast.next 
-        slow.next = slow.next.next 
+        if not fast:
+            return dummy.next
+    while fast.next:
+        fast = fast.next 
+        slow = slow.next 
+    slow.next = slow.next.next 
     return dummy.next
 
         
 def linked_list_intersection(head_A, head_B):
-    p_a, p_b = head_A, head_B
+    p_A, p_B = head_A, head_B
     
-    while p_a != p_b:
-        p_a = p_a.next if p_a else head_B
-        p_b = p_b.next if p_b else head_A
-        
-    return p_a
+    while p_A != p_B:
+        p_A = p_A.next if p_A else head_B
+        p_B = p_B.next if p_B else head_A
+    return p_A
 
 
 def palindromic_linked_list(head):
